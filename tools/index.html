@@ -1,0 +1,1356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nokmali coaching tools for reflection, clarity and intentional change.">
+  <title>Energy Rebalance — Nokmali Tools</title>
+  <link rel="canonical" href="https://nokmali.com/tools/">
+  <link rel="icon" href="../art/nokmalilogo.png">
+  <style>
+    @font-face {
+      font-family: "Fluxisch Else";
+      src: url("../fonts/FluxischElse-Light.otf") format("opentype");
+      font-weight: 300;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Fluxisch Else";
+      src: url("../fonts/FluxischElse-Regular.otf") format("opentype");
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Fluxisch Else";
+      src: url("../fonts/FluxischElse-Bold.otf") format("opentype");
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    :root {
+      --paper: #f4efe6;
+      --paper-deep: #eae3d5;
+      --paper-light: #faf7f0;
+      --ink: #3a3640;
+      --ink-soft: #6c6560;
+      --blue: #4f6e8b;
+      --blue-light: #dfe8ee;
+      --teal: #5f8a89;
+      --teal-light: #dce9e5;
+      --gold: #cdb377;
+      --rose: #bd796f;
+      --line: #dbd2c2;
+      --shadow: 0 18px 55px rgba(72, 61, 50, 0.09);
+      --display: "Fluxisch Else", "Trebuchet MS", sans-serif;
+      --body: "Hanken Grotesk", "Avenir Next", Avenir, system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--body);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.45;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitchTiles'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button,
+    select {
+      cursor: pointer;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    [role="tab"]:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--gold) 75%, transparent);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 56px));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(244, 239, 230, 0.88);
+      border-bottom: 1px solid rgba(219, 210, 194, 0.8);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      flex: 0 0 auto;
+      color: var(--ink);
+      text-decoration: none;
+      font-family: var(--display);
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      transition: color 160ms;
+    }
+
+    .brand::after {
+      content: "↗";
+      align-self: flex-start;
+      margin: 5px 0 0 1px;
+      color: var(--ink-soft);
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 400;
+      opacity: 0.55;
+      transform: translate(0, 0);
+      transition: color 160ms, opacity 160ms, transform 160ms;
+    }
+
+    .brand:hover {
+      color: var(--blue);
+    }
+
+    .brand:hover::after {
+      color: var(--blue);
+      opacity: 1;
+      transform: translate(2px, -2px);
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1;
+    }
+
+    .brand-subtitle {
+      margin-top: 4px;
+      color: var(--ink-soft);
+      font-family: var(--body);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+    }
+
+    .tool-tabs {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-left: auto;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .tool-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tool-tab {
+      border: 0;
+      border-radius: 999px;
+      padding: 9px 15px;
+      background: transparent;
+      color: var(--ink-soft);
+      white-space: nowrap;
+      transition: color 160ms, background 160ms;
+    }
+
+    .tool-tab:hover {
+      color: var(--blue);
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .tool-tab[aria-selected="true"] {
+      background: var(--ink);
+      color: var(--paper-light);
+    }
+
+    main {
+      padding: 66px 0 80px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.52fr);
+      align-items: end;
+      gap: 72px;
+      margin-bottom: 38px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 17px;
+      font-family: var(--display);
+      font-size: clamp(48px, 7vw, 86px);
+      font-weight: 300;
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+    }
+
+    h1 em {
+      color: var(--blue);
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .intro {
+      max-width: 710px;
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 18px;
+    }
+
+    .hero-note {
+      position: relative;
+      margin: 0 0 5px;
+      padding: 24px 25px 23px 28px;
+      border-left: 2px solid var(--gold);
+      color: var(--ink-soft);
+      font-family: var(--display);
+      font-size: 18px;
+      line-height: 1.48;
+    }
+
+    .hero-note strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ink);
+      font-size: 21px;
+    }
+
+    .app-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(330px, 0.82fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(250, 247, 240, 0.79);
+      box-shadow: var(--shadow);
+    }
+
+    .chart-card {
+      position: sticky;
+      top: 96px;
+      padding: 26px 26px 20px;
+    }
+
+    .card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 14px;
+    }
+
+    .card-head h2,
+    .editor h2 {
+      margin-bottom: 4px;
+      font-family: var(--display);
+      font-size: 26px;
+      line-height: 1.2;
+    }
+
+    .muted {
+      margin-bottom: 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .legend {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding-top: 4px;
+      color: var(--ink-soft);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .legend .desired i {
+      box-sizing: content-box;
+      border: 2px solid var(--teal);
+      background: var(--paper-light);
+    }
+
+    .chart-wrap {
+      width: 100%;
+      min-height: 470px;
+      overflow: hidden;
+    }
+
+    #energyChart {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 470px;
+      overflow: visible;
+      user-select: none;
+    }
+
+    .chart-hint {
+      margin: 8px 0 0;
+      color: var(--ink-soft);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 17px;
+      border-top: 1px solid var(--line);
+    }
+
+    .summary-item {
+      padding: 17px 14px 2px;
+      text-align: center;
+    }
+
+    .summary-item + .summary-item {
+      border-left: 1px solid var(--line);
+    }
+
+    .summary-number {
+      display: block;
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .summary-label {
+      display: block;
+      margin-top: 6px;
+      color: var(--ink-soft);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .editor {
+      padding: 26px;
+    }
+
+    .settings {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    label {
+      display: block;
+      color: var(--ink-soft);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.035em;
+    }
+
+    select,
+    input[type="number"],
+    input[type="text"] {
+      width: 100%;
+      height: 42px;
+      margin-top: 6px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.52);
+      color: var(--ink);
+      padding: 0 11px;
+      transition: border-color 160ms, background 160ms;
+    }
+
+    .fixed-scale {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 42px;
+      margin-top: 6px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--paper-deep);
+      color: var(--ink);
+      padding: 0 11px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    #energyChart [data-type] {
+      touch-action: none;
+    }
+
+    select:hover,
+    input:hover {
+      border-color: #bdb1a0;
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    .areas-head,
+    .area-row {
+      display: grid;
+      grid-template-columns: minmax(105px, 1fr) 70px 70px 52px;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .areas-head {
+      margin-bottom: 6px;
+      color: var(--ink-soft);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
+    }
+
+    .areas-head span:not(:first-child) {
+      text-align: center;
+    }
+
+    #areaRows {
+      display: grid;
+      gap: 9px;
+    }
+
+    .area-row input {
+      margin-top: 0;
+    }
+
+    .area-row .current-input {
+      border-color: color-mix(in srgb, var(--blue) 42%, var(--line));
+      background: color-mix(in srgb, var(--blue-light) 58%, white);
+      text-align: center;
+    }
+
+    .area-row .desired-input {
+      border-color: color-mix(in srgb, var(--teal) 42%, var(--line));
+      background: color-mix(in srgb, var(--teal-light) 58%, white);
+      text-align: center;
+    }
+
+    .delta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 29px;
+      border-radius: 99px;
+      color: var(--ink-soft);
+      background: var(--paper-deep);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .delta.more {
+      color: #386967;
+      background: var(--teal-light);
+    }
+
+    .delta.less {
+      color: #925e56;
+      background: #f0dfda;
+    }
+
+    .reflection {
+      margin-top: 22px;
+      padding: 18px 18px 16px;
+      border-radius: 16px;
+      background: var(--paper-deep);
+    }
+
+    .reflection h3 {
+      margin-bottom: 8px;
+      font-family: var(--display);
+      font-size: 18px;
+    }
+
+    .reflection p {
+      margin-bottom: 0;
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    .reflection strong {
+      color: var(--ink);
+    }
+
+    .editor-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .share-button {
+      border: 1px solid var(--blue);
+      border-radius: 999px;
+      background: var(--blue);
+      color: var(--paper-light);
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: background 160ms, border-color 160ms, transform 160ms;
+    }
+
+    .share-button:hover {
+      border-color: #42607b;
+      background: #42607b;
+      transform: translateY(-1px);
+    }
+
+    .quiet-button {
+      border: 0;
+      background: transparent;
+      color: var(--ink-soft);
+      font-size: 13px;
+      text-decoration: underline;
+      text-decoration-color: var(--line);
+      text-underline-offset: 4px;
+    }
+
+    .quiet-button:hover {
+      color: var(--blue);
+    }
+
+    .placeholder {
+      max-width: 720px;
+      margin: 7vh auto;
+      padding: 52px;
+      text-align: center;
+    }
+
+    .placeholder .symbol {
+      display: grid;
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--paper-deep);
+      color: var(--blue);
+      font-family: var(--display);
+      font-size: 31px;
+    }
+
+    .placeholder h1 {
+      margin: 0 auto 15px;
+      font-size: clamp(40px, 6vw, 68px);
+    }
+
+    .placeholder p {
+      max-width: 520px;
+      margin: 0 auto;
+      color: var(--ink-soft);
+      font-size: 17px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 960px) {
+      main {
+        padding-top: 48px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .hero-note {
+        max-width: 650px;
+      }
+
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .chart-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 30px, 1180px);
+      }
+
+      .nav-inner {
+        min-height: 66px;
+        gap: 18px;
+      }
+
+      .brand {
+        gap: 7px;
+        font-size: 18px;
+      }
+
+      .brand-subtitle {
+        margin-top: 3px;
+        font-size: 7px;
+      }
+
+      .brand img {
+        width: 35px;
+        height: 35px;
+      }
+
+      .tool-tabs {
+        margin-left: 0;
+      }
+
+      .tool-tab {
+        padding: 8px 11px;
+        font-size: 12px;
+      }
+
+      main {
+        padding-top: 38px;
+      }
+
+      h1 {
+        font-size: clamp(47px, 15vw, 68px);
+      }
+
+      .intro {
+        font-size: 16px;
+      }
+
+      .chart-card,
+      .editor {
+        padding: 20px 16px;
+        border-radius: 18px;
+      }
+
+      .card-head {
+        display: block;
+      }
+
+      .legend {
+        margin-top: 10px;
+      }
+
+      .chart-wrap,
+      #energyChart {
+        min-height: 400px;
+      }
+
+      .areas-head,
+      .area-row {
+        grid-template-columns: minmax(90px, 1fr) 61px 61px 42px;
+        gap: 5px;
+      }
+
+      .area-row input {
+        padding: 0 7px;
+        font-size: 13px;
+      }
+
+      .delta {
+        font-size: 10px;
+      }
+
+      .summary-number {
+        font-size: 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Nokmali coaching tools">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/" aria-label="Nokmali Coaching — back to the main website">
+        <img src="../art/nokmalilogo.png" alt="">
+        <span class="brand-copy">
+          <span>Nokmali</span>
+          <span class="brand-subtitle">Coaching</span>
+        </span>
+      </a>
+      <div class="tool-tabs" role="tablist" aria-label="Choose a coaching tool">
+        <button class="tool-tab" role="tab" aria-selected="true" aria-controls="energy-panel" id="energy-tab" data-tool="energy">Energy Rebalance</button>
+        <button class="tool-tab" role="tab" aria-selected="false" aria-controls="balance-panel" id="balance-tab" data-tool="balance">Decisional balance sheet</button>
+        <button class="tool-tab" role="tab" aria-selected="false" aria-controls="wellbeing-panel" id="wellbeing-tab" data-tool="wellbeing">Wellbeing assessment</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="energy-panel" role="tabpanel" aria-labelledby="energy-tab">
+      <div class="wrap">
+        <header class="hero">
+          <div>
+            <p class="eyebrow">A Wheel of Life reflection</p>
+            <h1>Energy <em>Rebalance</em></h1>
+            <p class="intro">Map where your energy goes now, then shape where you would like it to go. The gap is not a verdict—it is a clue about what may need more space, and what might gently give some back.</p>
+          </div>
+          <p class="hero-note"><strong>Energy can mean anything.</strong> Time, attention, care, effort, emotional capacity—or the mixture that feels true for you.</p>
+        </header>
+
+        <div class="app-shell">
+          <section class="card chart-card" aria-labelledby="chart-title">
+            <div class="card-head">
+              <div>
+                <h2 id="chart-title">Your energy landscape</h2>
+                <p class="muted">Current and desired energy by area of life</p>
+              </div>
+              <div class="legend" aria-label="Chart legend">
+                <span><i></i> Current</span>
+                <span class="desired"><i></i> Desired</span>
+              </div>
+            </div>
+            <div class="chart-wrap">
+              <svg id="energyChart" viewBox="0 0 760 510" role="img" aria-labelledby="chart-title chart-description">
+                <desc id="chart-description">A chart comparing current and desired energy for each chosen area of life.</desc>
+              </svg>
+            </div>
+            <p class="chart-hint">Tip: drag either point directly on the chart.</p>
+            <div class="summary" aria-live="polite">
+              <div class="summary-item">
+                <span class="summary-number" id="moreCount">0</span>
+                <span class="summary-label">Want more</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-number" id="lessCount">0</span>
+                <span class="summary-label">Want less</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-number" id="netShift">0</span>
+                <span class="summary-label">Net shift</span>
+              </div>
+            </div>
+          </section>
+
+          <aside class="card editor" aria-labelledby="shape-title">
+            <h2 id="shape-title">Shape your reflection</h2>
+            <p class="muted">Choose 4–8 areas and a scale that feels natural.</p>
+
+            <div class="settings">
+              <label>
+                Number of areas
+                <select id="areaCount">
+                  <option value="4">4 areas</option>
+                  <option value="5">5 areas</option>
+                  <option value="6" selected>6 areas</option>
+                  <option value="7">7 areas</option>
+                  <option value="8">8 areas</option>
+                </select>
+              </label>
+              <label>
+                Scale
+                <span class="fixed-scale">0–10</span>
+              </label>
+            </div>
+
+            <div class="areas-head" aria-hidden="true">
+              <span>Area of life</span>
+              <span>Current</span>
+              <span>Desired</span>
+              <span>Shift</span>
+            </div>
+            <div id="areaRows"></div>
+
+            <div class="reflection" id="reflectionText" aria-live="polite"></div>
+            <div class="editor-actions">
+              <button class="share-button" id="copyLinkButton" type="button">Copy client link</button>
+              <button class="quiet-button" id="resetButton" type="button">Reset example</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="balance-panel" role="tabpanel" aria-labelledby="balance-tab" hidden>
+      <div class="wrap">
+        <div class="card placeholder">
+          <div class="symbol" aria-hidden="true">±</div>
+          <p class="eyebrow">Coming next</p>
+          <h1>Decisional balance sheet</h1>
+          <p>A calm place to explore the gains, costs and tensions around a decision. This tool is in the navigation already and ready to be shaped next.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="wellbeing-panel" role="tabpanel" aria-labelledby="wellbeing-tab" hidden>
+      <div class="wrap">
+        <div class="card placeholder">
+          <div class="symbol" aria-hidden="true">○</div>
+          <p class="eyebrow">Coming next</p>
+          <h1>Wellbeing assessment</h1>
+          <p>A thoughtful check-in across the dimensions of wellbeing that matter to you. The exact questions and flow can grow here when you are ready.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const defaults = [
+      { name: "Health", current: 6, desired: 8 },
+      { name: "Work", current: 9, desired: 7 },
+      { name: "Relationships", current: 5, desired: 8 },
+      { name: "Rest", current: 3, desired: 7 },
+      { name: "Creativity", current: 2, desired: 5 },
+      { name: "Home", current: 7, desired: 5 },
+      { name: "Community", current: 4, desired: 6 },
+      { name: "Learning", current: 5, desired: 5 }
+    ];
+
+    const saved = loadUrlState() || loadLocalState();
+    const state = saved || {
+      count: 6,
+      max: 10,
+      areas: defaults.map(area => ({ ...area }))
+    };
+
+    const svg = document.getElementById("energyChart");
+    const rows = document.getElementById("areaRows");
+    const countInput = document.getElementById("areaCount");
+    const ns = "http://www.w3.org/2000/svg";
+    let activeDrag = null;
+
+    normalizeState();
+    countInput.value = state.count;
+    renderRows();
+    render();
+
+    document.querySelectorAll(".tool-tab").forEach(tab => {
+      tab.addEventListener("click", () => selectTool(tab.dataset.tool));
+    });
+
+    countInput.addEventListener("change", event => {
+      state.count = Number(event.target.value);
+      while (state.areas.length < state.count) {
+        const next = defaults[state.areas.length] || { name: `Area ${state.areas.length + 1}`, current: 5, desired: 5 };
+        state.areas.push({ ...next });
+      }
+      renderRows();
+      update();
+    });
+
+    document.getElementById("resetButton").addEventListener("click", () => {
+      state.count = 6;
+      state.max = 10;
+      state.areas = defaults.map(area => ({ ...area }));
+      countInput.value = state.count;
+      renderRows();
+      update();
+    });
+
+    document.getElementById("copyLinkButton").addEventListener("click", async event => {
+      saveUrlState();
+      const button = event.currentTarget;
+      const originalText = button.textContent;
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        button.textContent = "Link copied";
+      } catch (error) {
+        window.prompt("Copy this client link:", window.location.href);
+      }
+      window.setTimeout(() => {
+        button.textContent = originalText;
+      }, 1800);
+    });
+
+    function selectTool(tool) {
+      document.querySelectorAll(".tool-tab").forEach(tab => {
+        const selected = tab.dataset.tool === tool;
+        tab.setAttribute("aria-selected", selected);
+        tab.tabIndex = selected ? 0 : -1;
+      });
+      document.querySelectorAll("[role='tabpanel']").forEach(panel => {
+        panel.hidden = panel.id !== `${tool}-panel`;
+      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderRows() {
+      rows.innerHTML = "";
+      state.areas.slice(0, state.count).forEach((area, index) => {
+        const row = document.createElement("div");
+        row.className = "area-row";
+        row.innerHTML = `
+          <input type="text" value="${escapeHtml(area.name)}" aria-label="Area ${index + 1} name" maxlength="28">
+          <input class="current-input" type="number" min="0" max="${state.max}" step="1" value="${area.current}" aria-label="${escapeHtml(area.name)} current energy">
+          <input class="desired-input" type="number" min="0" max="${state.max}" step="1" value="${area.desired}" aria-label="${escapeHtml(area.name)} desired energy">
+          <span class="delta" aria-label="Energy shift"></span>
+        `;
+        const [name, current, desired] = row.querySelectorAll("input");
+        name.addEventListener("input", event => {
+          area.name = event.target.value || `Area ${index + 1}`;
+          current.setAttribute("aria-label", `${area.name} current energy`);
+          desired.setAttribute("aria-label", `${area.name} desired energy`);
+          update();
+        });
+        current.addEventListener("input", event => {
+          area.current = safeValue(event.target.value, area.current);
+          event.target.value = area.current;
+          update();
+        });
+        desired.addEventListener("input", event => {
+          area.desired = safeValue(event.target.value, area.desired);
+          event.target.value = area.desired;
+          update();
+        });
+        rows.appendChild(row);
+      });
+      updateDeltas();
+    }
+
+    function update() {
+      updateDeltas();
+      render();
+      saveLocalState();
+      saveUrlState();
+    }
+
+    function updateDeltas() {
+      [...rows.querySelectorAll(".area-row")].forEach((row, index) => {
+        const deltaEl = row.querySelector(".delta");
+        const area = state.areas[index];
+        const difference = area.desired - area.current;
+        deltaEl.className = `delta${difference > 0 ? " more" : difference < 0 ? " less" : ""}`;
+        deltaEl.textContent = difference > 0 ? `+${formatNumber(difference)}` : formatNumber(difference);
+      });
+    }
+
+    function render() {
+      svg.innerHTML = '<desc id="chart-description">A chart comparing current and desired energy for each chosen area of life.</desc>';
+      const areas = state.areas.slice(0, state.count);
+      const W = 760;
+      const H = 510;
+      const margin = { top: 28, right: 25, bottom: 103, left: 58 };
+      const plotW = W - margin.left - margin.right;
+      const plotH = H - margin.top - margin.bottom;
+      const x = index => margin.left + (areas.length === 1 ? plotW / 2 : index * plotW / (areas.length - 1));
+      const y = value => margin.top + plotH - (value / state.max) * plotH;
+      const ticks = buildTicks(state.max);
+
+      const defs = makeSvg("defs");
+      const currentGradient = makeSvg("linearGradient", { id: "currentFill", x1: "0", y1: "0", x2: "0", y2: "1" });
+      currentGradient.append(
+        makeSvg("stop", { offset: "0%", "stop-color": "#4f6e8b", "stop-opacity": ".20" }),
+        makeSvg("stop", { offset: "100%", "stop-color": "#4f6e8b", "stop-opacity": ".015" })
+      );
+      defs.appendChild(currentGradient);
+      svg.appendChild(defs);
+
+      ticks.forEach(tick => {
+        const yy = y(tick);
+        svg.appendChild(makeSvg("line", {
+          x1: margin.left,
+          x2: W - margin.right,
+          y1: yy,
+          y2: yy,
+          stroke: tick === 0 ? "#b9ac99" : "#dbd2c2",
+          "stroke-width": tick === 0 ? 1.4 : 1,
+          "stroke-dasharray": tick === 0 ? "0" : "3 7"
+        }));
+        const label = makeSvg("text", {
+          x: margin.left - 13,
+          y: yy + 4,
+          "text-anchor": "end",
+          fill: "#7b736d",
+          "font-size": 12
+        });
+        label.textContent = formatNumber(tick);
+        svg.appendChild(label);
+      });
+
+      areas.forEach((area, index) => {
+        const xx = x(index);
+        svg.appendChild(makeSvg("line", {
+          x1: xx,
+          x2: xx,
+          y1: y(area.current),
+          y2: y(area.desired),
+          stroke: area.desired >= area.current ? "#5f8a89" : "#bd796f",
+          "stroke-width": Math.max(5, Math.min(11, 740 / areas.length / 9)),
+          "stroke-linecap": "round",
+          opacity: .25
+        }));
+      });
+
+      const currentPoints = areas.map((area, index) => [x(index), y(area.current)]);
+      const desiredPoints = areas.map((area, index) => [x(index), y(area.desired)]);
+      const currentArea = `${path(currentPoints)} L ${x(areas.length - 1)} ${y(0)} L ${x(0)} ${y(0)} Z`;
+      svg.appendChild(makeSvg("path", { d: currentArea, fill: "url(#currentFill)" }));
+      svg.appendChild(makeSvg("path", {
+        d: path(currentPoints),
+        fill: "none",
+        stroke: "#4f6e8b",
+        "stroke-width": 3,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round"
+      }));
+      svg.appendChild(makeSvg("path", {
+        d: path(desiredPoints),
+        fill: "none",
+        stroke: "#5f8a89",
+        "stroke-width": 2.5,
+        "stroke-dasharray": "7 7",
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round"
+      }));
+
+      areas.forEach((area, index) => {
+        drawPoint(index, "current", x(index), y(area.current), "#4f6e8b", true);
+        drawPoint(index, "desired", x(index), y(area.desired), "#5f8a89", false);
+
+        const label = makeSvg("text", {
+          x: x(index),
+          y: H - 67,
+          "text-anchor": "middle",
+          fill: "#4d4850",
+          "font-size": areas.length > 6 ? 11 : 12.5,
+          "font-weight": 600
+        });
+        const lines = splitLabel(area.name || `Area ${index + 1}`, areas.length > 6 ? 10 : 13);
+        lines.forEach((line, lineIndex) => {
+          const tspan = makeSvg("tspan", {
+            x: x(index),
+            dy: lineIndex === 0 ? 0 : 15
+          });
+          tspan.textContent = line;
+          label.appendChild(tspan);
+        });
+        svg.appendChild(label);
+
+        const difference = area.desired - area.current;
+        const deltaLabel = makeSvg("text", {
+          x: x(index),
+          y: H - 25,
+          "text-anchor": "middle",
+          fill: difference > 0 ? "#477977" : difference < 0 ? "#a1665e" : "#7b736d",
+          "font-size": 11,
+          "font-weight": 700
+        });
+        deltaLabel.textContent = difference > 0 ? `+${formatNumber(difference)}` : formatNumber(difference);
+        svg.appendChild(deltaLabel);
+      });
+
+      updateSummary(areas);
+    }
+
+    function drawPoint(index, type, cx, cy, color, filled) {
+      const hit = makeSvg("circle", {
+        cx,
+        cy,
+        r: 14,
+        fill: "transparent",
+        cursor: "ns-resize",
+        "data-index": index,
+        "data-type": type,
+        tabindex: 0,
+        role: "slider",
+        "aria-valuemin": 0,
+        "aria-valuemax": state.max,
+        "aria-valuenow": state.areas[index][type],
+        "aria-label": `${state.areas[index].name} ${type} energy`
+      });
+      hit.addEventListener("pointerdown", startDrag);
+      hit.addEventListener("keydown", pointKeydown);
+
+      const point = makeSvg("circle", {
+        cx,
+        cy,
+        r: filled ? 6.5 : 7,
+        fill: filled ? color : "#faf7f0",
+        stroke: color,
+        "stroke-width": filled ? 2 : 3,
+        "pointer-events": "none"
+      });
+      svg.append(point, hit);
+    }
+
+    function startDrag(event) {
+      event.preventDefault();
+      activeDrag = {
+        index: Number(event.currentTarget.dataset.index),
+        type: event.currentTarget.dataset.type
+      };
+      window.addEventListener("pointermove", moveDrag);
+      window.addEventListener("pointerup", endDrag, { once: true });
+      window.addEventListener("pointercancel", endDrag, { once: true });
+      document.body.style.cursor = "ns-resize";
+      document.body.style.userSelect = "none";
+    }
+
+    function moveDrag(event) {
+      if (!activeDrag) return;
+      const point = svg.createSVGPoint();
+      point.x = event.clientX;
+      point.y = event.clientY;
+      const local = point.matrixTransform(svg.getScreenCTM().inverse());
+      const top = 28;
+      const bottom = 407;
+      const ratio = clamp((bottom - local.y) / (bottom - top), 0, 1);
+      state.areas[activeDrag.index][activeDrag.type] = Math.round(ratio * state.max);
+      syncRow(activeDrag.index);
+      update();
+    }
+
+    function endDrag() {
+      window.removeEventListener("pointermove", moveDrag);
+      activeDrag = null;
+      document.body.style.cursor = "";
+      document.body.style.userSelect = "";
+    }
+
+    function pointKeydown(event) {
+      if (!["ArrowUp", "ArrowDown"].includes(event.key)) return;
+      event.preventDefault();
+      const index = Number(event.currentTarget.dataset.index);
+      const type = event.currentTarget.dataset.type;
+      const direction = event.key === "ArrowUp" ? 1 : -1;
+      state.areas[index][type] = clamp(state.areas[index][type] + direction, 0, state.max);
+      syncRow(index);
+      update();
+      requestAnimationFrame(() => {
+        svg.querySelector(`[data-index="${index}"][data-type="${type}"]`)?.focus();
+      });
+    }
+
+    function syncRow(index) {
+      const row = rows.children[index];
+      if (!row) return;
+      row.querySelector(".current-input").value = state.areas[index].current;
+      row.querySelector(".desired-input").value = state.areas[index].desired;
+    }
+
+    function updateSummary(areas) {
+      const differences = areas.map(area => area.desired - area.current);
+      const more = differences.filter(value => value > 0).length;
+      const less = differences.filter(value => value < 0).length;
+      const net = differences.reduce((sum, value) => sum + value, 0);
+      document.getElementById("moreCount").textContent = more;
+      document.getElementById("lessCount").textContent = less;
+      document.getElementById("netShift").textContent = net > 0 ? `+${formatNumber(net)}` : formatNumber(net);
+
+      const sortedMore = areas
+        .map(area => ({ ...area, shift: area.desired - area.current }))
+        .filter(area => area.shift > 0)
+        .sort((a, b) => b.shift - a.shift);
+      const sortedLess = areas
+        .map(area => ({ ...area, shift: area.desired - area.current }))
+        .filter(area => area.shift < 0)
+        .sort((a, b) => a.shift - b.shift);
+      const reflection = document.getElementById("reflectionText");
+
+      if (!sortedMore.length && !sortedLess.length) {
+        reflection.innerHTML = "<h3>Your pattern</h3><p>Your current and desired energy match across all areas. Notice whether this feels balanced—or simply familiar.</p>";
+        return;
+      }
+
+      const receiving = sortedMore.length
+        ? `<strong>${escapeHtml(sortedMore[0].name)}</strong> is asking for the most additional energy.`
+        : "No area is currently asking for more.";
+      const releasing = sortedLess.length
+        ? `<strong>${escapeHtml(sortedLess[0].name)}</strong> may be the clearest place to release some energy.`
+        : "No area currently feels ready to release energy.";
+      reflection.innerHTML = `<h3>Your pattern</h3><p>${receiving} ${releasing} What is one small transfer that would feel possible this week?</p>`;
+    }
+
+    function buildTicks(max) {
+      const rawStep = max / 10;
+      const magnitude = 10 ** Math.floor(Math.log10(rawStep));
+      const normalized = rawStep / magnitude;
+      const nice = normalized <= 1 ? 1 : normalized <= 2 ? 2 : normalized <= 5 ? 5 : 10;
+      const step = nice * magnitude;
+      const ticks = [];
+      for (let value = 0; value <= max + step * 0.001; value += step) {
+        ticks.push(Number(value.toFixed(8)));
+      }
+      if (ticks[ticks.length - 1] !== max) ticks.push(max);
+      return ticks;
+    }
+
+    function path(points) {
+      return points.map((point, index) => `${index ? "L" : "M"} ${point[0]} ${point[1]}`).join(" ");
+    }
+
+    function makeSvg(tag, attrs = {}) {
+      const node = document.createElementNS(ns, tag);
+      Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      return node;
+    }
+
+    function splitLabel(text, maxLength) {
+      const words = String(text).trim().split(/\s+/);
+      if (String(text).length <= maxLength || words.length === 1) return [String(text).slice(0, maxLength + 3)];
+      const lines = ["", ""];
+      words.forEach(word => {
+        const target = lines[0].length < maxLength ? 0 : 1;
+        lines[target] = `${lines[target]} ${word}`.trim();
+      });
+      return lines.filter(Boolean).slice(0, 2);
+    }
+
+    function safeValue(value, fallback) {
+      const number = Number(value);
+      return Number.isFinite(number) ? clamp(Math.round(number), 0, state.max) : fallback;
+    }
+
+    function clamp(value, min, max) {
+      return Math.min(max, Math.max(min, value));
+    }
+
+    function formatNumber(value) {
+      return Number.isInteger(value) ? String(value) : String(Number(value.toFixed(2)));
+    }
+
+    function normalizeState() {
+      state.count = clamp(Number(state.count) || 6, 4, 8);
+      state.max = 10;
+      if (!Array.isArray(state.areas)) state.areas = defaults.map(area => ({ ...area }));
+      defaults.forEach((fallback, index) => {
+        if (!state.areas[index]) state.areas[index] = { ...fallback };
+        state.areas[index].name = String(state.areas[index].name || fallback.name);
+        state.areas[index].current = clamp(Number(state.areas[index].current) || 0, 0, state.max);
+        state.areas[index].desired = clamp(Number(state.areas[index].desired) || 0, 0, state.max);
+      });
+    }
+
+    function saveLocalState() {
+      try {
+        localStorage.setItem("nokmali-energy-rebalance", JSON.stringify(state));
+      } catch (error) {
+        // The tool still works when local storage is unavailable.
+      }
+    }
+
+    function loadLocalState() {
+      try {
+        return JSON.parse(localStorage.getItem("nokmali-energy-rebalance"));
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function saveUrlState() {
+      const url = new URL(window.location.href);
+      const sharedState = {
+        count: state.count,
+        areas: state.areas.slice(0, state.count).map(area => ({
+          name: area.name,
+          current: area.current,
+          desired: area.desired
+        }))
+      };
+      url.searchParams.delete("sheet");
+      url.hash = `sheet=${encodeURIComponent(JSON.stringify(sharedState))}`;
+      window.history.replaceState(null, "", url);
+    }
+
+    function loadUrlState() {
+      try {
+        const url = new URL(window.location.href);
+        const encoded = new URLSearchParams(url.hash.slice(1)).get("sheet") || url.searchParams.get("sheet");
+        if (!encoded) return null;
+        const parsed = JSON.parse(encoded);
+        if (!parsed || !Array.isArray(parsed.areas)) return null;
+        return parsed;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+  </script>
+</body>
+</html>

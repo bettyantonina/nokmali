@@ -842,8 +842,12 @@
     }
 
     @media (max-width: 820px) {
-      .navlinks a.lk {
+      .navlinks a.lk:not(.tools-link) {
         display: none;
+      }
+
+      .navlinks {
+        gap: 16px;
       }
     }
 
@@ -889,6 +893,7 @@
         <a class="lk" href="#about">Über mich</a>
         <a class="lk" href="#begin">So funktioniert es</a>
         <a class="lk" href="#faq">Fragen</a>
+        <a class="lk tools-link" href="/tools/">Tools</a>
         <span class="language-switch" aria-label="Sprache">
           <a href="../" lang="en">EN</a>
           <span aria-hidden="true">/</span>
