@@ -973,6 +973,236 @@
       gap: 16px;
     }
 
+    .parts-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.65fr);
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 36px;
+    }
+
+    .parts-context {
+      display: block;
+      padding: 21px 23px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(250, 247, 240, 0.75);
+      box-shadow: var(--shadow);
+      color: var(--ink-soft);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .parts-context input {
+      height: auto;
+      margin-top: 8px;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
+      padding: 4px 0 7px;
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .parts-workspace {
+      padding: 30px;
+    }
+
+    .parts-intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 23px;
+    }
+
+    .parts-intro h2 {
+      margin-bottom: 5px;
+      font-family: var(--display);
+      font-size: 29px;
+    }
+
+    .parts-intro p {
+      max-width: 760px;
+      margin-bottom: 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .parts-note {
+      max-width: 260px;
+      padding-left: 18px;
+      border-left: 2px solid var(--gold);
+      color: var(--ink-soft);
+      font-size: 12px;
+    }
+
+    .parts-grid-head,
+    .part-row {
+      display: grid;
+      grid-template-columns: 42px 0.72fr 1fr 1fr 1fr 1fr 1.15fr 28px;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .parts-grid-head {
+      padding: 0 10px 9px;
+      color: var(--ink-soft);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
+    }
+
+    .parts-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .part-row {
+      padding: 12px 10px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.32);
+    }
+
+    .part-row:nth-child(4n + 1) {
+      background: color-mix(in srgb, var(--teal-light) 42%, var(--paper-light));
+    }
+
+    .part-row:nth-child(4n + 2) {
+      background: color-mix(in srgb, var(--blue-light) 42%, var(--paper-light));
+    }
+
+    .part-row:nth-child(4n + 3) {
+      background: color-mix(in srgb, #f0dfda 40%, var(--paper-light));
+    }
+
+    .part-row:nth-child(4n) {
+      background: color-mix(in srgb, var(--paper-deep) 60%, var(--paper-light));
+    }
+
+    .part-field {
+      min-width: 0;
+    }
+
+    .part-sketch {
+      display: grid;
+      width: 38px;
+      height: 42px;
+      place-items: center;
+      align-self: center;
+      color: var(--ink-soft);
+    }
+
+    .part-sketch svg {
+      width: 35px;
+      height: 40px;
+      overflow: visible;
+    }
+
+    .part-sketch path,
+    .part-sketch circle,
+    .part-sketch line {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.65;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .part-row:nth-child(4n + 1) .part-sketch {
+      color: var(--teal);
+      transform: rotate(-2deg);
+    }
+
+    .part-row:nth-child(4n + 2) .part-sketch {
+      color: var(--blue);
+      transform: rotate(2deg);
+    }
+
+    .part-row:nth-child(4n + 3) .part-sketch {
+      color: var(--rose);
+      transform: rotate(-1deg);
+    }
+
+    .part-row:nth-child(4n) .part-sketch {
+      color: var(--beige);
+      transform: rotate(1.5deg);
+    }
+
+    .part-field-label {
+      display: none;
+    }
+
+    .part-row input {
+      height: 42px;
+      margin: 0;
+      background: rgba(255, 255, 255, 0.56);
+      font-size: 12px;
+    }
+
+    .part-row .part-name input {
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .parts-reflection {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 13px;
+      align-items: start;
+      margin-top: 23px;
+      padding: 18px 20px;
+      border-radius: 16px;
+      background: var(--paper-deep);
+    }
+
+    .parts-reflection-symbol {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--paper-light);
+      color: var(--teal);
+      font-family: var(--display);
+      font-weight: 700;
+    }
+
+    .parts-reflection h3 {
+      margin-bottom: 4px;
+      font-family: var(--display);
+      font-size: 17px;
+    }
+
+    .parts-reflection p {
+      margin-bottom: 0;
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    .parts-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 19px;
+    }
+
+    .parts-share-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
     [hidden] {
       display: none !important;
     }
@@ -988,6 +1218,11 @@
       }
 
       .balance-hero {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .parts-hero {
         grid-template-columns: 1fr;
         gap: 20px;
       }
@@ -1135,6 +1370,75 @@
         width: 100%;
         justify-content: space-between;
       }
+
+      .parts-workspace {
+        padding: 22px 16px;
+      }
+
+      .parts-intro {
+        display: block;
+      }
+
+      .parts-note {
+        max-width: none;
+        margin-top: 14px;
+      }
+
+      .parts-grid-head {
+        display: none;
+      }
+
+      .part-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 9px;
+        padding: 15px;
+      }
+
+      .part-sketch {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: start;
+      }
+
+      .part-field {
+        display: block;
+      }
+
+      .part-field-label {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--ink-soft);
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .part-name,
+      .part-soften {
+        grid-column: 1 / -1;
+      }
+
+      .part-name {
+        padding-left: 46px;
+      }
+
+      .part-row .remove-impact {
+        align-self: center;
+        justify-self: end;
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .parts-actions {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .parts-share-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1160,7 +1464,7 @@
       <div class="tool-tabs" role="tablist" aria-label="Choose a coaching tool">
         <button class="tool-tab" role="tab" aria-selected="true" aria-controls="energy-panel" id="energy-tab" data-tool="energy">Energy Rebalance</button>
         <button class="tool-tab" role="tab" aria-selected="false" aria-controls="balance-panel" id="balance-tab" data-tool="balance">Decisional balance sheet</button>
-        <button class="tool-tab" role="tab" aria-selected="false" aria-controls="wellbeing-panel" id="wellbeing-tab" data-tool="wellbeing">Wellbeing assessment</button>
+        <button class="tool-tab" role="tab" aria-selected="false" aria-controls="parts-panel" id="parts-tab" data-tool="parts">Parts of Me Map</button>
       </div>
     </div>
   </nav>
@@ -1322,14 +1626,57 @@
       </div>
     </section>
 
-    <section id="wellbeing-panel" role="tabpanel" aria-labelledby="wellbeing-tab" hidden>
+    <section id="parts-panel" role="tabpanel" aria-labelledby="parts-tab" hidden>
       <div class="wrap">
-        <div class="card placeholder">
-          <div class="symbol" aria-hidden="true">○</div>
-          <p class="eyebrow">Coming next</p>
-          <h1>Wellbeing assessment</h1>
-          <p>A thoughtful check-in across the dimensions of wellbeing that matter to you. The exact questions and flow can grow here when you are ready.</p>
-        </div>
+        <header class="parts-hero">
+          <div>
+            <p class="eyebrow">Make room for inner ambivalence</p>
+            <h1>Parts of <em>Me</em> Map</h1>
+            <p class="intro">When different parts of you pull in different directions, the aim is not to silence one of them. Listen for what each part is trying to do for you—and what it may need in order to soften.</p>
+          </div>
+          <label class="parts-context">
+            What feels conflicted or blocked?
+            <input id="partsContext" type="text" maxlength="120" value="I want to slow down, but I keep pushing myself">
+          </label>
+        </header>
+
+        <section class="card parts-workspace" aria-labelledby="parts-title">
+          <div class="parts-intro">
+            <div>
+              <p class="eyebrow">Listen without taking sides</p>
+              <h2 id="parts-title">Meet the voices in the room</h2>
+              <p>Give each part a simple name. Explore its positive intention, even when its strategy feels unhelpful. A part that blocks, pleases or pushes is often protecting something important.</p>
+            </div>
+          </div>
+
+          <div class="parts-grid-head" aria-hidden="true">
+            <span></span>
+            <span>Part of me</span>
+            <span>What it wants</span>
+            <span>What it fears</span>
+            <span>What it needs</span>
+            <span>What it protects</span>
+            <span>What may help it soften</span>
+            <span></span>
+          </div>
+          <div class="parts-list" id="partsRows"></div>
+
+          <div class="parts-reflection">
+            <span class="parts-reflection-symbol" aria-hidden="true">∿</span>
+            <div>
+              <h3>A question to hold</h3>
+              <p>If every part had a valid reason for being here, what agreement—or small next step—could honour more than one of them?</p>
+            </div>
+          </div>
+
+          <div class="parts-actions">
+            <button class="add-impact" id="addPartButton" type="button">+ Add another part</button>
+            <div class="parts-share-actions">
+              <button class="share-button" id="partsCopyLinkButton" type="button">Copy client link</button>
+              <button class="quiet-button" id="partsResetButton" type="button">Reset example</button>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   </main>
@@ -1382,6 +1729,44 @@
       ]
     };
 
+    const partsDefaults = {
+      context: "I want to slow down, but I keep pushing myself",
+      parts: [
+        {
+          name: "The Achiever",
+          wants: "Progress and accomplishment",
+          fears: "Failing or falling behind",
+          needs: "Structure and recognition",
+          protects: "My sense of self-worth",
+          soften: "A smaller definition of success"
+        },
+        {
+          name: "The Tired One",
+          wants: "Rest and less pressure",
+          fears: "Burnout",
+          needs: "Permission to pause",
+          protects: "My body and energy",
+          soften: "Rest that does not need to be earned"
+        },
+        {
+          name: "The Good Girl",
+          wants: "Approval and harmony",
+          fears: "Rejection or conflict",
+          needs: "Safety and belonging",
+          protects: "My connection to others",
+          soften: "Reassurance that boundaries do not end belonging"
+        },
+        {
+          name: "The Artist",
+          wants: "Expression and play",
+          fears: "Being judged",
+          needs: "Space and freedom",
+          protects: "My aliveness",
+          soften: "Private, low-stakes creative time"
+        }
+      ]
+    };
+
     const urlState = loadUrlState();
     const savedEnergy = urlState?.energy || (urlState?.areas ? urlState : loadLocalState());
     const state = savedEnergy || {
@@ -1390,7 +1775,9 @@
       areas: defaults.map(area => ({ ...area }))
     };
     const balanceState = normalizeBalanceState(urlState?.balance || loadBalanceLocalState() || balanceDefaults);
-    let activeTool = ["energy", "balance", "wellbeing"].includes(urlState?.tool) ? urlState.tool : "energy";
+    const partsState = normalizePartsState(urlState?.parts || loadPartsLocalState() || partsDefaults);
+    const requestedTool = urlState?.tool === "wellbeing" ? "parts" : urlState?.tool;
+    let activeTool = ["energy", "balance", "parts"].includes(requestedTool) ? requestedTool : "energy";
 
     const svg = document.getElementById("energyChart");
     const rows = document.getElementById("areaRows");
@@ -1398,6 +1785,8 @@
     const decisionTitle = document.getElementById("decisionTitle");
     const impactRows = document.getElementById("impactRows");
     const impactChart = document.getElementById("impactChart");
+    const partsContext = document.getElementById("partsContext");
+    const partsRows = document.getElementById("partsRows");
     const ns = "http://www.w3.org/2000/svg";
     let activeDrag = null;
 
@@ -1406,6 +1795,7 @@
     renderRows();
     render();
     renderBalance();
+    renderParts();
 
     document.querySelectorAll(".tool-tab").forEach(tab => {
       tab.addEventListener("click", () => selectTool(tab.dataset.tool));
@@ -1433,6 +1823,7 @@
 
     document.getElementById("copyLinkButton").addEventListener("click", event => copyClientLink(event.currentTarget));
     document.getElementById("balanceCopyLinkButton").addEventListener("click", event => copyClientLink(event.currentTarget));
+    document.getElementById("partsCopyLinkButton").addEventListener("click", event => copyClientLink(event.currentTarget));
 
     decisionTitle.addEventListener("input", event => {
       balanceState.decision = event.target.value;
@@ -1469,6 +1860,31 @@
       updateBalance();
     });
 
+    partsContext.addEventListener("input", event => {
+      partsState.context = event.target.value;
+      updateParts();
+    });
+
+    document.getElementById("addPartButton").addEventListener("click", () => {
+      partsState.parts.push({
+        name: "A part of me",
+        wants: "",
+        fears: "",
+        needs: "",
+        protects: "",
+        soften: ""
+      });
+      renderPartsRows();
+      updateParts();
+      partsRows.lastElementChild?.querySelector("input")?.focus();
+    });
+
+    document.getElementById("partsResetButton").addEventListener("click", () => {
+      Object.assign(partsState, clone(partsDefaults));
+      renderParts();
+      updateParts();
+    });
+
     function selectTool(tool, shouldScroll = true) {
       activeTool = tool;
       document.querySelectorAll(".tool-tab").forEach(tab => {
@@ -1481,6 +1897,81 @@
       });
       saveUrlState();
       if (shouldScroll) window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderParts() {
+      partsContext.value = partsState.context;
+      renderPartsRows();
+    }
+
+    function renderPartsRows() {
+      partsRows.innerHTML = "";
+      partsState.parts.forEach((part, index) => {
+        const row = document.createElement("div");
+        row.className = "part-row";
+        row.innerHTML = `
+          ${partSketch(index)}
+          ${partField("part-name", "Part of me", "name", part.name)}
+          ${partField("", "What it wants", "wants", part.wants)}
+          ${partField("", "What it fears", "fears", part.fears)}
+          ${partField("", "What it needs", "needs", part.needs)}
+          ${partField("", "What it protects", "protects", part.protects)}
+          ${partField("part-soften", "What may help it soften", "soften", part.soften)}
+          <button class="remove-impact" type="button" aria-label="Remove ${escapeHtml(part.name || "part")}">×</button>
+        `;
+        row.querySelectorAll("input[data-field]").forEach(input => {
+          input.addEventListener("input", event => {
+            part[event.target.dataset.field] = event.target.value;
+            updateParts();
+          });
+        });
+        row.querySelector("button").addEventListener("click", () => {
+          if (partsState.parts.length === 1) {
+            partsState.parts[0] = { name: "", wants: "", fears: "", needs: "", protects: "", soften: "" };
+          } else {
+            partsState.parts.splice(index, 1);
+          }
+          renderPartsRows();
+          updateParts();
+        });
+        partsRows.appendChild(row);
+      });
+    }
+
+    function partSketch(index) {
+      const sketches = [
+        `<svg viewBox="0 0 36 42" aria-hidden="true">
+          <path d="M9 14c1-7 16-9 19 0 2 7-1 17-9 18-8 0-12-10-10-18Z"/>
+          <path d="M10 13c2-5 5-8 10-8 5 0 8 4 9 8M14 18h1M23 18h1M15 25c3 2 6 2 9-1M12 34c-4 1-7 4-8 7M25 34c4 1 7 4 8 7"/>
+        </svg>`,
+        `<svg viewBox="0 0 36 42" aria-hidden="true">
+          <path d="M10 13c2-6 14-8 18-1 4 7 0 18-8 20-8 1-13-8-10-19Z"/>
+          <path d="M11 12c4 1 7-2 9-6 2 4 5 6 9 7M14 19c1 1 2 1 3 0M23 19c1 1 2 1 3 0M16 26c2-1 5-1 7 0M12 34c-4 2-6 4-7 7M25 34c4 1 6 4 7 7"/>
+        </svg>`,
+        `<svg viewBox="0 0 36 42" aria-hidden="true">
+          <path d="M9 15c0-8 16-11 20-2 3 8-1 18-9 19-8 1-12-8-11-17Z"/>
+          <path d="M10 14c3-1 5-4 6-8 3 4 7 6 13 7M14 19h2M23 19h2M16 25c2 3 6 3 9 0M11 34c-4 1-7 4-8 7M25 34c4 1 7 4 8 7"/>
+        </svg>`,
+        `<svg viewBox="0 0 36 42" aria-hidden="true">
+          <path d="M9 14c2-8 17-9 20 1 2 8-2 17-10 17-8-1-12-10-10-18Z"/>
+          <path d="M10 14c2-7 7-9 11-9 5 1 8 5 9 10M14 19c1-1 2-1 3 0M23 19c1-1 2-1 3 0M15 25c3 1 6 1 9-1M11 34c-4 2-6 4-7 7M25 34c4 1 6 4 7 7"/>
+        </svg>`
+      ];
+      return `<span class="part-sketch">${sketches[index % sketches.length]}</span>`;
+    }
+
+    function partField(className, label, field, value) {
+      return `
+        <label class="part-field ${className}">
+          <span class="part-field-label">${label}</span>
+          <input type="text" data-field="${field}" maxlength="140" value="${escapeHtml(value)}" aria-label="${label}">
+        </label>
+      `;
+    }
+
+    function updateParts() {
+      savePartsLocalState();
+      saveUrlState();
     }
 
     function renderBalance() {
@@ -2012,10 +2503,26 @@
       }
     }
 
+    function savePartsLocalState() {
+      try {
+        localStorage.setItem("nokmali-parts-of-me", JSON.stringify(partsState));
+      } catch (error) {
+        // The tool still works when local storage is unavailable.
+      }
+    }
+
+    function loadPartsLocalState() {
+      try {
+        return JSON.parse(localStorage.getItem("nokmali-parts-of-me"));
+      } catch (error) {
+        return null;
+      }
+    }
+
     function saveUrlState() {
       const url = new URL(window.location.href);
       const sharedState = {
-        version: 2,
+        version: 3,
         tool: activeTool,
         energy: {
           count: state.count,
@@ -2032,6 +2539,10 @@
           stayBenefits: balanceState.stayBenefits,
           stayCosts: balanceState.stayCosts,
           impacts: balanceState.impacts
+        },
+        parts: {
+          context: partsState.context,
+          parts: partsState.parts
         }
       };
       url.searchParams.delete("sheet");
@@ -2046,7 +2557,7 @@
         if (!encoded) return null;
         const parsed = JSON.parse(encoded);
         if (!parsed || typeof parsed !== "object") return null;
-        if (!parsed.energy && !parsed.balance && !Array.isArray(parsed.areas)) return null;
+        if (!parsed.energy && !parsed.balance && !parsed.parts && !Array.isArray(parsed.areas)) return null;
         return parsed;
       } catch (error) {
         return null;
@@ -2067,6 +2578,23 @@
         positive: String(impact?.positive || ""),
         negative: clamp(Math.round(Number(impact?.negative) || 1), 1, 10),
         benefit: clamp(Math.round(Number(impact?.benefit) || 1), 1, 10)
+      }));
+      return normalized;
+    }
+
+    function normalizePartsState(candidate) {
+      const normalized = clone(candidate || partsDefaults);
+      normalized.context = String(normalized.context || "");
+      if (!Array.isArray(normalized.parts) || !normalized.parts.length) {
+        normalized.parts = [clone(partsDefaults.parts[0])];
+      }
+      normalized.parts = normalized.parts.slice(0, 10).map(part => ({
+        name: String(part?.name || ""),
+        wants: String(part?.wants || ""),
+        fears: String(part?.fears || ""),
+        needs: String(part?.needs || ""),
+        protects: String(part?.protects || ""),
+        soften: String(part?.soften || "")
       }));
       return normalized;
     }
