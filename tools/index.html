@@ -180,21 +180,23 @@
     }
 
     .tool-tab {
-      border: 0;
+      border: 1px solid var(--line);
       border-radius: 999px;
       padding: 9px 15px;
-      background: transparent;
+      background: rgba(250, 247, 240, 0.48);
       color: var(--ink-soft);
       white-space: nowrap;
-      transition: color 160ms, background 160ms;
+      transition: color 160ms, background 160ms, border-color 160ms;
     }
 
     .tool-tab:hover {
       color: var(--blue);
+      border-color: color-mix(in srgb, var(--blue) 45%, var(--line));
       background: rgba(255, 255, 255, 0.4);
     }
 
     .tool-tab[aria-selected="true"] {
+      border-color: var(--ink);
       background: var(--ink);
       color: var(--paper-light);
     }
