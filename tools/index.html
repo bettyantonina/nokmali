@@ -614,6 +614,365 @@
       font-size: 17px;
     }
 
+    .balance-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.65fr);
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 36px;
+    }
+
+    .balance-hero h1 {
+      margin-bottom: 17px;
+    }
+
+    .decision-field {
+      display: block;
+      padding: 21px 23px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(250, 247, 240, 0.75);
+      box-shadow: var(--shadow);
+      color: var(--ink-soft);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .decision-field input {
+      height: auto;
+      margin-top: 8px;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
+      padding: 4px 0 7px;
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .balance-matrix {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .balance-quadrant {
+      min-height: 285px;
+      padding: 25px;
+      background: rgba(250, 247, 240, 0.92);
+    }
+
+    .balance-quadrant.change-benefit {
+      background: color-mix(in srgb, var(--teal-light) 65%, var(--paper-light));
+    }
+
+    .balance-quadrant.change-cost {
+      background: color-mix(in srgb, #f0dfda 55%, var(--paper-light));
+    }
+
+    .balance-quadrant.stay-benefit {
+      background: color-mix(in srgb, var(--blue-light) 53%, var(--paper-light));
+    }
+
+    .balance-quadrant.stay-cost {
+      background: color-mix(in srgb, var(--paper-deep) 65%, var(--paper-light));
+    }
+
+    .quadrant-kicker {
+      margin-bottom: 5px;
+      color: var(--ink-soft);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .balance-quadrant h2 {
+      margin-bottom: 4px;
+      font-family: var(--display);
+      font-size: 23px;
+    }
+
+    .balance-quadrant > p {
+      margin-bottom: 16px;
+      color: var(--ink-soft);
+      font-size: 12px;
+    }
+
+    .thought-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .thought-row {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr) 26px;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .thought-number {
+      color: var(--ink-soft);
+      font-family: var(--display);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .thought-row input {
+      height: 39px;
+      margin: 0;
+      background: rgba(255, 255, 255, 0.55);
+      font-size: 13px;
+    }
+
+    .remove-thought,
+    .remove-impact {
+      display: grid;
+      width: 26px;
+      height: 26px;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: var(--ink-soft);
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .remove-thought:hover,
+    .remove-impact:hover {
+      background: rgba(255, 255, 255, 0.65);
+      color: var(--rose);
+    }
+
+    .add-thought {
+      margin: 11px 0 0 30px;
+      border: 0;
+      background: transparent;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .impact-section {
+      padding: 30px;
+    }
+
+    .impact-intro {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 24px;
+    }
+
+    .impact-intro h2 {
+      margin-bottom: 5px;
+      font-family: var(--display);
+      font-size: 29px;
+    }
+
+    .impact-intro p {
+      max-width: 720px;
+      margin-bottom: 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .impact-legend {
+      display: flex;
+      gap: 15px;
+      padding-top: 8px;
+      color: var(--ink-soft);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .impact-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .impact-legend i {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--rose);
+    }
+
+    .impact-legend .benefit-key i {
+      background: var(--teal);
+    }
+
+    .impact-chart {
+      display: grid;
+      gap: 12px;
+      margin: 0 0 27px;
+      padding: 20px 18px;
+      border-radius: 17px;
+      background: var(--paper-deep);
+    }
+
+    .impact-chart-empty {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .impact-chart-row {
+      display: grid;
+      grid-template-columns: minmax(90px, 0.7fr) minmax(180px, 2fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    .impact-chart-label {
+      overflow: hidden;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .impact-axis {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 24px;
+    }
+
+    .impact-axis::after {
+      content: "";
+      position: absolute;
+      top: -3px;
+      bottom: -3px;
+      left: 50%;
+      width: 1px;
+      background: #bdb1a0;
+    }
+
+    .impact-negative,
+    .impact-positive {
+      display: flex;
+      align-items: center;
+    }
+
+    .impact-negative {
+      justify-content: flex-end;
+    }
+
+    .impact-positive {
+      justify-content: flex-start;
+    }
+
+    .impact-bar {
+      min-width: 3px;
+      height: 14px;
+      transition: width 180ms;
+    }
+
+    .impact-negative .impact-bar {
+      border-radius: 8px 0 0 8px;
+      background: var(--rose);
+    }
+
+    .impact-positive .impact-bar {
+      border-radius: 0 8px 8px 0;
+      background: var(--teal);
+    }
+
+    .impact-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .impact-card {
+      display: grid;
+      grid-template-columns: minmax(125px, 0.55fr) minmax(180px, 0.9fr) minmax(210px, 1.15fr) 105px 105px 28px;
+      gap: 12px;
+      align-items: end;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.34);
+    }
+
+    .impact-card label {
+      min-width: 0;
+    }
+
+    .impact-card input[type="text"] {
+      margin-top: 6px;
+    }
+
+    .rating-control {
+      display: grid;
+      grid-template-columns: 1fr 27px;
+      gap: 5px;
+      align-items: center;
+      height: 42px;
+      margin-top: 6px;
+    }
+
+    .rating-control input[type="range"] {
+      width: 100%;
+      accent-color: var(--rose);
+    }
+
+    .benefit-rating input[type="range"] {
+      accent-color: var(--teal);
+    }
+
+    .rating-value {
+      display: grid;
+      width: 27px;
+      height: 27px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--paper-deep);
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .impact-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 19px;
+    }
+
+    .add-impact {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--blue);
+      padding: 9px 15px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .balance-share-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
     [hidden] {
       display: none !important;
     }
@@ -626,6 +985,11 @@
       .hero {
         grid-template-columns: 1fr;
         gap: 18px;
+      }
+
+      .balance-hero {
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
 
       .hero-note {
@@ -724,6 +1088,53 @@
       .summary-number {
         font-size: 22px;
       }
+
+      .balance-matrix {
+        grid-template-columns: 1fr;
+      }
+
+      .balance-quadrant {
+        min-height: 0;
+      }
+
+      .impact-section {
+        padding: 22px 16px;
+      }
+
+      .impact-intro {
+        display: block;
+      }
+
+      .impact-legend {
+        margin-top: 10px;
+      }
+
+      .impact-card {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .impact-card .impact-name,
+      .impact-card .impact-concern-field,
+      .impact-card .impact-positive-field {
+        grid-column: 1 / -1;
+      }
+
+      .impact-card .remove-impact {
+        align-self: center;
+        justify-self: end;
+        grid-column: 2;
+        grid-row: 5;
+      }
+
+      .impact-actions {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .balance-share-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -802,7 +1213,7 @@
 
           <aside class="card editor" aria-labelledby="shape-title">
             <h2 id="shape-title">Shape your reflection</h2>
-            <p class="muted">Choose 4–8 areas and a scale that feels natural.</p>
+            <p class="muted">Choose 4–8 areas and map each one on a 0–10 scale.</p>
 
             <div class="settings">
               <label>
@@ -841,12 +1252,73 @@
 
     <section id="balance-panel" role="tabpanel" aria-labelledby="balance-tab" hidden>
       <div class="wrap">
-        <div class="card placeholder">
-          <div class="symbol" aria-hidden="true">±</div>
-          <p class="eyebrow">Coming next</p>
-          <h1>Decisional balance sheet</h1>
-          <p>A calm place to explore the gains, costs and tensions around a decision. This tool is in the navigation already and ready to be shaped next.</p>
-        </div>
+        <header class="balance-hero">
+          <div>
+            <p class="eyebrow">Look at change from every side</p>
+            <h1>Decisional <em>Balance</em></h1>
+            <p class="intro">A decision rarely has one simple truth. Hold what change could give you alongside what it may ask of you—and look beyond the immediate cost to the wider, longer-term effect.</p>
+          </div>
+          <label class="decision-field">
+            The change I am considering
+            <input id="decisionTitle" type="text" maxlength="100" value="Make more space for self-care">
+          </label>
+        </header>
+
+        <section class="balance-matrix" aria-label="Four-part decisional balance">
+          <article class="balance-quadrant change-benefit">
+            <p class="quadrant-kicker">If I make the change</p>
+            <h2>What might I gain?</h2>
+            <p>Benefits, hopes and possibilities.</p>
+            <div class="thought-list" data-list="changeBenefits"></div>
+            <button class="add-thought" type="button" data-add="changeBenefits">+ Add a thought</button>
+          </article>
+          <article class="balance-quadrant change-cost">
+            <p class="quadrant-kicker">If I make the change</p>
+            <h2>What might it cost?</h2>
+            <p>Discomfort, effort, loss or concern.</p>
+            <div class="thought-list" data-list="changeCosts"></div>
+            <button class="add-thought" type="button" data-add="changeCosts">+ Add a thought</button>
+          </article>
+          <article class="balance-quadrant stay-benefit">
+            <p class="quadrant-kicker">If things stay as they are</p>
+            <h2>What do I keep?</h2>
+            <p>Comfort, certainty and current advantages.</p>
+            <div class="thought-list" data-list="stayBenefits"></div>
+            <button class="add-thought" type="button" data-add="stayBenefits">+ Add a thought</button>
+          </article>
+          <article class="balance-quadrant stay-cost">
+            <p class="quadrant-kicker">If things stay as they are</p>
+            <h2>What might I lose?</h2>
+            <p>The cost of waiting or not changing.</p>
+            <div class="thought-list" data-list="stayCosts"></div>
+            <button class="add-thought" type="button" data-add="stayCosts">+ Add a thought</button>
+          </article>
+        </section>
+
+        <section class="card impact-section" aria-labelledby="impact-title">
+          <div class="impact-intro">
+            <div>
+              <p class="eyebrow">Beyond the immediate cost</p>
+              <h2 id="impact-title">Who or what else is affected?</h2>
+              <p>Name the areas that may seem to lose when you change. Then explore how the same change could support them positively over time. Rate both sides honestly—the aim is perspective, not forcing the answer.</p>
+            </div>
+            <div class="impact-legend" aria-label="Impact chart legend">
+              <span><i></i> Negative impact</span>
+              <span class="benefit-key"><i></i> Longer-term benefit</span>
+            </div>
+          </div>
+
+          <div class="impact-chart" id="impactChart" aria-live="polite"></div>
+          <div class="impact-list" id="impactRows"></div>
+
+          <div class="impact-actions">
+            <button class="add-impact" id="addImpactButton" type="button">+ Add an affected area</button>
+            <div class="balance-share-actions">
+              <button class="share-button" id="balanceCopyLinkButton" type="button">Copy client link</button>
+              <button class="quiet-button" id="balanceResetButton" type="button">Reset example</button>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -874,16 +1346,58 @@
       { name: "Learning", current: 5, desired: 5 }
     ];
 
-    const saved = loadUrlState() || loadLocalState();
-    const state = saved || {
+    const balanceDefaults = {
+      decision: "Make more space for self-care",
+      changeBenefits: [
+        "More energy and steadiness",
+        "Better health and recovery"
+      ],
+      changeCosts: [
+        "Less time available for others",
+        "Guilt about putting myself first"
+      ],
+      stayBenefits: [
+        "My routine stays familiar",
+        "I avoid disappointing anyone"
+      ],
+      stayCosts: [
+        "I remain depleted",
+        "My own needs keep being postponed"
+      ],
+      impacts: [
+        {
+          name: "My children",
+          concern: "They may have a little less of my time.",
+          positive: "They see healthy boundaries and have a more present, healthier parent.",
+          negative: 4,
+          benefit: 8
+        },
+        {
+          name: "My work",
+          concern: "I may be less available outside work hours.",
+          positive: "More energy can improve my focus, creativity and sustainability.",
+          negative: 3,
+          benefit: 7
+        }
+      ]
+    };
+
+    const urlState = loadUrlState();
+    const savedEnergy = urlState?.energy || (urlState?.areas ? urlState : loadLocalState());
+    const state = savedEnergy || {
       count: 6,
       max: 10,
       areas: defaults.map(area => ({ ...area }))
     };
+    const balanceState = normalizeBalanceState(urlState?.balance || loadBalanceLocalState() || balanceDefaults);
+    let activeTool = ["energy", "balance", "wellbeing"].includes(urlState?.tool) ? urlState.tool : "energy";
 
     const svg = document.getElementById("energyChart");
     const rows = document.getElementById("areaRows");
     const countInput = document.getElementById("areaCount");
+    const decisionTitle = document.getElementById("decisionTitle");
+    const impactRows = document.getElementById("impactRows");
+    const impactChart = document.getElementById("impactChart");
     const ns = "http://www.w3.org/2000/svg";
     let activeDrag = null;
 
@@ -891,10 +1405,12 @@
     countInput.value = state.count;
     renderRows();
     render();
+    renderBalance();
 
     document.querySelectorAll(".tool-tab").forEach(tab => {
       tab.addEventListener("click", () => selectTool(tab.dataset.tool));
     });
+    selectTool(activeTool, false);
 
     countInput.addEventListener("change", event => {
       state.count = Number(event.target.value);
@@ -915,9 +1431,196 @@
       update();
     });
 
-    document.getElementById("copyLinkButton").addEventListener("click", async event => {
+    document.getElementById("copyLinkButton").addEventListener("click", event => copyClientLink(event.currentTarget));
+    document.getElementById("balanceCopyLinkButton").addEventListener("click", event => copyClientLink(event.currentTarget));
+
+    decisionTitle.addEventListener("input", event => {
+      balanceState.decision = event.target.value;
+      updateBalance();
+    });
+
+    document.querySelectorAll(".add-thought").forEach(button => {
+      button.addEventListener("click", () => {
+        balanceState[button.dataset.add].push("");
+        renderThoughtList(button.dataset.add);
+        updateBalance();
+        const list = document.querySelector(`[data-list="${button.dataset.add}"]`);
+        list.lastElementChild?.querySelector("input")?.focus();
+      });
+    });
+
+    document.getElementById("addImpactButton").addEventListener("click", () => {
+      balanceState.impacts.push({
+        name: "Affected area",
+        concern: "",
+        positive: "",
+        negative: 5,
+        benefit: 5
+      });
+      renderImpactRows();
+      renderImpactChart();
+      updateBalance();
+      impactRows.lastElementChild?.querySelector("input")?.focus();
+    });
+
+    document.getElementById("balanceResetButton").addEventListener("click", () => {
+      Object.assign(balanceState, clone(balanceDefaults));
+      renderBalance();
+      updateBalance();
+    });
+
+    function selectTool(tool, shouldScroll = true) {
+      activeTool = tool;
+      document.querySelectorAll(".tool-tab").forEach(tab => {
+        const selected = tab.dataset.tool === tool;
+        tab.setAttribute("aria-selected", selected);
+        tab.tabIndex = selected ? 0 : -1;
+      });
+      document.querySelectorAll("[role='tabpanel']").forEach(panel => {
+        panel.hidden = panel.id !== `${tool}-panel`;
+      });
       saveUrlState();
-      const button = event.currentTarget;
+      if (shouldScroll) window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderBalance() {
+      decisionTitle.value = balanceState.decision;
+      ["changeBenefits", "changeCosts", "stayBenefits", "stayCosts"].forEach(renderThoughtList);
+      renderImpactRows();
+      renderImpactChart();
+    }
+
+    function renderThoughtList(key) {
+      const list = document.querySelector(`[data-list="${key}"]`);
+      list.innerHTML = "";
+      balanceState[key].forEach((thought, index) => {
+        const row = document.createElement("div");
+        row.className = "thought-row";
+        row.innerHTML = `
+          <span class="thought-number">${index + 1}</span>
+          <input type="text" maxlength="120" value="${escapeHtml(thought)}" aria-label="Thought ${index + 1}">
+          <button class="remove-thought" type="button" aria-label="Remove thought">×</button>
+        `;
+        row.querySelector("input").addEventListener("input", event => {
+          balanceState[key][index] = event.target.value;
+          updateBalance();
+        });
+        row.querySelector("button").addEventListener("click", () => {
+          if (balanceState[key].length === 1) {
+            balanceState[key][0] = "";
+          } else {
+            balanceState[key].splice(index, 1);
+          }
+          renderThoughtList(key);
+          updateBalance();
+        });
+        list.appendChild(row);
+      });
+    }
+
+    function renderImpactRows() {
+      impactRows.innerHTML = "";
+      balanceState.impacts.forEach((impact, index) => {
+        const card = document.createElement("div");
+        card.className = "impact-card";
+        card.innerHTML = `
+          <label class="impact-name">
+            Who or what may lose?
+            <input type="text" maxlength="60" value="${escapeHtml(impact.name)}">
+          </label>
+          <label class="impact-concern-field">
+            What is the concern or possible loss?
+            <input type="text" maxlength="180" value="${escapeHtml(impact.concern)}">
+          </label>
+          <label class="impact-positive-field">
+            How could the change still support them?
+            <input type="text" maxlength="180" value="${escapeHtml(impact.positive)}">
+          </label>
+          <label>
+            Negative impact
+            <span class="rating-control negative-rating">
+              <input type="range" min="1" max="10" step="1" value="${impact.negative}" aria-label="${escapeHtml(impact.name)} negative impact">
+              <span class="rating-value">${impact.negative}</span>
+            </span>
+          </label>
+          <label>
+            Long-term benefit
+            <span class="rating-control benefit-rating">
+              <input type="range" min="1" max="10" step="1" value="${impact.benefit}" aria-label="${escapeHtml(impact.name)} longer-term benefit">
+              <span class="rating-value">${impact.benefit}</span>
+            </span>
+          </label>
+          <button class="remove-impact" type="button" aria-label="Remove affected area">×</button>
+        `;
+
+        const nameInput = card.querySelector(".impact-name input");
+        const positiveInput = card.querySelector(".impact-positive-field input");
+        const concernInput = card.querySelector(".impact-concern-field input");
+        const negativeInput = card.querySelector(".negative-rating input");
+        const benefitInput = card.querySelector(".benefit-rating input");
+
+        nameInput.addEventListener("input", event => {
+          impact.name = event.target.value;
+          negativeInput.setAttribute("aria-label", `${impact.name} negative impact`);
+          benefitInput.setAttribute("aria-label", `${impact.name} longer-term benefit`);
+          updateBalance();
+        });
+        positiveInput.addEventListener("input", event => {
+          impact.positive = event.target.value;
+          updateBalance();
+        });
+        concernInput.addEventListener("input", event => {
+          impact.concern = event.target.value;
+          updateBalance();
+        });
+        negativeInput.addEventListener("input", event => {
+          impact.negative = Number(event.target.value);
+          event.target.nextElementSibling.textContent = impact.negative;
+          updateBalance();
+        });
+        benefitInput.addEventListener("input", event => {
+          impact.benefit = Number(event.target.value);
+          event.target.nextElementSibling.textContent = impact.benefit;
+          updateBalance();
+        });
+        card.querySelector(".remove-impact").addEventListener("click", () => {
+          balanceState.impacts.splice(index, 1);
+          renderImpactRows();
+          renderImpactChart();
+          updateBalance();
+        });
+        impactRows.appendChild(card);
+      });
+    }
+
+    function renderImpactChart() {
+      impactChart.innerHTML = "";
+      if (!balanceState.impacts.length) {
+        impactChart.innerHTML = '<p class="impact-chart-empty">Add an affected area to begin mapping the wider impact.</p>';
+        return;
+      }
+      balanceState.impacts.forEach(impact => {
+        const row = document.createElement("div");
+        row.className = "impact-chart-row";
+        row.innerHTML = `
+          <span class="impact-chart-label" title="${escapeHtml(impact.name || "Affected area")}">${escapeHtml(impact.name || "Affected area")}</span>
+          <span class="impact-axis" aria-label="${escapeHtml(impact.name || "Affected area")}: negative impact ${impact.negative} out of 10; longer-term benefit ${impact.benefit} out of 10">
+            <span class="impact-negative"><i class="impact-bar" style="width:${impact.negative * 10}%"></i></span>
+            <span class="impact-positive"><i class="impact-bar" style="width:${impact.benefit * 10}%"></i></span>
+          </span>
+        `;
+        impactChart.appendChild(row);
+      });
+    }
+
+    function updateBalance() {
+      renderImpactChart();
+      saveBalanceLocalState();
+      saveUrlState();
+    }
+
+    async function copyClientLink(button) {
+      saveUrlState();
       const originalText = button.textContent;
       try {
         await navigator.clipboard.writeText(window.location.href);
@@ -928,18 +1631,6 @@
       window.setTimeout(() => {
         button.textContent = originalText;
       }, 1800);
-    });
-
-    function selectTool(tool) {
-      document.querySelectorAll(".tool-tab").forEach(tab => {
-        const selected = tab.dataset.tool === tool;
-        tab.setAttribute("aria-selected", selected);
-        tab.tabIndex = selected ? 0 : -1;
-      });
-      document.querySelectorAll("[role='tabpanel']").forEach(panel => {
-        panel.hidden = panel.id !== `${tool}-panel`;
-      });
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function renderRows() {
@@ -1305,15 +1996,43 @@
       }
     }
 
+    function saveBalanceLocalState() {
+      try {
+        localStorage.setItem("nokmali-decisional-balance", JSON.stringify(balanceState));
+      } catch (error) {
+        // The tool still works when local storage is unavailable.
+      }
+    }
+
+    function loadBalanceLocalState() {
+      try {
+        return JSON.parse(localStorage.getItem("nokmali-decisional-balance"));
+      } catch (error) {
+        return null;
+      }
+    }
+
     function saveUrlState() {
       const url = new URL(window.location.href);
       const sharedState = {
-        count: state.count,
-        areas: state.areas.slice(0, state.count).map(area => ({
-          name: area.name,
-          current: area.current,
-          desired: area.desired
-        }))
+        version: 2,
+        tool: activeTool,
+        energy: {
+          count: state.count,
+          areas: state.areas.slice(0, state.count).map(area => ({
+            name: area.name,
+            current: area.current,
+            desired: area.desired
+          }))
+        },
+        balance: {
+          decision: balanceState.decision,
+          changeBenefits: balanceState.changeBenefits,
+          changeCosts: balanceState.changeCosts,
+          stayBenefits: balanceState.stayBenefits,
+          stayCosts: balanceState.stayCosts,
+          impacts: balanceState.impacts
+        }
       };
       url.searchParams.delete("sheet");
       url.hash = `sheet=${encodeURIComponent(JSON.stringify(sharedState))}`;
@@ -1326,11 +2045,34 @@
         const encoded = new URLSearchParams(url.hash.slice(1)).get("sheet") || url.searchParams.get("sheet");
         if (!encoded) return null;
         const parsed = JSON.parse(encoded);
-        if (!parsed || !Array.isArray(parsed.areas)) return null;
+        if (!parsed || typeof parsed !== "object") return null;
+        if (!parsed.energy && !parsed.balance && !Array.isArray(parsed.areas)) return null;
         return parsed;
       } catch (error) {
         return null;
       }
+    }
+
+    function normalizeBalanceState(candidate) {
+      const normalized = clone(candidate || balanceDefaults);
+      normalized.decision = String(normalized.decision || "");
+      ["changeBenefits", "changeCosts", "stayBenefits", "stayCosts"].forEach(key => {
+        if (!Array.isArray(normalized[key]) || !normalized[key].length) normalized[key] = [""];
+        normalized[key] = normalized[key].slice(0, 8).map(item => String(item || ""));
+      });
+      if (!Array.isArray(normalized.impacts)) normalized.impacts = [];
+      normalized.impacts = normalized.impacts.slice(0, 8).map((impact, index) => ({
+        name: String(impact?.name || `Affected area ${index + 1}`),
+        concern: String(impact?.concern || ""),
+        positive: String(impact?.positive || ""),
+        negative: clamp(Math.round(Number(impact?.negative) || 1), 1, 10),
+        benefit: clamp(Math.round(Number(impact?.benefit) || 1), 1, 10)
+      }));
+      return normalized;
+    }
+
+    function clone(value) {
+      return JSON.parse(JSON.stringify(value));
     }
 
     function escapeHtml(value) {
