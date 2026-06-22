@@ -355,9 +355,14 @@
     }
 
     .chart-hint {
-      margin: 8px 0 0;
-      color: var(--ink-soft);
+      width: fit-content;
+      margin: 8px auto 0;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: var(--paper-deep);
+      color: var(--ink);
       font-size: 12px;
+      font-weight: 700;
       text-align: center;
     }
 
@@ -1246,8 +1251,11 @@
       }
 
       .nav-inner {
-        min-height: 66px;
-        gap: 18px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 7px;
+        min-height: 0;
+        padding: 8px 0 9px;
       }
 
       .brand {
@@ -1266,12 +1274,24 @@
       }
 
       .tool-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 100%;
         margin-left: 0;
+        gap: 5px;
+        overflow: visible;
       }
 
       .tool-tab {
-        padding: 8px 11px;
-        font-size: 12px;
+        display: flex;
+        min-height: 39px;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 5px;
+        font-size: 10px;
+        line-height: 1.15;
+        text-align: center;
+        white-space: normal;
       }
 
       main {
@@ -1498,7 +1518,7 @@
                 <desc id="chart-description">A chart comparing current and desired energy for each chosen area of life.</desc>
               </svg>
             </div>
-            <p class="chart-hint">Tip: drag either point directly on the chart.</p>
+            <p class="chart-hint">The dots can be moved up or down to change the values.</p>
             <div class="summary" aria-live="polite">
               <div class="summary-item">
                 <span class="summary-number" id="moreCount">0</span>
