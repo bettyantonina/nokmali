@@ -344,7 +344,7 @@
     .chart-wrap {
       width: 100%;
       min-height: 470px;
-      overflow: hidden;
+      overflow: visible;
     }
 
     #energyChart {
@@ -455,6 +455,57 @@
 
     #energyChart [data-type] {
       touch-action: none;
+    }
+
+    .chart-axis-input {
+      width: 100%;
+      height: 30px;
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(250, 247, 240, 0.94);
+      color: var(--ink);
+      padding: 0 6px;
+      font-family: var(--body);
+      font-size: 11px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .chart-axis-controls {
+      display: flex;
+      width: 100%;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .chart-axis-control {
+      display: grid;
+      width: 27px;
+      height: 27px;
+      place-items: center;
+      border: 1px solid var(--blue);
+      border-radius: 50%;
+      background: var(--paper-light);
+      color: var(--blue);
+      padding: 0;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .chart-axis-control:hover {
+      background: var(--blue);
+      color: var(--paper-light);
+    }
+
+    .chart-axis-control:disabled {
+      border-color: var(--line);
+      background: var(--paper-deep);
+      color: #a79d91;
+      cursor: not-allowed;
     }
 
     select:hover,
@@ -1515,9 +1566,9 @@
                 <span class="desired"><i></i> Desired</span>
               </div>
             </div>
-            <p class="chart-hint">The dots can be moved up or down to change the values.</p>
+            <p class="chart-hint">Move the dots up or down. Click an area name to rename it.</p>
             <div class="chart-wrap">
-              <svg id="energyChart" viewBox="0 0 760 510" role="img" aria-labelledby="chart-title chart-description">
+              <svg id="energyChart" viewBox="0 0 760 540" role="img" aria-labelledby="chart-title chart-description">
                 <desc id="chart-description">A chart comparing current and desired energy for each chosen area of life.</desc>
               </svg>
             </div>
@@ -2200,8 +2251,9 @@
       svg.innerHTML = '<desc id="chart-description">A chart comparing current and desired energy for each chosen area of life.</desc>';
       const areas = state.areas.slice(0, state.count);
       const W = 760;
-      const H = 510;
-      const margin = { top: 28, right: 25, bottom: 103, left: 58 };
+      const H = 540;
+      svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+      const margin = { top: 28, right: 105, bottom: 126, left: 58 };
       const plotW = W - margin.left - margin.right;
       const plotH = H - margin.top - margin.bottom;
       const x = index => margin.left + (areas.length === 1 ? plotW / 2 : index * plotW / (areas.length - 1));
@@ -2279,29 +2331,35 @@
         drawPoint(index, "current", x(index), y(area.current), "#4f6e8b", true);
         drawPoint(index, "desired", x(index), y(area.desired), "#5f8a89", false);
 
-        const label = makeSvg("text", {
-          x: x(index),
-          y: H - 67,
-          "text-anchor": "middle",
-          fill: "#4d4850",
-          "font-size": areas.length > 6 ? 11 : 12.5,
-          "font-weight": 600
+        const spacing = areas.length > 1 ? plotW / (areas.length - 1) : plotW;
+        const inputWidth = Math.min(102, Math.max(61, spacing - 7));
+        const foreignObject = makeSvg("foreignObject", {
+          x: x(index) - inputWidth / 2,
+          y: H - 112,
+          width: inputWidth,
+          height: 48
         });
-        const lines = splitLabel(area.name || `Area ${index + 1}`, areas.length > 6 ? 10 : 13);
-        lines.forEach((line, lineIndex) => {
-          const tspan = makeSvg("tspan", {
-            x: x(index),
-            dy: lineIndex === 0 ? 0 : 15
-          });
-          tspan.textContent = line;
-          label.appendChild(tspan);
+        const axisInput = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+        axisInput.className = "chart-axis-input";
+        axisInput.type = "text";
+        axisInput.maxLength = 28;
+        axisInput.value = area.name;
+        axisInput.setAttribute("aria-label", `Area ${index + 1} name`);
+        axisInput.addEventListener("input", event => {
+          area.name = event.target.value || `Area ${index + 1}`;
+          const editorName = rows.children[index]?.querySelector('input[type="text"]');
+          if (editorName) editorName.value = area.name;
+          saveLocalState();
+          saveUrlState();
         });
-        svg.appendChild(label);
+        axisInput.addEventListener("change", () => render());
+        foreignObject.appendChild(axisInput);
+        svg.appendChild(foreignObject);
 
         const difference = area.desired - area.current;
         const deltaLabel = makeSvg("text", {
           x: x(index),
-          y: H - 25,
+          y: H - 31,
           "text-anchor": "middle",
           fill: difference > 0 ? "#477977" : difference < 0 ? "#a1665e" : "#7b736d",
           "font-size": 11,
@@ -2311,7 +2369,56 @@
         svg.appendChild(deltaLabel);
       });
 
+      drawAreaControls(W, H);
       updateSummary(areas);
+    }
+
+    function drawAreaControls(W, H) {
+      const foreignObject = makeSvg("foreignObject", {
+        x: W - 76,
+        y: H - 111,
+        width: 68,
+        height: 48
+      });
+      const controls = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+      controls.className = "chart-axis-controls";
+
+      const removeButton = document.createElementNS("http://www.w3.org/1999/xhtml", "button");
+      removeButton.className = "chart-axis-control";
+      removeButton.type = "button";
+      removeButton.textContent = "−";
+      removeButton.disabled = state.count <= 4;
+      removeButton.setAttribute("aria-label", "Remove one life area");
+      removeButton.addEventListener("click", () => adjustAreaCount(-1));
+
+      const addButton = document.createElementNS("http://www.w3.org/1999/xhtml", "button");
+      addButton.className = "chart-axis-control";
+      addButton.type = "button";
+      addButton.textContent = "+";
+      addButton.disabled = state.count >= 8;
+      addButton.setAttribute("aria-label", "Add one life area");
+      addButton.addEventListener("click", () => adjustAreaCount(1));
+
+      controls.append(removeButton, addButton);
+      foreignObject.appendChild(controls);
+      svg.appendChild(foreignObject);
+    }
+
+    function adjustAreaCount(direction) {
+      const nextCount = clamp(state.count + direction, 4, 8);
+      if (nextCount === state.count) return;
+      state.count = nextCount;
+      while (state.areas.length < state.count) {
+        const next = defaults[state.areas.length] || {
+          name: `Area ${state.areas.length + 1}`,
+          current: 5,
+          desired: 5
+        };
+        state.areas.push({ ...next });
+      }
+      countInput.value = state.count;
+      renderRows();
+      update();
     }
 
     function drawPoint(index, type, cx, cy, color, filled) {
