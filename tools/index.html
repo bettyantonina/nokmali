@@ -455,6 +455,7 @@
 
     #energyChart [data-type] {
       touch-action: none;
+      pointer-events: all;
     }
 
     .chart-axis-input {
@@ -1878,6 +1879,7 @@
     const partsRows = document.getElementById("partsRows");
     const ns = "http://www.w3.org/2000/svg";
     let activeDrag = null;
+    let dragFrame = null;
 
     normalizeState();
     countInput.value = state.count;
@@ -2441,7 +2443,7 @@
       const hit = makeSvg("circle", {
         cx,
         cy,
-        r: 14,
+        r: 28,
         fill: "transparent",
         cursor: "ns-resize",
         "data-index": index,
@@ -2492,11 +2494,24 @@
       const ratio = clamp((bottom - local.y) / (bottom - top), 0, 1);
       state.areas[activeDrag.index][activeDrag.type] = Math.round(ratio * state.max);
       syncRow(activeDrag.index);
-      update();
+      if (dragFrame) return;
+      dragFrame = window.requestAnimationFrame(() => {
+        dragFrame = null;
+        updateDeltas();
+        render();
+      });
     }
 
     function endDrag() {
       window.removeEventListener("pointermove", moveDrag);
+      if (dragFrame) {
+        window.cancelAnimationFrame(dragFrame);
+        dragFrame = null;
+      }
+      updateDeltas();
+      render();
+      saveLocalState();
+      saveUrlState();
       activeDrag = null;
       document.body.style.cursor = "";
       document.body.style.userSelect = "";
