@@ -101,9 +101,9 @@
           "cal-bg-subtle": "#EAE3D5",
           "cal-bg-muted": "#EFE9DE",
           "cal-bg-inverted": "#3A3640",
-          "cal-bg-primary": "#4F6E8B",
-          "cal-bg-primary-emphasis": "#42607B",
-          "cal-bg-primary-muted": "#DCE4E8",
+          "cal-bg-primary": "#55786B",
+          "cal-bg-primary-emphasis": "#486A5D",
+          "cal-bg-primary-muted": "#DCE8E2",
           "cal-border": "#DBD2C2",
           "cal-border-emphasis": "#B89A5E",
           "cal-border-subtle": "#E5DCCD",
@@ -114,8 +114,8 @@
           "cal-text-subtle": "#6C6560",
           "cal-text-muted": "#948D86",
           "cal-text-inverted": "#F4EFE6",
-          "cal-brand": "#4F6E8B",
-          "cal-brand-emphasis": "#42607B",
+          "cal-brand": "#55786B",
+          "cal-brand-emphasis": "#486A5D",
           "cal-brand-subtle": "#5F8A89",
           "cal-brand-accent": "#F4EFE6",
           "cal-brand-text": "#F4EFE6"
@@ -195,7 +195,7 @@
       --teal-soft: #E4EBE7;
       --ink: #3A3640;
       --ink-soft: #6C6560;
-      --blue: #4F6E8B;
+      --blue: #55786B;
       --beige: #B89A5E;
       --gold: #CDB377;
       --teal: #5F8A89;
@@ -297,17 +297,22 @@
     }
 
     nav {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 50;
-      background: rgba(244, 239, 230, 0.85);
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
+      background: transparent;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
       border-bottom: 1px solid transparent;
-      transition: border-color 0.3s;
+      transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s;
     }
 
     nav.scrolled {
+      background: rgba(244, 239, 230, 0.9);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
       border-color: var(--line);
     }
 
@@ -337,6 +342,7 @@
       width: 38px;
       height: 38px;
       object-fit: contain;
+      transition: filter 0.2s;
     }
 
     .navlinks {
@@ -366,6 +372,7 @@
     }
 
     .language-switch a {
+      color: inherit;
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -379,11 +386,27 @@
       font-weight: 600;
     }
 
+    nav:not(.scrolled) .word,
+    nav:not(.scrolled) .navlinks .lk,
+    nav:not(.scrolled) .language-switch,
+    nav:not(.scrolled) .language-switch [aria-current="page"] {
+      color: #fff;
+    }
+
+    nav:not(.scrolled) .brand-logo {
+      filter: brightness(0) invert(1);
+    }
+
+    nav:not(.scrolled) .navlinks a.lk:hover,
+    nav:not(.scrolled) .language-switch a:hover {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
     .hero {
       position: relative;
       min-height: clamp(560px, 78vh, 780px);
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       padding: 0;
       overflow: hidden;
       background: #777E72 url("art/yourjourney-walking-poster-hd.jpg") center 42% / cover no-repeat;
@@ -416,13 +439,13 @@
     .hero-copy {
       position: relative;
       z-index: 2;
-      padding-top: clamp(54px, 8vw, 96px);
-      padding-bottom: clamp(58px, 9vw, 108px);
+      padding-top: clamp(116px, 13vw, 164px);
+      padding-bottom: clamp(82px, 10vw, 132px);
     }
 
     .hero-copy .inner {
       position: relative;
-      max-width: 560px;
+      max-width: 740px;
     }
 
     .hero .kick {
@@ -435,7 +458,7 @@
     .hero h1 {
       font-family: var(--f-display);
       font-weight: 700;
-      font-size: clamp(34px, 5vw, 62px);
+      font-size: clamp(34px, 4.6vw, 58px);
       line-height: 1.04;
       letter-spacing: -0.01em;
       margin: 8px 0 0;
@@ -461,6 +484,18 @@
       text-shadow: 0 2px 22px rgba(39, 36, 32, 0.4);
     }
 
+    .hero .btn {
+      background: #55786B;
+      border-color: #55786B;
+      color: #FFF8EA;
+      box-shadow: 0 16px 36px rgba(10, 20, 15, 0.36);
+    }
+
+    .hero .btn:hover {
+      background: #486A5D;
+      border-color: #486A5D;
+    }
+
     .hero .booking-note {
       max-width: 42em;
       margin-top: 6px;
@@ -473,6 +508,31 @@
     section.block {
       padding: 78px 0;
       position: relative;
+    }
+
+    .explore-flow {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background: #EEECE6;
+    }
+
+    .explore-flow::before,
+    .explore-flow::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .explore-flow::before {
+      z-index: 0;
+      background: url("art/hero-leap-v2.jpg") center -260px / 100% auto no-repeat;
+    }
+
+    .explore-flow::after {
+      z-index: 1;
+      background: rgba(226, 219, 202, 0.52);
     }
 
     .eyebrow {
@@ -493,30 +553,27 @@
     }
 
     .intro {
-      isolation: isolate;
-      overflow: hidden;
       min-height: clamp(340px, 42vw, 500px);
       display: flex;
-      align-items: center;
-      background:
-        url("art/hero-leap-v2.jpg") center 36% / cover no-repeat,
-        linear-gradient(115deg, #D9E2DD 0%, #D8C69D 52%, #AFA184 100%);
+      align-items: flex-start;
+    }
+
+    section.block.intro {
+      padding-top: 48px;
+      padding-bottom: clamp(138px, 16vw, 208px);
     }
 
     .intro .inner {
       max-width: 760px;
-      margin: 0;
+      margin: 0 0 0 clamp(34px, 4vw, 70px);
       text-align: left;
     }
 
     .intro::after {
-      content: "";
+      content: none;
       position: absolute;
       inset: 0;
       z-index: 1;
-      background:
-        linear-gradient(90deg, rgba(226, 211, 175, 0.78) 0%, rgba(216, 198, 157, 0.56) 48%, rgba(134, 126, 98, 0.16) 100%),
-        linear-gradient(0deg, rgba(95, 138, 137, 0.2), rgba(184, 154, 94, 0.22));
     }
 
     .intro p {
@@ -524,7 +581,7 @@
       font-weight: 400;
       font-size: clamp(22px, 2.9vw, 33px);
       line-height: 1.34;
-      color: var(--ink);
+      color: #5C554D;
     }
 
     .intro p .lite {
@@ -535,7 +592,7 @@
       margin-top: 18px;
       font-family: var(--f-body);
       font-size: 17.5px;
-      color: var(--ink-soft);
+      color: #746B61;
       line-height: 1.62;
     }
 
@@ -551,12 +608,33 @@
     }
 
     .thing {
-      background: #FBF7EF;
-      border: 1px solid var(--line);
+      --card-tone: #DDD5C3;
+      background: var(--card-tone);
+      border: 1px solid color-mix(in srgb, var(--card-tone) 58%, rgba(58, 54, 64, 0.16));
       border-radius: 12px;
-      overflow: hidden;
+      padding: 10px;
       cursor: pointer;
       transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .thing:nth-child(2) {
+      --card-tone: #DED4C5;
+    }
+
+    .thing:nth-child(3) {
+      --card-tone: #DAD3CD;
+    }
+
+    .thing:nth-child(4) {
+      --card-tone: #E1DFD9;
+    }
+
+    .thing:nth-child(5) {
+      --card-tone: #CFCFC6;
+    }
+
+    .thing:nth-child(6) {
+      --card-tone: #E0D2C8;
     }
 
     .thing:hover,
@@ -573,6 +651,7 @@
     .thing .pic {
       aspect-ratio: 4.5 / 3;
       overflow: hidden;
+      border-radius: 8px 8px 0 0;
     }
 
     .thing .pic img {
@@ -600,6 +679,8 @@
       position: relative;
       min-height: 132px;
       padding: 20px 22px 24px;
+      background: var(--card-tone);
+      border-radius: 0 0 8px 8px;
     }
 
     .thing h3 {
@@ -750,7 +831,7 @@
     }
 
     .about {
-      background: var(--paper-2);
+      background: transparent;
     }
 
     .about-grid {
@@ -1022,21 +1103,10 @@
           linear-gradient(90deg, rgba(39, 36, 32, 0.64), rgba(39, 36, 32, 0.2));
       }
 
-      .intro {
-        background:
-          url("art/hero-leap-v2.jpg") center 42% / cover no-repeat,
-          linear-gradient(145deg, #D9E2DD 0%, #D8C69D 58%, #AFA184 100%);
-      }
-
       .intro .inner {
         max-width: 100%;
       }
 
-      .intro::after {
-        background:
-          linear-gradient(0deg, rgba(226, 211, 175, 0.72), rgba(216, 198, 157, 0.58)),
-          linear-gradient(0deg, rgba(95, 138, 137, 0.18), rgba(184, 154, 94, 0.18));
-      }
     }
 
     @media (max-width: 820px) {
@@ -1128,13 +1198,13 @@
   <a id="top"></a>
   <header class="hero">
     <div class="hero-art">
-      <video autoplay muted playsinline preload="metadata" poster="art/yourjourney-walking-poster-hd.jpg" data-loop-end="10" aria-label="Helene walking along a path through the landscape">
+      <video autoplay muted playsinline preload="metadata" poster="art/yourjourney-walking-poster-hd.jpg" data-loop-end="10" data-playback-rate="0.75" aria-label="Helene walking along a path through the landscape">
         <source src="art/yourjourney-walking-hd.mp4" type="video/mp4">
       </video>
     </div>
     <div class="wrap hero-copy">
       <div class="inner">
-        <h1>Health, nutrition &amp;<br>life <em>rhythm</em> coaching.</h1>
+        <h1>Health, nutrition &amp; life<br><em>rhythm</em> coaching.</h1>
         <p class="sub">For women whose lives feel full, changing, or pulled in many directions and who want more clarity, energy, and intention in everyday life.</p>
         <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free clarity call <span class="arr" aria-hidden="true">&rarr;</span></a>
         <p class="booking-note">A 30-minute conversation to explore what feels important right now, what you&rsquo;re looking for, and whether it feels like a good fit.</p>
@@ -1143,19 +1213,20 @@
   </header>
 
   <main>
-    <section class="block intro">
-      <div class="wrap inner">
-        <p>A space to explore the things that shape everyday life: food, habits, body signals, energy, tired places, priorities, and the rhythm of your days.</p>
-        <p>We look at what is there, what matters most to you, and what small changes could help you feel more energised, make room for what matters, and create a daily rhythm that supports you.</p>
-      </div>
-    </section>
-
-    <section class="block">
-      <div class="wrap">
-        <div class="things-head">
-          <h2 class="title">What we might <em>look at</em> together.</h2>
+    <div class="explore-flow">
+      <section class="block intro">
+        <div class="wrap inner">
+          <p>A space to explore the things that shape everyday life: food, habits, body signals, energy, tired places, priorities, and the rhythm of your days.</p>
+          <p>We look at what is there, what matters most to you, and what small changes could help you feel more energised, make room for what matters, and create a daily rhythm that supports you.</p>
         </div>
-        <div class="things">
+      </section>
+
+      <section class="block">
+        <div class="wrap">
+          <div class="things-head">
+            <h2 class="title">What we might <em>look at</em> together.</h2>
+          </div>
+          <div class="things">
           <article class="thing" tabindex="0" data-detail="Food is rarely only about food. We can look at meals, cravings, planning, hunger, energy dips, family rhythms, and the small practical choices that shape your day. The aim is not perfection, but a way of eating and organising daily life that feels calmer, more nourishing, and possible to keep.">
             <div class="pic"><img src="art/IMG_7714.jpg" alt=""></div>
             <div class="txt">
@@ -1198,10 +1269,9 @@
               <p>Hearing your own voice more clearly, and choosing from there.</p>
             </div>
           </article>
+          </div>
         </div>
-      </div>
-    </section>
-
+      </section>
     <div class="topic-modal" id="topic-modal" role="dialog" aria-modal="true" aria-labelledby="topic-modal-title" aria-hidden="true">
       <div class="topic-modal-card" role="document">
         <button class="topic-modal-close" type="button" aria-label="Close topic">&times;</button>
@@ -1233,6 +1303,7 @@
         </div>
       </div>
     </section>
+    </div>
 
     <section class="block begin" id="begin">
       <div class="wrap inner">
@@ -1397,6 +1468,17 @@
 
     document.querySelectorAll("video[data-loop-end]").forEach((video) => {
       const loopEnd = Number(video.dataset.loopEnd);
+      const playbackRate = Number(video.dataset.playbackRate);
+
+      if (Number.isFinite(playbackRate) && playbackRate > 0) {
+        const applyPlaybackRate = () => {
+          video.playbackRate = playbackRate;
+        };
+
+        applyPlaybackRate();
+        video.addEventListener("loadedmetadata", applyPlaybackRate);
+        video.addEventListener("play", applyPlaybackRate);
+      }
 
       if (!Number.isFinite(loopEnd) || loopEnd <= 0) return;
 
