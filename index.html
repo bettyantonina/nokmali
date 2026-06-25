@@ -31,6 +31,7 @@
   <link rel="icon" href="/favicon.ico?v=4" sizes="any">
   <link rel="shortcut icon" href="/favicon.ico?v=4">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4">
+  <link rel="preload" as="image" href="art/yourjourney-walking-poster-tiny.jpg" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
@@ -453,7 +454,7 @@
       align-items: flex-end;
       padding: 0;
       overflow: hidden;
-      background: #777E72 url("art/yourjourney-walking-poster-hd.jpg") center 42% / cover no-repeat;
+      background: #777E72 url("art/yourjourney-walking-poster-tiny.jpg") center 42% / cover no-repeat;
     }
 
     .hero-art {
@@ -461,7 +462,11 @@
       inset: 0;
       z-index: 0;
       line-height: 0;
-      background: #777E72 url("art/yourjourney-walking-poster-hd.jpg") center 42% / cover no-repeat;
+      background: #777E72 url("art/yourjourney-walking-poster-tiny.jpg") center 42% / cover no-repeat;
+    }
+
+    .hero-art.poster-ready {
+      background-image: url("art/yourjourney-walking-poster-hd.jpg");
     }
 
     .hero-art video {
@@ -515,10 +520,6 @@
       margin: 8px 0 0;
       color: #F8F3EA;
       text-shadow: 0 2px 28px rgba(39, 36, 32, 0.42);
-    }
-
-    .phone-break {
-      display: none;
     }
 
     h2.title em {
@@ -1370,17 +1371,9 @@
     }
 
     @media (max-width: 480px) {
-      .desktop-space {
-        display: none;
-      }
-
-      .phone-break {
-        display: inline;
-      }
-
       .hero h1 {
-        font-size: clamp(27px, 9vw, 38px);
-        max-width: 9.8em;
+        font-size: clamp(23px, 6.8vw, 32px);
+        max-width: 100%;
       }
 
       .hero p.sub {
@@ -1440,13 +1433,13 @@
   <a id="top"></a>
   <header class="hero">
     <div class="hero-art">
-      <video autoplay muted playsinline preload="auto" poster="art/yourjourney-walking-poster-hd.jpg" data-loop-end="10" data-playback-rate="0.75" aria-label="Helene walking along a path through the landscape">
+      <video autoplay muted playsinline preload="auto" poster="art/yourjourney-walking-poster-tiny.jpg" data-loop-end="10" data-playback-rate="0.75" aria-label="Helene walking along a path through the landscape">
         <source src="art/yourjourney-walking-hd.mp4" type="video/mp4">
       </video>
     </div>
     <div class="wrap hero-copy">
       <div class="inner">
-        <h1>Health, nutrition<span class="desktop-space"> </span><span class="phone-break"><br></span>&amp; life<br><em>rhythm</em> coaching.</h1>
+        <h1>Health, nutrition &amp; life<br><em>rhythm</em> coaching.</h1>
         <p class="sub">For women whose lives feel full, changing, or pulled in many directions and who want more clarity, energy, and intention in everyday life.</p>
         <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free clarity call <span class="arr" aria-hidden="true">&rarr;</span></a>
         <p class="booking-note">A 30-minute conversation to explore what feels important right now, what you&rsquo;re looking for, and whether it feels like a good fit.</p>
@@ -1712,11 +1705,20 @@
       const loopEnd = Number(video.dataset.loopEnd);
       const playbackRate = Number(video.dataset.playbackRate);
       const heroArt = video.closest(".hero-art");
-      const showVideo = () => heroArt?.classList.add("video-ready");
+      let posterTimer = 0;
+      const showVideo = () => {
+        window.clearTimeout(posterTimer);
+        heroArt?.classList.add("video-ready");
+      };
 
       if (video.readyState >= 2) {
         showVideo();
       } else {
+        posterTimer = window.setTimeout(() => {
+          if (!heroArt?.classList.contains("video-ready")) {
+            heroArt?.classList.add("poster-ready");
+          }
+        }, 450);
         video.addEventListener("loadeddata", showVideo, { once: true });
         video.addEventListener("canplay", showVideo, { once: true });
       }
