@@ -552,15 +552,6 @@
       border-color: #486A5D;
     }
 
-    .hero .booking-note {
-      max-width: 42em;
-      margin-top: 6px;
-      color: #E6CA85;
-      font-size: 14px;
-      line-height: 1.55;
-      text-shadow: 0 2px 18px rgba(39, 36, 32, 0.36);
-    }
-
     section.block {
       padding: 78px 0;
       position: relative;
@@ -746,6 +737,7 @@
       font-family: var(--f-display);
       font-weight: 700;
       font-size: 22px;
+      line-height: 1.12;
       margin-bottom: 7px;
       color: var(--ink);
     }
@@ -762,15 +754,13 @@
     }
 
     .thing p {
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      top: 58px;
+      max-height: 0;
+      overflow: hidden;
       font-size: 14.5px;
       color: var(--ink-soft);
       opacity: 0;
       transform: translateY(5px);
-      transition: opacity 0.22s ease, transform 0.22s ease;
+      transition: max-height 0.24s ease, margin-top 0.24s ease, opacity 0.22s ease, transform 0.22s ease;
     }
 
     .thing:hover .txt::after,
@@ -781,6 +771,8 @@
 
     .thing:hover p,
     .thing:focus p {
+      max-height: 7em;
+      margin-top: 6px;
       opacity: 1;
       transform: translateY(0);
     }
@@ -855,15 +847,6 @@
       line-height: 1.68;
     }
 
-    .topic-modal-note {
-      display: inline-flex;
-      margin-top: 26px;
-      color: var(--beige);
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
     .topic-modal-close {
       position: absolute;
       top: 16px;
@@ -894,16 +877,28 @@
     }
 
     .about-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 52px;
-      align-items: center;
+      display: block;
+      max-width: 980px;
+    }
+
+    .about-copy {
+      max-width: 940px;
+    }
+
+    .about-copy::after {
+      content: "";
+      display: block;
+      clear: both;
     }
 
     .about .photo {
+      float: right;
+      width: min(38vw, 360px);
+      margin: 6px 0 24px 38px;
       overflow: hidden;
       border-radius: 8px;
       box-shadow: 0 26px 50px -32px rgba(39, 36, 32, 0.55);
+      shape-outside: inset(0 round 8px);
     }
 
     .about .photo img {
@@ -917,7 +912,7 @@
       font-size: 17px;
       color: var(--ink-soft);
       margin-bottom: 14px;
-      max-width: 42em;
+      max-width: none;
     }
 
     .about p:first-of-type {
@@ -1131,9 +1126,9 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+      .about .photo {
+        width: min(42vw, 320px);
+        margin-left: 28px;
       }
     }
 
@@ -1203,11 +1198,6 @@
         max-width: 24em;
       }
 
-      .hero .booking-note {
-        max-width: 28em;
-        font-size: 13.5px;
-      }
-
       .explore-flow::before {
         background-position: center clamp(-96px, -18vw, -52px);
       }
@@ -1242,6 +1232,11 @@
 
       .about {
         padding-top: 38px;
+      }
+
+      .about .photo {
+        width: clamp(118px, 36vw, 168px);
+        margin: 5px 0 13px 18px;
       }
 
       .begin .steps {
@@ -1299,11 +1294,6 @@
         line-height: 1.55;
       }
 
-      .topic-modal-note {
-        margin-top: 16px;
-        font-size: 11.5px;
-      }
-
       .foot-grid {
         grid-template-columns: 1fr;
         gap: 26px;
@@ -1321,6 +1311,8 @@
 
       .thing p {
         position: static;
+        max-height: none;
+        overflow: visible;
         opacity: 1;
         transform: none;
         margin-top: 6px;
@@ -1391,6 +1383,11 @@
       .thing .txt {
         padding: 18px 18px 20px;
       }
+
+      .about .photo {
+        width: clamp(106px, 34vw, 132px);
+        margin-left: 14px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1434,15 +1431,15 @@
   <header class="hero">
     <div class="hero-art">
       <video autoplay muted playsinline preload="auto" poster="art/yourjourney-walking-poster-tiny.jpg" data-loop-end="10" data-playback-rate="0.75" aria-label="Helene walking along a path through the landscape">
+        <source src="art/yourjourney-walking-mobile.m4v" type="video/mp4" media="(max-width: 720px)">
         <source src="art/yourjourney-walking-hd.mp4" type="video/mp4">
       </video>
     </div>
     <div class="wrap hero-copy">
       <div class="inner">
-        <h1>Health, nutrition &amp; life<br><em>rhythm</em> coaching.</h1>
-        <p class="sub">For women whose lives feel full, changing, or pulled in many directions and who want more clarity, energy, and intention in everyday life.</p>
+        <h1>Health, nutrition &amp;<br><em>life&nbsp;rhythm</em> coaching.</h1>
+        <p class="sub">For women whose lives feel full, changing, or pulled in many directions and who want healthier routines, clarity, energy, and intention in everyday life.</p>
         <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free clarity call <span class="arr" aria-hidden="true">&rarr;</span></a>
-        <p class="booking-note">A 30-minute conversation to explore what feels important right now, what you&rsquo;re looking for, and whether it feels like a good fit.</p>
       </div>
     </div>
   </header>
@@ -1509,17 +1506,17 @@
       </section>
     <section class="block about" id="about">
       <div class="wrap about-grid">
-        <div>
+        <div class="about-copy">
           <div class="eyebrow">About me</div>
           <h2 class="title">Hi, I'm <em>Helene</em>.</h2>
+          <div class="photo">
+            <img src="art/IMG_2080.jpg" alt="Helene preparing food in a warm wooden kitchen">
+          </div>
           <p>I'm a health, nutrition and life rhythm coach, a yoga teacher, a mother, and an engineer.</p>
           <p>I enjoy looking at things from different angles, asking good questions, and finding simple ways through complex situations. After more than fifteen years of living and working internationally, I know how much lives can move, stretch, and change.</p>
           <p>Health, habits, creativity, body awareness, and a workable everyday rhythm are part of my own life. Painting, yoga, and time in nature are some of the ways I stay sane and connected.</p>
           <p>In coaching, we explore your habits, body signals, priorities, energy, and daily rhythms. We look at what is already there, what matters most to you, and what small changes could support you in everyday life.</p>
           <p>I don&rsquo;t tell you who to become. I help you hear yourself more clearly through listening, meaningful questions, and practical support.</p>
-        </div>
-        <div class="photo">
-          <img src="art/IMG_2080.jpg" alt="Helene preparing food in a warm wooden kitchen">
         </div>
       </div>
     </section>
@@ -1535,7 +1532,6 @@
           <div class="eyebrow">What we might explore</div>
           <h3 id="topic-modal-title"></h3>
           <p id="topic-modal-text"></p>
-          <span class="topic-modal-note">In a coaching conversation, we follow what feels most alive and useful to you.</span>
         </div>
       </div>
     </div>
