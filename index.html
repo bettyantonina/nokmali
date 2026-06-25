@@ -31,7 +31,6 @@
   <link rel="icon" href="/favicon.ico?v=4" sizes="any">
   <link rel="shortcut icon" href="/favicon.ico?v=4">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4">
-  <link rel="preload" as="image" href="art/yourjourney-walking-poster-tiny.jpg" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
@@ -454,7 +453,7 @@
       align-items: flex-end;
       padding: 0;
       overflow: hidden;
-      background: #777E72 url("art/yourjourney-walking-poster-tiny.jpg") center 42% / cover no-repeat;
+      background: #777E72;
     }
 
     .hero-art {
@@ -462,11 +461,7 @@
       inset: 0;
       z-index: 0;
       line-height: 0;
-      background: #777E72 url("art/yourjourney-walking-poster-tiny.jpg") center 42% / cover no-repeat;
-    }
-
-    .hero-art.poster-ready {
-      background-image: url("art/yourjourney-walking-poster-hd.jpg");
+      background: #777E72;
     }
 
     .hero-art video {
@@ -1430,7 +1425,7 @@
   <a id="top"></a>
   <header class="hero">
     <div class="hero-art">
-      <video autoplay muted playsinline preload="auto" poster="art/yourjourney-walking-poster-tiny.jpg" data-loop-end="10" data-playback-rate="0.75" aria-label="Helene walking along a path through the landscape">
+      <video autoplay muted playsinline preload="auto" data-loop-end="10" data-playback-rate="0.75" aria-label="Helene walking along a path through the landscape">
         <source src="art/yourjourney-walking-mobile.m4v" type="video/mp4" media="(max-width: 720px)">
         <source src="art/yourjourney-walking-hd.mp4" type="video/mp4">
       </video>
@@ -1701,20 +1696,13 @@
       const loopEnd = Number(video.dataset.loopEnd);
       const playbackRate = Number(video.dataset.playbackRate);
       const heroArt = video.closest(".hero-art");
-      let posterTimer = 0;
       const showVideo = () => {
-        window.clearTimeout(posterTimer);
         heroArt?.classList.add("video-ready");
       };
 
       if (video.readyState >= 2) {
         showVideo();
       } else {
-        posterTimer = window.setTimeout(() => {
-          if (!heroArt?.classList.contains("video-ready")) {
-            heroArt?.classList.add("poster-ready");
-          }
-        }, 450);
         video.addEventListener("loadeddata", showVideo, { once: true });
         video.addEventListener("canplay", showVideo, { once: true });
       }
