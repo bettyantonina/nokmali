@@ -461,6 +461,7 @@
       inset: 0;
       z-index: 0;
       line-height: 0;
+      background: #777E72 url("art/yourjourney-walking-poster-hd.jpg") center 42% / cover no-repeat;
     }
 
     .hero-art video {
@@ -468,6 +469,12 @@
       height: 100%;
       object-fit: cover;
       object-position: center 42%;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+    }
+
+    .hero-art.video-ready video {
+      opacity: 1;
     }
 
     .hero::after {
@@ -1204,9 +1211,13 @@
         background-position: center clamp(-96px, -18vw, -52px);
       }
 
+      .explore-flow::after {
+        background: rgba(238, 235, 226, 0.78);
+      }
+
       section.block.intro {
         padding-top: 30px;
-        padding-bottom: 72px;
+        padding-bottom: 34px;
       }
 
       .intro p {
@@ -1221,6 +1232,15 @@
       .things-head {
         margin-bottom: 28px;
         max-width: 100%;
+      }
+
+      .intro + .block {
+        padding-top: 30px;
+        padding-bottom: 36px;
+      }
+
+      .about {
+        padding-top: 38px;
       }
 
       .begin .steps {
@@ -1243,23 +1263,44 @@
       }
 
       .topic-modal {
-        padding: 18px;
+        padding: 12px;
+        place-items: center;
       }
 
       .topic-modal-card {
         grid-template-columns: 1fr;
-        max-height: calc(100vh - 36px);
+        width: min(360px, calc(100vw - 24px));
+        max-height: calc(100vh - 24px);
+        max-height: calc(100dvh - 24px);
         overflow: auto;
+        border-radius: 16px;
       }
 
       .topic-modal-image {
-        min-height: 230px;
-        max-height: 36vh;
+        min-height: 0;
+        height: 150px;
+        height: min(150px, 24dvh);
+        max-height: 150px;
       }
 
       .topic-modal-body {
         overflow: visible;
-        padding: 28px 24px 32px;
+        padding: 20px 20px 22px;
+      }
+
+      .topic-modal-body h3 {
+        font-size: clamp(26px, 8vw, 34px);
+      }
+
+      .topic-modal-body p {
+        margin-top: 12px;
+        font-size: 15.5px;
+        line-height: 1.55;
+      }
+
+      .topic-modal-note {
+        margin-top: 16px;
+        font-size: 11.5px;
       }
 
       .foot-grid {
@@ -1399,7 +1440,7 @@
   <a id="top"></a>
   <header class="hero">
     <div class="hero-art">
-      <video autoplay muted playsinline preload="metadata" poster="art/yourjourney-walking-poster-hd.jpg" data-loop-end="10" data-playback-rate="0.75" aria-label="Helene walking along a path through the landscape">
+      <video autoplay muted playsinline preload="auto" poster="art/yourjourney-walking-poster-hd.jpg" data-loop-end="10" data-playback-rate="0.75" aria-label="Helene walking along a path through the landscape">
         <source src="art/yourjourney-walking-hd.mp4" type="video/mp4">
       </video>
     </div>
@@ -1670,6 +1711,15 @@
     document.querySelectorAll("video[data-loop-end]").forEach((video) => {
       const loopEnd = Number(video.dataset.loopEnd);
       const playbackRate = Number(video.dataset.playbackRate);
+      const heroArt = video.closest(".hero-art");
+      const showVideo = () => heroArt?.classList.add("video-ready");
+
+      if (video.readyState >= 2) {
+        showVideo();
+      } else {
+        video.addEventListener("loadeddata", showVideo, { once: true });
+        video.addEventListener("canplay", showVideo, { once: true });
+      }
 
       if (Number.isFinite(playbackRate) && playbackRate > 0) {
         const applyPlaybackRate = () => {
