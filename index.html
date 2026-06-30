@@ -675,6 +675,43 @@
       gap: 22px;
     }
 
+    .availability-card {
+      max-width: 760px;
+      margin: 34px auto 0;
+      padding: 28px 30px;
+      background: #F4E8D2;
+      border: 1px solid rgba(132, 105, 71, 0.18);
+      border-radius: 18px;
+      color: #5C554D;
+      text-align: center;
+    }
+
+    .availability-card .eyebrow {
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    .availability-card p {
+      max-width: 42em;
+      margin: 0 auto;
+      font-size: 16.5px;
+      line-height: 1.65;
+    }
+
+    .availability-card p + p {
+      margin-top: 10px;
+    }
+
+    .availability-card .journey-link {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
     .thing {
       --card-tone: #DDD5C3;
       background: var(--card-tone);
@@ -1012,6 +1049,10 @@
       font-size: 16px;
       max-width: 34em;
       margin: 0 auto 26px;
+    }
+
+    .journey-offer {
+      padding-top: 44px;
     }
 
     .faq h2.title {
@@ -1570,12 +1611,13 @@
     <section class="block begin" id="begin">
       <div class="wrap inner">
         <div class="eyebrow">How we begin</div>
-        <h2 class="title">A free 30-minute <em>clarity call</em>.</h2>
+        <h2 class="title">A free 30-minute <em>discovery call</em>.</h2>
+        <p class="support">We talk about what brings you here, what you would like to change and whether coaching feels like the right next step.</p>
         <div class="steps">
           <div class="step">
             <div class="num">1</div>
             <h4>We meet</h4>
-            <p>A simple hello, no pressure.</p>
+            <p>A simple first conversation, no pressure.</p>
           </div>
           <div class="step">
             <div class="num">2</div>
@@ -1584,12 +1626,22 @@
           </div>
           <div class="step">
             <div class="num">3</div>
-            <h4>We see if it fits</h4>
-            <p>You get a feel for whether this way of working feels right for you.</p>
+            <h4>We choose the next step</h4>
+            <p>If it feels like a good fit, I&rsquo;ll share what working together could look like.</p>
           </div>
         </div>
-        <p class="support">If it feels like a good fit, I&rsquo;ll share what the next step could look like.</p>
         <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
+    <section class="block journey-offer">
+      <div class="wrap">
+        <div class="availability-card">
+          <div class="eyebrow">Currently available</div>
+          <p>I’m offering a limited number of free 3-session coaching journeys while I complete my coaching training.</p>
+          <p>If the discovery call feels like a good fit, we can talk about whether this journey suits what you need.</p>
+          <a class="journey-link" href="/yourjourney/">Learn more about the free journey <span aria-hidden="true">&rarr;</span></a>
+        </div>
       </div>
     </section>
 
