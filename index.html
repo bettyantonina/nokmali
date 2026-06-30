@@ -212,6 +212,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 96px;
     }
 
     body {
@@ -638,10 +639,11 @@
     }
 
     .intro::after {
-      content: none;
+      content: "";
       position: absolute;
       inset: 0;
       z-index: 1;
+      background: linear-gradient(90deg, rgba(238, 235, 226, 0.44) 0%, rgba(238, 235, 226, 0.34) 68%, rgba(238, 235, 226, 0) 100%);
     }
 
     .intro p {
@@ -818,6 +820,30 @@
       transition: max-height 0.24s ease, margin-top 0.24s ease, opacity 0.22s ease, transform 0.22s ease;
     }
 
+    .thing p::after {
+      content: "";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 14px;
+      margin-left: 8px;
+      border: 1px solid color-mix(in srgb, var(--ink) 58%, transparent);
+      border-radius: 50%;
+      background: transparent;
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 18%, transparent);
+      vertical-align: middle;
+      transform: translateY(-1px);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .thing:hover p::after,
+    .thing:focus p::after {
+      border-color: color-mix(in srgb, var(--ink) 72%, transparent);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--gold) 28%, transparent);
+      transform: translateY(-1px) scale(1.06);
+    }
+
     .thing:hover .txt::after,
     .thing:focus .txt::after {
       opacity: 0;
@@ -826,7 +852,7 @@
 
     .thing:hover p,
     .thing:focus p {
-      max-height: 7em;
+      max-height: 12em;
       margin-top: 6px;
       opacity: 1;
       transform: translateY(0);
@@ -839,6 +865,8 @@
       display: grid;
       place-items: center;
       padding: 28px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
       background: rgba(39, 36, 32, 0.62);
       -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
@@ -855,9 +883,10 @@
     .topic-modal-card {
       position: relative;
       display: grid;
-      grid-template-columns: minmax(240px, 0.9fr) minmax(280px, 1.1fr);
-      width: min(920px, 100%);
+      grid-template-columns: minmax(220px, 0.8fr) minmax(360px, 1.2fr);
+      width: min(980px, 100%);
       max-height: min(760px, calc(100vh - 56px));
+      max-height: min(760px, calc(100dvh - 56px));
       overflow: hidden;
       border: 1px solid color-mix(in srgb, var(--line) 80%, white);
       border-radius: 22px;
@@ -872,7 +901,8 @@
     }
 
     .topic-modal-image {
-      min-height: 420px;
+      min-height: min(420px, calc(100vh - 56px));
+      min-height: min(420px, calc(100dvh - 56px));
       background: var(--teal-soft);
     }
 
@@ -883,14 +913,33 @@
     }
 
     .topic-modal-body {
-      overflow: auto;
-      padding: clamp(30px, 5vw, 54px);
+      min-width: 0;
+      min-height: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-gutter: stable;
+      scrollbar-color: color-mix(in srgb, var(--ink) 32%, transparent) transparent;
+      scrollbar-width: thin;
+      padding: clamp(28px, 4vw, 44px);
+    }
+
+    .topic-modal-body::-webkit-scrollbar,
+    .topic-modal-card::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .topic-modal-body::-webkit-scrollbar-thumb,
+    .topic-modal-card::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--ink) 28%, transparent);
     }
 
     .topic-modal-body h3 {
       font-family: var(--f-display);
       font-weight: 700;
-      font-size: clamp(32px, 4vw, 48px);
+      font-size: clamp(30px, 3.4vw, 42px);
       line-height: 1.04;
       color: var(--ink);
     }
@@ -898,8 +947,8 @@
     .topic-modal-body p {
       margin-top: 18px;
       color: var(--ink-soft);
-      font-size: 18px;
-      line-height: 1.68;
+      font-size: 16.5px;
+      line-height: 1.58;
     }
 
     .topic-modal-close {
@@ -1270,6 +1319,10 @@
         padding-bottom: 34px;
       }
 
+      .intro::after {
+        content: none;
+      }
+
       .intro p {
         font-size: clamp(21px, 6.4vw, 28px);
         line-height: 1.3;
@@ -1327,7 +1380,10 @@
         width: min(360px, calc(100vw - 24px));
         max-height: calc(100vh - 24px);
         max-height: calc(100dvh - 24px);
-        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
         border-radius: 16px;
       }
 
@@ -1484,9 +1540,8 @@
         <span>Nokmali</span>
       </a>
       <div class="navlinks">
+        <a class="lk" href="#how-it-works">Approach</a>
         <a class="lk" href="#about">About me</a>
-        <a class="lk" href="#begin">How it works</a>
-        <a class="lk" href="#faq">Questions</a>
         <a class="lk tools-link" href="/tools/">Tools</a>
         <span class="language-switch" aria-label="Language">
           <a href="/" lang="en" aria-current="page">EN</a>
@@ -1518,10 +1573,12 @@
 
   <main>
     <div class="explore-flow">
-      <section class="block intro">
+      <section class="block intro" id="how-it-works">
         <div class="wrap inner">
-          <p>A space to explore the things that shape everyday life: food, habits, body signals, energy, tired places, priorities, and the rhythm of your days.</p>
-          <p>Life doesn't come in separate boxes like nutrition, stress, motherhood or habits. They constantly influence each other. Together we explore the areas that matter most to you and look for small, realistic changes that help you feel more energised, make room for what matters, and create a daily rhythm that supports you.</p>
+          <p>First, we make the full picture visible.</p>
+          <p>Life doesn’t come in separate boxes. The way you eat, rest, think, care, work and move through your day often affects everything else.</p>
+          <p>We look at what brings you here, what you want to move towards, why it matters and what keeps getting in the way. Not to judge it, but to understand what is happening now and what your habits, choices or reactions may be trying to solve.</p>
+          <p>From there, I help you hear yourself more clearly, hold the vision of what you want and find a way forward that feels honest, possible and yours. So your days can feel less like something you are getting through, and more like something you are choosing with more ease, freedom and trust in yourself.</p>
         </div>
       </section>
 
@@ -1531,46 +1588,46 @@
             <h2 class="title">What we might <em>look at</em> together.</h2>
           </div>
           <div class="things">
-          <article class="thing" tabindex="0" data-detail="Food is rarely only about food. We can look at meals, cravings, planning, hunger, energy dips, family rhythms, and the small practical choices that shape your day. The aim is not perfection, but a way of eating and organising daily life that feels calmer, more nourishing, and possible to keep.">
+          <article class="thing" tabindex="0" data-detail="When life is full, questions around what to eat, when to eat, what works for your body and how to stop ending up in the same rushed patterns can become another daily pressure. We can look at meals, cravings, hunger, meal preparation challenges and energy dips. I help you understand what works for you and find food routines that fit your life, support your energy and bring back more ease and joy around eating and preparation.">
             <div class="pic"><img src="art/IMG_7714.jpg" alt=""></div>
             <div class="txt">
-              <h3>Food &amp; daily rhythm</h3>
-              <p>A simpler way with meals, food choices, routines, and energy.</p>
+              <h3>Food &amp; rhythm</h3>
+              <p>Finding more ease, joy and confidence around food and everyday nourishment.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="Your body often notices things before your mind has words for them. Together we can explore tiredness, tension, hunger, restlessness, overwhelm, or other everyday body signals with curiosity rather than judgement, so they become useful information instead of background noise.">
+          <article class="thing" tabindex="0" data-detail="Your body often notices things before your mind has words for them. Tiredness, tension, hunger, restlessness or overwhelm can all carry information about what you need, what is too much or what no longer fits. In coaching, I help you listen to these signals with more curiosity and less judgement. Over time, this can become a quieter way of making choices around food, rest, movement, boundaries and daily rhythm. One where you feel less at war with yourself and more at home in your body.">
             <div class="pic"><img src="art/IMG_3401.jpg" alt=""></div>
             <div class="txt">
               <h3>Body signals</h3>
-              <p>Learning to recognise and respond to your body's signals with more care and curiosity.</p>
+              <p>Learning to listen to your body signals with curiosity, so they can support clearer choices.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="Change often becomes easier when it is small enough to meet your real life. We can look at what already works, what keeps getting in the way, and which next step is gentle, specific, and realistic enough to actually happen.">
+          <article class="thing" tabindex="0" data-detail="When life is already full, another strict plan usually does not last. Often, the real question is not only what you should do differently, but why you keep circling around the same attempts. In coaching, we look at what keeps pulling you back, what may be blocking you underneath the surface, and what already works in your life that could be expanded. Sometimes a shift in perspective opens something. Other times, there are conscious or unconscious reasons why change has felt harder than it “should”. I help you find habits and rhythms that do not feel like another project, but more like slowly coming back to yourself and building a life you actually want to keep returning to.">
             <div class="pic"><img class="pic-zoom" src="art/IMG_1774a-clean.jpg" alt="" style="object-position: 13% center;"></div>
             <div class="txt">
-              <h3>Habits &amp; small steps</h3>
-              <p>Small changes that fit your actual life.</p>
+              <h3>Habits &amp; routines</h3>
+              <p>Building habits and routines that make daily life feel like something you want to return to.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="Creativity and play can be more than hobbies. They can be ways back to aliveness, flexibility, and your own voice. In coaching, we may explore what gives you energy, what feels expressive, and where life has become too functional or tight.">
+          <article class="thing" tabindex="0" data-detail="When life is full, anything that does not look useful or urgent can easily fall to the bottom of the list. But play and open-ended creativity are not wasted time. They help you loosen perfectionism, enjoy the process again and express yourself without everything needing to be judged, finished or productive. In coaching, we can explore what helps you make space for that freer part of you, because creativity often supports much more than creativity itself.">
             <div class="pic"><img src="art/playdoo.jpeg" alt=""></div>
             <div class="txt">
-              <h3>Creativity and play</h3>
-              <p>Reconnecting with creativity, play, curiosity, and self-expression.</p>
+              <h3>Creativity &amp; play</h3>
+              <p>Creating space where you feel free again to create, express and play without needing an outcome, perfection or approval.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="Motherhood can change the shape of time, body, needs, ambition, relationships, and identity. We can make room for the honest mix of love, pressure, guilt, joy, fatigue, and longing, and explore who you are inside this chapter of life.">
+          <article class="thing" tabindex="0" data-detail="You can love being a mother and still miss yourself. Maybe your days are full of caring, planning and being needed, while your own needs, body, creativity or direction keep moving to the edges. In coaching, we can explore what motherhood means to you, not what it is supposed to look like. I help you find a way of mothering that feels more like yours, with more room to breathe, choose and still be you.">
             <div class="pic"><img src="art/IMG_4406.jpg" alt="" style="object-position: center top;"></div>
             <div class="txt">
               <h3>Motherhood &amp; identity</h3>
-              <p>Finding yourself inside a life that may have changed shape.</p>
+              <p>Finding your own way of being a mother, without losing the parts of you that also need space.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="Self-trust grows when you can hear yourself more clearly and take your own experience seriously. We can explore decisions, doubts, inner pressure, people-pleasing, or old expectations, so your choices begin to feel more grounded in what matters to you.">
+          <article class="thing" tabindex="0" data-detail="Self-trust grows when you can hear yourself more clearly and take your own experience seriously. We can explore decisions, doubts, inner pressure, people-pleasing and old expectations, so you can recognise your own yes, no and enough again.">
             <div class="pic"><img src="art/IMG_3381.jpg" alt=""></div>
             <div class="txt">
               <h3>Self-trust</h3>
-              <p>Hearing your own voice more clearly, and choosing from there.</p>
+              <p>Rebuilding self-trust when you have been pulled in many directions and forgotten what your own yes and no feel like.</p>
             </div>
           </article>
           </div>
@@ -1584,11 +1641,9 @@
           <div class="photo">
             <img src="art/IMG_2080.jpg" alt="Helene preparing food in a warm wooden kitchen">
           </div>
-          <p>I'm currently completing a Level 5 Diploma in Nutrition &amp; Health Coaching and continue to deepen my knowledge through study and practice. Together with my experience as a yoga teacher, engineer and mother, it shapes the way I support women in coaching.</p>
-          <p>I enjoy looking at things from different angles, asking good questions, and finding simple ways through complex situations. After more than fifteen years of living and working internationally, I know how much lives can move, stretch, and change.</p>
-          <p>Health, nutrition, creativity, body awareness and a workable daily rhythm are all connected for me. They are different parts of everyday life, and that's why they naturally come together in my coaching.</p>
-          <p>In coaching, we explore your habits, body signals, priorities, energy, and daily rhythms. We look at what is already there, what matters most to you, and what small changes could support you in everyday life.</p>
-          <p>I don&rsquo;t tell you who to become. I help you hear yourself more clearly through listening, meaningful questions, and practical support.</p>
+          <p>I'm currently completing a Level 5 Diploma in Nutrition &amp; Health Coaching and continue to deepen my knowledge through study and practice. Together with my experience as a yoga teacher, instrument engineer and mother, it shapes the way I support women in coaching.</p>
+          <p>After more than fifteen years of living and working internationally, I know how much life can move, stretch and change. I enjoy looking at things from different angles and finding clearer ways through situations that feel full, tangled or hard to name.</p>
+          <p>I don&rsquo;t tell you who to become. I help you hear yourself more clearly through listening, meaningful questions and practical support.</p>
         </div>
       </div>
     </section>
@@ -1683,7 +1738,7 @@
       <div class="foot-grid">
         <div>
           <span class="word">Nokmali</span>
-          <p class="tag2">Health, nutrition &amp; life rhythm coaching.</p>
+          <p class="tag2">Coaching for your health, nutrition, habits and daily rhythm.</p>
           <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
         </div>
       </div>

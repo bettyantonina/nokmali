@@ -212,6 +212,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 96px;
     }
 
     body {
@@ -641,10 +642,11 @@
     }
 
     .intro::after {
-      content: none;
+      content: "";
       position: absolute;
       inset: 0;
       z-index: 1;
+      background: linear-gradient(90deg, rgba(238, 235, 226, 0.44) 0%, rgba(238, 235, 226, 0.34) 68%, rgba(238, 235, 226, 0) 100%);
     }
 
     .intro p {
@@ -821,6 +823,30 @@
       transition: max-height 0.24s ease, margin-top 0.24s ease, opacity 0.22s ease, transform 0.22s ease;
     }
 
+    .thing p::after {
+      content: "";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 14px;
+      margin-left: 8px;
+      border: 1px solid color-mix(in srgb, var(--ink) 58%, transparent);
+      border-radius: 50%;
+      background: transparent;
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 18%, transparent);
+      vertical-align: middle;
+      transform: translateY(-1px);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .thing:hover p::after,
+    .thing:focus p::after {
+      border-color: color-mix(in srgb, var(--ink) 72%, transparent);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--gold) 28%, transparent);
+      transform: translateY(-1px) scale(1.06);
+    }
+
     .thing:hover .txt::after,
     .thing:focus .txt::after {
       opacity: 0;
@@ -829,7 +855,7 @@
 
     .thing:hover p,
     .thing:focus p {
-      max-height: 7em;
+      max-height: 12em;
       margin-top: 6px;
       opacity: 1;
       transform: translateY(0);
@@ -842,6 +868,8 @@
       display: grid;
       place-items: center;
       padding: 28px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
       background: rgba(39, 36, 32, 0.62);
       -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
@@ -858,9 +886,10 @@
     .topic-modal-card {
       position: relative;
       display: grid;
-      grid-template-columns: minmax(240px, 0.9fr) minmax(280px, 1.1fr);
-      width: min(920px, 100%);
+      grid-template-columns: minmax(220px, 0.8fr) minmax(360px, 1.2fr);
+      width: min(980px, 100%);
       max-height: min(760px, calc(100vh - 56px));
+      max-height: min(760px, calc(100dvh - 56px));
       overflow: hidden;
       border: 1px solid color-mix(in srgb, var(--line) 80%, white);
       border-radius: 22px;
@@ -875,7 +904,8 @@
     }
 
     .topic-modal-image {
-      min-height: 420px;
+      min-height: min(420px, calc(100vh - 56px));
+      min-height: min(420px, calc(100dvh - 56px));
       background: var(--teal-soft);
     }
 
@@ -886,14 +916,33 @@
     }
 
     .topic-modal-body {
-      overflow: auto;
-      padding: clamp(30px, 5vw, 54px);
+      min-width: 0;
+      min-height: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-gutter: stable;
+      scrollbar-color: color-mix(in srgb, var(--ink) 32%, transparent) transparent;
+      scrollbar-width: thin;
+      padding: clamp(28px, 4vw, 44px);
+    }
+
+    .topic-modal-body::-webkit-scrollbar,
+    .topic-modal-card::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .topic-modal-body::-webkit-scrollbar-thumb,
+    .topic-modal-card::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--ink) 28%, transparent);
     }
 
     .topic-modal-body h3 {
       font-family: var(--f-display);
       font-weight: 700;
-      font-size: clamp(32px, 4vw, 48px);
+      font-size: clamp(30px, 3.4vw, 42px);
       line-height: 1.04;
       color: var(--ink);
     }
@@ -901,8 +950,8 @@
     .topic-modal-body p {
       margin-top: 18px;
       color: var(--ink-soft);
-      font-size: 18px;
-      line-height: 1.68;
+      font-size: 16.5px;
+      line-height: 1.58;
     }
 
     .topic-modal-close {
@@ -1277,6 +1326,10 @@
         padding-bottom: 34px;
       }
 
+      .intro::after {
+        content: none;
+      }
+
       .intro p {
         font-size: clamp(21px, 6.4vw, 28px);
         line-height: 1.3;
@@ -1334,7 +1387,10 @@
         width: min(360px, calc(100vw - 24px));
         max-height: calc(100vh - 24px);
         max-height: calc(100dvh - 24px);
-        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
         border-radius: 16px;
       }
 
@@ -1484,9 +1540,8 @@
         <span>Nokmali</span>
       </a>
       <div class="navlinks">
+        <a class="lk" href="#ansatz">Ansatz</a>
         <a class="lk" href="#about">Über mich</a>
-        <a class="lk" href="#begin">So funktioniert es</a>
-        <a class="lk" href="#faq">Fragen</a>
         <a class="lk tools-link" href="/tools/">Tools</a>
         <span class="language-switch" aria-label="Sprache">
           <a href="../" lang="en">EN</a>
@@ -1518,10 +1573,12 @@
 
   <main>
     <div class="explore-flow">
-      <section class="block intro">
+      <section class="block intro" id="ansatz">
         <div class="wrap inner">
-          <p>Ein Raum, um zu erkunden, was deinen Alltag prägt: Ernährung, Gewohnheiten, Körpersignale, Energie, Prioritäten und der Rhythmus deiner Tage.</p>
-          <p>Das Leben kommt nicht in getrennten Schubladen daher wie Ernährung, Stress, Mutterschaft oder Gewohnheiten. Sie beeinflussen sich ständig gegenseitig. Gemeinsam erkunden wir die Bereiche, die dir am wichtigsten sind, und suchen nach kleinen, realistischen Veränderungen, die dir helfen, mehr Energie zu spüren, Raum für das Wesentliche zu schaffen und einen Tagesrhythmus zu entwickeln, der dich unterstützt.</p>
+          <p>Zuerst machen wir das ganze Bild sichtbar.</p>
+          <p>Das Leben kommt nicht in getrennten Schubladen. Wie du isst, dich ausruhst, denkst, dich kümmerst, arbeitest und durch deinen Tag gehst, beeinflusst oft alles andere.</p>
+          <p>Wir schauen darauf, was dich hierherführt, worauf du dich zubewegen möchtest, warum dir das wichtig ist und was dir immer wieder im Weg steht. Nicht, um es zu bewerten, sondern um zu verstehen, was gerade geschieht und was deine Gewohnheiten, Entscheidungen oder Reaktionen vielleicht zu lösen versuchen.</p>
+          <p>Von dort aus helfe ich dir, dich selbst klarer zu hören, deine Vorstellung davon, was du möchtest, im Blick zu behalten und einen Weg nach vorn zu finden, der sich ehrlich, möglich und nach dir anfühlt. Damit sich deine Tage weniger wie etwas anfühlen, das du irgendwie überstehst, und mehr wie etwas, für das du dich mit mehr Leichtigkeit, Freiheit und Vertrauen in dich selbst entscheidest.</p>
         </div>
       </section>
 
@@ -1531,46 +1588,46 @@
             <h2 class="title">Was wir gemeinsam <em>anschauen</em> können.</h2>
           </div>
           <div class="things">
-          <article class="thing" tabindex="0" data-detail="Fühlt sich Essen und Ernährung in deinem Alltag nicht so mühelos an, wie du es dir wünschst? Hier kann es um Mahlzeitenplanung, (Heiß-)Hunger, Energietiefs, den Familientisch und die kleinen Entscheidungen gehen, die jeden Tag wiederkommen. Wir suchen nach Wegen, mit denen deine Ernährung überwiegend gesund, machbar und entspannter wird, ohne dass alles perfekt laufen muss.">
+          <article class="thing" tabindex="0" data-detail="Wenn das Leben voll ist, können Fragen rund ums Essen zu einem weiteren Druck im Alltag werden: was und wann du essen sollst, was deinem Körper guttut und wie du nicht immer wieder in dieselben hektischen Muster gerätst. Wir können uns Mahlzeiten, Heißhunger, Hunger, Herausforderungen bei der Essenszubereitung und Energietiefs anschauen. Ich helfe dir zu verstehen, was für dich funktioniert, und Essensroutinen zu finden, die zu deinem Leben passen, deine Energie unterstützen und wieder mehr Leichtigkeit und Freude in deinen Umgang mit Essen und Zubereitung bringen.">
             <div class="pic"><img src="../art/IMG_7714.jpg" alt=""></div>
             <div class="txt">
-              <h3>Ernährung &amp; Tagesrhythmus</h3>
-              <p>Ein einfacherer Umgang mit Mahlzeiten, Lebensmittelauswahl, Routinen und Energie.</p>
+              <h3>Ernährung &amp; Rhythmus</h3>
+              <p>Mehr Leichtigkeit, Freude und Sicherheit im Umgang mit Essen und alltäglicher Ernährung finden.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="Vielleicht merkst du erst spät, dass du hungrig, erschöpft, angespannt oder längst über deine Grenze bist. Wir können anschauen, welche alltäglichen Körpersignale dein Körper dir gibt, was sie auslöst und welche kleinen Pausen, Mahlzeiten, Bewegungen oder Entscheidungen dir helfen, früher gegenzusteuern.">
+          <article class="thing" tabindex="0" data-detail="Dein Körper bemerkt Dinge oft, bevor dein Verstand Worte dafür findet. Müdigkeit, Anspannung, Hunger, Unruhe oder Überforderung können dir Hinweise darauf geben, was du brauchst, was zu viel ist oder was nicht mehr passt. Im Coaching helfe ich dir, diesen Signalen mit mehr Neugier und weniger Bewertung zuzuhören. Mit der Zeit kann daraus eine ruhigere Art entstehen, Entscheidungen rund um Essen, Ruhe, Bewegung, Grenzen und deinen Tagesrhythmus zu treffen. Eine, bei der du weniger gegen dich selbst kämpfst und dich in deinem Körper mehr zu Hause fühlst.">
             <div class="pic"><img src="../art/IMG_3401.jpg" alt=""></div>
             <div class="txt">
               <h3>Körpersignale</h3>
-              <p>Die Signale deines Körpers achtsamer wahrnehmen und neugierig mit ihnen umgehen.</p>
+              <p>Lernen, deinen Körpersignalen neugierig zuzuhören, damit sie dich bei klareren Entscheidungen unterstützen können.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="Du weißt eigentlich, was dir guttun würde, aber im echten Alltag rutscht es immer wieder weg? Dann schauen wir nicht nach noch mehr Disziplin, sondern nach kleineren Schritten, festen Momenten im Tag und einem Plan B für volle Tage. So können neue Gewohnheiten entstehen, die zu deiner Woche, deiner Energie und deiner Familie passen.">
+          <article class="thing" tabindex="0" data-detail="Wenn das Leben schon voll ist, hält ein weiterer strenger Plan meist nicht lange. Oft ist die eigentliche Frage nicht nur, was du anders machen solltest, sondern warum du immer wieder um dieselben Versuche kreist. Im Coaching schauen wir darauf, was dich immer wieder zurückzieht, was dich unter der Oberfläche blockieren könnte und was in deinem Leben bereits funktioniert und ausgebaut werden könnte. Manchmal bringt ein Perspektivwechsel etwas in Bewegung. Ein anderes Mal gibt es bewusste oder unbewusste Gründe dafür, dass Veränderung sich schwieriger angefühlt hat, als sie „sollte“. Ich helfe dir, Gewohnheiten und Rhythmen zu finden, die sich nicht wie ein weiteres Projekt anfühlen, sondern dich langsam zu dir selbst zurückführen und dir helfen, ein Leben aufzubauen, zu dem du wirklich immer wieder gerne zurückkehrst.">
             <div class="pic"><img class="pic-zoom" src="../art/IMG_1774a-clean.jpg" alt="" style="object-position: 13% center;"></div>
             <div class="txt">
-              <h3>Gewohnheiten &amp; kleine Schritte</h3>
-              <p>Kleine Veränderungen, die wirklich in dein Leben passen.</p>
+              <h3>Gewohnheiten &amp; Routinen</h3>
+              <p>Gewohnheiten und Routinen aufbauen, die den Alltag zu etwas machen, zu dem du gerne zurückkehrst.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="Wenn der Alltag vor allem funktionieren muss, bleibt Spiel oft als Erstes liegen. Vielleicht fehlt dir Raum für Leichtigkeit, Ideen, Malen, Bewegung oder einfach etwas, das nur dir gehört. Wir schauen, wie Kreativität wieder einen Platz bekommen kann, nicht als Extra-Aufgabe, sondern als Quelle von Energie, Ausdruck und Freude.">
+          <article class="thing" tabindex="0" data-detail="Wenn das Leben voll ist, rutscht alles, was nicht nützlich oder dringend wirkt, schnell ans Ende der Liste. Doch Spiel und ergebnisoffene Kreativität sind keine verschwendete Zeit. Sie helfen dir, Perfektionismus zu lockern, wieder Freude am Prozess zu finden und dich auszudrücken, ohne dass alles beurteilt, fertiggestellt oder produktiv sein muss. Im Coaching können wir erkunden, was dir hilft, Raum für diesen freieren Teil von dir zu schaffen, denn Kreativität unterstützt oft weit mehr als nur die Kreativität selbst.">
             <div class="pic"><img src="../art/playdoo.jpeg" alt=""></div>
             <div class="txt">
               <h3>Kreativität &amp; Spiel</h3>
-              <p>Wieder Zugang zu Kreativität, Spiel, Neugier und deinem eigenen Ausdruck finden.</p>
+              <p>Raum schaffen, in dem du wieder frei gestalten, dich ausdrücken und spielen kannst, ohne dass es dafür ein Ergebnis, Perfektion oder Anerkennung braucht.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="Mutterschaft kann wunderschön sein und gleichzeitig viel von dir verlangen. Vielleicht fragst du dich, wo du selbst geblieben bist, wie deine Bedürfnisse Platz haben dürfen oder wie du mit Schuldgefühlen, Müdigkeit und Erwartungen umgehen kannst. Wir sortieren, was gerade wirklich wichtig ist, damit du dich in dieser Rolle nicht verlierst.">
+          <article class="thing" tabindex="0" data-detail="Du kannst es lieben, Mutter zu sein, und dich trotzdem selbst vermissen. Vielleicht sind deine Tage voller Fürsorge und Planung und du wirst ständig gebraucht, während deine eigenen Bedürfnisse, dein Körper, deine Kreativität oder deine Richtung immer weiter an den Rand rücken. Im Coaching können wir erkunden, was Mutterschaft für dich bedeutet, statt uns daran zu orientieren, wie sie vermeintlich aussehen sollte. Ich helfe dir, eine Art des Mutterseins zu finden, die sich mehr nach deiner anfühlt, mit mehr Raum zum Atmen, für eigene Entscheidungen und dafür, weiterhin du selbst zu sein.">
             <div class="pic"><img src="../art/IMG_4406.jpg" alt="" style="object-position: center top;"></div>
             <div class="txt">
               <h3>Mutterschaft &amp; Identität</h3>
-              <p>Dich in einem Leben wiederfinden, das vielleicht eine neue Form angenommen hat.</p>
+              <p>Deinen eigenen Weg als Mutter finden, ohne die Teile von dir zu verlieren, die ebenfalls Raum brauchen.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="Wenn vieles gleichzeitig zieht, wird die eigene Stimme manchmal leise. Es kann um Entscheidungen, Zweifel, inneren Druck, das Gefühl, es allen recht machen zu müssen, oder alte Erwartungen gehen. Wir bringen Ordnung in das, was in dir los ist, damit du klarer spürst, was wirklich deins ist und welcher nächste Schritt für dich passt.">
+          <article class="thing" tabindex="0" data-detail="Vertrauen in dich selbst wächst, wenn du dich klarer hören und deine eigene Erfahrung ernst nehmen kannst. Wir können Entscheidungen, Zweifel, inneren Druck, den Wunsch, es allen recht zu machen, und alte Erwartungen erkunden, damit du dein eigenes Ja, Nein und Genug wieder erkennst.">
             <div class="pic"><img src="../art/IMG_3381.jpg" alt=""></div>
             <div class="txt">
-              <h3>Innere Klarheit</h3>
-              <p>Deine eigene Stimme klarer hören und von dort aus Entscheidungen treffen.</p>
+              <h3>Selbstvertrauen</h3>
+              <p>Vertrauen in dich selbst wiederfinden, wenn vieles gleichzeitig an dir zieht und du dein eigenes Ja und Nein kaum noch spürst.</p>
             </div>
           </article>
           </div>
@@ -1585,10 +1642,8 @@
             <img src="../art/IMG_2080.jpg" alt="Helene bereitet Essen in einer warmen Holzküche zu">
           </div>
           <p>Ich absolviere derzeit ein Level 5 Diploma in Nutrition &amp; Health Coaching und vertiefe mein Wissen fortlaufend durch Lernen und Praxis. Zusammen mit meiner Erfahrung als Yogalehrerin, Ingenieurin und Mutter prägt es die Art, wie ich Frauen im Coaching unterstütze.</p>
-          <p>Ich betrachte Dinge gern aus verschiedenen Blickwinkeln, stelle gute Fragen und suche einfache Wege durch komplexe Situationen. Mehr als fünfzehn Jahre internationales Leben und Arbeiten haben mir gezeigt, wie sehr sich ein Leben bewegen, füllen und verändern kann.</p>
-          <p>Gesundheit, Ernährung, Kreativität, Körperwahrnehmung und ein alltagstauglicher Tagesrhythmus sind für mich miteinander verbunden. Sie sind verschiedene Teile des Alltags, und genau deshalb kommen sie in meinem Coaching auf natürliche Weise zusammen.</p>
-          <p>Im Coaching erkunden wir deine Gewohnheiten, Körpersignale, Prioritäten, Energie und deinen Alltag. Wir schauen darauf, was bereits da ist, was dir wirklich wichtig ist und welche kleinen Veränderungen dich im Alltag unterstützen könnten.</p>
-          <p>Ich sage dir nicht, wer du werden sollst. Ich höre zu, stelle klare Fragen und unterstütze dich dabei, dich selbst wieder deutlicher zu hören.</p>
+          <p>Nach mehr als fünfzehn Jahren, in denen ich international gelebt und gearbeitet habe, weiß ich, wie sehr sich das Leben bewegen, weiten und verändern kann. Ich betrachte Dinge gern aus verschiedenen Blickwinkeln und finde klarere Wege durch Situationen, die sich voll, verworren oder schwer benennbar anfühlen.</p>
+          <p>Ich sage dir nicht, wer du werden sollst. Ich helfe dir, dich selbst klarer zu hören durch Zuhören, bedeutungsvolle Fragen und praktische Unterstützung.</p>
         </div>
       </div>
     </section>
@@ -1683,7 +1738,7 @@
       <div class="foot-grid">
         <div>
           <span class="word">Nokmali</span>
-          <p class="tag2">Coaching für Gesundheit, Ernährung &amp; Lebensrhythmus.</p>
+          <p class="tag2">Coaching für deine Gesundheit, Ernährung, Gewohnheiten und deinen Tagesrhythmus.</p>
           <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen <span class="arr" aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
