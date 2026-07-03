@@ -622,7 +622,7 @@
       --approach-top-space: clamp(72px, 7.5vw, 124px);
       z-index: 2;
       isolation: isolate;
-      min-height: calc(66.667vw + var(--approach-top-space));
+      min-height: max(760px, calc(61vw + var(--approach-top-space)));
       background-color: #F1E9DE;
       background-image: url("art/approachnew.png");
       background-position: center bottom;
@@ -694,19 +694,19 @@
     }
 
     .intro .approach-part:nth-child(1) {
-      top: calc(var(--approach-top-space) + 17.3vw - 1.7rem);
+      top: calc(var(--approach-top-space) + 16.2vw - 1.5rem);
       left: 11.8%;
       width: 27%;
     }
 
     .intro .approach-part:nth-child(2) {
-      top: calc(var(--approach-top-space) + 35.6vw - 2.7rem);
+      top: calc(var(--approach-top-space) + 32.8vw - 2.3rem);
       left: 45.2%;
       width: 33%;
     }
 
     .intro .approach-part:nth-child(3) {
-      top: calc(var(--approach-top-space) + 51.33vw - 1.7rem);
+      top: calc(var(--approach-top-space) + 47.4vw - 1.4rem);
       left: 17%;
       width: 33%;
     }
@@ -854,6 +854,11 @@
       object-fit: cover;
       filter: saturate(0.72) contrast(0.93) brightness(0.98) sepia(0.06);
       transition: transform 0.5s ease;
+    }
+
+    .self-trust .pic img {
+      filter: saturate(0.42) contrast(0.9) brightness(1.03) sepia(0.1);
+      opacity: 0.92;
     }
 
     .thing:hover .pic img,
@@ -1170,7 +1175,7 @@
         min-height: 100%;
         margin-top: 0;
         pointer-events: none;
-        background: url("art/desktopaboutme-route-only.png") 44% calc(50% + 40px) / auto 100% no-repeat;
+        background: url("art/desktopaboutme-route-only.png") 50% calc(50% + 24px) / auto 88% no-repeat;
       }
 
       .about-copy::after {
@@ -1492,7 +1497,7 @@
         --approach-top-space: 0px;
         min-height: 0;
         aspect-ratio: auto;
-        padding: 42px 0 58px;
+        padding: 36px 0 48px;
         background-image:
           linear-gradient(rgba(241, 233, 222, 0.72), rgba(241, 233, 222, 0.72)),
           url("art/approachnew.png");
@@ -1514,7 +1519,7 @@
       .intro .approach-intro {
         position: static;
         width: auto;
-        margin-top: 22px;
+        margin-top: 18px;
         font-size: 17px;
       }
 
@@ -1522,8 +1527,8 @@
         position: static;
         display: grid;
         grid-template-columns: 1fr;
-        gap: 32px;
-        margin-top: 34px;
+        gap: 27px;
+        margin-top: 29px;
       }
 
       .intro .approach-part:nth-child(n) {
@@ -1614,7 +1619,7 @@
         --approach-top-space: 0px;
         min-height: 0;
         aspect-ratio: auto;
-        padding: 42px 0 58px;
+        padding: 36px 0 48px;
         background-image:
           linear-gradient(rgba(241, 233, 222, 0.72), rgba(241, 233, 222, 0.72)),
           url("art/approachnew.png");
@@ -1636,7 +1641,7 @@
       .intro .approach-intro {
         position: static;
         width: auto;
-        margin-top: 22px;
+        margin-top: 18px;
         font-size: 17px;
       }
 
@@ -1644,8 +1649,8 @@
         position: static;
         display: grid;
         grid-template-columns: 1fr;
-        gap: 32px;
-        margin-top: 34px;
+        gap: 27px;
+        margin-top: 29px;
       }
 
       .intro .approach-part:nth-child(n) {
@@ -1829,6 +1834,21 @@
     @media (max-width: 540px) {
       .things {
         grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+      }
+
+      .thing.text-led {
+        min-height: 195px;
+        height: 195px;
+      }
+
+      .thing.text-led .txt {
+        justify-content: flex-start;
+        padding: 20px 20px 38px;
+      }
+
+      .thing.text-led .txt::before {
+        margin-bottom: 12px;
       }
     }
 
