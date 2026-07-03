@@ -624,7 +624,7 @@
       isolation: isolate;
       min-height: calc(66.667vw + var(--approach-top-space));
       background-color: #F1E9DE;
-      background-image: url("art/Approach.jpg");
+      background-image: url("art/approachnew.png");
       background-position: center bottom;
       background-repeat: no-repeat;
       background-size: 100% auto;
@@ -741,71 +741,97 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       grid-auto-rows: 1fr;
       align-items: stretch;
-      gap: 22px;
+      gap: 28px;
     }
 
     .thing {
-      --card-tone: #DDD5C3;
-      --explore-color: #D9C2D3;
+      --card-tone: #F1EBDD;
       display: flex;
       flex-direction: column;
       min-width: 0;
+      min-height: 390px;
       height: 100%;
       background: var(--card-tone);
-      border: 1px solid color-mix(in srgb, var(--card-tone) 58%, rgba(58, 54, 64, 0.16));
-      border-radius: 12px;
-      padding: 10px;
+      border: 1px solid rgba(85, 76, 65, 0.13);
+      border-radius: 10px;
+      padding: 9px;
+      box-shadow: 0 14px 34px -32px rgba(49, 43, 37, 0.42);
       cursor: pointer;
-      transition: transform 0.25s, box-shadow 0.25s;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
-    .thing:nth-child(2) {
-      --card-tone: #DED4C5;
+    .thing.text-led {
+      --card-tone: #F4EFE5;
     }
 
-    .thing:nth-child(3) {
-      --card-tone: #DAD3CD;
+    .thing.text-led:nth-child(3n) {
+      --card-tone: #EEE5D7;
     }
 
-    .thing:nth-child(4) {
-      --card-tone: #E1DFD9;
+    .thing.image-card {
+      --card-tone: #F0EADD;
     }
 
-    .thing:nth-child(5) {
-      --card-tone: #CFCFC6;
-    }
+    @media (min-width: 881px) {
+      .things {
+        grid-template-rows: 210px 28px 182px 28px 210px;
+        grid-auto-rows: auto;
+        row-gap: 0;
+      }
 
-    .thing:nth-child(6) {
-      --card-tone: #E0D2C8;
-    }
+      .thing {
+        min-height: 0;
+      }
 
-    .thing:nth-child(1),
-    .thing:nth-child(3),
-    .thing:nth-child(4),
-    .thing:nth-child(6) {
-      --explore-color: #587875;
-    }
+      .food-rhythm {
+        grid-column: 1;
+        grid-row: 1;
+      }
 
-    .thing:nth-child(1) {
-      --explore-color: #3550A3;
-    }
+      .body-signals {
+        grid-column: 2;
+        grid-row: 1 / 4;
+      }
 
-    .thing:nth-child(2) {
-      --explore-color: #FFFFFF;
-    }
+      .habits-routines {
+        grid-column: 3;
+        grid-row: 1;
+      }
 
-    .thing:nth-child(4) {
-      --explore-color: #FFFFFF;
-    }
+      .self-trust {
+        grid-column: 1;
+        grid-row: 3 / 6;
+      }
 
-    .thing:nth-child(6) {
-      --explore-color: #FFFFFF;
+      .creativity-play {
+        grid-column: 2;
+        grid-row: 5;
+      }
+
+      .motherhood-identity {
+        grid-column: 3;
+        grid-row: 3 / 6;
+      }
+
+      .thing.text-led .txt {
+        padding: 22px 27px 42px;
+      }
+
+      .thing.text-led .txt::before {
+        margin-bottom: 14px;
+      }
+
+      .thing.text-led p {
+        line-height: 1.5;
+      }
     }
 
     .thing:hover,
     .thing:focus {
-      box-shadow: 0 24px 44px -28px rgba(39, 36, 32, 0.5);
-      transform: translateY(-5px);
+      border-color: rgba(85, 76, 65, 0.2);
+      box-shadow: 0 20px 38px -30px rgba(39, 36, 32, 0.4);
+      transform: translateY(-3px);
     }
 
     .thing:focus {
@@ -816,15 +842,17 @@
     .thing .pic {
       position: relative;
       flex: none;
-      aspect-ratio: 4.5 / 3;
+      aspect-ratio: 3 / 2;
       overflow: hidden;
-      border-radius: 8px 8px 0 0;
+      border-radius: 6px 6px 0 0;
+      background: #E6DED1;
     }
 
     .thing .pic img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      filter: saturate(0.72) contrast(0.93) brightness(0.98) sepia(0.06);
       transition: transform 0.5s ease;
     }
 
@@ -846,9 +874,27 @@
       position: relative;
       flex: 1;
       min-height: 0;
-      padding: 20px 22px 22px;
+      padding: 24px 24px 48px;
       background: var(--card-tone);
-      border-radius: 0 0 8px 8px;
+      border-radius: 0 0 6px 6px;
+    }
+
+    .thing.text-led .txt {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 42px 34px 58px;
+      border-radius: 6px;
+    }
+
+    .thing.text-led .txt::before {
+      content: "";
+      width: 46px;
+      height: 9px;
+      margin-bottom: 27px;
+      border-top: 1px solid rgba(133, 91, 73, 0.44);
+      border-radius: 50%;
+      transform: rotate(-2deg) skewX(-14deg);
     }
 
     .thing h3 {
@@ -861,13 +907,24 @@
     }
 
     .thing .txt::after {
-      content: "\2022\00a0\2022\00a0\2022";
-      display: none;
-      margin-top: 4px;
-      color: var(--beige);
-      font-size: 22px;
-      letter-spacing: 0.18em;
-      line-height: 1;
+      content: "Explore";
+      display: inline-flex;
+      position: absolute;
+      right: 18px;
+      bottom: 14px;
+      align-items: center;
+      justify-content: center;
+      padding: 3px 9px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      color: var(--accent);
+      font-family: var(--f-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1.2;
+      opacity: 0;
+      transform: translateY(3px);
       transition: opacity 0.2s, transform 0.2s;
     }
 
@@ -882,40 +939,10 @@
       transition: max-height 0.24s ease, margin-top 0.24s ease, opacity 0.22s ease, transform 0.22s ease;
     }
 
-    .thing .pic::after {
-      content: "Explore";
-      display: inline-flex;
-      position: absolute;
-      z-index: 1;
-      top: 50%;
-      left: 50%;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      color: var(--explore-color);
-      font-family: var(--f-display);
-      font-size: clamp(34px, 4.5vw, 52px);
-      font-weight: 700;
-      line-height: 1.2;
-      opacity: 0;
-      white-space: nowrap;
-      transform: translate(-50%, -44%);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .thing:hover .pic::after,
-    .thing:focus .pic::after {
-      opacity: 1;
-      transform: translate(-50%, -50%);
-    }
-
     .thing:hover .txt::after,
     .thing:focus .txt::after {
-      opacity: 0;
-      transform: translateY(-3px);
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .thing:hover p,
@@ -966,6 +993,15 @@
 
     .topic-modal.open .topic-modal-card {
       transform: translateY(0) scale(1);
+    }
+
+    .topic-modal-card.text-only {
+      grid-template-columns: minmax(0, 1fr);
+      width: min(650px, 100%);
+    }
+
+    .topic-modal-card.text-only .topic-modal-image {
+      display: none;
     }
 
     .topic-modal-image {
@@ -1459,7 +1495,7 @@
         padding: 42px 0 58px;
         background-image:
           linear-gradient(rgba(241, 233, 222, 0.72), rgba(241, 233, 222, 0.72)),
-          url("art/Approach.jpg");
+          url("art/approachnew.png");
         background-position: center, center bottom;
         background-size: auto, auto 100%;
       }
@@ -1581,7 +1617,7 @@
         padding: 42px 0 58px;
         background-image:
           linear-gradient(rgba(241, 233, 222, 0.72), rgba(241, 233, 222, 0.72)),
-          url("art/Approach.jpg");
+          url("art/approachnew.png");
         background-position: center, center bottom;
         background-size: auto, auto 100%;
       }
@@ -2055,46 +2091,43 @@
             <h2 class="title">What we can <em>work on</em> together.</h2>
           </div>
           <div class="things">
-          <article class="thing" tabindex="0" data-detail="When life is full, questions around what to eat, when to eat, what works for your body and how to stop ending up in the same rushed patterns can become another daily pressure. We can look at meals, cravings, hunger, meal preparation challenges and energy dips. I help you understand what works for you and find food routines that fit your life, support your energy and bring back more ease and joy around eating and preparation.">
-            <div class="pic"><img src="art/IMG_7714.jpg" alt=""></div>
+          <article class="thing text-led food-rhythm" tabindex="0" data-detail="When life is full, questions around what to eat, when to eat, what works for your body and how to stop ending up in the same rushed patterns can become another daily pressure. We can look at meals, cravings, hunger, meal preparation challenges and energy dips. I help you understand what works for you and find food routines that fit your life, support your energy and bring back more ease and joy around eating and preparation.">
             <div class="txt">
               <h3>Food &amp; rhythm</h3>
               <p>Finding more ease, joy and confidence around food and everyday nourishment.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="Your body often notices things before your mind has words for them. Tiredness, tension, hunger, restlessness or overwhelm can all carry information about what you need, what is too much or what no longer fits. In coaching, I help you listen to these signals with more curiosity and less judgement. Over time, this can become a quieter way of making choices around food, rest, movement, boundaries and daily rhythm. One where you feel less at war with yourself and more at home in your body.">
+          <article class="thing image-card body-signals" tabindex="0" data-detail="Your body often notices things before your mind has words for them. Tiredness, tension, hunger, restlessness or overwhelm can all carry information about what you need, what is too much or what no longer fits. In coaching, I help you listen to these signals with more curiosity and less judgement. Over time, this can become a quieter way of making choices around food, rest, movement, boundaries and daily rhythm. One where you feel less at war with yourself and more at home in your body.">
             <div class="pic"><img src="art/IMG_3401.jpg" alt=""></div>
             <div class="txt">
               <h3>Body signals</h3>
               <p>Learning to listen to tiredness, cravings, tension and energy with more curiosity, so they can guide clearer choices.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="When life is already full, another strict plan usually does not last. Often, the real question is not only what you should do differently, but why you keep circling around the same attempts. In coaching, we look at what keeps pulling you back, what may be blocking you underneath the surface, and what already works in your life that could be expanded. Sometimes a shift in perspective opens something. Other times, there are conscious or unconscious reasons why change has felt harder than it “should”. I help you find habits and rhythms that do not feel like another project, but more like slowly coming back to yourself and building a life you actually want to keep returning to.">
-            <div class="pic"><img class="pic-zoom" src="art/IMG_1774a-clean.jpg" alt="" style="object-position: 13% center;"></div>
+          <article class="thing text-led habits-routines" tabindex="0" data-detail="When life is already full, another strict plan usually does not last. Often, the real question is not only what you should do differently, but why you keep circling around the same attempts. In coaching, we look at what keeps pulling you back, what may be blocking you underneath the surface, and what already works in your life that could be expanded. Sometimes a shift in perspective opens something. Other times, there are conscious or unconscious reasons why change has felt harder than it “should”. I help you find habits and rhythms that do not feel like another project, but more like slowly coming back to yourself and building a life you actually want to keep returning to.">
             <div class="txt">
               <h3>Habits &amp; routines</h3>
               <p>Building habits and routines that make daily life feel like something you want to return to.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="When life is full, anything that does not look useful or urgent can easily fall to the bottom of the list. But play and open-ended creativity are not wasted time. They help you loosen perfectionism, enjoy the process again and express yourself without everything needing to be judged, finished or productive. In coaching, we can explore what helps you make space for that freer part of you, because creativity often supports much more than creativity itself.">
-            <div class="pic"><img src="art/playdoo.jpeg" alt=""></div>
+          <article class="thing image-card self-trust" tabindex="0" data-detail="Self-trust grows when you can hear yourself more clearly and take your own experience seriously. We can explore decisions, doubts, inner pressure, people-pleasing and old expectations, so you can recognise your own yes, no and enough again.">
+            <div class="pic"><img src="art/IMG_3381.jpg" alt=""></div>
+            <div class="txt">
+              <h3>Self-trust</h3>
+              <p>Rebuilding self-trust when you have been pulled in many directions and forgotten what your own yes and no feel like.</p>
+            </div>
+          </article>
+          <article class="thing text-led creativity-play" tabindex="0" data-detail="When life is full, anything that does not look useful or urgent can easily fall to the bottom of the list. But play and open-ended creativity are not wasted time. They help you loosen perfectionism, enjoy the process again and express yourself without everything needing to be judged, finished or productive. In coaching, we can explore what helps you make space for that freer part of you, because creativity often supports much more than creativity itself.">
             <div class="txt">
               <h3>Creativity &amp; play</h3>
               <p>Creating space to express freely, play and make things without needing perfection or approval.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="You can love being a mother and still miss yourself. Maybe your days are full of caring, planning and being needed, while your own needs, body, creativity or direction keep moving to the edges. In coaching, we can explore what motherhood means to you, not what it is supposed to look like. I help you find a way of mothering that feels more like yours, with more room to breathe, choose and still be you.">
+          <article class="thing image-card motherhood-identity" tabindex="0" data-detail="You can love being a mother and still miss yourself. Maybe your days are full of caring, planning and being needed, while your own needs, body, creativity or direction keep moving to the edges. In coaching, we can explore what motherhood means to you, not what it is supposed to look like. I help you find a way of mothering that feels more like yours, with more room to breathe, choose and still be you.">
             <div class="pic"><img src="art/IMG_4406.jpg" alt="" style="object-position: center top;"></div>
             <div class="txt">
               <h3>Motherhood &amp; identity</h3>
               <p>Finding your own way of being a mother, without losing the parts of you that also need space.</p>
-            </div>
-          </article>
-          <article class="thing" tabindex="0" data-detail="Self-trust grows when you can hear yourself more clearly and take your own experience seriously. We can explore decisions, doubts, inner pressure, people-pleasing and old expectations, so you can recognise your own yes, no and enough again.">
-            <div class="pic"><img src="art/IMG_3381.jpg" alt=""></div>
-            <div class="txt">
-              <h3>Self-trust</h3>
-              <p>Rebuilding self-trust when you have been pulled in many directions and forgotten what your own yes and no feel like.</p>
             </div>
           </article>
           </div>
@@ -2242,6 +2275,7 @@
     const topicModalText = document.getElementById("topic-modal-text");
     const topicModalImg = document.getElementById("topic-modal-img");
     const topicModalClose = topicModal?.querySelector(".topic-modal-close");
+    const topicModalCard = topicModal?.querySelector(".topic-modal-card");
     let lastTopicTrigger = null;
 
     function openTopicModal(card) {
@@ -2256,6 +2290,7 @@
       topicModalText.textContent = text;
       topicModalImg.src = img?.getAttribute("src") || "";
       topicModalImg.alt = img?.getAttribute("alt") || title;
+      topicModalCard?.classList.toggle("text-only", !img);
       topicModal.classList.add("open");
       topicModal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
