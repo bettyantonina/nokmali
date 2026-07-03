@@ -1085,6 +1085,97 @@
       font-weight: 600;
     }
 
+    @media (min-width: 881px) {
+      section.block.topics-section {
+        padding-bottom: 20px;
+      }
+
+      .about {
+        height: clamp(560px, 56.01vw, 941px);
+        padding: 0;
+        background-color: #F1E9DE;
+        background-image: url("../art/desktopaboutme-matched.png");
+        background-position: center calc(50% + 16px);
+        background-size: 85% auto;
+        background-repeat: no-repeat;
+      }
+
+      .about-grid,
+      .about-copy {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+      }
+
+      .about-grid {
+        padding: 0 clamp(54px, 8.5vw, 164px);
+      }
+
+      .about-copy {
+        position: relative;
+        padding-top: clamp(10px, 1.4vw, 24px);
+      }
+
+      .about-copy .eyebrow,
+      .about-copy .title,
+      .about p {
+        width: 32%;
+        max-width: 500px;
+      }
+
+      .about .photo {
+        position: absolute;
+        z-index: 1;
+        top: 23%;
+        right: 19%;
+        float: none;
+        width: clamp(215px, 18vw, 330px);
+        margin: 0;
+        border: 0;
+        border-radius: 17px;
+        box-shadow: 0 28px 54px -30px rgba(39, 36, 32, 0.65);
+        shape-outside: none;
+      }
+
+      .about .photo img {
+        border-radius: 12px;
+      }
+
+      .about p {
+        font-size: clamp(15px, 1.18vw, 18px);
+        line-height: 1.58;
+      }
+    }
+
+    @media (min-width: 881px) and (max-width: 1199px) {
+      .about {
+        background-position: 72% calc(50% + 12px);
+        background-size: 72% auto;
+      }
+
+      .about-grid {
+        padding-right: 6%;
+        padding-left: 6%;
+      }
+
+      .about-copy .eyebrow,
+      .about-copy .title,
+      .about p {
+        width: 43%;
+        max-width: 430px;
+      }
+
+      .about .photo {
+        right: 18%;
+        width: clamp(138px, 15vw, 178px);
+      }
+
+      .about p {
+        font-size: clamp(14px, 1.4vw, 16px);
+        line-height: 1.52;
+      }
+    }
+
     .begin {
       background: var(--accent);
       color: #F1EEE6;
@@ -1701,6 +1792,51 @@
       }
     }
 
+    /* Keep the About doodles visible when the desktop composition no longer fits. */
+    @media (max-width: 880px) {
+      section.block.topics-section {
+        padding-bottom: 18px;
+      }
+
+      section.block.about {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        padding-top: clamp(112px, 30vw, 264px);
+        padding-bottom: clamp(104px, 26vw, 229px);
+        background: #F1E9DE;
+      }
+
+      .about::before,
+      .about::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100vw;
+        z-index: 0;
+        pointer-events: none;
+        background-image: url("../art/mobile-about-doodles-v6.png");
+        background-repeat: no-repeat;
+        background-size: 100vw auto;
+      }
+
+      .about::before {
+        top: 0;
+        height: clamp(112px, 30vw, 264px);
+        background-position: center -12vw;
+      }
+
+      .about::after {
+        bottom: 0;
+        height: clamp(104px, 26vw, 229px);
+        background-position: center calc(100% + 22vw);
+      }
+
+      .about-grid {
+        z-index: 1;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .hero-art video {
         display: none;
@@ -1784,7 +1920,7 @@
         </div>
       </section>
 
-      <section class="block">
+      <section class="block topics-section">
         <div class="wrap">
           <div class="things-head">
             <h2 class="title">Woran wir gemeinsam <em>arbeiten</em> können.</h2>

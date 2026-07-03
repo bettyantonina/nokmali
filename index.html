@@ -1799,6 +1799,47 @@
       }
     }
 
+    /* Keep the About doodles visible when the desktop composition no longer fits. */
+    @media (max-width: 880px) {
+      section.block.about {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        padding-top: clamp(132px, 36vw, 317px);
+        padding-bottom: clamp(190px, 48vw, 422px);
+        background: #F1E9DE;
+      }
+
+      .about::before,
+      .about::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100vw;
+        z-index: 0;
+        pointer-events: none;
+        background-image: url("art/mobile-about-doodles-v6.png");
+        background-repeat: no-repeat;
+        background-size: 100vw auto;
+      }
+
+      .about::before {
+        top: 0;
+        height: clamp(132px, 36vw, 317px);
+        background-position: center -6vw;
+      }
+
+      .about::after {
+        bottom: 0;
+        height: clamp(190px, 48vw, 422px);
+        background-position: center bottom;
+      }
+
+      .about-grid {
+        z-index: 1;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .hero-art video {
         display: none;
