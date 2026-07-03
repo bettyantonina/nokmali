@@ -732,9 +732,13 @@
       max-width: 30em;
     }
 
+    section.block.topics {
+      padding-bottom: 12px;
+    }
+
     .things {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       grid-auto-rows: 1fr;
       align-items: stretch;
       gap: 22px;
@@ -745,6 +749,7 @@
       --explore-color: #D9C2D3;
       display: flex;
       flex-direction: column;
+      min-width: 0;
       height: 100%;
       background: var(--card-tone);
       border: 1px solid color-mix(in srgb, var(--card-tone) 58%, rgba(58, 54, 64, 0.16));
@@ -1097,8 +1102,8 @@
         padding: 0;
         background-color: #F1E9DE;
         background-image: url("art/desktopaboutme-matched.png");
-        background-position: center top;
-        background-size: 100% 100%;
+        background-position: center calc(50% + 16px);
+        background-size: 85% auto;
         background-repeat: no-repeat;
       }
 
@@ -1115,23 +1120,23 @@
 
       .about-copy {
         position: relative;
-        padding-top: clamp(68px, 7.4vw, 124px);
+        padding-top: clamp(10px, 1.4vw, 24px);
       }
 
       .about-copy .eyebrow,
       .about-copy .title,
       .about p {
-        width: 41%;
-        max-width: 610px;
+        width: 32%;
+        max-width: 500px;
       }
 
       .about .photo {
         position: absolute;
         z-index: 1;
-        top: 22%;
-        right: 8.5%;
+        top: 23%;
+        right: 19%;
         float: none;
-        width: clamp(205px, 17vw, 310px);
+        width: clamp(215px, 18vw, 330px);
         margin: 0;
         border: 0;
         border-radius: 17px;
@@ -1146,6 +1151,35 @@
       .about p {
         font-size: clamp(15px, 1.18vw, 18px);
         line-height: 1.58;
+      }
+    }
+
+    @media (min-width: 881px) and (max-width: 1199px) {
+      .about {
+        background-position: 72% calc(50% + 12px);
+        background-size: 72% auto;
+      }
+
+      .about-grid {
+        padding-right: 6%;
+        padding-left: 6%;
+      }
+
+      .about-copy .eyebrow,
+      .about-copy .title,
+      .about p {
+        width: 43%;
+        max-width: 430px;
+      }
+
+      .about .photo {
+        right: 18%;
+        width: clamp(138px, 15vw, 178px);
+      }
+
+      .about p {
+        font-size: clamp(14px, 1.4vw, 16px);
+        line-height: 1.52;
       }
     }
 
@@ -1348,7 +1382,7 @@
 
     @media (max-width: 880px) {
       .things {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .about .photo {
@@ -1724,100 +1758,6 @@
       .things {
         grid-template-columns: 1fr;
       }
-
-      .about {
-        height: max(700px, 196vw);
-        min-height: 0;
-        padding: 0;
-        background-color: #F1E9DE;
-        background-image: url("art/mobile_aboutme-matched.png");
-        background-position: center top;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-      }
-
-      .about-grid,
-      .about-copy {
-        width: 100%;
-        max-width: none;
-        height: 100%;
-      }
-
-      .about-grid {
-        padding: 0;
-      }
-
-      .about-copy {
-        position: relative;
-        isolation: isolate;
-        padding: clamp(248px, 68vw, 326px) 6% 7% 28%;
-      }
-
-      .about-copy::before {
-        content: "";
-        position: absolute;
-        z-index: 0;
-        top: clamp(232px, 64vw, 307px);
-        right: 3.5%;
-        bottom: 5.5%;
-        left: 24.5%;
-        border: 1px solid rgba(184, 154, 94, 0.18);
-        border-radius: 18px;
-        background: rgba(249, 241, 229, 0.86);
-        box-shadow: 0 18px 40px -34px rgba(58, 54, 64, 0.45);
-        backdrop-filter: blur(1.5px);
-      }
-
-      .about-copy .eyebrow,
-      .about-copy .title,
-      .about .photo {
-        position: absolute;
-        z-index: 1;
-      }
-
-      .about-copy .eyebrow {
-        top: 6.5%;
-        left: 34%;
-        margin: 0;
-        font-size: 10px;
-      }
-
-      .about-copy .title {
-        top: 9%;
-        left: 34%;
-        font-size: clamp(25px, 7.4vw, 34px);
-        white-space: nowrap;
-      }
-
-      .about .photo {
-        top: 15%;
-        right: 5.5%;
-        width: clamp(100px, 27vw, 130px);
-        margin: 0;
-        float: none;
-        border: 0;
-        border-radius: 13px;
-        box-shadow: 0 18px 38px -24px rgba(39, 36, 32, 0.72);
-        shape-outside: none;
-      }
-
-      .about .photo img {
-        aspect-ratio: 4 / 5;
-      }
-
-      .about p,
-      .about p:first-of-type {
-        position: relative;
-        z-index: 1;
-        margin: 0 0 10px;
-        color: #49433F;
-        font-size: clamp(12.25px, 3.35vw, 15px);
-        line-height: 1.46;
-      }
-
-      .about p:last-child {
-        margin-bottom: 0;
-      }
     }
 
     @media (max-width: 480px) {
@@ -1843,8 +1783,8 @@
       }
 
       .about .photo {
-        width: clamp(98px, 28vw, 118px);
-        margin-left: 0;
+        width: clamp(106px, 34vw, 132px);
+        margin-left: 14px;
       }
     }
 
@@ -1942,7 +1882,7 @@
         </div>
       </section>
 
-      <section class="block">
+      <section class="block topics">
         <div class="wrap">
           <div class="things-head">
             <h2 class="title">What we can <em>work on</em> together.</h2>
