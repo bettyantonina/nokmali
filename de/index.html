@@ -698,19 +698,19 @@
 
     .intro .approach-part:nth-child(1) {
       top: calc(var(--approach-top-space) + 17.3vw - 1.7rem);
-      left: 12.8%;
+      left: 11.8%;
       width: 27%;
     }
 
     .intro .approach-part:nth-child(2) {
       top: calc(var(--approach-top-space) + 35.6vw - 2.7rem);
-      left: 46.2%;
+      left: 45.2%;
       width: 33%;
     }
 
     .intro .approach-part:nth-child(3) {
       top: calc(var(--approach-top-space) + 51.33vw - 0.7rem);
-      left: 18%;
+      left: 17%;
       width: 33%;
     }
 
@@ -1286,6 +1286,61 @@
         background:
           linear-gradient(0deg, rgba(39, 36, 32, 0.62), rgba(39, 36, 32, 0.4)),
           linear-gradient(90deg, rgba(39, 36, 32, 0.64), rgba(39, 36, 32, 0.2));
+      }
+
+      section.block.intro {
+        --approach-top-space: 0px;
+        min-height: 0;
+        aspect-ratio: auto;
+        padding: 42px 0 58px;
+        background-image:
+          linear-gradient(rgba(241, 233, 222, 0.72), rgba(241, 233, 222, 0.72)),
+          url("../art/Approach.jpg");
+        background-position: center, center bottom;
+        background-size: auto, auto 100%;
+      }
+
+      .intro .approach-heading {
+        position: static;
+        width: auto;
+        font-size: clamp(28px, 6vw, 40px);
+      }
+
+      .intro .inner {
+        height: auto;
+        padding: 0 22px;
+      }
+
+      .intro .approach-intro {
+        position: static;
+        width: auto;
+        margin-top: 22px;
+        font-size: 17px;
+      }
+
+      .approach-sections {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-top: 34px;
+      }
+
+      .intro .approach-part:nth-child(n) {
+        position: static;
+        width: auto;
+      }
+
+      .intro .approach-part {
+        max-width: none;
+      }
+
+      .intro .approach-part h3 {
+        font-size: clamp(20px, 3.5vw, 24px);
+      }
+
+      .intro .approach-part p {
+        font-size: 16px;
       }
 
     }
