@@ -857,8 +857,8 @@
     }
 
     .self-trust .pic img {
-      filter: saturate(0.42) contrast(0.9) brightness(1.03) sepia(0.1);
-      opacity: 0.92;
+      filter: saturate(0.6) contrast(0.92) brightness(1.01) sepia(0.07);
+      opacity: 0.97;
     }
 
     .thing:hover .pic img,
@@ -1175,7 +1175,7 @@
         min-height: 100%;
         margin-top: 0;
         pointer-events: none;
-        background: url("art/desktopaboutme-route-only.png") 50% calc(50% + 24px) / auto 88% no-repeat;
+        background: url("art/desktopaboutme-route-only.png") 44% calc(50% + 40px) / auto 100% no-repeat;
       }
 
       .about-copy::after {
@@ -1209,6 +1209,7 @@
         border-radius: 14px;
         box-shadow: 0 22px 42px -30px rgba(39, 36, 32, 0.48);
         shape-outside: none;
+        transform: translateY(clamp(-52px, -3.6vw, -36px));
       }
 
       .about .photo img {
