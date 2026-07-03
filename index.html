@@ -735,11 +735,17 @@
     .things {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 1fr;
+      align-items: stretch;
       gap: 22px;
     }
 
     .thing {
       --card-tone: #DDD5C3;
+      --explore-color: #D9C2D3;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
       background: var(--card-tone);
       border: 1px solid color-mix(in srgb, var(--card-tone) 58%, rgba(58, 54, 64, 0.16));
       border-radius: 12px;
@@ -768,6 +774,29 @@
       --card-tone: #E0D2C8;
     }
 
+    .thing:nth-child(1),
+    .thing:nth-child(3),
+    .thing:nth-child(4),
+    .thing:nth-child(6) {
+      --explore-color: #587875;
+    }
+
+    .thing:nth-child(1) {
+      --explore-color: #3550A3;
+    }
+
+    .thing:nth-child(2) {
+      --explore-color: #FFFFFF;
+    }
+
+    .thing:nth-child(4) {
+      --explore-color: #FFFFFF;
+    }
+
+    .thing:nth-child(6) {
+      --explore-color: #FFFFFF;
+    }
+
     .thing:hover,
     .thing:focus {
       box-shadow: 0 24px 44px -28px rgba(39, 36, 32, 0.5);
@@ -780,6 +809,8 @@
     }
 
     .thing .pic {
+      position: relative;
+      flex: none;
       aspect-ratio: 4.5 / 3;
       overflow: hidden;
       border-radius: 8px 8px 0 0;
@@ -808,8 +839,9 @@
 
     .thing .txt {
       position: relative;
-      min-height: 132px;
-      padding: 20px 22px 24px;
+      flex: 1;
+      min-height: 0;
+      padding: 20px 22px 22px;
       background: var(--card-tone);
       border-radius: 0 0 8px 8px;
     }
@@ -825,7 +857,7 @@
 
     .thing .txt::after {
       content: "\2022\00a0\2022\00a0\2022";
-      display: inline-flex;
+      display: none;
       margin-top: 4px;
       color: var(--beige);
       font-size: 22px;
@@ -835,37 +867,44 @@
     }
 
     .thing p {
-      max-height: 0;
-      overflow: hidden;
+      max-height: none;
+      overflow: visible;
       font-size: 14.5px;
       color: var(--ink-soft);
-      opacity: 0;
-      transform: translateY(5px);
+      margin-top: 6px;
+      opacity: 1;
+      transform: none;
       transition: max-height 0.24s ease, margin-top 0.24s ease, opacity 0.22s ease, transform 0.22s ease;
     }
 
-    .thing p::after {
-      content: "";
+    .thing .pic::after {
+      content: "Explore";
       display: inline-flex;
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
       align-items: center;
       justify-content: center;
-      width: 14px;
-      height: 14px;
-      margin-left: 8px;
-      border: 1px solid color-mix(in srgb, var(--ink) 58%, transparent);
-      border-radius: 50%;
+      margin: 0;
+      padding: 0;
+      border: 0;
       background: transparent;
-      box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 18%, transparent);
-      vertical-align: middle;
-      transform: translateY(-1px);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      color: var(--explore-color);
+      font-family: var(--f-display);
+      font-size: clamp(34px, 4.5vw, 52px);
+      font-weight: 700;
+      line-height: 1.2;
+      opacity: 0;
+      white-space: nowrap;
+      transform: translate(-50%, -44%);
+      transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
-    .thing:hover p::after,
-    .thing:focus p::after {
-      border-color: color-mix(in srgb, var(--ink) 72%, transparent);
-      box-shadow: 0 0 0 4px color-mix(in srgb, var(--gold) 28%, transparent);
-      transform: translateY(-1px) scale(1.06);
+    .thing:hover .pic::after,
+    .thing:focus .pic::after {
+      opacity: 1;
+      transform: translate(-50%, -50%);
     }
 
     .thing:hover .txt::after,
@@ -876,10 +915,10 @@
 
     .thing:hover p,
     .thing:focus p {
-      max-height: 12em;
+      max-height: none;
       margin-top: 6px;
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
     .topic-modal {
@@ -1547,10 +1586,15 @@
 
     @media (hover: none), (max-width: 720px) {
       .thing .txt {
-        min-height: 150px;
+        min-height: 0;
+        padding-bottom: 52px;
       }
 
       .thing .txt::after {
+        display: none;
+      }
+
+      .thing .pic::after {
         display: none;
       }
 
@@ -1561,6 +1605,23 @@
         opacity: 1;
         transform: none;
         margin-top: 6px;
+      }
+
+      .thing p::after {
+        content: "Explore";
+        display: inline-flex;
+        position: absolute;
+        right: 18px;
+        bottom: 14px;
+        align-items: center;
+        justify-content: center;
+        padding: 3px 9px;
+        border: 1px solid var(--accent);
+        border-radius: 999px;
+        color: var(--accent);
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1.2;
       }
     }
 
@@ -1626,7 +1687,7 @@
       }
 
       .thing .txt {
-        padding: 18px 18px 20px;
+        padding: 18px 18px 50px;
       }
 
       .about .photo {
@@ -1693,7 +1754,7 @@
     <div class="wrap hero-copy">
       <div class="inner">
         <h1><span class="hero-title-line">Online coaching for women who</span><span class="hero-title-line">want more energy, clarity and</span><span class="hero-title-line"><em>healthier routines.</em></span></h1>
-        <p class="sub">For you when life feels full, your routines feel off or you want to feel more at home in your body again.</p>
+        <p class="sub">For when life feels full, your routines feel off, or you want to feel more at home in your body and daily life again.</p>
         <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
         <p class="booking-note">A 30-minute first call. We talk about what brings you here and whether coaching fits.</p>
       </div>
@@ -1722,7 +1783,7 @@
             <div class="approach-part">
               <div>
                 <h3>Find a way forward.</h3>
-                <p>From there, I help you get clearer on what’s going on for you, stay connected to what matters to you, and choose a direction that feels honest and yours. So your days feel less like something you are getting through, and more like something you are choosing with more ease and freedom.</p>
+                <p>From there, I help you get clearer on what’s going on for you, stay connected to what matters to you, and choose a direction that feels honest and yours. So your days feel less like something you are getting through, and more like something you are choosing with more ease and intention.</p>
               </div>
             </div>
           </div>
@@ -1732,7 +1793,7 @@
       <section class="block">
         <div class="wrap">
           <div class="things-head">
-            <h2 class="title">What we might <em>look at</em> together.</h2>
+            <h2 class="title">What we can <em>work on</em> together.</h2>
           </div>
           <div class="things">
           <article class="thing" tabindex="0" data-detail="When life is full, questions around what to eat, when to eat, what works for your body and how to stop ending up in the same rushed patterns can become another daily pressure. We can look at meals, cravings, hunger, meal preparation challenges and energy dips. I help you understand what works for you and find food routines that fit your life, support your energy and bring back more ease and joy around eating and preparation.">
@@ -1746,7 +1807,7 @@
             <div class="pic"><img src="art/IMG_3401.jpg" alt=""></div>
             <div class="txt">
               <h3>Body signals</h3>
-              <p>Learning to listen to your body signals with curiosity, so they can support clearer choices.</p>
+              <p>Learning to listen to tiredness, cravings, tension and energy with more curiosity, so they can guide clearer choices.</p>
             </div>
           </article>
           <article class="thing" tabindex="0" data-detail="When life is already full, another strict plan usually does not last. Often, the real question is not only what you should do differently, but why you keep circling around the same attempts. In coaching, we look at what keeps pulling you back, what may be blocking you underneath the surface, and what already works in your life that could be expanded. Sometimes a shift in perspective opens something. Other times, there are conscious or unconscious reasons why change has felt harder than it “should”. I help you find habits and rhythms that do not feel like another project, but more like slowly coming back to yourself and building a life you actually want to keep returning to.">
@@ -1760,7 +1821,7 @@
             <div class="pic"><img src="art/playdoo.jpeg" alt=""></div>
             <div class="txt">
               <h3>Creativity &amp; play</h3>
-              <p>Creating space where you feel free again to create, express and play without needing an outcome, perfection or approval.</p>
+              <p>Creating space to express freely, play and make things without needing perfection or approval.</p>
             </div>
           </article>
           <article class="thing" tabindex="0" data-detail="You can love being a mother and still miss yourself. Maybe your days are full of caring, planning and being needed, while your own needs, body, creativity or direction keep moving to the edges. In coaching, we can explore what motherhood means to you, not what it is supposed to look like. I help you find a way of mothering that feels more like yours, with more room to breathe, choose and still be you.">
@@ -1789,7 +1850,7 @@
             <img src="art/IMG_2080.jpg" alt="Helene preparing food in a warm wooden kitchen">
           </div>
           <p>After more than fifteen years of living and working internationally, I know how much life can move, stretch and change. I enjoy looking at things from different angles and finding clearer ways through situations that feel full, tangled or hard to name.</p>
-          <p>I'm currently completing a Level 5 Diploma in Nutrition &amp; Health Coaching and continue to deepen my knowledge through study and practice. Together with my experience as a yoga teacher, instrument engineer and mother, it shapes the way I support women in coaching.</p>
+          <p>I'm completing a Level 5 Diploma in Nutrition &amp; Health Coaching and continue to deepen my knowledge through study and practice. Together with my experience as a yoga teacher, engineer and mother, it shapes the way I support women in coaching.</p>
           <p>I help you hear yourself more clearly through listening, meaningful questions and practical support.</p>
         </div>
       </div>
@@ -1828,7 +1889,7 @@
           </div>
           <div class="step">
             <div class="num">3</div>
-            <h4>We choose the next step</h4>
+            <h4>We see what fits</h4>
             <p>If it feels like a good fit, I&rsquo;ll share what working together could look like.</p>
           </div>
         </div>
