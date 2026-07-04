@@ -1691,6 +1691,7 @@
     @media (hover: none), (max-width: 720px) {
       .thing .txt {
         min-height: 0;
+        padding-bottom: 52px;
       }
 
       .thing .txt::after {
@@ -1698,10 +1699,7 @@
       }
 
       .thing .pic::after {
-        display: inline-flex;
-        opacity: 1;
-        text-shadow: 0 2px 18px rgba(39, 36, 32, 0.2);
-        transform: translate(-50%, -50%);
+        display: none;
       }
 
       .thing p {
@@ -1713,6 +1711,22 @@
         margin-top: 6px;
       }
 
+      .thing p::after {
+        content: "Explore";
+        display: inline-flex;
+        position: absolute;
+        right: 18px;
+        bottom: 14px;
+        align-items: center;
+        justify-content: center;
+        padding: 3px 9px;
+        border: 1px solid var(--accent);
+        border-radius: 999px;
+        color: var(--accent);
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
     }
 
     @media (max-width: 640px) {
