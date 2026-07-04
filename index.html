@@ -620,6 +620,8 @@
 
     .intro {
       --approach-top-space: clamp(72px, 7.5vw, 124px);
+      --approach-content-lift: 2.8rem;
+      --approach-parts-drop: 0.7rem;
       z-index: 2;
       isolation: isolate;
       min-height: max(760px, calc(61vw + var(--approach-top-space)));
@@ -674,7 +676,7 @@
 
     .intro .approach-intro {
       position: absolute;
-      top: calc(var(--approach-top-space) + 5.2vw);
+      top: calc(var(--approach-top-space) + 5.2vw - var(--approach-content-lift));
       left: 2.4%;
       width: 49%;
       font-family: var(--f-body);
@@ -694,19 +696,19 @@
     }
 
     .intro .approach-part:nth-child(1) {
-      top: calc(var(--approach-top-space) + 16.2vw - 1.5rem);
+      top: calc(var(--approach-top-space) + 16.2vw - 4.3rem - var(--approach-content-lift) + var(--approach-parts-drop));
       left: 11.8%;
       width: 27%;
     }
 
     .intro .approach-part:nth-child(2) {
-      top: calc(var(--approach-top-space) + 32.8vw - 2.3rem);
+      top: calc(var(--approach-top-space) + 32.8vw - 3.7rem - var(--approach-content-lift) + var(--approach-parts-drop));
       left: 45.2%;
       width: 33%;
     }
 
     .intro .approach-part:nth-child(3) {
-      top: calc(var(--approach-top-space) + 47.4vw - 1.4rem);
+      top: calc(var(--approach-top-space) + 47.4vw - 0.7rem - var(--approach-content-lift) + var(--approach-parts-drop));
       left: 17%;
       width: 33%;
     }
@@ -1148,6 +1150,23 @@
     }
 
     @media (min-width: 881px) and (max-width: 1199px) {
+      .intro .approach-part:nth-child(1) {
+        top: calc(var(--approach-top-space) + 16.2vw - 1.5rem);
+      }
+
+      .intro .approach-part:nth-child(2) {
+        top: calc(var(--approach-top-space) + 32.8vw - 2.3rem);
+      }
+
+      .intro .approach-part:nth-child(3) {
+        top: calc(var(--approach-top-space) + 47.4vw + 1.3rem);
+      }
+
+      .intro .approach-part p {
+        font-size: clamp(14px, 1.2vw, 16px);
+        line-height: 1.5;
+      }
+
       .about {
         background-position: 72% calc(50% + 12px);
         background-size: 72% auto;
