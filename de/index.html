@@ -624,7 +624,7 @@
       isolation: isolate;
       min-height: max(760px, calc(61vw + var(--approach-top-space)));
       background-color: #F1E9DE;
-      background-image: url("../art/approachnew.png");
+      background-image: url("../art/Approach.jpg");
       background-position: center bottom;
       background-repeat: no-repeat;
       background-size: 100% auto;
@@ -1416,7 +1416,7 @@
         padding: 36px 0 48px;
         background-image:
           linear-gradient(rgba(241, 233, 222, 0.72), rgba(241, 233, 222, 0.72)),
-          url("../art/approachnew.png");
+          url("../art/Approach.jpg");
         background-position: center, center bottom;
         background-size: auto, auto 100%;
       }
@@ -1538,7 +1538,7 @@
         padding: 36px 0 48px;
         background-image:
           linear-gradient(rgba(241, 233, 222, 0.72), rgba(241, 233, 222, 0.72)),
-          url("../art/approachnew.png");
+          url("../art/Approach.jpg");
         background-position: center, center bottom;
         background-size: auto, auto 100%;
       }
@@ -1792,8 +1792,8 @@
       }
     }
 
-    /* Keep only the horizontal About route at tablet and mobile widths. */
-    @media (max-width: 1024px) {
+    /* Keep the About doodles visible when the desktop composition no longer fits. */
+    @media (max-width: 880px) {
       section.block.topics-section {
         padding-bottom: 18px;
       }
@@ -1802,422 +1802,38 @@
         position: relative;
         isolation: isolate;
         overflow: hidden;
-        padding-top: clamp(68px, 8vw, 88px);
-        padding-bottom: clamp(180px, 42vw, 360px);
+        padding-top: clamp(112px, 30vw, 264px);
+        padding-bottom: clamp(104px, 26vw, 229px);
         background: #F1E9DE;
       }
 
-      .about::before {
-        content: none;
-        display: none;
-      }
-
-      .about-grid {
-        z-index: 1;
-        width: 100%;
-        max-width: 980px;
-      }
-
-      .about-copy {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
-        grid-template-rows: auto 1fr;
-        column-gap: clamp(32px, 5vw, 52px);
-        align-items: start;
-        max-width: 900px;
-        margin: 0 auto;
-      }
-
-      .about-heading {
-        grid-column: 1;
-        grid-row: 1;
-      }
-
-      .about-body {
-        grid-column: 1;
-        grid-row: 2;
-        margin-top: 26px;
-      }
-
-      .about .photo {
-        grid-column: 2;
-        grid-row: 1 / 3;
-        position: static;
-        float: none;
-        width: 100%;
-        max-width: 320px;
-        margin: 38px 0 0;
-        border-radius: 13px;
-        box-shadow: 0 20px 38px -29px rgba(39, 36, 32, 0.45);
-        shape-outside: none;
-      }
-
-      .about .photo img {
-        width: 100%;
-        aspect-ratio: 10 / 13;
-        border-radius: 13px;
-        filter: saturate(0.75);
-      }
-
-      .about p,
-      .about p:first-of-type {
-        max-width: 36em;
-        margin-top: 0;
-        margin-bottom: 22px;
-        font-size: 16.5px;
-        line-height: 1.68;
-      }
-
-      .about p:last-child {
-        margin-bottom: 0;
-      }
-
+      .about::before,
       .about::after {
         content: "";
         position: absolute;
-        bottom: 0;
         left: 0;
         width: 100vw;
-        height: clamp(180px, 42vw, 360px);
         z-index: 0;
         pointer-events: none;
         background-image: url("../art/mobile-about-doodles-v6.png");
         background-repeat: no-repeat;
         background-size: 100vw auto;
-        background-position: center calc(100% + clamp(38px, 10vw, 104px));
-        filter: none;
-        opacity: 0.86;
-      }
-    }
-
-    @media (max-width: 700px) {
-      section.block.about {
-        padding-top: clamp(52px, 12vw, 68px);
-        padding-bottom: clamp(180px, 46vw, 322px);
       }
 
-      .about-copy {
-        display: flex;
-        flex-direction: column;
-        max-width: 620px;
-      }
-
-      .about-heading {
-        order: 1;
-      }
-
-      .about .photo {
-        order: 2;
-        width: min(100%, 340px);
-        max-width: 340px;
-        margin: 28px auto 30px;
-      }
-
-      .about-body {
-        order: 3;
-        margin-top: 0;
-      }
-
-      .about p,
-      .about p:first-of-type {
-        max-width: none;
-        margin-top: 0;
-        margin-bottom: 22px;
-        font-size: 16px;
-        line-height: 1.7;
+      .about::before {
+        top: 0;
+        height: clamp(112px, 30vw, 264px);
+        background-position: center -12vw;
       }
 
       .about::after {
-        height: clamp(180px, 46vw, 322px);
-      }
-    }
-
-    /* Keep the German landing page aligned with the refreshed English cards. */
-    .things {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 28px;
-    }
-
-    .thing {
-      --card-tone: #F1EBDD;
-      min-width: 0;
-      min-height: 390px;
-      border: 1px solid rgba(85, 76, 65, 0.13);
-      border-radius: 10px;
-      padding: 9px;
-      box-shadow: 0 14px 34px -32px rgba(49, 43, 37, 0.42);
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-
-    .thing.text-led {
-      --card-tone: #F4EFE5;
-    }
-
-    .thing.text-led:nth-child(3n) {
-      --card-tone: #EEE5D7;
-    }
-
-    .thing.image-card {
-      --card-tone: #F0EADD;
-    }
-
-    .thing:hover,
-    .thing:focus {
-      border-color: rgba(85, 76, 65, 0.2);
-      box-shadow: 0 20px 38px -30px rgba(39, 36, 32, 0.4);
-      transform: translateY(-3px);
-    }
-
-    .thing .pic {
-      aspect-ratio: 3 / 2;
-      border-radius: 6px 6px 0 0;
-      background: #E6DED1;
-    }
-
-    .thing .pic img {
-      filter: saturate(0.72) contrast(0.93) brightness(0.98) sepia(0.06);
-    }
-
-    .self-trust .pic img {
-      filter: saturate(0.6) contrast(0.92) brightness(1.01) sepia(0.07);
-      opacity: 0.97;
-    }
-
-    .thing .pic::after {
-      display: none;
-    }
-
-    .thing .txt {
-      padding: 24px 24px 48px;
-      border-radius: 0 0 6px 6px;
-    }
-
-    .thing.text-led .txt {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 42px 34px 58px;
-      border-radius: 6px;
-    }
-
-    .thing.text-led .txt::before {
-      content: "";
-      width: 46px;
-      height: 9px;
-      margin-bottom: 27px;
-      border-top: 1px solid rgba(133, 91, 73, 0.44);
-      border-radius: 50%;
-      transform: rotate(-2deg) skewX(-14deg);
-    }
-
-    .thing .txt::after {
-      content: "Entdecken";
-      display: inline-flex;
-      position: absolute;
-      right: 18px;
-      bottom: 14px;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      padding: 3px 9px;
-      border: 1px solid var(--accent);
-      border-radius: 999px;
-      color: var(--accent);
-      font-family: var(--f-body);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0;
-      line-height: 1.2;
-      opacity: 0;
-      transform: translateY(3px);
-    }
-
-    .thing:hover .txt::after,
-    .thing:focus .txt::after {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .topic-modal-card.text-only {
-      grid-template-columns: minmax(0, 1fr);
-      width: min(650px, 100%);
-    }
-
-    .topic-modal-card.text-only .topic-modal-image {
-      display: none;
-    }
-
-    @media (min-width: 881px) {
-      .things {
-        grid-template-rows: 210px 28px 182px 28px 210px;
-        grid-auto-rows: auto;
-        row-gap: 0;
-      }
-
-      .thing {
-        min-height: 0;
-      }
-
-      .food-rhythm { grid-column: 1; grid-row: 1; }
-      .body-signals { grid-column: 2; grid-row: 1 / 4; }
-      .habits-routines { grid-column: 3; grid-row: 1; }
-      .self-trust { grid-column: 1; grid-row: 3 / 6; }
-      .creativity-play { grid-column: 2; grid-row: 5; }
-      .motherhood-identity { grid-column: 3; grid-row: 3 / 6; }
-
-      .thing.text-led .txt {
-        padding: 22px 27px 42px;
-      }
-
-      .thing.text-led .txt::before {
-        margin-bottom: 14px;
-      }
-
-      .thing.text-led p {
-        line-height: 1.5;
-      }
-    }
-
-    @media (min-width: 1025px) {
-      .about {
-        position: relative;
-        isolation: isolate;
-        overflow: hidden;
-        height: auto;
-        padding: clamp(90px, 7vw, 112px) 0;
-        background: #F1E9DE;
+        bottom: 0;
+        height: clamp(104px, 26vw, 229px);
+        background-position: center calc(100% + 22vw);
       }
 
       .about-grid {
-        position: relative;
         z-index: 1;
-        width: 100%;
-        max-width: 1140px;
-        height: auto;
-        padding: 0 44px;
-      }
-
-      .about-copy {
-        display: grid;
-        grid-template-columns: minmax(0, 440px) 340px 200px;
-        grid-template-rows: auto 1fr;
-        column-gap: 36px;
-        align-items: start;
-        width: 100%;
-        max-width: none;
-        height: auto;
-        padding: 0;
-      }
-
-      .about-copy::before {
-        content: "";
-        grid-column: 3;
-        grid-row: 1 / 3;
-        align-self: stretch;
-        min-height: 100%;
-        margin-top: 0;
-        pointer-events: none;
-        background: url("../art/desktopaboutme-route-only.png") 47% calc(50% + 76px) / auto 85% no-repeat;
-      }
-
-      .about-copy::after {
-        display: none;
-      }
-
-      .about-heading,
-      .about-body {
-        grid-column: 1;
-      }
-
-      .about-heading { grid-row: 1; }
-      .about-body { grid-row: 2; max-width: 540px; }
-
-      .about .photo {
-        grid-column: 2;
-        grid-row: 1 / 3;
-        align-self: end;
-        position: static;
-        float: none;
-        width: 100%;
-        max-width: 340px;
-        margin: 0;
-        border: 0;
-        border-radius: 14px;
-        box-shadow: 0 22px 42px -30px rgba(39, 36, 32, 0.48);
-        shape-outside: none;
-      }
-
-      .about .photo img {
-        aspect-ratio: 10 / 13;
-        border-radius: 14px;
-        filter: saturate(0.75);
-      }
-
-      .about .eyebrow {
-        width: auto;
-        margin-bottom: 12px;
-        font-size: 12px;
-        letter-spacing: 0.2em;
-      }
-
-      .about h2.title {
-        width: auto;
-        font-size: clamp(43px, 3.7vw, 54px);
-        line-height: 1.06;
-      }
-
-      .about p:first-of-type { margin-top: 30px; }
-
-      .about p {
-        width: auto;
-        max-width: 540px;
-        margin-bottom: 26px;
-        font-size: clamp(16px, 1.3vw, 17.5px);
-        line-height: 1.7;
-      }
-
-      .about p:last-child { margin-bottom: 0; }
-    }
-
-    @media (min-width: 1025px) and (max-width: 1199px) {
-      .about-grid {
-        padding-right: 28px;
-        padding-left: 28px;
-      }
-
-      .about-copy {
-        grid-template-columns: minmax(0, 1fr) minmax(270px, 300px) minmax(155px, 180px);
-        column-gap: 32px;
-      }
-
-      .about p { font-size: 16px; }
-    }
-
-    @media (max-width: 540px) {
-      .things {
-        grid-template-columns: 1fr;
-        grid-auto-rows: auto;
-      }
-
-      .thing.text-led {
-        min-height: 195px;
-        height: 195px;
-      }
-
-      .thing.text-led .txt {
-        justify-content: flex-start;
-        padding: 20px 20px 38px;
-      }
-
-      .thing.text-led .txt::before {
-        margin-bottom: 12px;
-      }
-    }
-
-    @media (hover: none), (max-width: 720px) {
-      .thing .txt::after {
-        display: none;
       }
     }
 
@@ -2310,43 +1926,46 @@
             <h2 class="title">Woran wir gemeinsam <em>arbeiten</em> können.</h2>
           </div>
           <div class="things">
-          <article class="thing text-led food-rhythm" tabindex="0" data-detail="Wenn das Leben voll ist, können Fragen rund ums Essen zu einem weiteren Druck im Alltag werden: was und wann du essen sollst, was deinem Körper guttut und wie du nicht immer wieder in dieselben hektischen Muster gerätst. Wir können uns Mahlzeiten, Heißhunger, Hunger, Herausforderungen bei der Essenszubereitung und Energietiefs anschauen. Ich helfe dir zu verstehen, was für dich funktioniert, und Essensroutinen zu finden, die zu deinem Leben passen, deine Energie unterstützen und wieder mehr Leichtigkeit und Freude in deinen Umgang mit Essen und Zubereitung bringen.">
+          <article class="thing" tabindex="0" data-detail="Wenn das Leben voll ist, können Fragen rund ums Essen zu einem weiteren Druck im Alltag werden: was und wann du essen sollst, was deinem Körper guttut und wie du nicht immer wieder in dieselben hektischen Muster gerätst. Wir können uns Mahlzeiten, Heißhunger, Hunger, Herausforderungen bei der Essenszubereitung und Energietiefs anschauen. Ich helfe dir zu verstehen, was für dich funktioniert, und Essensroutinen zu finden, die zu deinem Leben passen, deine Energie unterstützen und wieder mehr Leichtigkeit und Freude in deinen Umgang mit Essen und Zubereitung bringen.">
+            <div class="pic"><img src="../art/IMG_7714.jpg" alt=""></div>
             <div class="txt">
               <h3>Ernährung &amp; Rhythmus</h3>
               <p>Mehr Leichtigkeit, Freude und Sicherheit im Umgang mit Essen und alltäglicher Ernährung finden.</p>
             </div>
           </article>
-          <article class="thing image-card body-signals" tabindex="0" data-detail="Dein Körper bemerkt Dinge oft, bevor dein Verstand Worte dafür findet. Müdigkeit, Anspannung, Hunger, Unruhe oder Überforderung können dir Hinweise darauf geben, was du brauchst, was zu viel ist oder was nicht mehr passt. Im Coaching helfe ich dir, diesen Signalen mit mehr Neugier und weniger Bewertung zuzuhören. Mit der Zeit kann daraus eine ruhigere Art entstehen, Entscheidungen rund um Essen, Ruhe, Bewegung, Grenzen und deinen Tagesrhythmus zu treffen. Eine, bei der du weniger gegen dich selbst kämpfst und dich in deinem Körper mehr zu Hause fühlst.">
+          <article class="thing" tabindex="0" data-detail="Dein Körper bemerkt Dinge oft, bevor dein Verstand Worte dafür findet. Müdigkeit, Anspannung, Hunger, Unruhe oder Überforderung können dir Hinweise darauf geben, was du brauchst, was zu viel ist oder was nicht mehr passt. Im Coaching helfe ich dir, diesen Signalen mit mehr Neugier und weniger Bewertung zuzuhören. Mit der Zeit kann daraus eine ruhigere Art entstehen, Entscheidungen rund um Essen, Ruhe, Bewegung, Grenzen und deinen Tagesrhythmus zu treffen. Eine, bei der du weniger gegen dich selbst kämpfst und dich in deinem Körper mehr zu Hause fühlst.">
             <div class="pic"><img src="../art/IMG_3401.jpg" alt=""></div>
             <div class="txt">
               <h3>Körpersignale</h3>
               <p>Lernen, Müdigkeit, Heißhunger, Anspannung und Energie mit mehr Neugier wahrzunehmen, damit sie dich zu klareren Entscheidungen führen können.</p>
             </div>
           </article>
-          <article class="thing text-led habits-routines" tabindex="0" data-detail="Wenn das Leben schon voll ist, hält ein weiterer strenger Plan meist nicht lange. Oft ist die eigentliche Frage nicht nur, was du anders machen solltest, sondern warum du immer wieder um dieselben Versuche kreist. Im Coaching schauen wir darauf, was dich immer wieder zurückzieht, was dich unter der Oberfläche blockieren könnte und was in deinem Leben bereits funktioniert und ausgebaut werden könnte. Manchmal bringt ein Perspektivwechsel etwas in Bewegung. Ein anderes Mal gibt es bewusste oder unbewusste Gründe dafür, dass Veränderung sich schwieriger angefühlt hat, als sie „sollte“. Ich helfe dir, Gewohnheiten und Rhythmen zu finden, die sich nicht wie ein weiteres Projekt anfühlen, sondern dich langsam zu dir selbst zurückführen und dir helfen, ein Leben aufzubauen, zu dem du wirklich immer wieder gerne zurückkehrst.">
+          <article class="thing" tabindex="0" data-detail="Wenn das Leben schon voll ist, hält ein weiterer strenger Plan meist nicht lange. Oft ist die eigentliche Frage nicht nur, was du anders machen solltest, sondern warum du immer wieder um dieselben Versuche kreist. Im Coaching schauen wir darauf, was dich immer wieder zurückzieht, was dich unter der Oberfläche blockieren könnte und was in deinem Leben bereits funktioniert und ausgebaut werden könnte. Manchmal bringt ein Perspektivwechsel etwas in Bewegung. Ein anderes Mal gibt es bewusste oder unbewusste Gründe dafür, dass Veränderung sich schwieriger angefühlt hat, als sie „sollte“. Ich helfe dir, Gewohnheiten und Rhythmen zu finden, die sich nicht wie ein weiteres Projekt anfühlen, sondern dich langsam zu dir selbst zurückführen und dir helfen, ein Leben aufzubauen, zu dem du wirklich immer wieder gerne zurückkehrst.">
+            <div class="pic"><img class="pic-zoom" src="../art/IMG_1774a-clean.jpg" alt="" style="object-position: 13% center;"></div>
             <div class="txt">
               <h3>Gewohnheiten &amp; Routinen</h3>
               <p>Gewohnheiten und Routinen aufbauen, die den Alltag zu etwas machen, zu dem du gerne zurückkehrst.</p>
             </div>
           </article>
-          <article class="thing image-card self-trust" tabindex="0" data-detail="Vertrauen in dich selbst wächst, wenn du dich klarer hören und deine eigene Erfahrung ernst nehmen kannst. Wir können Entscheidungen, Zweifel, inneren Druck, den Wunsch, es allen recht zu machen, und alte Erwartungen erkunden, damit du dein eigenes Ja, Nein und Genug wieder erkennst.">
-            <div class="pic"><img src="../art/IMG_3381.jpg" alt=""></div>
-            <div class="txt">
-              <h3>Selbstvertrauen</h3>
-              <p>Vertrauen in dich selbst wiederfinden, wenn vieles gleichzeitig an dir zieht und du dein eigenes Ja und Nein kaum noch spürst.</p>
-            </div>
-          </article>
-          <article class="thing text-led creativity-play" tabindex="0" data-detail="Wenn das Leben voll ist, rutscht alles, was nicht nützlich oder dringend wirkt, schnell ans Ende der Liste. Doch Spiel und ergebnisoffene Kreativität sind keine verschwendete Zeit. Sie helfen dir, Perfektionismus zu lockern, wieder Freude am Prozess zu finden und dich auszudrücken, ohne dass alles beurteilt, fertiggestellt oder produktiv sein muss. Im Coaching können wir erkunden, was dir hilft, Raum für diesen freieren Teil von dir zu schaffen, denn Kreativität unterstützt oft weit mehr als nur die Kreativität selbst.">
+          <article class="thing" tabindex="0" data-detail="Wenn das Leben voll ist, rutscht alles, was nicht nützlich oder dringend wirkt, schnell ans Ende der Liste. Doch Spiel und ergebnisoffene Kreativität sind keine verschwendete Zeit. Sie helfen dir, Perfektionismus zu lockern, wieder Freude am Prozess zu finden und dich auszudrücken, ohne dass alles beurteilt, fertiggestellt oder produktiv sein muss. Im Coaching können wir erkunden, was dir hilft, Raum für diesen freieren Teil von dir zu schaffen, denn Kreativität unterstützt oft weit mehr als nur die Kreativität selbst.">
+            <div class="pic"><img src="../art/playdoo.jpeg" alt=""></div>
             <div class="txt">
               <h3>Kreativität &amp; Spiel</h3>
               <p>Raum schaffen, um dich frei auszudrücken, zu spielen und Dinge zu erschaffen, ohne Perfektion oder Anerkennung zu brauchen.</p>
             </div>
           </article>
-          <article class="thing image-card motherhood-identity" tabindex="0" data-detail="Du kannst es lieben, Mutter zu sein, und dich trotzdem selbst vermissen. Vielleicht sind deine Tage voller Fürsorge und Planung und du wirst ständig gebraucht, während deine eigenen Bedürfnisse, dein Körper, deine Kreativität oder deine Richtung immer weiter an den Rand rücken. Im Coaching können wir erkunden, was Mutterschaft für dich bedeutet, statt uns daran zu orientieren, wie sie vermeintlich aussehen sollte. Ich helfe dir, eine Art des Mutterseins zu finden, die sich mehr nach deiner anfühlt, mit mehr Raum zum Atmen, für eigene Entscheidungen und dafür, weiterhin du selbst zu sein.">
+          <article class="thing" tabindex="0" data-detail="Du kannst es lieben, Mutter zu sein, und dich trotzdem selbst vermissen. Vielleicht sind deine Tage voller Fürsorge und Planung und du wirst ständig gebraucht, während deine eigenen Bedürfnisse, dein Körper, deine Kreativität oder deine Richtung immer weiter an den Rand rücken. Im Coaching können wir erkunden, was Mutterschaft für dich bedeutet, statt uns daran zu orientieren, wie sie vermeintlich aussehen sollte. Ich helfe dir, eine Art des Mutterseins zu finden, die sich mehr nach deiner anfühlt, mit mehr Raum zum Atmen, für eigene Entscheidungen und dafür, weiterhin du selbst zu sein.">
             <div class="pic"><img src="../art/IMG_4406.jpg" alt="" style="object-position: center top;"></div>
             <div class="txt">
               <h3>Mutterschaft &amp; Identität</h3>
               <p>Deinen eigenen Weg als Mutter finden, ohne die Teile von dir zu verlieren, die ebenfalls Raum brauchen.</p>
+            </div>
+          </article>
+          <article class="thing" tabindex="0" data-detail="Vertrauen in dich selbst wächst, wenn du dich klarer hören und deine eigene Erfahrung ernst nehmen kannst. Wir können Entscheidungen, Zweifel, inneren Druck, den Wunsch, es allen recht zu machen, und alte Erwartungen erkunden, damit du dein eigenes Ja, Nein und Genug wieder erkennst.">
+            <div class="pic"><img src="../art/IMG_3381.jpg" alt=""></div>
+            <div class="txt">
+              <h3>Selbstvertrauen</h3>
+              <p>Vertrauen in dich selbst wiederfinden, wenn vieles gleichzeitig an dir zieht und du dein eigenes Ja und Nein kaum noch spürst.</p>
             </div>
           </article>
           </div>
@@ -2493,7 +2112,6 @@
     const topicModalText = document.getElementById("topic-modal-text");
     const topicModalImg = document.getElementById("topic-modal-img");
     const topicModalClose = topicModal?.querySelector(".topic-modal-close");
-    const topicModalCard = topicModal?.querySelector(".topic-modal-card");
     let lastTopicTrigger = null;
 
     function openTopicModal(card) {
@@ -2508,7 +2126,6 @@
       topicModalText.textContent = text;
       topicModalImg.src = img?.getAttribute("src") || "";
       topicModalImg.alt = img?.getAttribute("alt") || title;
-      topicModalCard?.classList.toggle("text-only", !img);
       topicModal.classList.add("open");
       topicModal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
