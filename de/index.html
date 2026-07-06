@@ -367,6 +367,18 @@
       color: var(--accent);
     }
 
+    .navlinks .nav-rhythm {
+      padding: 7px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    .navlinks .mobile-booking-link {
+      display: none;
+    }
+
     .language-switch {
       display: inline-flex;
       align-items: center;
@@ -447,6 +459,12 @@
     nav.scrolled .language-switch [aria-current="page"]:-webkit-any-link,
     nav.scrolled .navlinks a.lk:hover:-webkit-any-link,
     nav.scrolled .language-switch a:hover:-webkit-any-link {
+      color: var(--accent) !important;
+    }
+
+    nav.scrolled .navlinks .nav-rhythm {
+      border-color: rgba(85, 120, 107, 0.3);
+      background: rgba(85, 120, 107, 0.1);
       color: var(--accent) !important;
     }
 
@@ -553,6 +571,13 @@
       text-shadow: 0 2px 20px rgba(39, 36, 32, 0.42);
     }
 
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 13px;
+    }
+
     .hero .btn {
       background: #55786B;
       border-color: #55786B;
@@ -563,6 +588,18 @@
     .hero .btn:hover {
       background: #486A5D;
       border-color: #486A5D;
+    }
+
+    .hero .btn.secondary {
+      background: rgba(255, 248, 234, 0.12);
+      border-color: rgba(255, 248, 234, 0.68);
+      color: #FFF8EA;
+      box-shadow: 0 12px 28px rgba(10, 20, 15, 0.22);
+    }
+
+    .hero .btn.secondary:hover {
+      background: rgba(255, 248, 234, 0.2);
+      border-color: #FFF8EA;
     }
 
     .hero p.booking-note {
@@ -1416,6 +1453,23 @@
       text-decoration: none;
     }
 
+    .footer-links {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 14px;
+    }
+
+    .footer-links a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: #E4CF94;
+    }
+
     .foot-bottom {
       margin-top: 44px;
       padding-top: 22px;
@@ -1522,12 +1576,59 @@
     }
 
     @media (max-width: 820px) {
-      .navlinks a.lk:not(.tools-link) {
-        display: none;
+      nav .inner {
+        height: auto;
+        min-height: 74px;
+        flex-wrap: wrap;
+        align-content: center;
+        padding-top: 12px;
+        padding-bottom: 10px;
       }
 
       .navlinks {
-        gap: 16px;
+        order: 2;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin-left: 0;
+        gap: 10px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .navlinks .lk,
+      .language-switch {
+        flex: 0 0 auto;
+      }
+
+      .navlinks .mobile-booking-link {
+        display: inline-flex;
+        order: 1;
+      }
+
+      .navlinks .nav-rhythm {
+        order: 2;
+      }
+
+      .navlinks .nav-approach {
+        order: 3;
+      }
+
+      .navlinks .nav-about {
+        order: 4;
+      }
+
+      .navlinks .tools-link {
+        order: 5;
+      }
+
+      .language-switch {
+        order: 6;
+      }
+
+      .hero-copy {
+        padding-top: 132px;
       }
     }
 
@@ -1553,12 +1654,20 @@
         display: flex;
         flex: 1;
         flex-direction: column;
+        min-width: 0;
         width: 100%;
       }
 
-      .hero .btn {
-        align-self: flex-start;
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+        width: min(100%, 340px);
         margin-top: auto;
+      }
+
+      .hero .btn {
+        justify-content: center;
+        width: 100%;
       }
 
       .hero p.booking-note {
@@ -1572,10 +1681,13 @@
       .hero h1 {
         font-size: clamp(18px, 4.7vw, 34px);
         line-height: 1.08;
+        max-width: calc(100vw - 44px);
       }
 
       .hero p.sub {
-        max-width: 24em;
+        width: 100%;
+        max-width: calc(100vw - 44px);
+        overflow-wrap: break-word;
       }
 
       .explore-flow::before {
@@ -1788,7 +1900,7 @@
       }
 
       nav .inner {
-        height: 64px;
+        min-height: 64px;
       }
 
       .brand {
@@ -1814,7 +1926,7 @@
       }
 
       .hero-copy {
-        padding-top: 92px;
+        padding-top: 132px;
         padding-bottom: 28px;
       }
     }
@@ -1933,8 +2045,10 @@
         <span>Nokmali</span>
       </a>
       <div class="navlinks">
-        <a class="lk" href="#ansatz">Ansatz</a>
-        <a class="lk" href="#about">Über mich</a>
+        <a class="lk mobile-booking-link" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen</a>
+        <a class="lk nav-approach" href="#ansatz">Ansatz</a>
+        <a class="lk nav-about" href="#about">Über mich</a>
+        <a class="lk nav-rhythm" href="/de/assessment">Rhythm Check</a>
         <a class="lk tools-link" href="/de/tools/">Tools</a>
         <span class="language-switch" aria-label="Sprache">
           <a href="../" lang="en">EN</a>
@@ -1957,7 +2071,10 @@
       <div class="inner">
         <h1><span class="hero-title-line">Online Coaching für Frauen,</span><span class="hero-title-line">wenn du mehr Energie, Klarheit</span><span class="hero-title-line">und <em>gesunde Routinen</em> suchst.</span></h1>
         <p class="sub">Wenn sich das Leben voll anfühlt, deine Routinen aus dem Takt geraten sind oder du dich in deinem Körper und Alltag wieder mehr zu Hause fühlen möchtest.</p>
-        <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <div class="hero-actions">
+          <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="btn secondary" href="/de/assessment">3-Minuten Rhythm Check machen <span class="arr" aria-hidden="true">&rarr;</span></a>
+        </div>
         <p class="booking-note">Ein 30-minütiges Erstgespräch, um zu erkunden, was dich hierherführt und ob Coaching für dich der passende nächste Schritt ist.</p>
       </div>
     </div>
@@ -2156,6 +2273,9 @@
           <span class="word">Nokmali</span>
           <p class="tag2">Online-Coaching für Ernährung, Körpersignale, Gewohnheiten und Tagesrhythmus.</p>
           <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <div class="footer-links">
+            <a href="/de/assessment">Rhythm Check</a>
+          </div>
         </div>
       </div>
       <div class="foot-bottom">
