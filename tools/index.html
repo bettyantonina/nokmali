@@ -15,6 +15,17 @@
   <meta property="og:url" content="https://nokmali.com/tools/">
   <meta property="og:title" content="Tools | Nokmali Coaching">
   <meta property="og:description" content="Simple self-reflection tools for energy, decisions, and mixed feelings.">
+  <script>
+    (function () {
+      const url = new URL(window.location.href);
+      const hasSheetLink = url.hash.includes("sheet=") || url.searchParams.has("sheet");
+      if (hasSheetLink) {
+        window.location.replace("/tools/reflection/" + url.search + url.hash);
+      } else if (url.searchParams.get("lang") === "de") {
+        window.location.replace("/de/tools/");
+      }
+    }());
+  </script>
   <style>
     @font-face{font-family:"Fluxisch Else";src:url("../fonts/FluxischElse-Light.otf") format("opentype");font-weight:300;font-display:swap}
     @font-face{font-family:"Fluxisch Else";src:url("../fonts/FluxischElse-Regular.otf") format("opentype");font-weight:400;font-display:swap}
