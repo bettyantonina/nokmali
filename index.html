@@ -1605,15 +1605,16 @@
       }
 
       .navlinks {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
         order: 2;
         width: 100%;
         max-width: 100%;
         min-width: 0;
         margin-left: 0;
         gap: 10px;
-        overflow-x: auto;
+        overflow: visible;
         padding-bottom: 4px;
-        -webkit-overflow-scrolling: touch;
       }
 
       .navlinks .lk,
@@ -1624,26 +1625,24 @@
       .navlinks .mobile-booking-link {
         display: inline-flex;
         order: 1;
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
-      .navlinks .nav-rhythm {
-        order: 2;
-      }
-
-      .navlinks .nav-approach {
-        order: 3;
-      }
-
-      .navlinks .nav-about {
-        order: 4;
-      }
-
+      .navlinks .nav-rhythm,
+      .navlinks .nav-approach,
+      .navlinks .nav-about,
       .navlinks .tools-link {
-        order: 5;
+        display: none;
       }
 
       .language-switch {
-        order: 6;
+        order: 2;
+        margin-left: auto;
+        justify-self: end;
       }
 
       .hero-copy {
