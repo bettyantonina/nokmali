@@ -1772,6 +1772,9 @@
   </main>
 
   <script>
+    const landingPage = new URLSearchParams(window.location.search).get("lang") === "de" ? "/de/" : "/";
+    document.querySelector(".brand").href = landingPage;
+
     const defaults = [
       { name: "Health", current: 6, desired: 8 },
       { name: "Work", current: 9, desired: 7 },
