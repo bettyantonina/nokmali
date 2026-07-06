@@ -212,11 +212,10 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 96px;
     }
 
     section[id] {
-      scroll-margin-top: 90px;
+      scroll-margin-top: 98px;
     }
 
     body {
@@ -739,7 +738,7 @@
     }
 
     section.block.topics {
-      padding-bottom: 12px;
+      padding-bottom: 64px;
     }
 
     .things {
@@ -1680,7 +1679,6 @@
         margin: 5px 0 13px 18px;
       }
 
-      /* Testimonial A — saved approved variant responsive behavior. */
       .begin .steps {
         display: grid;
         gap: 14px;
@@ -1700,17 +1698,17 @@
         padding-top: 0;
       }
 
+      section.block.begin {
+        padding-top: 32px;
+        padding-bottom: 8px;
+      }
+
       .begin-testimonial {
         margin-top: 14px;
       }
 
       .begin-testimonial blockquote p {
         font-size: 16.75px;
-      }
-
-      section.block.begin {
-        padding-top: 32px;
-        padding-bottom: 8px;
       }
 
       .begin + .topics {
@@ -1887,6 +1885,10 @@
 
     /* Keep the About doodles visible when the desktop composition no longer fits. */
     @media (max-width: 880px) {
+      section.block.topics {
+        padding-bottom: 48px;
+      }
+
       section.block.about {
         position: relative;
         isolation: isolate;
@@ -1975,75 +1977,14 @@
         <h1><span class="hero-title-line">Online coaching for women who</span><span class="hero-title-line">want more energy, clarity and</span><span class="hero-title-line"><em>healthier routines.</em></span></h1>
         <p class="sub">For when life feels full, your routines feel off, or you want to feel more at home in your body and daily life again.</p>
         <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Start with a free first call <span class="arr" aria-hidden="true">&rarr;</span></a>
-        <p class="booking-note">A 30-minute first call to explore what brings you here and whether this is the right space for you.</p>
+        <p class="booking-note">A 30-minute first call to explore what brings you here and whether coaching feels like the right next step.</p>
       </div>
     </div>
   </header>
 
   <main>
     <div class="explore-flow">
-      <section class="block intro" id="how-it-works">
-        <div class="wrap inner">
-          <h2 class="approach-heading">Let's understand <span class="approach-heading-accent">the full picture</span></h2>
-          <p class="approach-intro">The approach covers food, habits, body awareness, and reflective coaching. Instead of rigid plans, it supports finding realistic ways of living that work for you.</p>
-          <div class="approach-sections">
-            <div class="approach-part">
-              <div>
-                <h3>Life doesn’t come in separate boxes.</h3>
-                <p>The way you eat, rest, think, care, work and move through your day often affects everything else.</p>
-              </div>
-            </div>
-            <div class="approach-part">
-              <div>
-                <h3>Understand what’s happening.</h3>
-                <p>We look at what brings you here, what matters to you, and what keeps getting in the way. So you can understand your current patterns and what your habits, choices or reactions may be trying to solve.</p>
-              </div>
-            </div>
-            <div class="approach-part">
-              <div>
-                <h3>Find a way forward.</h3>
-                <p>From there, I help you get clearer on what’s going on for you, stay connected to what matters to you, and choose a direction that feels honest and yours. So your days feel less like something you are getting through, and more like something you are choosing with more ease and intention.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Testimonial A — saved approved variant. Use this exact layout when requested. -->
-      <section class="block begin" id="begin">
-        <div class="wrap inner">
-          <div class="eyebrow">HOW WE BEGIN</div>
-          <h2 class="title">A free 30-minute <em>discovery call</em>.</h2>
-          <p class="support">We talk about what brings you here, what you would like to move towards and whether coaching feels like the right next step.</p>
-          <div class="steps">
-            <div class="step">
-              <div class="num">1</div>
-              <h4>We meet</h4>
-              <p>A first conversation to get a sense of you, your topic and what brings you here.</p>
-            </div>
-            <div class="step">
-              <div class="num">2</div>
-              <h4>We explore</h4>
-              <p>We look at what feels off, what matters to you and what may be getting in the way.</p>
-            </div>
-            <div class="step">
-              <div class="num">3</div>
-              <h4>We choose the next step</h4>
-              <p>You leave with a clearer sense of whether this coaching space fits and what working together could support.</p>
-            </div>
-          </div>
-          <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
-          <div class="begin-testimonial" aria-labelledby="testimonial-title">
-            <h2 id="testimonial-title">After a coaching session</h2>
-            <blockquote>
-              <p>“Throughout the coaching session, Helene asked very good questions, which made me go deeper and deeper into the topic. I felt comfortable, heard and supported. The session motivated me to step into a bigger, better version of myself.”</p>
-              <cite>— Anja</cite>
-            </blockquote>
-          </div>
-        </div>
-      </section>
-
-      <section class="block topics">
+      <section class="block topics" id="topics">
         <div class="wrap">
           <div class="things-head">
             <h2 class="title">What we can <em>work on</em> together.</h2>
@@ -2091,6 +2032,66 @@
               <p>Rebuilding self-trust when you have been pulled in many directions and forgotten what your own yes and no feel like.</p>
             </div>
           </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block begin" id="begin">
+        <div class="wrap inner">
+          <div class="eyebrow">HOW WE BEGIN</div>
+          <h2 class="title">A free 30-minute <em>discovery call</em>.</h2>
+          <p class="support">We talk about what brings you here, what you would like to move towards and whether coaching feels like the right next step.</p>
+          <div class="steps">
+            <div class="step">
+              <div class="num">1</div>
+              <h4>We meet</h4>
+              <p>A first conversation to get a sense of you, your topic and what brings you here.</p>
+            </div>
+            <div class="step">
+              <div class="num">2</div>
+              <h4>We explore</h4>
+              <p>We look at what feels off, what matters to you and what may be getting in the way.</p>
+            </div>
+            <div class="step">
+              <div class="num">3</div>
+              <h4>We choose the next step</h4>
+              <p>You leave with a clearer sense of whether this coaching space fits and what working together could support.</p>
+            </div>
+          </div>
+          <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Start with a free first call <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <div class="begin-testimonial" aria-labelledby="testimonial-title">
+            <h2 id="testimonial-title">After a coaching session</h2>
+            <blockquote>
+              <p>“Throughout the coaching session, Helene asked very good questions, which made me go deeper and deeper into the topic. I felt comfortable, heard and supported. The session motivated me to step into a bigger, better version of myself.”</p>
+              <cite>— Anja</cite>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="block intro" id="how-it-works">
+        <div class="wrap inner">
+          <h2 class="approach-heading">Let's understand <span class="approach-heading-accent">the full picture</span></h2>
+          <p class="approach-intro">The approach covers food, habits, body awareness, and reflective coaching. Instead of rigid plans, it supports finding realistic ways of living that work for you.</p>
+          <div class="approach-sections">
+            <div class="approach-part">
+              <div>
+                <h3>Life doesn’t come in separate boxes.</h3>
+                <p>The way you eat, rest, think, care, work and move through your day often affects everything else.</p>
+              </div>
+            </div>
+            <div class="approach-part">
+              <div>
+                <h3>Understand what’s happening.</h3>
+                <p>We look at what brings you here, what matters to you, and what keeps getting in the way. So you can understand your current patterns and what your habits, choices or reactions may be trying to solve.</p>
+              </div>
+            </div>
+            <div class="approach-part">
+              <div>
+                <h3>Find a way forward.</h3>
+                <p>From there, I help you get clearer on what’s going on for you, stay connected to what matters to you, and choose a direction that feels honest and yours. So your days feel less like something you are getting through, and more like something you are choosing with more ease and intention.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -2157,6 +2158,12 @@
               <p>Our conversations and records are kept private and securely stored. Your information or name will not be shared without your consent. With your permission, your name and contact details may be kept in a coaching log, but no session information will be included.</p>
             </div>
           </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">Can I book if I’m not sure what my topic is?<span class="ic" aria-hidden="true"></span></button>
+            <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5">
+              <p>Yes. You do not need to arrive with a clear goal. We can begin with what feels unclear, heavy, repetitive or slightly off, and gently find what wants attention.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2167,8 +2174,8 @@
       <div class="foot-grid">
         <div>
           <span class="word">Nokmali</span>
-          <p class="tag2">Coaching for your health, nutrition, habits and daily rhythm.</p>
-          <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <p class="tag2">Online coaching for food, body signals, habits and daily rhythm.</p>
+          <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Start with a free first call <span class="arr" aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
       <div class="foot-bottom">

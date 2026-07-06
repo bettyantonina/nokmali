@@ -4,14 +4,14 @@
 
 `Testimonial A` is the approved open client-reflection treatment inside the green “How we begin” CTA section. The English and German versions must remain structurally synchronized, with translated copy.
 
-## Canonical implementation
+## Canonical saved implementation
 
-- English live markup and CSS: `index.html`
-- German live markup and CSS: `de/index.html`
-- Restoration patch: `patches/testimonial-a.patch`
-- Search marker: `Testimonial A — saved approved variant. Use this exact layout when requested.`
+- Restoration source: `patches/testimonial-a.patch`
+- English target: `index.html`
+- German target: `de/index.html`
+- Marker added when restored: `Testimonial A — saved approved variant. Use this exact layout when requested.`
 
-The named CSS is `.begin-testimonial`, together with its heading, blockquote, citation, and mobile rules. Its approved composition also depends on the marked `.begin` section rules and the adjacent Topics spacing rule.
+The testimonial is intentionally not active on the live pages. The patch restores the named `.begin-testimonial` CSS, localized markup, mobile rules, and approved relationship with the surrounding `.begin` CTA section.
 
 ## Approved content
 
@@ -38,5 +38,4 @@ Attribution in both languages: `— Anja`
 
 ## Restore
 
-When asked to “Implement Testimonial A,” restore the marked CSS, responsive rules, and localized HTML from `patches/testimonial-a.patch` in both language files. The patch records the variant relative to the repository baseline; if surrounding page code has since changed, use it as the exact source of truth and apply the marked hunks manually rather than overwriting unrelated work.
-
+When asked to “Implement Testimonial A,” run `git apply --check patches/testimonial-a.patch` and then apply it to both language files. If surrounding page code has since changed, use the patch as the exact source of truth and apply its marked hunks manually rather than overwriting unrelated work.
