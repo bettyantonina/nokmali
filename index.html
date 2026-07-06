@@ -215,6 +215,10 @@
       scroll-padding-top: 96px;
     }
 
+    section[id] {
+      scroll-margin-top: 90px;
+    }
+
     body {
       background: var(--paper);
       color: var(--ink);
@@ -1195,14 +1199,22 @@
       }
     }
 
+    /* Testimonial A — saved approved variant. Use this exact layout when requested. */
     .begin {
       background: var(--accent);
       color: #F1EEE6;
     }
 
+    section.block.begin {
+      padding-top: 56px;
+      padding-bottom: 8px;
+    }
+
     .begin .inner {
-      max-width: 760px;
+      width: min(820px, calc(100% - 44px));
+      max-width: none;
       margin: 0 auto;
+      padding: 0;
       text-align: center;
     }
 
@@ -1223,7 +1235,7 @@
       justify-content: center;
       gap: 0;
       flex-wrap: wrap;
-      margin: 36px 0;
+      margin: 28px 0 20px;
     }
 
     .begin .step {
@@ -1264,7 +1276,51 @@
     .begin .support {
       font-size: 16px;
       max-width: 34em;
-      margin: 0 auto 26px;
+      margin: 0 auto 18px;
+    }
+
+    .begin-testimonial {
+      width: min(780px, 100%);
+      margin: 14px auto 0;
+      padding-top: 0;
+      text-align: left;
+    }
+
+    .begin-testimonial h2 {
+      margin: 0 0 10px;
+      font-family: var(--f-body);
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 1.3;
+      color: rgba(246, 241, 232, 0.82);
+    }
+
+    .begin-testimonial blockquote {
+      max-width: none;
+    }
+
+    .begin-testimonial blockquote p {
+      font-family: var(--f-body);
+      font-weight: 400;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 1.6;
+      letter-spacing: 0;
+      color: rgba(246, 241, 232, 0.88);
+    }
+
+    .begin-testimonial cite {
+      display: block;
+      margin-top: 8px;
+      font-family: var(--f-body);
+      font-size: 15px;
+      font-style: normal;
+      letter-spacing: 0.04em;
+      color: rgba(228, 232, 221, 0.7);
+    }
+
+    .begin + .topics {
+      padding-top: 36px;
     }
 
     .faq h2.title {
@@ -1624,15 +1680,16 @@
         margin: 5px 0 13px 18px;
       }
 
+      /* Testimonial A — saved approved variant responsive behavior. */
       .begin .steps {
         display: grid;
-        gap: 18px;
-        margin: 30px 0;
+        gap: 14px;
+        margin: 24px 0 18px;
       }
 
       .begin .step {
         min-width: 0;
-        padding: 18px 0 0;
+        padding: 14px 0 0;
         border-left: none;
         border-top: 1px solid rgba(246, 241, 232, 0.25);
         text-align: center;
@@ -1641,6 +1698,23 @@
       .begin .step:first-child {
         border-top: none;
         padding-top: 0;
+      }
+
+      .begin-testimonial {
+        margin-top: 14px;
+      }
+
+      .begin-testimonial blockquote p {
+        font-size: 16.75px;
+      }
+
+      section.block.begin {
+        padding-top: 32px;
+        padding-bottom: 8px;
+      }
+
+      .begin + .topics {
+        padding-top: 28px;
       }
 
       .topic-modal {
@@ -1900,7 +1974,7 @@
       <div class="inner">
         <h1><span class="hero-title-line">Online coaching for women who</span><span class="hero-title-line">want more energy, clarity and</span><span class="hero-title-line"><em>healthier routines.</em></span></h1>
         <p class="sub">For when life feels full, your routines feel off, or you want to feel more at home in your body and daily life again.</p>
-        <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Start with a free first call <span class="arr" aria-hidden="true">&rarr;</span></a>
         <p class="booking-note">A 30-minute first call to explore what brings you here and whether this is the right space for you.</p>
       </div>
     </div>
@@ -1931,6 +2005,40 @@
                 <p>From there, I help you get clearer on what’s going on for you, stay connected to what matters to you, and choose a direction that feels honest and yours. So your days feel less like something you are getting through, and more like something you are choosing with more ease and intention.</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonial A — saved approved variant. Use this exact layout when requested. -->
+      <section class="block begin" id="begin">
+        <div class="wrap inner">
+          <div class="eyebrow">HOW WE BEGIN</div>
+          <h2 class="title">A free 30-minute <em>discovery call</em>.</h2>
+          <p class="support">We talk about what brings you here, what you would like to move towards and whether coaching feels like the right next step.</p>
+          <div class="steps">
+            <div class="step">
+              <div class="num">1</div>
+              <h4>We meet</h4>
+              <p>A first conversation to get a sense of you, your topic and what brings you here.</p>
+            </div>
+            <div class="step">
+              <div class="num">2</div>
+              <h4>We explore</h4>
+              <p>We look at what feels off, what matters to you and what may be getting in the way.</p>
+            </div>
+            <div class="step">
+              <div class="num">3</div>
+              <h4>We choose the next step</h4>
+              <p>You leave with a clearer sense of whether this coaching space fits and what working together could support.</p>
+            </div>
+          </div>
+          <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <div class="begin-testimonial" aria-labelledby="testimonial-title">
+            <h2 id="testimonial-title">After a coaching session</h2>
+            <blockquote>
+              <p>“Throughout the coaching session, Helene asked very good questions, which made me go deeper and deeper into the topic. I felt comfortable, heard and supported. The session motivated me to step into a bigger, better version of myself.”</p>
+              <cite>— Anja</cite>
+            </blockquote>
           </div>
         </div>
       </section>
@@ -2019,32 +2127,6 @@
         </div>
       </div>
     </div>
-
-    <section class="block begin" id="begin">
-      <div class="wrap inner">
-        <div class="eyebrow">HOW WE BEGIN</div>
-        <h2 class="title">A free 30-minute <em>discovery call</em>.</h2>
-        <p class="support">We talk about what brings you here, what you would like to move towards and whether coaching feels like the right next step.</p>
-        <div class="steps">
-          <div class="step">
-            <div class="num">1</div>
-            <h4>We meet</h4>
-            <p>A first conversation to get a sense of you, your topic and what brings you here.</p>
-          </div>
-          <div class="step">
-            <div class="num">2</div>
-            <h4>We explore</h4>
-            <p>We look at what feels off, what matters to you and what may be getting in the way.</p>
-          </div>
-          <div class="step">
-            <div class="num">3</div>
-            <h4>We choose the next step</h4>
-            <p>You leave with a clearer sense of whether this coaching space fits and what working together could support.</p>
-          </div>
-        </div>
-        <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
-      </div>
-    </section>
 
     <section class="block faq" id="faq">
       <div class="wrap">

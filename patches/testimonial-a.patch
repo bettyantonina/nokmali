@@ -1,0 +1,414 @@
+diff --git a/de/index.html b/de/index.html
+--- a/de/index.html
++++ b/de/index.html
+@@ -1176,14 +1176,22 @@
+       }
+     }
+ 
++    /* Testimonial A — saved approved variant. Use this exact layout when requested. */
+     .begin {
+       background: var(--accent);
+       color: #F1EEE6;
+     }
+ 
++    section.block.begin {
++      padding-top: 56px;
++      padding-bottom: 8px;
++    }
++
+     .begin .inner {
+-      max-width: 760px;
++      width: min(820px, calc(100% - 44px));
++      max-width: none;
+       margin: 0 auto;
++      padding: 0;
+       text-align: center;
+     }
+ 
+@@ -1204,7 +1212,7 @@
+       justify-content: center;
+       gap: 0;
+       flex-wrap: wrap;
+-      margin: 36px 0;
++      margin: 28px 0 20px;
+     }
+ 
+     .begin .step {
+@@ -1245,7 +1253,51 @@
+     .begin .support {
+       font-size: 16px;
+       max-width: 34em;
+-      margin: 0 auto 26px;
++      margin: 0 auto 18px;
++    }
++
++    .begin-testimonial {
++      width: min(780px, 100%);
++      margin: 14px auto 0;
++      padding-top: 0;
++      text-align: left;
++    }
++
++    .begin-testimonial h2 {
++      margin: 0 0 10px;
++      font-family: var(--f-body);
++      font-weight: 500;
++      font-size: 17px;
++      line-height: 1.3;
++      color: rgba(246, 241, 232, 0.82);
++    }
++
++    .begin-testimonial blockquote {
++      max-width: none;
++    }
++
++    .begin-testimonial blockquote p {
++      font-family: var(--f-body);
++      font-weight: 400;
++      font-style: normal;
++      font-size: 18px;
++      line-height: 1.6;
++      letter-spacing: 0;
++      color: rgba(246, 241, 232, 0.88);
++    }
++
++    .begin-testimonial cite {
++      display: block;
++      margin-top: 8px;
++      font-family: var(--f-body);
++      font-size: 15px;
++      font-style: normal;
++      letter-spacing: 0.04em;
++      color: rgba(228, 232, 221, 0.7);
++    }
++
++    .begin + .topics-section {
++      padding-top: 36px;
+     }
+ 
+     .faq h2.title {
+@@ -1605,15 +1657,16 @@
+         margin: 5px 0 13px 18px;
+       }
+ 
++      /* Testimonial A — saved approved variant responsive behavior. */
+       .begin .steps {
+         display: grid;
+-        gap: 18px;
+-        margin: 30px 0;
++        gap: 14px;
++        margin: 24px 0 18px;
+       }
+ 
+       .begin .step {
+         min-width: 0;
+-        padding: 18px 0 0;
++        padding: 14px 0 0;
+         border-left: none;
+         border-top: 1px solid rgba(246, 241, 232, 0.25);
+         text-align: center;
+@@ -1624,6 +1677,23 @@
+         padding-top: 0;
+       }
+ 
++      .begin-testimonial {
++        margin-top: 14px;
++      }
++
++      .begin-testimonial blockquote p {
++        font-size: 16.75px;
++      }
++
++      section.block.begin {
++        padding-top: 32px;
++        padding-bottom: 8px;
++      }
++
++      .begin + .topics-section {
++        padding-top: 28px;
++      }
++
+       .topic-modal {
+         padding: 12px;
+         place-items: center;
+@@ -1920,6 +1990,40 @@
+         </div>
+       </section>
+ 
++      <!-- Testimonial A — saved approved variant. Use this exact layout when requested. -->
++      <section class="block begin" id="begin">
++        <div class="wrap inner">
++          <div class="eyebrow">SO BEGINNEN WIR</div>
++          <h2 class="title">Ein kostenloses 30-minütiges <em>Erstgespräch</em>.</h2>
++          <p class="support">Wir schauen, was dich herführt, wohin du dich bewegen möchtest und ob Coaching der passende nächste Schritt ist.</p>
++          <div class="steps">
++            <div class="step">
++              <div class="num">1</div>
++              <h4>Wir lernen uns kennen</h4>
++              <p>Ein erstes Gespräch, um ein Gefühl für dich, dein Thema und das zu bekommen, was dich herführt.</p>
++            </div>
++            <div class="step">
++              <div class="num">2</div>
++              <h4>Wir erkunden</h4>
++              <p>Wir schauen, was sich gerade nicht stimmig anfühlt, was dir wichtig ist und was dir im Weg stehen könnte.</p>
++            </div>
++            <div class="step">
++              <div class="num">3</div>
++              <h4>Wir wählen den nächsten Schritt</h4>
++              <p>Du bekommst ein klareres Gefühl dafür, ob dieser Coaching-Raum passt und was eine Zusammenarbeit unterstützen könnte.</p>
++            </div>
++          </div>
++          <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen <span class="arr" aria-hidden="true">&rarr;</span></a>
++          <div class="begin-testimonial" aria-labelledby="testimonial-title">
++            <h2 id="testimonial-title">Nach einer Coaching-Sitzung</h2>
++            <blockquote>
++              <p>„Während der Coaching-Sitzung stellte Helene sehr gute Fragen, die mich immer tiefer in mein Thema geführt haben. Ich habe mich wohl, gehört und unterstützt gefühlt. Die Sitzung hat mich motiviert, mehr in die Person hineinzuwachsen, die ich sein möchte.“</p>
++              <cite>— Anja</cite>
++            </blockquote>
++          </div>
++        </div>
++      </section>
++
+       <section class="block topics-section" id="themen">
+         <div class="wrap">
+           <div class="things-head">
+@@ -2005,32 +2109,6 @@
+       </div>
+     </div>
+ 
+-    <section class="block begin" id="begin">
+-      <div class="wrap inner">
+-        <div class="eyebrow">SO BEGINNEN WIR</div>
+-        <h2 class="title">Ein kostenloses 30-minütiges <em>Erstgespräch</em>.</h2>
+-        <p class="support">Wir schauen, was dich herführt, wohin du dich bewegen möchtest und ob Coaching der passende nächste Schritt ist.</p>
+-        <div class="steps">
+-          <div class="step">
+-            <div class="num">1</div>
+-            <h4>Wir lernen uns kennen</h4>
+-            <p>Ein erstes Gespräch, um ein Gefühl für dich, dein Thema und das zu bekommen, was dich herführt.</p>
+-          </div>
+-          <div class="step">
+-            <div class="num">2</div>
+-            <h4>Wir erkunden</h4>
+-            <p>Wir schauen, was sich gerade nicht stimmig anfühlt, was dir wichtig ist und was dir im Weg stehen könnte.</p>
+-          </div>
+-          <div class="step">
+-            <div class="num">3</div>
+-            <h4>Wir wählen den nächsten Schritt</h4>
+-            <p>Du bekommst ein klareres Gefühl dafür, ob dieser Coaching-Raum passt und was eine Zusammenarbeit unterstützen könnte.</p>
+-          </div>
+-        </div>
+-        <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen <span class="arr" aria-hidden="true">&rarr;</span></a>
+-      </div>
+-    </section>
+-
+     <section class="block faq" id="faq">
+       <div class="wrap">
+         <h2 class="title">Gut zu <em>wissen</em>.</h2>
+diff --git a/index.html b/index.html
+--- a/index.html
++++ b/index.html
+@@ -1195,14 +1195,22 @@
+       }
+     }
+ 
++    /* Testimonial A — saved approved variant. Use this exact layout when requested. */
+     .begin {
+       background: var(--accent);
+       color: #F1EEE6;
+     }
+ 
++    section.block.begin {
++      padding-top: 56px;
++      padding-bottom: 8px;
++    }
++
+     .begin .inner {
+-      max-width: 760px;
++      width: min(820px, calc(100% - 44px));
++      max-width: none;
+       margin: 0 auto;
++      padding: 0;
+       text-align: center;
+     }
+ 
+@@ -1223,7 +1231,7 @@
+       justify-content: center;
+       gap: 0;
+       flex-wrap: wrap;
+-      margin: 36px 0;
++      margin: 28px 0 20px;
+     }
+ 
+     .begin .step {
+@@ -1264,7 +1272,51 @@
+     .begin .support {
+       font-size: 16px;
+       max-width: 34em;
+-      margin: 0 auto 26px;
++      margin: 0 auto 18px;
++    }
++
++    .begin-testimonial {
++      width: min(780px, 100%);
++      margin: 14px auto 0;
++      padding-top: 0;
++      text-align: left;
++    }
++
++    .begin-testimonial h2 {
++      margin: 0 0 10px;
++      font-family: var(--f-body);
++      font-weight: 500;
++      font-size: 17px;
++      line-height: 1.3;
++      color: rgba(246, 241, 232, 0.82);
++    }
++
++    .begin-testimonial blockquote {
++      max-width: none;
++    }
++
++    .begin-testimonial blockquote p {
++      font-family: var(--f-body);
++      font-weight: 400;
++      font-style: normal;
++      font-size: 18px;
++      line-height: 1.6;
++      letter-spacing: 0;
++      color: rgba(246, 241, 232, 0.88);
++    }
++
++    .begin-testimonial cite {
++      display: block;
++      margin-top: 8px;
++      font-family: var(--f-body);
++      font-size: 15px;
++      font-style: normal;
++      letter-spacing: 0.04em;
++      color: rgba(228, 232, 221, 0.7);
++    }
++
++    .begin + .topics {
++      padding-top: 36px;
+     }
+ 
+     .faq h2.title {
+@@ -1624,15 +1676,16 @@
+         margin: 5px 0 13px 18px;
+       }
+ 
++      /* Testimonial A — saved approved variant responsive behavior. */
+       .begin .steps {
+         display: grid;
+-        gap: 18px;
+-        margin: 30px 0;
++        gap: 14px;
++        margin: 24px 0 18px;
+       }
+ 
+       .begin .step {
+         min-width: 0;
+-        padding: 18px 0 0;
++        padding: 14px 0 0;
+         border-left: none;
+         border-top: 1px solid rgba(246, 241, 232, 0.25);
+         text-align: center;
+@@ -1643,6 +1696,23 @@
+         padding-top: 0;
+       }
+ 
++      .begin-testimonial {
++        margin-top: 14px;
++      }
++
++      .begin-testimonial blockquote p {
++        font-size: 16.75px;
++      }
++
++      section.block.begin {
++        padding-top: 32px;
++        padding-bottom: 8px;
++      }
++
++      .begin + .topics {
++        padding-top: 28px;
++      }
++
+       .topic-modal {
+         padding: 12px;
+         place-items: center;
+@@ -1935,6 +2005,40 @@
+         </div>
+       </section>
+ 
++      <!-- Testimonial A — saved approved variant. Use this exact layout when requested. -->
++      <section class="block begin" id="begin">
++        <div class="wrap inner">
++          <div class="eyebrow">HOW WE BEGIN</div>
++          <h2 class="title">A free 30-minute <em>discovery call</em>.</h2>
++          <p class="support">We talk about what brings you here, what you would like to move towards and whether coaching feels like the right next step.</p>
++          <div class="steps">
++            <div class="step">
++              <div class="num">1</div>
++              <h4>We meet</h4>
++              <p>A first conversation to get a sense of you, your topic and what brings you here.</p>
++            </div>
++            <div class="step">
++              <div class="num">2</div>
++              <h4>We explore</h4>
++              <p>We look at what feels off, what matters to you and what may be getting in the way.</p>
++            </div>
++            <div class="step">
++              <div class="num">3</div>
++              <h4>We choose the next step</h4>
++              <p>You leave with a clearer sense of whether this coaching space fits and what working together could support.</p>
++            </div>
++          </div>
++          <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
++          <div class="begin-testimonial" aria-labelledby="testimonial-title">
++            <h2 id="testimonial-title">After a coaching session</h2>
++            <blockquote>
++              <p>“Throughout the coaching session, Helene asked very good questions, which made me go deeper and deeper into the topic. I felt comfortable, heard and supported. The session motivated me to step into a bigger, better version of myself.”</p>
++              <cite>— Anja</cite>
++            </blockquote>
++          </div>
++        </div>
++      </section>
++
+       <section class="block topics">
+         <div class="wrap">
+           <div class="things-head">
+@@ -2020,32 +2124,6 @@
+       </div>
+     </div>
+ 
+-    <section class="block begin" id="begin">
+-      <div class="wrap inner">
+-        <div class="eyebrow">HOW WE BEGIN</div>
+-        <h2 class="title">A free 30-minute <em>discovery call</em>.</h2>
+-        <p class="support">We talk about what brings you here, what you would like to move towards and whether coaching feels like the right next step.</p>
+-        <div class="steps">
+-          <div class="step">
+-            <div class="num">1</div>
+-            <h4>We meet</h4>
+-            <p>A first conversation to get a sense of you, your topic and what brings you here.</p>
+-          </div>
+-          <div class="step">
+-            <div class="num">2</div>
+-            <h4>We explore</h4>
+-            <p>We look at what feels off, what matters to you and what may be getting in the way.</p>
+-          </div>
+-          <div class="step">
+-            <div class="num">3</div>
+-            <h4>We choose the next step</h4>
+-            <p>You leave with a clearer sense of whether this coaching space fits and what working together could support.</p>
+-          </div>
+-        </div>
+-        <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
+-      </div>
+-    </section>
+-
+     <section class="block faq" id="faq">
+       <div class="wrap">
+         <h2 class="title">Good to <em>know</em>.</h2>
