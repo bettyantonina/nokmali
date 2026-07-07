@@ -1681,15 +1681,22 @@
       }
 
       .hero-actions {
-        align-items: stretch;
+        align-items: flex-start;
         flex-direction: column;
-        width: min(100%, 340px);
+        width: max-content;
+        max-width: calc(100vw - 22px);
+        margin-left: -22px;
         margin-top: auto;
       }
 
       .hero .btn {
-        justify-content: center;
-        width: 100%;
+        justify-content: flex-start;
+        width: max-content;
+        max-width: calc(100vw - 22px);
+        border-left: 0;
+        border-radius: 0 40px 40px 0;
+        padding-left: 22px;
+        text-align: left;
       }
 
       .hero p.booking-note {
@@ -1996,6 +2003,16 @@
     @media (max-width: 360px) {
       .hero-copy {
         padding-right: 14px;
+        padding-left: 14px;
+      }
+
+      .hero-actions {
+        max-width: calc(100vw - 14px);
+        margin-left: -14px;
+      }
+
+      .hero .btn {
+        max-width: calc(100vw - 14px);
         padding-left: 14px;
       }
 
