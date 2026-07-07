@@ -1699,21 +1699,23 @@
       }
 
       .hero-actions {
-        align-items: stretch;
+        align-items: flex-start;
         flex-direction: column;
-        width: min(100%, 360px);
-        max-width: 100%;
+        width: min(312px, calc(100vw - 22px));
+        max-width: calc(100vw - 22px);
         gap: 10px;
+        margin-left: -22px;
         margin-top: 22px;
       }
 
       .hero .btn {
-        justify-content: center;
+        justify-content: flex-start;
         width: 100%;
         min-height: 55px;
-        border-radius: 999px;
-        padding: 12px 20px;
-        text-align: center;
+        border-left: 0;
+        border-radius: 0 40px 40px 0;
+        padding: 12px 22px;
+        text-align: left;
       }
 
       .hero p.booking-note {
@@ -2024,7 +2026,8 @@
 
       .hero .btn {
         min-height: 54px;
-        padding: 11px 18px;
+        padding-top: 11px;
+        padding-bottom: 11px;
       }
 
       .thing {
@@ -2058,12 +2061,14 @@
       }
 
       .hero-actions {
-        width: 100%;
-        max-width: 360px;
+        width: calc(100vw - 14px);
+        max-width: calc(100vw - 14px);
+        margin-left: -14px;
       }
 
       .hero .btn {
         max-width: 100%;
+        padding-left: 14px;
       }
 
       .hero h1 {
