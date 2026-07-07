@@ -1297,10 +1297,11 @@
     }
 
     .begin-testimonial {
-      width: min(780px, 100%);
-      margin: 14px auto 0;
+      width: min(1120px, calc(100vw - 64px));
+      margin: 14px 0 0 50%;
       padding-top: 0;
       text-align: left;
+      transform: translateX(-50%);
     }
 
     .begin-testimonial h2 {
@@ -1314,6 +1315,21 @@
 
     .begin-testimonial blockquote {
       max-width: none;
+    }
+
+    .begin-testimonials {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 44px;
+      align-items: start;
+    }
+
+    .begin-testimonial blockquote + blockquote {
+      margin-top: 20px;
+    }
+
+    .begin-testimonials blockquote + blockquote {
+      margin-top: 0;
     }
 
     .begin-testimonial blockquote p {
@@ -1586,16 +1602,15 @@
       }
 
       .navlinks {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
         order: 2;
         width: 100%;
         max-width: 100%;
         min-width: 0;
         margin-left: 0;
         gap: 10px;
-        overflow: visible;
+        overflow-x: auto;
         padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
       }
 
       .navlinks .lk,
@@ -1603,27 +1618,23 @@
         flex: 0 0 auto;
       }
 
-      .navlinks .mobile-booking-link {
-        display: inline-flex;
-        order: 1;
-        min-width: 0;
-        max-width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
       .navlinks .nav-rhythm,
       .navlinks .nav-approach,
-      .navlinks .nav-about,
-      .navlinks .tools-link {
+      .navlinks .mobile-booking-link {
         display: none;
       }
 
-      .language-switch {
+      .navlinks .nav-about {
+        order: 1;
+      }
+
+      .navlinks .tools-link {
+        display: inline-flex;
         order: 2;
-        margin-left: auto;
-        justify-self: end;
+      }
+
+      .language-switch {
+        order: 3;
       }
 
       .hero-copy {
@@ -1796,7 +1807,16 @@
       }
 
       .begin-testimonial {
+        width: min(780px, 100%);
         margin-top: 14px;
+        margin-left: auto;
+        margin-right: auto;
+        transform: none;
+      }
+
+      .begin-testimonials {
+        grid-template-columns: 1fr;
+        gap: 18px;
       }
 
       .begin-testimonial blockquote p {
@@ -2157,11 +2177,17 @@
           </div>
           <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen <span class="arr" aria-hidden="true">&rarr;</span></a>
           <div class="begin-testimonial" aria-labelledby="testimonial-title">
-            <h2 id="testimonial-title">Nach einer Coaching-Sitzung</h2>
-            <blockquote>
-              <p>„Während der Coaching-Sitzung stellte Helene sehr gute Fragen, die mich immer tiefer in mein Thema geführt haben. Ich habe mich wohl, gehört und unterstützt gefühlt. Die Sitzung hat mich motiviert, mehr in die Person hineinzuwachsen, die ich sein möchte.“</p>
-              <cite>— Anja</cite>
-            </blockquote>
+            <h2 id="testimonial-title">Liebe Worte</h2>
+            <div class="begin-testimonials">
+              <blockquote>
+                <p>„Während des Coachings stellte Helene sehr gute Fragen, die mich immer tiefer in mein Thema geführt haben. Ich habe mich wohl, gehört und unterstützt gefühlt. Die Sitzung hat mich motiviert, mehr in die Person hineinzuwachsen, die ich sein möchte.“</p>
+                <cite>— Anja</cite>
+              </blockquote>
+              <blockquote>
+                <p>„Was ich besonders geschätzt habe, war der natürliche Fluss des Gespräches. Ich habe kaum bemerkt, dass Helene mich angeleitet hat. Ich fühlte mich eingeladen innezuhalten, bei mir selbst einzuchecken und tiefer zu gehen, ganz ohne Schwere.“</p>
+                <cite>— Antonia</cite>
+              </blockquote>
+            </div>
           </div>
         </div>
       </section>
