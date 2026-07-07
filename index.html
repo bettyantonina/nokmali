@@ -379,6 +379,10 @@
       display: none;
     }
 
+    .mobile-navlinks {
+      display: none;
+    }
+
     .language-switch {
       display: inline-flex;
       align-items: center;
@@ -405,6 +409,7 @@
 
     nav .word,
     nav .navlinks .lk,
+    nav .mobile-navlinks .lk,
     nav .language-switch,
     nav .language-switch [aria-current="page"] {
       color: #fff !important;
@@ -412,6 +417,7 @@
 
     nav .word:-webkit-any-link,
     nav .navlinks .lk:-webkit-any-link,
+    nav .mobile-navlinks .lk:-webkit-any-link,
     nav .language-switch a:-webkit-any-link,
     nav a:link,
     nav a:visited {
@@ -424,6 +430,7 @@
     }
 
     nav .navlinks a.lk:hover,
+    nav .mobile-navlinks a.lk:hover,
     nav .language-switch a:hover {
       color: rgba(255, 255, 255, 0.78) !important;
     }
@@ -441,23 +448,27 @@
     }
 
     nav.scrolled .navlinks .lk,
+    nav.scrolled .mobile-navlinks .lk,
     nav.scrolled .language-switch {
       color: var(--ink-soft) !important;
     }
 
     nav.scrolled .navlinks .lk:-webkit-any-link,
+    nav.scrolled .mobile-navlinks .lk:-webkit-any-link,
     nav.scrolled .language-switch a:-webkit-any-link {
       color: var(--ink-soft) !important;
     }
 
     nav.scrolled .language-switch [aria-current="page"],
     nav.scrolled .navlinks a.lk:hover,
+    nav.scrolled .mobile-navlinks a.lk:hover,
     nav.scrolled .language-switch a:hover {
       color: var(--accent) !important;
     }
 
     nav.scrolled .language-switch [aria-current="page"]:-webkit-any-link,
     nav.scrolled .navlinks a.lk:hover:-webkit-any-link,
+    nav.scrolled .mobile-navlinks a.lk:hover:-webkit-any-link,
     nav.scrolled .language-switch a:hover:-webkit-any-link {
       color: var(--accent) !important;
     }
@@ -1317,7 +1328,7 @@
 
     .begin-testimonial {
       width: min(1120px, calc(100vw - 64px));
-      margin: 14px 0 0 50%;
+      margin: 30px 0 0 50%;
       padding-top: 0;
       text-align: left;
       transform: translateX(-50%);
@@ -1612,52 +1623,34 @@
 
     @media (max-width: 820px) {
       nav .inner {
-        height: auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        height: 74px;
         min-height: 74px;
-        flex-wrap: wrap;
-        align-content: center;
-        padding-top: 12px;
-        padding-bottom: 10px;
+        gap: 14px;
       }
 
       .navlinks {
-        order: 2;
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        margin-left: 0;
-        gap: 10px;
-        overflow-x: auto;
-        padding-bottom: 4px;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .navlinks .lk,
-      .language-switch {
-        flex: 0 0 auto;
-      }
-
-      .navlinks .nav-rhythm,
-      .navlinks .nav-approach,
-      .navlinks .mobile-booking-link {
         display: none;
       }
 
-      .navlinks .nav-about {
-        order: 1;
+      .mobile-navlinks {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+        font-size: 13.5px;
+        white-space: nowrap;
       }
 
-      .navlinks .tools-link {
-        display: inline-flex;
-        order: 2;
-      }
-
-      .language-switch {
-        order: 3;
+      .mobile-navlinks .lk {
+        color: inherit;
+        text-decoration: none;
       }
 
       .hero-copy {
-        padding-top: 132px;
+        padding-top: 96px;
       }
     }
 
@@ -1827,7 +1820,7 @@
 
       .begin-testimonial {
         width: min(780px, 100%);
-        margin-top: 14px;
+        margin-top: 28px;
         margin-left: auto;
         margin-right: auto;
         transform: none;
@@ -1938,6 +1931,7 @@
       }
 
       nav .inner {
+        height: 64px;
         min-height: 64px;
       }
 
@@ -1954,17 +1948,13 @@
         font-size: 22px;
       }
 
-      .navlinks {
-        gap: 12px;
-      }
-
-      .navlinks .lk,
-      .language-switch {
+      .mobile-navlinks,
+      .mobile-navlinks .language-switch {
         font-size: 13.5px;
       }
 
       .hero-copy {
-        padding-top: 132px;
+        padding-top: 86px;
         padding-bottom: 28px;
       }
     }
@@ -2082,6 +2072,14 @@
         <img class="brand-logo" src="art/nokmalilogo.png" alt="">
         <span>Nokmali</span>
       </a>
+      <div class="mobile-navlinks" aria-label="Mobile navigation">
+        <a class="lk tools-link" href="/tools/">Tools</a>
+        <span class="language-switch" aria-label="Language">
+          <a href="/" lang="en" aria-current="page">EN</a>
+          <span aria-hidden="true">/</span>
+          <a href="/de/" lang="de">DE</a>
+        </span>
+      </div>
       <div class="navlinks">
         <a class="lk mobile-booking-link" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call</a>
         <a class="lk nav-approach" href="#how-it-works">Approach</a>
