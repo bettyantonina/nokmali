@@ -1265,7 +1265,7 @@
 
     section.block.begin {
       padding-top: 56px;
-      padding-bottom: 8px;
+      padding-bottom: 60px;
     }
 
     .begin .inner {
@@ -1337,60 +1337,123 @@
       margin: 0 auto 18px;
     }
 
-    .begin-testimonial {
-      width: min(1120px, calc(100vw - 64px));
-      margin: 30px 0 0 50%;
-      padding-top: 0;
-      text-align: left;
-      transform: translateX(-50%);
+    .testimonial-block {
+      background: var(--gold);
+      color: var(--ink);
+      padding: clamp(36px, 5.25vw, 56px) 0 clamp(29px, 4.2vw, 45px);
+      position: relative;
+      z-index: 2;
     }
 
-    .begin-testimonial h2 {
-      margin: 0 0 10px;
-      font-family: var(--f-body);
-      font-weight: 500;
-      font-size: 17px;
-      line-height: 1.3;
-      color: rgba(246, 241, 232, 0.82);
-    }
-
-    .begin-testimonial blockquote {
-      max-width: none;
-    }
-
-    .begin-testimonials {
+    .testimonial-carousel {
+      width: min(1120px, calc(100vw - 40px));
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 44px;
-      align-items: start;
+      grid-template-columns: 44px minmax(0, 1fr) 44px;
+      gap: clamp(14px, 4vw, 44px);
+      align-items: center;
     }
 
-    .begin-testimonial blockquote + blockquote {
-      margin-top: 20px;
+    .testimonial-frame {
+      min-height: 100px;
+      display: grid;
+      place-items: center;
+      text-align: center;
     }
 
-    .begin-testimonials blockquote + blockquote {
-      margin-top: 0;
+    .testimonial-slide {
+      display: none;
+      width: min(760px, 100%);
+      margin: 0 auto;
     }
 
-    .begin-testimonial blockquote p {
+    .testimonial-slide.active {
+      display: block;
+      animation: testimonialFade 0.35s ease both;
+    }
+
+    @keyframes testimonialFade {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .testimonial-slide p {
       font-family: var(--f-body);
       font-weight: 400;
       font-style: normal;
       font-size: 18px;
       line-height: 1.6;
       letter-spacing: 0;
-      color: rgba(246, 241, 232, 0.88);
+      color: rgba(58, 54, 64, 0.9);
     }
 
-    .begin-testimonial cite {
+    .testimonial-slide cite {
       display: block;
       margin-top: 8px;
       font-family: var(--f-body);
       font-size: 15px;
       font-style: normal;
-      letter-spacing: 0.04em;
-      color: rgba(228, 232, 221, 0.7);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: rgba(58, 54, 64, 0.74);
+    }
+
+    .testimonial-arrow {
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: rgba(58, 54, 64, 0.82);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: color 0.18s ease, background 0.18s ease;
+    }
+
+    .testimonial-arrow:hover {
+      background: rgba(246, 241, 232, 0.22);
+      color: var(--ink);
+    }
+
+    .testimonial-arrow:focus-visible {
+      outline: 3px solid rgba(246, 241, 232, 0.72);
+      outline-offset: 3px;
+    }
+
+    .testimonial-arrow svg {
+      width: 34px;
+      height: 34px;
+      stroke-width: 1.5;
+    }
+
+    .testimonial-dots {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .testimonial-dot {
+      width: 8px;
+      height: 8px;
+      border: 1px solid rgba(58, 54, 64, 0.78);
+      border-radius: 50%;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .testimonial-dot.active {
+      background: rgba(58, 54, 64, 0.82);
     }
 
     .begin + .topics {
@@ -1859,24 +1922,41 @@
 
       section.block.begin {
         padding-top: 32px;
-        padding-bottom: 8px;
+        padding-bottom: 60px;
       }
 
-      .begin-testimonial {
-        width: min(780px, 100%);
-        margin-top: 28px;
-        margin-left: auto;
-        margin-right: auto;
-        transform: none;
+      .testimonial-block {
+        padding: 32px 0 26px;
       }
 
-      .begin-testimonials {
-        grid-template-columns: 1fr;
-        gap: 18px;
+      .testimonial-carousel {
+        width: min(100%, calc(100vw - 24px));
+        grid-template-columns: 34px minmax(0, 1fr) 34px;
+        gap: 6px;
       }
 
-      .begin-testimonial blockquote p {
+      .testimonial-frame {
+        min-height: 130px;
+      }
+
+      .testimonial-slide p {
         font-size: 16.75px;
+        line-height: 1.6;
+      }
+
+      .testimonial-slide cite {
+        margin-top: 8px;
+        font-size: 15px;
+      }
+
+      .testimonial-arrow {
+        width: 34px;
+        height: 44px;
+      }
+
+      .testimonial-arrow svg {
+        width: 28px;
+        height: 28px;
       }
 
       .begin + .topics {
@@ -2269,18 +2349,30 @@
             </div>
           </div>
           <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
-          <div class="begin-testimonial" aria-labelledby="testimonial-title">
-            <h2 id="testimonial-title">Kind words</h2>
-            <div class="begin-testimonials">
-              <blockquote>
-                <p>“Throughout the coaching session, Helene asked very good questions, which made me go deeper and deeper into the topic. I felt comfortable, heard and supported. The session motivated me to step into a bigger, better version of myself.”</p>
-                <cite>— Anja</cite>
-              </blockquote>
-              <blockquote>
-                <p>“What I appreciated most was how naturally the conversation flowed. I barely noticed that Helene was guiding me. It felt like an invitation to pause, check in with myself, and go deeper without overwhelm.”</p>
-                <cite>— Antonia</cite>
-              </blockquote>
-            </div>
+        </div>
+      </section>
+
+      <section class="testimonial-block" aria-label="Client feedback">
+        <div class="testimonial-carousel" data-testimonial-carousel>
+          <button class="testimonial-arrow" type="button" data-testimonial-prev aria-label="Previous testimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <div class="testimonial-frame">
+            <blockquote class="testimonial-slide active">
+              <p>Throughout the coaching session, Helene asked very good questions, which made me go deeper and deeper into the topic. I felt comfortable, heard and supported. The session motivated me to step into a bigger, better version of myself.</p>
+              <cite>Anja, Spain</cite>
+            </blockquote>
+            <blockquote class="testimonial-slide">
+              <p>What I appreciated most was how naturally the conversation flowed. I barely noticed that Helene was guiding me. It felt like an invitation to pause, check in with myself, and go deeper without overwhelm.</p>
+              <cite>Antonia, Australia</cite>
+            </blockquote>
+          </div>
+          <button class="testimonial-arrow" type="button" data-testimonial-next aria-label="Next testimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <div class="testimonial-dots" aria-label="Choose testimonial">
+            <button class="testimonial-dot active" type="button" data-testimonial-dot="0" aria-label="Show testimonial 1"></button>
+            <button class="testimonial-dot" type="button" data-testimonial-dot="1" aria-label="Show testimonial 2"></button>
           </div>
         </div>
       </section>
@@ -2429,6 +2521,51 @@
           answer.style.maxHeight = `${answer.scrollHeight}px`;
         }
       });
+    });
+
+    document.querySelectorAll("[data-testimonial-carousel]").forEach((carousel) => {
+      const slides = [...carousel.querySelectorAll(".testimonial-slide")];
+      const dots = [...carousel.querySelectorAll(".testimonial-dot")];
+      const prev = carousel.querySelector("[data-testimonial-prev]");
+      const next = carousel.querySelector("[data-testimonial-next]");
+      let current = 0;
+      let timer = null;
+
+      const show = (index) => {
+        current = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
+        dots.forEach((dot, i) => dot.classList.toggle("active", i === current));
+      };
+
+      const start = () => {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        timer = window.setInterval(() => show(current + 1), 10000);
+      };
+
+      const restart = () => {
+        window.clearInterval(timer);
+        start();
+      };
+
+      prev?.addEventListener("click", () => {
+        show(current - 1);
+        restart();
+      });
+
+      next?.addEventListener("click", () => {
+        show(current + 1);
+        restart();
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          show(index);
+          restart();
+        });
+      });
+
+      show(0);
+      start();
     });
 
     const topicModal = document.getElementById("topic-modal");
