@@ -2041,10 +2041,10 @@
     @media (max-width: 720px) {
       .thing {
         display: grid;
-        grid-template-columns: 30% minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr) 30%;
         align-items: stretch;
         height: auto;
-        min-height: 82px;
+        min-height: 50px;
       }
 
       .thing p,
@@ -2052,12 +2052,18 @@
         display: none;
       }
 
+      .thing:not(.is-expanded) {
+        padding: 0;
+        overflow: hidden;
+      }
+
       .thing .pic {
         display: block;
+        order: 2;
         height: 100%;
-        min-height: 66px;
+        min-height: 50px;
         aspect-ratio: auto;
-        border-radius: 8px 0 0 8px;
+        border-radius: 0 11px 11px 0;
       }
 
       .thing .pic img,
@@ -2072,29 +2078,34 @@
       .thing .txt {
         display: flex;
         align-items: center;
-        min-height: 66px;
-        padding: 10px 42px 10px 16px;
-        border-radius: 0 8px 8px 0;
+        min-height: 50px;
+        padding: 8px 14px 8px 18px;
+        border-radius: 11px 0 0 11px;
       }
 
       .thing .txt::before {
-        content: "+";
-        position: absolute;
-        right: 15px;
-        top: 50%;
+        display: none;
+      }
+
+      .thing .pic::after {
+        content: "\2192";
         display: grid;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
         place-items: center;
-        width: 20px;
-        height: 20px;
-        border: 1px solid color-mix(in srgb, var(--ink) 26%, transparent);
-        border-radius: 50%;
-        color: var(--ink);
+        width: 28px;
+        height: 28px;
+        color: #FFFFFF;
         font-family: var(--f-body);
-        font-size: 16px;
-        font-weight: 600;
+        font-size: 24px;
+        font-weight: 700;
         line-height: 1;
-        transform: translateY(-50%);
-        transition: transform 0.2s ease, background-color 0.2s ease;
+        text-shadow: 0 1px 7px rgba(39, 36, 32, 0.55);
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        transition: transform 0.2s ease;
       }
 
       .thing:nth-child(even):not(.is-expanded),
@@ -2121,6 +2132,7 @@
       }
 
       .thing.is-expanded .pic {
+        order: 0;
         height: auto;
         aspect-ratio: 4.5 / 3;
         border-radius: 8px 8px 0 0;
@@ -2134,11 +2146,7 @@
       }
 
       .thing.is-expanded .txt::before {
-        content: "-";
-        top: auto;
-        right: 18px;
-        bottom: 15px;
-        transform: none;
+        display: none;
       }
 
       .thing.is-expanded h3 {
@@ -2220,7 +2228,7 @@
       }
 
       .thing .txt {
-        padding: 10px 42px 10px 16px;
+        padding: 8px 14px 8px 18px;
       }
 
       .thing.is-expanded .txt {
