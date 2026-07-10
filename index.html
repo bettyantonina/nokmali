@@ -2039,12 +2039,17 @@
     }
 
     @media (max-width: 720px) {
+      .things {
+        grid-auto-rows: auto;
+        align-items: start;
+      }
+
       .thing {
         display: grid;
         grid-template-columns: minmax(0, 1fr) 30%;
         align-items: stretch;
         height: auto;
-        min-height: 40px;
+        min-height: 24px;
       }
 
       .thing p,
@@ -2061,7 +2066,7 @@
         display: block;
         order: 2;
         height: 100%;
-        min-height: 40px;
+        min-height: 24px;
         aspect-ratio: auto;
         border-radius: 0 11px 11px 0;
       }
@@ -2078,8 +2083,8 @@
       .thing .txt {
         display: flex;
         align-items: center;
-        min-height: 40px;
-        padding: 6px 14px 6px 18px;
+        min-height: 24px;
+        padding: 3px 12px 3px 16px;
         border-radius: 11px 0 0 11px;
       }
 
@@ -2092,14 +2097,14 @@
         display: grid;
         position: absolute;
         z-index: 1;
-        right: 8px;
-        bottom: 7px;
+        right: 4px;
+        bottom: 3px;
         place-items: center;
-        width: 20px;
-        height: 20px;
+        width: 16px;
+        height: 16px;
         color: #FFFFFF;
         font-family: var(--f-body);
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 700;
         line-height: 1;
         text-shadow: 0 1px 7px rgba(39, 36, 32, 0.55);
@@ -2122,6 +2127,8 @@
       }
 
       .thing h3 {
+        font-size: 16px;
+        line-height: 1.05;
         margin-bottom: 0;
       }
 
@@ -2154,6 +2161,8 @@
       }
 
       .thing.is-expanded h3 {
+        font-size: 22px;
+        line-height: 1.12;
         margin-bottom: 7px;
       }
 
@@ -2232,7 +2241,7 @@
       }
 
       .thing .txt {
-        padding: 6px 14px 6px 18px;
+        padding: 3px 12px 3px 16px;
       }
 
       .thing.is-expanded .txt {
