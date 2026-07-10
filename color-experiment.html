@@ -101,22 +101,22 @@
           "cal-bg-subtle": "#E2E4DF",
           "cal-bg-muted": "#DEE1DB",
           "cal-bg-inverted": "#252B35",
-          "cal-bg-primary": "#766722",
-          "cal-bg-primary-emphasis": "#5E520E",
-          "cal-bg-primary-muted": "#E3DFBF",
+          "cal-bg-primary": "#BBAE76",
+          "cal-bg-primary-emphasis": "#BBAE76",
+          "cal-bg-primary-muted": "#BBAE76",
           "cal-border": "#BFC5BC",
           "cal-border-emphasis": "#A6536A",
           "cal-border-subtle": "#D2D6CE",
           "cal-border-muted": "#E2E4DF",
           "cal-border-booker": "#BFC5BC",
-          "cal-text": "#252B35",
-          "cal-text-emphasis": "#191E26",
+          "cal-text": "#3E1003",
+          "cal-text-emphasis": "#2C0B02",
           "cal-text-subtle": "#596267",
           "cal-text-muted": "#858D8F",
           "cal-text-inverted": "#F4F8FA",
-          "cal-brand": "#766722",
-          "cal-brand-emphasis": "#5E520E",
-          "cal-brand-subtle": "#918331",
+          "cal-brand": "#BBAE76",
+          "cal-brand-emphasis": "#BBAE76",
+          "cal-brand-subtle": "#BBAE76",
           "cal-brand-accent": "#D6D8D2",
           "cal-brand-text": "#F4F8FA"
         }
@@ -192,18 +192,22 @@
     :root {
       --paper: #D6D8D2;
       --paper-2: #E2E4DF;
-      --teal-soft: #E4E1C6;
-      --ink: #252B35;
+      --teal-soft: #BBAE76;
+      --ink: #3E1003;
       --ink-soft: #596267;
-      --accent: #918331;
-      --accent-plus-40: #C9C28B;
-      --cta: #766722;
-      --cta-hover: #5E520E;
+      --accent: #BBAE76;
+      --topics-accent: #9C8B8E;
+      --accent-plus-40: #BBAE76;
+      --fabric-blue-plus-20: #9AAEBB;
+      --fabric-blue-hover: #879EA8;
+      --fabric-blue-testimonial: #AEBEC9;
+      --cta: #BBAE76;
+      --cta-hover: #BBAE76;
       --clay: #A6536A;
       --beige: #A6536A;
-      --gold: #D7B65D;
+      --gold: #BBAE76;
       --hero-accent: #BBAE76;
-      --teal: #918331;
+      --teal: #BBAE76;
       --line: #BFC5BC;
       --f-display: "Fluxisch Else", "Hanken Grotesk", system-ui, sans-serif;
       --f-body: "Hanken Grotesk", system-ui, sans-serif;
@@ -297,12 +301,12 @@
     .btn.gold {
       background: var(--gold);
       border-color: var(--gold);
-      color: #191E26;
+      color: var(--ink);
     }
 
     .btn.gold:hover {
-      background: #E3C773;
-      border-color: #E3C773;
+      background: #BBAE76;
+      border-color: #BBAE76;
     }
 
     nav {
@@ -572,6 +576,10 @@
       color: var(--accent);
     }
 
+    .topics h2.title em {
+      color: var(--topics-accent);
+    }
+
     .hero h1 em {
       font-style: normal;
       color: var(--hero-accent);
@@ -602,15 +610,15 @@
     }
 
     .hero .btn {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #FFF8EA;
+      background: var(--fabric-blue-plus-20);
+      border-color: var(--fabric-blue-plus-20);
+      color: var(--ink);
       box-shadow: 0 16px 36px rgba(8, 18, 24, 0.36);
     }
 
     .hero .btn:hover {
-      background: color-mix(in srgb, var(--accent) 88%, black);
-      border-color: color-mix(in srgb, var(--accent) 88%, black);
+      background: var(--fabric-blue-hover);
+      border-color: var(--fabric-blue-hover);
     }
 
     .hero .btn.secondary {
@@ -735,7 +743,7 @@
       font-size: clamp(31px, 3.35vw, 52px);
       line-height: 1.08;
       letter-spacing: -0.01em;
-      color: #2D3540;
+      color: var(--ink);
     }
 
     .approach-heading-accent {
@@ -751,7 +759,7 @@
       font-weight: 500;
       font-size: clamp(15px, 1.32vw, 19px);
       line-height: 1.62;
-      color: #424D52;
+      color: rgba(62, 16, 3, 0.82);
     }
 
     .approach-sections {
@@ -787,13 +795,13 @@
       font-weight: 700;
       font-size: clamp(18px, 1.55vw, 24px);
       line-height: 1.2;
-      color: #2D3540;
+      color: var(--ink);
     }
 
     .intro .approach-part p {
       font-family: var(--f-body);
       font-size: clamp(14.5px, 1.28vw, 18.5px);
-      color: #4E595D;
+      color: rgba(62, 16, 3, 0.78);
       line-height: 1.58;
     }
 
@@ -815,13 +823,13 @@
     }
 
     .thing {
-      --card-tone: #E9E6D2;
+      --card-tone: #B6B2B2;
       --explore-color: #D7C1CB;
       display: flex;
       flex-direction: column;
       height: 100%;
       background: var(--card-tone);
-      border: 1px solid color-mix(in srgb, var(--card-tone) 58%, rgba(37, 43, 53, 0.16));
+      border: 1px solid color-mix(in srgb, var(--card-tone) 58%, rgba(62, 16, 3, 0.16));
       border-radius: 12px;
       padding: 10px;
       cursor: pointer;
@@ -1245,8 +1253,8 @@
 
     /* Testimonial A — saved approved variant. Use this exact layout when requested. */
     .begin {
-      background: var(--accent);
-      color: #F4F0EA;
+      background: var(--fabric-blue-plus-20);
+      color: var(--ink);
     }
 
     section.block.begin {
@@ -1263,15 +1271,15 @@
     }
 
     .begin .eyebrow {
-      color: #E8F0EC;
+      color: rgba(62, 16, 3, 0.72);
     }
 
     .begin h2.title {
-      color: #F8F3EC;
+      color: var(--ink);
     }
 
     .begin h2.title em {
-      color: var(--gold);
+      color: #BBAE76;
     }
 
     .begin .steps {
@@ -1286,7 +1294,7 @@
       flex: 1;
       min-width: 170px;
       padding: 0 20px;
-      border-left: 1px solid rgba(248, 243, 236, 0.25);
+      border-left: 1px solid rgba(62, 16, 3, 0.18);
       text-align: left;
     }
 
@@ -1298,7 +1306,7 @@
       font-family: var(--f-display);
       font-weight: 700;
       font-size: 30px;
-      color: var(--gold);
+      color: #BBAE76;
     }
 
     .begin .step h4 {
@@ -1310,7 +1318,7 @@
 
     .begin .step p,
     .begin .support {
-      color: #EEF2EC;
+      color: rgba(62, 16, 3, 0.78);
     }
 
     .begin .step p {
@@ -1324,7 +1332,7 @@
     }
 
     .testimonial-block {
-      background: var(--accent-plus-40);
+      background: var(--fabric-blue-testimonial);
       color: var(--ink);
       padding: clamp(36px, 5.25vw, 56px) 0 clamp(20px, 2.95vw, 32px);
       position: relative;
@@ -1377,7 +1385,7 @@
       font-size: 18px;
       line-height: 1.6;
       letter-spacing: 0;
-      color: rgba(37, 43, 53, 0.9);
+      color: rgba(62, 16, 3, 0.9);
     }
 
     .testimonial-slide cite {
@@ -1397,7 +1405,7 @@
       border: 0;
       border-radius: 50%;
       background: transparent;
-      color: rgba(37, 43, 53, 0.82);
+      color: rgba(62, 16, 3, 0.82);
       display: grid;
       place-items: center;
       cursor: pointer;
@@ -1431,7 +1439,7 @@
     .testimonial-dot {
       width: 8px;
       height: 8px;
-      border: 1px solid rgba(37, 43, 53, 0.78);
+      border: 1px solid rgba(62, 16, 3, 0.78);
       border-radius: 50%;
       background: transparent;
       padding: 0;
@@ -1439,7 +1447,7 @@
     }
 
     .testimonial-dot.active {
-      background: rgba(37, 43, 53, 0.82);
+      background: rgba(62, 16, 3, 0.82);
     }
 
     .begin + .topics {
@@ -1573,7 +1581,7 @@
     }
 
     .footer-links a:hover {
-      color: #E3C773;
+      color: #BBAE76;
     }
 
     .foot-bottom {

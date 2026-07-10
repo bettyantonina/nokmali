@@ -96,29 +96,29 @@
       theme: "light",
       cssVarsPerTheme: {
         light: {
-          "cal-bg": "#F4EFE6",
-          "cal-bg-emphasis": "#E4EBE7",
-          "cal-bg-subtle": "#EAE3D5",
-          "cal-bg-muted": "#EFE9DE",
+          "cal-bg": "#F3ECE2",
+          "cal-bg-emphasis": "#E0EAE5",
+          "cal-bg-subtle": "#E9DFD2",
+          "cal-bg-muted": "#EFE6DA",
           "cal-bg-inverted": "#3A3640",
-          "cal-bg-primary": "#55786B",
-          "cal-bg-primary-emphasis": "#486A5D",
-          "cal-bg-primary-muted": "#DCE5D8",
-          "cal-border": "#DBD2C2",
-          "cal-border-emphasis": "#B89A5E",
-          "cal-border-subtle": "#E5DCCD",
-          "cal-border-muted": "#EAE3D5",
-          "cal-border-booker": "#DBD2C2",
+          "cal-bg-primary": "#557D71",
+          "cal-bg-primary-emphasis": "#496E63",
+          "cal-bg-primary-muted": "#DCE8E2",
+          "cal-border": "#D9CFC0",
+          "cal-border-emphasis": "#C98573",
+          "cal-border-subtle": "#E5DACB",
+          "cal-border-muted": "#E9DFD2",
+          "cal-border-booker": "#D9CFC0",
           "cal-text": "#3A3640",
           "cal-text-emphasis": "#272420",
           "cal-text-subtle": "#6C6560",
           "cal-text-muted": "#948D86",
-          "cal-text-inverted": "#F4EFE6",
-          "cal-brand": "#55786B",
-          "cal-brand-emphasis": "#486A5D",
-          "cal-brand-subtle": "#5F8A89",
-          "cal-brand-accent": "#F4EFE6",
-          "cal-brand-text": "#F4EFE6"
+          "cal-text-inverted": "#F3ECE2",
+          "cal-brand": "#557D71",
+          "cal-brand-emphasis": "#496E63",
+          "cal-brand-subtle": "#899989",
+          "cal-brand-accent": "#F3ECE2",
+          "cal-brand-text": "#F3ECE2"
         }
       }
     });
@@ -190,16 +190,20 @@
     }
 
     :root {
-      --paper: #F4EFE6;
-      --paper-2: #EAE3D5;
-      --teal-soft: #E4EBE7;
+      --paper: #F3ECE2;
+      --paper-2: #E9DFD2;
+      --teal-soft: #E0EAE5;
       --ink: #3A3640;
       --ink-soft: #6C6560;
-      --accent: #55786B;
-      --beige: #B89A5E;
-      --gold: #CDB377;
-      --teal: #5F8A89;
-      --line: #DBD2C2;
+      --accent: #899989;
+      --accent-plus-40: #B8C2B8;
+      --cta: #557D71;
+      --cta-hover: #496E63;
+      --clay: #C98573;
+      --beige: #C98573;
+      --gold: #EAD8A6;
+      --teal: #899989;
+      --line: #D9CFC0;
       --f-display: "Fluxisch Else", "Hanken Grotesk", system-ui, sans-serif;
       --f-body: "Hanken Grotesk", system-ui, sans-serif;
     }
@@ -258,7 +262,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--accent);
+      background: var(--cta);
       color: #F6F1E8;
       font-size: 15px;
       font-weight: 500;
@@ -270,8 +274,8 @@
     }
 
     .btn:hover {
-      background: #486A5D;
-      border-color: #486A5D;
+      background: var(--cta-hover);
+      border-color: var(--cta-hover);
       transform: translateY(-2px);
     }
 
@@ -296,8 +300,8 @@
     }
 
     .btn.gold:hover {
-      background: #dcbe6c;
-      border-color: #dcbe6c;
+      background: #F0E1B8;
+      border-color: #F0E1B8;
     }
 
     nav {
@@ -481,9 +485,9 @@
     }
 
     nav.scrolled .navlinks .nav-rhythm {
-      border-color: rgba(85, 120, 107, 0.3);
-      background: rgba(85, 120, 107, 0.1);
-      color: var(--accent) !important;
+      border-color: color-mix(in srgb, var(--cta) 24%, transparent);
+      background: color-mix(in srgb, var(--cta) 8%, transparent);
+      color: var(--cta) !important;
     }
 
     .hero {
@@ -523,8 +527,8 @@
       inset: 0;
       z-index: 1;
       background:
-        linear-gradient(90deg, rgba(39, 36, 32, 0.74) 0%, rgba(39, 36, 32, 0.4) 48%, rgba(39, 36, 32, 0.08) 78%),
-        linear-gradient(0deg, rgba(39, 36, 32, 0.18), transparent 46%);
+        linear-gradient(90deg, rgba(39, 36, 32, 0.59) 0%, rgba(39, 36, 32, 0.32) 48%, rgba(39, 36, 32, 0.06) 78%),
+        linear-gradient(0deg, rgba(39, 36, 32, 0.14), transparent 46%);
     }
 
     .hero-copy {
@@ -543,7 +547,7 @@
       font-family: var(--f-display);
       font-weight: 400;
       font-size: clamp(17px, 2vw, 20px);
-      color: var(--accent);
+      color: var(--clay);
     }
 
     .hero h1 {
@@ -574,7 +578,7 @@
 
     .hero p.sub {
       font-size: clamp(16px, 2vw, 19px);
-      color: #D8C69F;
+      color: var(--gold);
       max-width: 30em;
       margin: 18px 0 24px;
       text-shadow: 0 2px 22px rgba(39, 36, 32, 0.4);
@@ -597,15 +601,15 @@
     }
 
     .hero .btn {
-      background: #55786B;
-      border-color: #55786B;
+      background: var(--accent);
+      border-color: var(--accent);
       color: #FFF8EA;
       box-shadow: 0 16px 36px rgba(10, 20, 15, 0.36);
     }
 
     .hero .btn:hover {
-      background: #486A5D;
-      border-color: #486A5D;
+      background: color-mix(in srgb, var(--accent) 88%, black);
+      border-color: color-mix(in srgb, var(--accent) 88%, black);
     }
 
     .hero .btn.secondary {
@@ -655,12 +659,12 @@
 
     .explore-flow::before {
       z-index: 0;
-      background: #F1E9DE;
+      background: var(--paper);
     }
 
     .explore-flow::after {
       z-index: 1;
-      background: rgba(241, 233, 222, 0.08);
+      background: rgba(243, 236, 226, 0.08);
     }
 
     .eyebrow {
@@ -685,7 +689,7 @@
       z-index: 2;
       isolation: isolate;
       min-height: max(760px, calc(61vw + var(--approach-top-space)));
-      background-color: #F1E9DE;
+      background-color: var(--paper);
       background-image: url("../art/Approach.jpg");
       background-position: center bottom;
       background-repeat: no-repeat;
@@ -705,7 +709,7 @@
       z-index: 1;
       height: clamp(72px, 10vw, 150px);
       pointer-events: none;
-      background: linear-gradient(to bottom, rgba(241, 233, 222, 0), rgba(241, 233, 222, 0.68) 58%, #F1E9DE 100%);
+      background: linear-gradient(to bottom, rgba(243, 236, 226, 0), rgba(243, 236, 226, 0.68) 58%, var(--paper) 100%);
     }
 
     .intro .inner {
@@ -731,7 +735,7 @@
     }
 
     .approach-heading-accent {
-      color: var(--gold);
+      color: var(--accent);
     }
 
     .intro .approach-intro {
@@ -803,7 +807,7 @@
     }
 
     .thing {
-      --card-tone: #DDD5C3;
+      --card-tone: #E5EAE2;
       --explore-color: #D9C2D3;
       display: flex;
       flex-direction: column;
@@ -816,31 +820,11 @@
       transition: transform 0.25s, box-shadow 0.25s;
     }
 
-    .thing:nth-child(2) {
-      --card-tone: #DED4C5;
-    }
-
-    .thing:nth-child(3) {
-      --card-tone: #DAD3CD;
-    }
-
-    .thing:nth-child(4) {
-      --card-tone: #E1DFD9;
-    }
-
-    .thing:nth-child(5) {
-      --card-tone: #CFCFC6;
-    }
-
-    .thing:nth-child(6) {
-      --card-tone: #E0D2C8;
-    }
-
     .thing:nth-child(1),
     .thing:nth-child(3),
     .thing:nth-child(4),
     .thing:nth-child(6) {
-      --explore-color: #587875;
+      --explore-color: var(--cta);
     }
 
     .thing:nth-child(1) {
@@ -1155,7 +1139,7 @@
       .about {
         height: clamp(560px, 56.01vw, 941px);
         padding: 0;
-        background-color: #F1E9DE;
+        background-color: var(--paper);
         background-image: url("../art/desktopaboutme-matched.png");
         background-position: center calc(50% + 16px);
         background-size: 85% auto;
@@ -1615,8 +1599,8 @@
 
       .hero::after {
         background:
-          linear-gradient(0deg, rgba(39, 36, 32, 0.56), rgba(39, 36, 32, 0.36)),
-          linear-gradient(90deg, rgba(39, 36, 32, 0.58), rgba(39, 36, 32, 0.18));
+          linear-gradient(0deg, rgba(39, 36, 32, 0.45), rgba(39, 36, 32, 0.29)),
+          linear-gradient(90deg, rgba(39, 36, 32, 0.46), rgba(39, 36, 32, 0.14));
       }
 
       section.block.intro {
@@ -1625,7 +1609,7 @@
         aspect-ratio: auto;
         padding: 36px 0 48px;
         background-image:
-          linear-gradient(rgba(241, 233, 222, 0.72), rgba(241, 233, 222, 0.72)),
+          linear-gradient(rgba(243, 236, 226, 0.72), rgba(243, 236, 226, 0.72)),
           url("../art/Approach.jpg");
         background-position: center, center bottom;
         background-size: auto, auto 100%;
@@ -1791,23 +1775,23 @@
         inline-size: 300px;
         max-inline-size: calc(100vw - 78px);
         margin: 16px 0 0;
-        color: #D8C69F;
+        color: var(--gold);
         overflow-wrap: break-word;
       }
 
       .hero::after {
         background:
-          linear-gradient(0deg, rgba(28, 25, 22, 0.7) 0%, rgba(28, 25, 22, 0.52) 38%, rgba(28, 25, 22, 0.32) 100%),
-          radial-gradient(circle at 22% 42%, rgba(22, 20, 18, 0.63) 0%, rgba(22, 20, 18, 0.31) 46%, rgba(22, 20, 18, 0.07) 74%),
-          linear-gradient(90deg, rgba(24, 22, 20, 0.61), rgba(24, 22, 20, 0.16));
+          linear-gradient(0deg, rgba(28, 25, 22, 0.56) 0%, rgba(28, 25, 22, 0.42) 38%, rgba(28, 25, 22, 0.26) 100%),
+          radial-gradient(circle at 22% 42%, rgba(22, 20, 18, 0.5) 0%, rgba(22, 20, 18, 0.25) 46%, rgba(22, 20, 18, 0.06) 74%),
+          linear-gradient(90deg, rgba(24, 22, 20, 0.49), rgba(24, 22, 20, 0.13));
       }
 
       .explore-flow::before {
-        background: #F1E9DE;
+        background: var(--paper);
       }
 
       .explore-flow::after {
-        background: rgba(241, 233, 222, 0.08);
+        background: rgba(243, 236, 226, 0.08);
       }
 
       section.block.intro {
@@ -1816,7 +1800,7 @@
         aspect-ratio: auto;
         padding: 36px 0 48px;
         background-image:
-          linear-gradient(rgba(241, 233, 222, 0.72), rgba(241, 233, 222, 0.72)),
+          linear-gradient(rgba(243, 236, 226, 0.72), rgba(243, 236, 226, 0.72)),
           url("../art/Approach.jpg");
         background-position: center, center bottom;
         background-size: auto, auto 100%;
@@ -2032,6 +2016,50 @@
       }
     }
 
+    @media (max-width: 720px) {
+      .thing {
+        height: auto;
+      }
+
+      .thing .pic,
+      .thing p {
+        display: none;
+      }
+
+      .thing .txt {
+        padding: 16px 18px;
+        border-radius: 8px;
+      }
+
+      .thing h3 {
+        margin-bottom: 0;
+      }
+
+      .thing.is-expanded .pic,
+      .thing.is-expanded p {
+        display: block;
+      }
+
+      .thing.is-expanded .txt {
+        padding: 18px 18px 50px;
+        border-radius: 0 0 8px 8px;
+      }
+
+      .thing.is-expanded h3 {
+        margin-bottom: 7px;
+      }
+
+      .thing.is-expanded .pic::after {
+        display: inline-flex;
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+
+      .thing.is-expanded p::after {
+        display: inline-flex;
+      }
+    }
+
     @media (max-width: 640px) {
       .wrap {
         padding: 0 22px;
@@ -2155,7 +2183,7 @@
         overflow: hidden;
         padding-top: clamp(112px, 30vw, 264px);
         padding-bottom: clamp(104px, 26vw, 229px);
-        background: #F1E9DE;
+        background: var(--paper);
       }
 
       .about::before,
@@ -2556,6 +2584,7 @@
     const topicModalImg = document.getElementById("topic-modal-img");
     const topicModalClose = topicModal?.querySelector(".topic-modal-close");
     let lastTopicTrigger = null;
+    const mobileTopicQuery = window.matchMedia("(max-width: 720px)");
 
     function openTopicModal(card) {
       if (!topicModal || !topicModalTitle || !topicModalText || !topicModalImg) return;
@@ -2588,8 +2617,21 @@
     document.querySelectorAll(".thing").forEach((card) => {
       card.setAttribute("role", "button");
       card.setAttribute("aria-haspopup", "dialog");
+      card.setAttribute("aria-expanded", "false");
 
-      card.addEventListener("click", () => openTopicModal(card));
+      card.addEventListener("click", () => {
+        if (mobileTopicQuery.matches && !card.classList.contains("is-expanded")) {
+          document.querySelectorAll(".thing.is-expanded").forEach((expandedCard) => {
+            expandedCard.classList.remove("is-expanded");
+            expandedCard.setAttribute("aria-expanded", "false");
+          });
+          card.classList.add("is-expanded");
+          card.setAttribute("aria-expanded", "true");
+          return;
+        }
+
+        openTopicModal(card);
+      });
       card.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
