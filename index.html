@@ -2052,6 +2052,16 @@
         min-height: 0;
       }
 
+      section.block.topics:has(.thing.is-expanded) {
+        height: auto;
+        min-height: 100svh;
+        min-height: 100dvh;
+      }
+
+      section.block.topics:has(.thing.is-expanded) .wrap {
+        height: auto;
+      }
+
       .things-head {
         flex: 0 0 auto;
         margin-bottom: 18px;
@@ -2063,6 +2073,11 @@
         align-items: start;
         min-height: 0;
         gap: 10px;
+      }
+
+      section.block.topics:has(.thing.is-expanded) .things {
+        flex: 0 0 auto;
+        grid-auto-rows: minmax(76px, auto);
       }
 
       .thing {
@@ -2168,7 +2183,6 @@
         display: flex;
         height: auto;
         min-height: 0;
-        z-index: 3;
       }
 
       .thing.is-expanded .pic {
