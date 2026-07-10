@@ -2044,7 +2044,7 @@
         grid-template-columns: minmax(0, 1fr) 30%;
         align-items: stretch;
         height: auto;
-        min-height: 50px;
+        min-height: 40px;
       }
 
       .thing p,
@@ -2061,7 +2061,7 @@
         display: block;
         order: 2;
         height: 100%;
-        min-height: 50px;
+        min-height: 40px;
         aspect-ratio: auto;
         border-radius: 0 11px 11px 0;
       }
@@ -2078,8 +2078,8 @@
       .thing .txt {
         display: flex;
         align-items: center;
-        min-height: 50px;
-        padding: 8px 14px 8px 18px;
+        min-height: 40px;
+        padding: 6px 14px 6px 18px;
         border-radius: 11px 0 0 11px;
       }
 
@@ -2092,20 +2092,24 @@
         display: grid;
         position: absolute;
         z-index: 1;
-        top: 50%;
-        left: 50%;
+        right: 8px;
+        bottom: 7px;
         place-items: center;
-        width: 28px;
-        height: 28px;
+        width: 20px;
+        height: 20px;
         color: #FFFFFF;
         font-family: var(--f-body);
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 700;
         line-height: 1;
         text-shadow: 0 1px 7px rgba(39, 36, 32, 0.55);
         opacity: 1;
-        transform: translate(-50%, -50%);
+        transform: none;
         transition: transform 0.2s ease;
+      }
+
+      .thing:nth-child(3):not(.is-expanded) .pic img {
+        object-position: center 72% !important;
       }
 
       .thing:nth-child(even):not(.is-expanded),
@@ -2228,7 +2232,7 @@
       }
 
       .thing .txt {
-        padding: 8px 14px 8px 18px;
+        padding: 6px 14px 6px 18px;
       }
 
       .thing.is-expanded .txt {
@@ -2747,10 +2751,6 @@
             return;
           }
 
-          document.querySelectorAll(".thing.is-expanded").forEach((expandedCard) => {
-            expandedCard.classList.remove("is-expanded");
-            expandedCard.setAttribute("aria-expanded", "false");
-          });
           card.classList.add("is-expanded");
           card.setAttribute("aria-expanded", "true");
           return;
