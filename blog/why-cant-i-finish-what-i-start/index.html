@@ -22,10 +22,8 @@
   <meta name="twitter:title" content="Why Can’t I Finish What I Start?">
   <meta name="twitter:description" content="A calm reflection on unfinished tasks, attention, pressure, completion and the art of returning to what matters.">
   <meta name="twitter:image" content="https://www.nokmali.com/art/IMG_1689.jpg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
-  <link rel="icon" href="/favicon.ico?v=5" sizes="any">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+  <link rel="icon" type="image/jpeg" href="../../art/onveuttout-favicon.jpg">
+  <link rel="apple-touch-icon" href="../../art/onveuttout-favicon.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
@@ -123,7 +121,7 @@
   <style>
     @font-face {
       font-family: "Fluxisch Else";
-      src: url("/fonts/FluxischElse-Light.otf") format("opentype");
+      src: url("../../fonts/FluxischElse-Light.otf") format("opentype");
       font-weight: 300;
       font-style: normal;
       font-display: swap;
@@ -131,7 +129,7 @@
 
     @font-face {
       font-family: "Fluxisch Else";
-      src: url("/fonts/FluxischElse-Regular.otf") format("opentype");
+      src: url("../../fonts/FluxischElse-Regular.otf") format("opentype");
       font-weight: 400;
       font-style: normal;
       font-display: swap;
@@ -139,21 +137,21 @@
 
     @font-face {
       font-family: "Fluxisch Else";
-      src: url("/fonts/FluxischElse-Bold.otf") format("opentype");
+      src: url("../../fonts/FluxischElse-Bold.otf") format("opentype");
       font-weight: 700;
       font-style: normal;
       font-display: swap;
     }
 
     :root {
-      --paper: #F3ECE2;
-      --paper-2: #E9DFD2;
+      --paper: #EEE9DF;
+      --paper-2: #E7E0D4;
       --teal-soft: #E0EAE5;
       --ink: #3A3640;
       --ink-soft: #6C6560;
-      --accent: #899989;
-      --cta: #557D71;
-      --cta-hover: #496E63;
+      --accent: #7E6FA4;
+      --cta: #7E6FA4;
+      --cta-hover: #6D5E95;
       --clay: #C98573;
       --gold: #EAD8A6;
       --line: #D9CFC0;
@@ -264,17 +262,17 @@
     }
 
     nav .inner {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 74px;
+      min-height: 70px;
       gap: 24px;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
       color: var(--ink);
       font-family: var(--f-display);
       font-size: 25px;
@@ -286,6 +284,18 @@
       width: 38px;
       height: 38px;
       object-fit: contain;
+    }
+
+    .toolbar-journal-logo {
+      display: block;
+      width: 62px;
+      height: 62px;
+      box-sizing: border-box;
+      padding: 3px;
+      border: 1px solid color-mix(in srgb, var(--clay) 62%, var(--paper));
+      object-fit: contain;
+      object-position: center;
+      flex: 0 0 auto;
     }
 
     .navlinks {
@@ -331,32 +341,16 @@
     }
 
     .journal-mark {
-      width: 132px;
-      margin-top: clamp(96px, 11.2vw, 142px);
-      padding: 13px 12px 11px;
-      border: 1px solid color-mix(in srgb, var(--ink) 72%, var(--paper));
-      background: color-mix(in srgb, var(--paper) 94%, white);
-      color: #302D35;
-      text-align: center;
+      width: 122px;
+      margin-top: clamp(94px, 11.2vw, 140px);
     }
 
-    .journal-mark strong {
-      display: block;
-      font-family: var(--f-body);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      line-height: 1.35;
-      text-transform: uppercase;
-    }
-
-    .journal-mark span {
-      display: block;
-      margin-top: 4px;
-      font-family: var(--f-serif);
-      font-size: 12px;
-      font-style: italic;
-      line-height: 1;
+    .journal-mark img {
+      width: 100%;
+      height: auto;
+      box-sizing: border-box;
+      padding: 6px;
+      border: 1px solid color-mix(in srgb, var(--clay) 62%, var(--paper));
     }
 
     .eyebrow {
@@ -616,6 +610,11 @@
         height: 32px;
       }
 
+      .toolbar-journal-logo {
+        width: 54px;
+        height: 54px;
+      }
+
       .navlinks {
         gap: 16px;
         font-size: 13.5px;
@@ -639,17 +638,8 @@
 
       .journal-mark {
         order: -1;
-        width: 118px;
-        margin: 46px 0 -22px;
-        padding: 11px 10px 9px;
-      }
-
-      .journal-mark strong {
-        font-size: 9px;
-      }
-
-      .journal-mark span {
-        font-size: 11px;
+        width: 94px;
+        margin: 46px 0 -20px;
       }
 
       .reading {
@@ -774,9 +764,9 @@
   <nav aria-label="Primary navigation">
     <div class="wrap inner">
       <a class="brand" href="/">
-        <img class="brand-logo" src="/art/nokmalilogo.png" alt="">
-        <span>Nokmali</span>
+        <img class="brand-logo" src="../../art/nokmalilogo.png" alt="">
       </a>
+      <img class="toolbar-journal-logo" src="../../art/onveuttout.jpg" alt="ON VEUT TOUT Journal" width="1254" height="1254">
     </div>
   </nav>
 
@@ -790,14 +780,13 @@
           <span>9 minute read</span>
         </div>
       </header>
-      <aside class="journal-mark" aria-label="ON VEUT TOUT Journal">
-        <strong>ON VEUT TOUT</strong>
-        <span>Journal</span>
+      <aside class="journal-mark" aria-label="ON VEUT TOUT Journal publication mark">
+        <img src="../../art/onveuttout.jpg" alt="ON VEUT TOUT Journal" width="1254" height="1254">
       </aside>
     </div>
 
     <figure class="article-figure">
-      <img src="/art/IMG_1689.jpg" alt="Woman standing beneath the words On veut tout painted on a wall." width="1000" height="1333">
+      <img src="../../art/IMG_1689.jpg" alt="Woman standing beneath the words On veut tout painted on a wall." width="1000" height="1333">
       <figcaption>On veut tout — “We want everything.”</figcaption>
     </figure>
 
