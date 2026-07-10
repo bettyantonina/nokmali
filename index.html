@@ -2058,6 +2058,7 @@
       }
 
       .thing:not(.is-expanded) {
+        height: 24px;
         padding: 0;
         overflow: hidden;
       }
@@ -2130,6 +2131,9 @@
         font-size: 16px;
         line-height: 1.05;
         margin-bottom: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       .thing.is-expanded .pic,
@@ -2164,6 +2168,9 @@
         font-size: 22px;
         line-height: 1.12;
         margin-bottom: 7px;
+        overflow: visible;
+        text-overflow: clip;
+        white-space: normal;
       }
 
       .thing.is-expanded .pic::after {
