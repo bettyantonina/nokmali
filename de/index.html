@@ -2027,8 +2027,17 @@
       }
 
       .thing .txt {
-        padding: 16px 18px;
+        padding: 8px 18px;
         border-radius: 8px;
+      }
+
+      .thing:nth-child(even):not(.is-expanded),
+      .thing:nth-child(even):not(.is-expanded) .txt {
+        background: #C5C7BE;
+      }
+
+      .thing:nth-child(even):not(.is-expanded) {
+        border-color: color-mix(in srgb, #C5C7BE 58%, rgba(58, 54, 64, 0.16));
       }
 
       .thing h3 {
@@ -2126,6 +2135,10 @@
       }
 
       .thing .txt {
+        padding: 8px 18px;
+      }
+
+      .thing.is-expanded .txt {
         padding: 18px 18px 50px;
       }
 
