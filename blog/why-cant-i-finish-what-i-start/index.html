@@ -255,6 +255,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
+      overflow: visible;
       border-bottom: 1px solid var(--line);
       background: rgba(243, 236, 226, 0.9);
       -webkit-backdrop-filter: blur(10px);
@@ -288,14 +289,16 @@
 
     .toolbar-journal-logo {
       display: block;
-      width: 62px;
-      height: 62px;
+      width: 116px;
+      height: 116px;
       box-sizing: border-box;
-      padding: 3px;
+      margin-bottom: -58px;
+      padding: 5px;
       border: 1px solid color-mix(in srgb, var(--clay) 62%, var(--paper));
       object-fit: contain;
       object-position: center;
       flex: 0 0 auto;
+      transform: translateY(28px);
     }
 
     .navlinks {
@@ -322,10 +325,6 @@
     }
 
     .article-header-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 132px;
-      gap: 34px;
-      align-items: start;
       width: calc(100% - 44px);
       max-width: 780px;
       margin: 0 auto;
@@ -338,19 +337,6 @@
       margin: 0;
       padding-right: 0;
       padding-left: 0;
-    }
-
-    .journal-mark {
-      width: 122px;
-      margin-top: clamp(74px, 8.6vw, 114px);
-    }
-
-    .journal-mark img {
-      width: 100%;
-      height: auto;
-      box-sizing: border-box;
-      padding: 6px;
-      border: 1px solid color-mix(in srgb, var(--clay) 62%, var(--paper));
     }
 
     .eyebrow {
@@ -615,8 +601,11 @@
       }
 
       .toolbar-journal-logo {
-        width: 54px;
-        height: 54px;
+        width: 94px;
+        height: 94px;
+        margin-bottom: -47px;
+        padding: 4px;
+        transform: translateY(23px);
       }
 
       .navlinks {
@@ -634,16 +623,8 @@
       }
 
       .article-header-shell {
-        display: flex;
-        flex-direction: column;
         width: calc(100vw - 48px);
         max-width: calc(100vw - 48px);
-      }
-
-      .journal-mark {
-        order: -1;
-        width: 94px;
-        margin: 42px 0 -18px;
       }
 
       .reading {
@@ -786,9 +767,6 @@
         <h1>Why Can’t I Finish What I Start?</h1>
         <p class="dek">A reflection on unfinished tasks, attention, pressure, and why difficulty finishing is not always a lack of discipline.</p>
       </header>
-      <aside class="journal-mark" aria-label="ON VEUT TOUT Journal publication mark">
-        <img src="../../art/onveuttout.jpg" alt="ON VEUT TOUT Journal" width="1254" height="1254">
-      </aside>
     </div>
 
     <figure class="article-figure">
