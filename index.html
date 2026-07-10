@@ -1112,8 +1112,11 @@
 
     .journal-preview img {
       width: min(100%, 280px);
-      height: auto;
+      height: min(224px, calc(100vw * 0.8));
+      aspect-ratio: 5 / 4;
       border-radius: 8px;
+      object-fit: cover;
+      object-position: center 79%;
     }
 
     .journal-copy {
@@ -2100,12 +2103,31 @@
         padding: 32px 0 18px;
       }
 
+      .journal-preview .wrap {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
       .journal-preview .inner {
         grid-template-columns: 1fr;
+        gap: 24px;
       }
 
       .journal-preview img {
-        width: min(100%, 200px);
+        width: 100%;
+        max-width: 520px;
+        height: min(420px, calc((100vw - 32px) * 0.8));
+        margin: 0 auto;
+      }
+
+      .journal-copy {
+        width: 100%;
+        max-width: none;
+      }
+
+      .journal-copy h2,
+      .journal-copy p {
+        max-width: none;
       }
 
       .testimonial-carousel {
