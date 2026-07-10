@@ -2039,17 +2039,38 @@
     }
 
     @media (max-width: 720px) {
+      section.block.topics {
+        height: 100svh;
+        height: 100dvh;
+        padding: 54px 0 18px;
+      }
+
+      section.block.topics .wrap {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 0;
+      }
+
+      .things-head {
+        flex: 0 0 auto;
+        margin-bottom: 18px;
+      }
+
       .things {
-        grid-auto-rows: auto;
+        flex: 1 1 auto;
+        grid-auto-rows: minmax(0, 1fr);
         align-items: start;
+        min-height: 0;
+        gap: 10px;
       }
 
       .thing {
         display: grid;
         grid-template-columns: minmax(0, 1fr) 30%;
         align-items: stretch;
-        height: auto;
-        min-height: 24px;
+        height: 100%;
+        min-height: 0;
       }
 
       .thing p,
@@ -2058,7 +2079,8 @@
       }
 
       .thing:not(.is-expanded) {
-        height: 24px;
+        height: 100%;
+        min-height: 0;
         padding: 0;
         overflow: hidden;
       }
@@ -2067,7 +2089,7 @@
         display: block;
         order: 2;
         height: 100%;
-        min-height: 24px;
+        min-height: 0;
         aspect-ratio: auto;
         border-radius: 0 11px 11px 0;
       }
@@ -2084,8 +2106,8 @@
       .thing .txt {
         display: flex;
         align-items: center;
-        min-height: 24px;
-        padding: 3px 12px 3px 16px;
+        min-height: 0;
+        padding: 8px 12px 8px 16px;
         border-radius: 11px 0 0 11px;
       }
 
@@ -2128,7 +2150,7 @@
       }
 
       .thing h3 {
-        font-size: 16px;
+        font-size: clamp(17px, 4.9vw, 22px);
         line-height: 1.05;
         margin-bottom: 0;
         overflow: hidden;
@@ -2143,6 +2165,7 @@
 
       .thing.is-expanded {
         display: flex;
+        height: auto;
         min-height: 0;
       }
 
@@ -2248,7 +2271,7 @@
       }
 
       .thing .txt {
-        padding: 3px 12px 3px 16px;
+        padding: 8px 12px 8px 16px;
       }
 
       .thing.is-expanded .txt {
