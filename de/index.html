@@ -1717,14 +1717,14 @@
 
       .mobile-navlinks .mobile-booking-link {
         padding: 0 13px;
-        background: var(--cta);
-        color: var(--paper) !important;
+        background: #AA9A97;
+        color: var(--ink) !important;
         box-shadow: 0 8px 22px rgba(58, 54, 64, 0.14);
       }
 
       .mobile-navlinks .mobile-booking-link:hover {
-        background: var(--cta-hover);
-        color: var(--paper) !important;
+        background: #B6A8A5;
+        color: var(--ink) !important;
       }
 
       .mobile-menu {
@@ -1822,7 +1822,7 @@
       }
 
       nav .mobile-navlinks .mobile-booking-link:-webkit-any-link {
-        color: var(--paper) !important;
+        color: var(--ink) !important;
       }
 
       nav .brand-logo {
@@ -2155,19 +2155,121 @@
     }
 
     @media (max-width: 720px) {
-      .thing {
+      section.block.topics-section {
+        height: 100svh;
+        height: 100dvh;
+        padding: 54px 0 18px;
+      }
+
+      section.block.topics-section .wrap {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 0;
+      }
+
+      section.block.topics-section:has(.thing.is-expanded) {
+        height: auto;
+        min-height: 100svh;
+        min-height: 100dvh;
+      }
+
+      section.block.topics-section:has(.thing.is-expanded) .wrap {
         height: auto;
       }
 
-      .thing .pic,
+      .things-head {
+        flex: 0 0 auto;
+        margin-bottom: 18px;
+      }
+
+      .things {
+        flex: 1 1 auto;
+        grid-auto-rows: minmax(0, 1fr);
+        align-items: start;
+        min-height: 0;
+        gap: 10px;
+      }
+
+      section.block.topics-section:has(.thing.is-expanded) .things {
+        flex: 0 0 auto;
+        grid-auto-rows: minmax(76px, auto);
+      }
+
+      .thing {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 30%;
+        align-items: stretch;
+        height: 100%;
+        min-height: 0;
+      }
+
       .thing p,
       .thing .topic-explore {
         display: none;
       }
 
+      .thing:not(.is-expanded) {
+        height: 100%;
+        min-height: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .thing .pic {
+        display: block;
+        order: 2;
+        height: 100%;
+        min-height: 0;
+        aspect-ratio: auto;
+        border-radius: 0 11px 11px 0;
+      }
+
+      .thing .pic img,
+      .thing:hover .pic img,
+      .thing:focus .pic img,
+      .thing .pic img.pic-zoom,
+      .thing:hover .pic img.pic-zoom,
+      .thing:focus .pic img.pic-zoom {
+        transform: none;
+      }
+
       .thing .txt {
-        padding: 8px 18px;
-        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        min-height: 0;
+        padding: 8px 12px 8px 16px;
+        border-radius: 11px 0 0 11px;
+      }
+
+      .thing .txt::before {
+        display: none;
+      }
+
+      .thing .pic::after {
+        content: "\2192";
+        display: grid;
+        position: absolute;
+        z-index: 1;
+        right: 4px;
+        bottom: 3px;
+        place-items: center;
+        width: 16px;
+        height: 16px;
+        color: #FFFFFF;
+        font-family: var(--f-body);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1;
+        text-shadow: 0 1px 7px rgba(39, 36, 32, 0.55);
+        opacity: 1;
+        transform: none;
+        transition: transform 0.2s ease;
+      }
+
+      .thing:nth-child(3):not(.is-expanded) .pic img {
+        object-position: center 72% !important;
       }
 
       .thing:nth-child(even):not(.is-expanded),
@@ -2180,7 +2282,12 @@
       }
 
       .thing h3 {
+        font-size: clamp(17px, 4.9vw, 22px);
+        line-height: 1.05;
         margin-bottom: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       .thing.is-expanded .pic,
@@ -2188,13 +2295,37 @@
         display: block;
       }
 
+      .thing.is-expanded {
+        display: flex;
+        height: auto;
+        min-height: 0;
+      }
+
+      .thing.is-expanded .pic {
+        order: 0;
+        height: auto;
+        aspect-ratio: 4.5 / 3;
+        border-radius: 8px 8px 0 0;
+      }
+
       .thing.is-expanded .txt {
+        display: block;
+        min-height: 0;
         padding: 18px 18px 50px;
         border-radius: 0 0 8px 8px;
       }
 
+      .thing.is-expanded .txt::before {
+        display: none;
+      }
+
       .thing.is-expanded h3 {
+        font-size: 22px;
+        line-height: 1.12;
         margin-bottom: 7px;
+        overflow: visible;
+        text-overflow: clip;
+        white-space: normal;
       }
 
       .thing.is-expanded .pic::after {
@@ -2869,10 +3000,6 @@
             return;
           }
 
-          document.querySelectorAll(".thing.is-expanded").forEach((expandedCard) => {
-            expandedCard.classList.remove("is-expanded");
-            expandedCard.setAttribute("aria-expanded", "false");
-          });
           card.classList.add("is-expanded");
           card.setAttribute("aria-expanded", "true");
           return;
