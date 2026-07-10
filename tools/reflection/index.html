@@ -1262,6 +1262,87 @@
       gap: 16px;
     }
 
+    .loop-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.52fr);
+      align-items: end;
+      gap: 72px;
+      margin-bottom: 38px;
+    }
+
+    .loop-hero h1 {
+      margin-bottom: 17px;
+      font-family: var(--display);
+      font-size: clamp(48px, 7vw, 86px);
+      font-weight: 300;
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+    }
+
+    .loop-hero h1 em {
+      color: var(--rose);
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .loop-workspace {
+      padding: clamp(24px, 4vw, 34px);
+    }
+
+    .loop-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .loop-field {
+      display: block;
+    }
+
+    .loop-field.wide {
+      grid-column: 1 / -1;
+    }
+
+    .loop-field textarea {
+      width: 100%;
+      min-height: 116px;
+      margin-top: 7px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.52);
+      color: var(--ink);
+      padding: 12px;
+      font: inherit;
+      line-height: 1.45;
+    }
+
+    .loop-field textarea:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--gold) 75%, transparent);
+      outline-offset: 3px;
+    }
+
+    .loop-note {
+      margin: 20px 0 0;
+      padding: 18px 20px;
+      border-left: 2px solid var(--rose);
+      background: var(--paper-deep);
+      color: var(--ink-soft);
+      font-family: var(--display);
+      font-size: 18px;
+      line-height: 1.48;
+    }
+
+    .loop-note strong {
+      color: var(--ink);
+    }
+
+    .loop-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 22px;
+    }
+
     [hidden] {
       display: none !important;
     }
@@ -1281,7 +1362,8 @@
         gap: 20px;
       }
 
-      .parts-hero {
+      .parts-hero,
+      .loop-hero {
         grid-template-columns: 1fr;
         gap: 20px;
       }
@@ -1329,7 +1411,7 @@
 
       .tool-tabs {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         width: 100%;
         margin-left: 0;
         gap: 5px;
@@ -1529,6 +1611,14 @@
         width: 100%;
         justify-content: space-between;
       }
+
+      .loop-workspace {
+        padding: 22px 16px;
+      }
+
+      .loop-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1555,6 +1645,7 @@
         <button class="tool-tab" role="tab" aria-selected="true" aria-controls="energy-panel" id="energy-tab" data-tool="energy">Energy Rebalance</button>
         <button class="tool-tab" role="tab" aria-selected="false" aria-controls="balance-panel" id="balance-tab" data-tool="balance">Decisional balance sheet</button>
         <button class="tool-tab" role="tab" aria-selected="false" aria-controls="parts-panel" id="parts-tab" data-tool="parts">Parts of Me Map</button>
+        <button class="tool-tab" role="tab" aria-selected="false" aria-controls="loop-panel" id="loop-tab" data-tool="loop">Close One Loop</button>
       </div>
     </div>
   </nav>
@@ -1769,6 +1860,58 @@
         </section>
       </div>
     </section>
+
+    <section id="loop-panel" role="tabpanel" aria-labelledby="loop-tab" hidden>
+      <div class="wrap">
+        <header class="loop-hero">
+          <div>
+            <p class="eyebrow">Completion without pressure</p>
+            <h1>Close One <em>Loop</em></h1>
+            <p class="intro">Choose one open loop, make the next step visible, and decide what “complete enough for now” means. The aim is not to finish everything. It is to let one thing come to rest.</p>
+          </div>
+          <p class="hero-note"><strong>One loop is enough.</strong> Pick something small enough that your body believes you can meet it today.</p>
+        </header>
+
+        <section class="card loop-workspace" aria-labelledby="loop-title">
+          <div class="parts-intro">
+            <div>
+              <p class="eyebrow">A small completion ritual</p>
+              <h2 id="loop-title">Name the loop, choose the ending</h2>
+              <p>Use this when a task, decision, message, idea or intention keeps humming in the background. You can close it by doing, pausing with a clear next step, or consciously releasing it.</p>
+            </div>
+          </div>
+
+          <div class="loop-grid">
+            <label class="loop-field wide">
+              The open loop
+              <textarea aria-label="The open loop" placeholder="What is still open, unfinished, undecided or quietly taking up space?"></textarea>
+            </label>
+            <label class="loop-field">
+              Why it matters
+              <textarea aria-label="Why this loop matters" placeholder="What would feel lighter, clearer or more honest if this had a small ending?"></textarea>
+            </label>
+            <label class="loop-field">
+              Complete enough for now
+              <textarea aria-label="What complete enough means" placeholder="Define a small finish line for today. Make it specific and believable."></textarea>
+            </label>
+            <label class="loop-field">
+              The next visible action
+              <textarea aria-label="The next visible action" placeholder="What is the next physical, visible step? Send, write, decide, move, ask, schedule, tidy?"></textarea>
+            </label>
+            <label class="loop-field">
+              How I will let it land
+              <textarea aria-label="How I will let it land" placeholder="How will you mark the pause or ending so your body knows it can stop carrying this for now?"></textarea>
+            </label>
+          </div>
+
+          <p class="loop-note"><strong>Closing a loop can mean finishing, scheduling, naming the next step, or putting something down consciously.</strong> The point is to reduce the background noise, not to turn your life into a productivity machine.</p>
+
+          <div class="loop-actions">
+            <button class="quiet-button" id="loopClearButton" type="button">Clear reflection</button>
+          </div>
+        </section>
+      </div>
+    </section>
   </main>
 
   <script>
@@ -1871,7 +2014,7 @@
     const partsState = normalizePartsState(urlState?.parts || loadPartsLocalState() || partsDefaults);
     const routeTool = new URLSearchParams(window.location.search).get("tool");
     const requestedTool = (urlState?.tool || routeTool) === "wellbeing" ? "parts" : (urlState?.tool || routeTool);
-    let activeTool = ["energy", "balance", "parts"].includes(requestedTool) ? requestedTool : "energy";
+    let activeTool = ["energy", "balance", "parts", "loop"].includes(requestedTool) ? requestedTool : "energy";
 
     const svg = document.getElementById("energyChart");
     const rows = document.getElementById("areaRows");
@@ -1978,6 +2121,12 @@
       Object.assign(partsState, clone(partsDefaults));
       renderParts();
       updateParts();
+    });
+
+    document.getElementById("loopClearButton").addEventListener("click", () => {
+      document.querySelectorAll("#loop-panel textarea").forEach(field => {
+        field.value = "";
+      });
     });
 
     function selectTool(tool, shouldScroll = true) {
