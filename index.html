@@ -2040,18 +2040,61 @@
 
     @media (max-width: 720px) {
       .thing {
+        display: grid;
+        grid-template-columns: 30% minmax(0, 1fr);
+        align-items: stretch;
         height: auto;
+        min-height: 82px;
       }
 
-      .thing .pic,
       .thing p,
       .thing .topic-explore {
         display: none;
       }
 
+      .thing .pic {
+        display: block;
+        height: 100%;
+        min-height: 66px;
+        aspect-ratio: auto;
+        border-radius: 8px 0 0 8px;
+      }
+
+      .thing .pic img,
+      .thing:hover .pic img,
+      .thing:focus .pic img,
+      .thing .pic img.pic-zoom,
+      .thing:hover .pic img.pic-zoom,
+      .thing:focus .pic img.pic-zoom {
+        transform: none;
+      }
+
       .thing .txt {
-        padding: 8px 18px;
-        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        min-height: 66px;
+        padding: 10px 42px 10px 16px;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .thing .txt::before {
+        content: "+";
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        display: grid;
+        place-items: center;
+        width: 20px;
+        height: 20px;
+        border: 1px solid color-mix(in srgb, var(--ink) 26%, transparent);
+        border-radius: 50%;
+        color: var(--ink);
+        font-family: var(--f-body);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1;
+        transform: translateY(-50%);
+        transition: transform 0.2s ease, background-color 0.2s ease;
       }
 
       .thing:nth-child(even):not(.is-expanded),
@@ -2072,9 +2115,30 @@
         display: block;
       }
 
+      .thing.is-expanded {
+        display: flex;
+        min-height: 0;
+      }
+
+      .thing.is-expanded .pic {
+        height: auto;
+        aspect-ratio: 4.5 / 3;
+        border-radius: 8px 8px 0 0;
+      }
+
       .thing.is-expanded .txt {
+        display: block;
+        min-height: 0;
         padding: 18px 18px 50px;
         border-radius: 0 0 8px 8px;
+      }
+
+      .thing.is-expanded .txt::before {
+        content: "-";
+        top: auto;
+        right: 18px;
+        bottom: 15px;
+        transform: none;
       }
 
       .thing.is-expanded h3 {
@@ -2156,7 +2220,7 @@
       }
 
       .thing .txt {
-        padding: 8px 18px;
+        padding: 10px 42px 10px 16px;
       }
 
       .thing.is-expanded .txt {
