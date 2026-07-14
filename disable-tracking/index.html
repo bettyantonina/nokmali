@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Tracking disabled - Nokmali</title>
+  <link rel="canonical" href="https://nokmali.com/disable-tracking/">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+  <link rel="icon" href="/favicon.ico?v=5" sizes="any">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <!-- PostHog analytics -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog&&window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="rn sn init kn Qr wn Cn yn capture calculateEventProperties Rn register register_once unregister An getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags on onFeatureFlags identify setPersonProperties unsetPersonProperties group resetGroups setGroupProperties reset setIdentity clearIdentity get_distinct_id getGroups get_session_id alias set_config startSessionRecording stopSessionRecording captureException startExceptionAutocapture stopExceptionAutocapture opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init("phc_rWR6V9kkbeSeJS9MBYraNUzNsY7CSmZvgj9CX4bK9abT", {
+      api_host: "https://eu.i.posthog.com",
+      defaults: "2026-05-30",
+      person_profiles: "identified_only"
+    });
+  </script>
+  <style>
+    :root {
+      --paper: #F4EFE6;
+      --ink: #3A3640;
+      --ink-soft: #6C6560;
+      --cta: #557D71;
+      --cta-hover: #496E63;
+      --line: #DBD2C2;
+      --f-body: "Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--f-body);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      width: min(100%, 560px);
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(30px, 8vw, 44px);
+      line-height: 1.08;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 18px;
+      color: var(--ink-soft);
+      font-size: 17px;
+    }
+
+    button {
+      min-height: 46px;
+      border: 1px solid var(--cta);
+      border-radius: 999px;
+      padding: 12px 18px;
+      background: var(--cta);
+      color: #fff;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:hover {
+      background: var(--cta-hover);
+      border-color: var(--cta-hover);
+    }
+
+    .status {
+      min-height: 1.55em;
+      margin-top: 14px;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Tracking disabled on this browser.</h1>
+    <p>PostHog will no longer capture pageviews, clicks or session recordings from this browser unless tracking is enabled again.</p>
+    <button id="enable-tracking" type="button">Enable tracking again</button>
+    <p class="status" id="tracking-status" role="status" aria-live="polite"></p>
+  </main>
+
+  <script>
+    (function () {
+      var status = document.getElementById("tracking-status");
+      var enableButton = document.getElementById("enable-tracking");
+      var attempts = 0;
+      var maxAttempts = 100;
+
+      function setStatus(message) {
+        status.textContent = message;
+      }
+
+      function posthogReady() {
+        return window.posthog &&
+          window.posthog.__loaded &&
+          typeof window.posthog.opt_out_capturing === "function" &&
+          typeof window.posthog.opt_in_capturing === "function";
+      }
+
+      function whenPostHogReady(callback) {
+        if (posthogReady()) {
+          callback();
+          return;
+        }
+
+        attempts += 1;
+        if (attempts >= maxAttempts) {
+          setStatus("PostHog did not finish loading. Please refresh this page and try again.");
+          return;
+        }
+
+        window.setTimeout(function () {
+          whenPostHogReady(callback);
+        }, 100);
+      }
+
+      whenPostHogReady(function () {
+        window.posthog.opt_out_capturing();
+        setStatus("Tracking is currently disabled for this browser.");
+      });
+
+      enableButton.addEventListener("click", function () {
+        attempts = 0;
+        whenPostHogReady(function () {
+          window.posthog.opt_in_capturing();
+          setStatus("Tracking is enabled again for this browser.");
+        });
+      });
+    }());
+  </script>
+</body>
+</html>
