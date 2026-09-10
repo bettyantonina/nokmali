@@ -1,2 +1,5 @@
 .DS_Store
 /coachdesk/
+
+# Local landing-page backups
+index-backup-*.html

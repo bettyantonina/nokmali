@@ -730,7 +730,7 @@
 
     .intro .approach-heading {
       position: absolute;
-      top: calc(var(--approach-top-space) - 3.2vw);
+      top: calc(var(--approach-top-space) - 3.2vw - 0.8rem);
       left: 2.4%;
       width: 49%;
       font-family: var(--f-display);
@@ -747,7 +747,7 @@
 
     .intro .approach-intro {
       position: absolute;
-      top: calc(var(--approach-top-space) + 5.2vw - var(--approach-content-lift));
+      top: calc(var(--approach-top-space) + 5.2vw - var(--approach-content-lift) - 1.6rem);
       left: 2.4%;
       width: 49%;
       font-family: var(--f-body);
@@ -767,18 +767,21 @@
     }
 
     .intro .approach-part:nth-child(1) {
+      margin-top: 0;
       top: calc(var(--approach-top-space) + 16.2vw - 4.3rem - var(--approach-content-lift) + var(--approach-parts-drop));
       left: 11.8%;
       width: 27%;
     }
 
     .intro .approach-part:nth-child(2) {
+      margin-top: 0;
       top: calc(var(--approach-top-space) + 32.8vw - 3.7rem - var(--approach-content-lift) + var(--approach-parts-drop));
       left: 45.2%;
       width: 33%;
     }
 
     .intro .approach-part:nth-child(3) {
+      margin-top: 0;
       top: calc(var(--approach-top-space) + 47.4vw - 0.7rem - var(--approach-content-lift) + var(--approach-parts-drop));
       left: 17%;
       width: 33%;
@@ -819,6 +822,7 @@
 
     .thing {
       --card-tone: #E5EAE2;
+      --image-extra-height: 12px;
       --explore-color: #D9C2D3;
       display: flex;
       flex-direction: column;
@@ -827,8 +831,25 @@
       border: 1px solid color-mix(in srgb, var(--card-tone) 58%, rgba(58, 54, 64, 0.16));
       border-radius: 12px;
       padding: 10px;
-      cursor: pointer;
-      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: default;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .thing:hover {
+        transform: scale(1.025);
+        box-shadow: 0 24px 44px -28px rgba(39, 36, 32, 0.5);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .thing {
+        transition: none;
+      }
+
+      .thing:hover {
+        transform: none;
+      }
     }
 
     .thing:nth-child(1),
@@ -848,51 +869,33 @@
       --explore-color: #FFFFFF;
     }
 
-    .thing:hover,
-    .thing:focus {
-      box-shadow: 0 24px 44px -28px rgba(39, 36, 32, 0.5);
-      transform: translateY(-5px);
-    }
-
-    .thing:focus {
-      outline: 3px solid color-mix(in srgb, var(--gold) 70%, transparent);
-      outline-offset: 4px;
-    }
-
     .thing .pic {
       position: relative;
       flex: none;
-      aspect-ratio: 4.5 / 3;
+      height: 0;
+      padding-top: calc(50% + var(--image-extra-height));
       overflow: hidden;
       border-radius: 8px 8px 0 0;
     }
 
     .thing .pic img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
     }
 
-    .thing:hover .pic img,
-    .thing:focus .pic img {
-      transform: scale(1.05);
-    }
-
     .thing .pic img.pic-zoom {
       transform: translateY(3%) scale(1.14);
-    }
-
-    .thing:hover .pic img.pic-zoom,
-    .thing:focus .pic img.pic-zoom {
-      transform: translateY(3%) scale(1.19);
     }
 
     .thing .txt {
       position: relative;
       flex: 1;
       min-height: 0;
-      padding: 20px 22px 22px;
+      padding: 18px 22px calc(20px - var(--image-extra-height));
       background: var(--card-tone);
       border-radius: 0 0 8px 8px;
     }
@@ -906,17 +909,6 @@
       color: var(--ink);
     }
 
-    .thing .txt::after {
-      content: "\2022\00a0\2022\00a0\2022";
-      display: none;
-      margin-top: 4px;
-      color: var(--beige);
-      font-size: 22px;
-      letter-spacing: 0.18em;
-      line-height: 1;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-
     .thing p {
       max-height: none;
       overflow: visible;
@@ -928,170 +920,144 @@
       transition: max-height 0.24s ease, margin-top 0.24s ease, opacity 0.22s ease, transform 0.22s ease;
     }
 
-    .thing .topic-explore {
-      display: none;
-    }
-
-    .thing .pic::after {
-      content: "Explore";
-      display: inline-flex;
-      position: absolute;
-      z-index: 1;
-      top: 50%;
-      left: 50%;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      color: var(--explore-color);
-      font-family: var(--f-display);
-      font-size: clamp(34px, 4.5vw, 52px);
-      font-weight: 700;
-      line-height: 1.2;
-      opacity: 0;
-      white-space: nowrap;
-      transform: translate(-50%, -44%);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .thing:hover .pic::after,
-    .thing:focus .pic::after {
-      opacity: 1;
-      transform: translate(-50%, -50%);
-    }
-
-    .thing:hover .txt::after,
-    .thing:focus .txt::after {
-      opacity: 0;
-      transform: translateY(-3px);
-    }
-
-    .thing:hover p,
-    .thing:focus p {
-      max-height: none;
-      margin-top: 6px;
-      opacity: 1;
-      transform: none;
-    }
-
-    .topic-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      display: grid;
-      place-items: center;
-      padding: 28px;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      background: rgba(39, 36, 32, 0.62);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.22s ease;
-    }
-
-    .topic-modal.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .topic-modal-card {
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(220px, 0.8fr) minmax(360px, 1.2fr);
-      width: min(980px, 100%);
-      max-height: min(760px, calc(100vh - 56px));
-      max-height: min(760px, calc(100dvh - 56px));
-      overflow: hidden;
-      border: 1px solid color-mix(in srgb, var(--line) 80%, white);
-      border-radius: 22px;
-      background: #FBF7EF;
-      box-shadow: 0 34px 90px -44px rgba(0, 0, 0, 0.65);
-      transform: translateY(12px) scale(0.97);
-      transition: transform 0.22s ease;
-    }
-
-    .topic-modal.open .topic-modal-card {
-      transform: translateY(0) scale(1);
-    }
-
-    .topic-modal-image {
-      min-height: min(420px, calc(100vh - 56px));
-      min-height: min(420px, calc(100dvh - 56px));
-      background: var(--teal-soft);
-    }
-
-    .topic-modal-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .topic-modal-body {
-      min-width: 0;
-      min-height: 0;
-      overflow-x: hidden;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-gutter: stable;
-      scrollbar-color: color-mix(in srgb, var(--ink) 32%, transparent) transparent;
-      scrollbar-width: thin;
-      padding: clamp(28px, 4vw, 44px);
-    }
-
-    .topic-modal-body::-webkit-scrollbar,
-    .topic-modal-card::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .topic-modal-body::-webkit-scrollbar-thumb,
-    .topic-modal-card::-webkit-scrollbar-thumb {
-      border-radius: 999px;
-      background: color-mix(in srgb, var(--ink) 28%, transparent);
-    }
-
-    .topic-modal-body h3 {
-      font-family: var(--f-display);
-      font-weight: 700;
-      font-size: clamp(30px, 3.4vw, 42px);
-      line-height: 1.04;
-      color: var(--ink);
-    }
-
-    .topic-modal-body p {
-      margin-top: 18px;
-      color: var(--ink-soft);
-      font-size: 16.5px;
-      line-height: 1.58;
-    }
-
-    .topic-modal-close {
-      position: absolute;
-      top: 16px;
-      right: 16px;
+    .art-coaching {
       z-index: 2;
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(251, 247, 239, 0.92);
-      color: var(--ink);
-      cursor: pointer;
-      font-size: 28px;
-      line-height: 1;
-      transition: transform 0.2s, background 0.2s;
+      background: var(--paper);
     }
 
-    .topic-modal-close:hover,
-    .topic-modal-close:focus-visible {
-      background: var(--paper);
-      transform: rotate(6deg);
-      outline: 3px solid color-mix(in srgb, var(--gold) 70%, transparent);
-      outline-offset: 3px;
+    .art-coaching-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      align-items: start;
+      column-gap: clamp(32px, 5vw, 72px);
+      row-gap: 28px;
+    }
+
+    .art-coaching-heading,
+    .art-coaching-copy {
+      grid-column: 2;
+    }
+
+    section.block.art-coaching {
+      padding: 48px 0;
+    }
+
+    .art-coaching-art {
+      align-self: start;
+      grid-column: 1;
+      grid-row: 1 / 3;
+      width: 120%;
+      margin-left: calc(-30% + 32px);
+      margin-top: 120px;
+    }
+
+    .art-coaching-art img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .art-coaching-intro {
+      margin-top: 22px;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+
+    .art-coaching-quote {
+      margin: 0 0 28px;
+      padding-left: 22px;
+      border-left: 1px solid var(--line);
+    }
+
+    .art-coaching-quote blockquote {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-size: clamp(22px, 2vw, 27px);
+      line-height: 1.45;
+      color: var(--ink);
+    }
+
+    .art-coaching-quote figcaption {
+      margin-top: 14px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    .art-coaching-examples {
+      list-style: none;
+      counter-reset: art-example;
+    }
+
+    .art-coaching-examples li {
+      position: relative;
+      padding: 20px 0 20px 36px;
+      border-top: 1px solid var(--line);
+      counter-increment: art-example;
+    }
+
+    .art-coaching-examples li::before {
+      content: counter(art-example, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 23px;
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    .art-coaching-examples h3 {
+      font-family: var(--f-display);
+      font-size: 22px;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .art-coaching-examples p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+
+    .art-coaching-closing {
+      margin: 28px 0 0;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.65;
+      color: var(--cta);
+    }
+
+    .art-coaching-examples li:last-child {
+      padding-bottom: 0;
+    }
+
+    @media (min-width: 881px) and (max-width: 1200px) {
+      .art-coaching-art {
+        width: calc(92% + 59px);
+        margin-left: -32px;
+      }
+    }
+
+    @media (max-width: 880px) {
+      .art-coaching-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .art-coaching-heading,
+      .art-coaching-copy,
+      .art-coaching-art {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .art-coaching-art {
+        max-width: 520px;
+        width: 92%;
+        margin: 0 auto;
+      }
     }
 
     .journal-preview {
@@ -1201,11 +1167,11 @@
 
     @media (min-width: 881px) {
       .about {
-        height: clamp(560px, 56.01vw, 941px);
-        padding: 0;
+        min-height: clamp(560px, 56.01vw, 941px);
+        padding: 0 0 40px;
         background-color: var(--paper);
         background-image: url("art/desktopaboutme-matched.png");
-        background-position: center calc(50% + 16px);
+        background-position: center 72px;
         background-size: 85% auto;
         background-repeat: no-repeat;
       }
@@ -1214,7 +1180,7 @@
       .about-copy {
         width: 100%;
         max-width: none;
-        height: 100%;
+        height: auto;
       }
 
       .about-grid {
@@ -1223,6 +1189,7 @@
 
       .about-copy {
         position: relative;
+        min-height: calc(47.84vw + 40px - clamp(94.8px, 7.4576vw, 113.76px));
         padding-top: clamp(10px, 1.4vw, 24px);
       }
 
@@ -1255,6 +1222,11 @@
         font-size: clamp(15px, 1.18vw, 18px);
         line-height: 1.58;
       }
+
+      .about .about-closing p {
+        width: 78%;
+        max-width: 960px;
+      }
     }
 
     @media (min-width: 881px) and (max-width: 1199px) {
@@ -1276,8 +1248,12 @@
       }
 
       .about {
-        background-position: 72% calc(50% + 12px);
+        background-position: 72% 68px;
         background-size: 72% auto;
+      }
+
+      .about-copy {
+        min-height: calc(40.53vw + 36px - clamp(85.12px, 8.512vw, 97.28px));
       }
 
       .about-grid {
@@ -1310,8 +1286,8 @@
     }
 
     section.block.begin {
-      padding-top: 56px;
-      padding-bottom: 60px;
+      padding-top: 44px;
+      padding-bottom: 44px;
     }
 
     .begin .inner {
@@ -1337,9 +1313,10 @@
     .begin .steps {
       display: flex;
       justify-content: center;
+      align-items: stretch;
       gap: 0;
-      flex-wrap: wrap;
-      margin: 28px 0 20px;
+      flex-wrap: nowrap;
+      margin: 28px 0 28px;
     }
 
     .begin .step {
@@ -1380,7 +1357,14 @@
     .begin .support {
       font-size: 16px;
       max-width: 34em;
-      margin: 0 auto 18px;
+      margin: 0 auto 14px;
+    }
+
+    .begin .reassurance {
+      color: #F0F3EA;
+      font-size: 14px;
+      max-width: 40em;
+      margin: 0 auto;
     }
 
     .testimonial-block {
@@ -2078,7 +2062,7 @@
       .begin .steps {
         display: grid;
         gap: 14px;
-        margin: 24px 0 18px;
+        margin: 24px 0 26px;
       }
 
       .begin .step {
@@ -2096,7 +2080,13 @@
 
       section.block.begin {
         padding-top: 32px;
-        padding-bottom: 60px;
+        padding-bottom: 40px;
+      }
+
+      .begin .btn {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
       }
 
       .testimonial-block {
@@ -2164,273 +2154,21 @@
         padding-top: 28px;
       }
 
-      .topic-modal {
-        padding: 12px;
-        place-items: center;
-      }
-
-      .topic-modal-card {
-        grid-template-columns: 1fr;
-        width: min(360px, calc(100vw - 24px));
-        max-height: calc(100vh - 24px);
-        max-height: calc(100dvh - 24px);
-        overflow-x: hidden;
-        overflow-y: auto;
-        overscroll-behavior: contain;
-        -webkit-overflow-scrolling: touch;
-        border-radius: 16px;
-      }
-
-      .topic-modal-image {
-        min-height: 0;
-        height: 150px;
-        height: min(150px, 24dvh);
-        max-height: 150px;
-      }
-
-      .topic-modal-body {
-        overflow: visible;
-        padding: 20px 20px 22px;
-      }
-
-      .topic-modal-body h3 {
-        font-size: clamp(26px, 8vw, 34px);
-      }
-
-      .topic-modal-body p {
-        margin-top: 12px;
-        font-size: 15.5px;
-        line-height: 1.55;
-      }
-
       .foot-grid {
         grid-template-columns: 1fr;
         gap: 26px;
       }
     }
 
-    @media (hover: none), (max-width: 720px) {
-      .thing .txt {
-        min-height: 0;
-        padding-bottom: 52px;
-      }
-
-      .thing .txt::after {
-        display: none;
-      }
-
-      .thing .pic::after {
-        display: none;
-      }
-
-      .thing p {
-        position: static;
-        max-height: none;
-        overflow: visible;
-        opacity: 1;
-        transform: none;
-        margin-top: 6px;
-      }
-
-      .thing .topic-explore {
-        display: inline-flex;
-        position: absolute;
-        right: 18px;
-        bottom: 14px;
-        align-items: center;
-        justify-content: center;
-        padding: 4px 12px;
-        border: 1px solid var(--accent);
-        border-radius: 999px;
-        background: transparent;
-        color: var(--accent);
-        font: inherit;
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 1.2;
-      }
-    }
-
     @media (max-width: 720px) {
       section.block.topics {
-        height: 100svh;
-        height: 100dvh;
+        height: auto;
         padding: 54px 0 18px;
       }
 
-      section.block.topics .wrap {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        min-height: 0;
-      }
-
-      section.block.topics:has(.thing.is-expanded) {
-        height: auto;
-        min-height: 100svh;
-        min-height: 100dvh;
-      }
-
-      section.block.topics:has(.thing.is-expanded) .wrap {
-        height: auto;
-      }
-
-      .things-head {
-        flex: 0 0 auto;
-        margin-bottom: 18px;
-      }
-
       .things {
-        flex: 1 1 auto;
-        grid-auto-rows: minmax(0, 1fr);
-        align-items: start;
-        min-height: 0;
-        gap: 10px;
-      }
-
-      section.block.topics:has(.thing.is-expanded) .things {
-        flex: 0 0 auto;
-        grid-auto-rows: minmax(76px, auto);
-      }
-
-      .thing {
-        position: relative;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 30%;
-        align-items: stretch;
-        height: 100%;
-        min-height: 0;
-      }
-
-      .thing p,
-      .thing .topic-explore {
-        display: none;
-      }
-
-      .thing:not(.is-expanded) {
-        height: 100%;
-        min-height: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-
-      .thing .pic {
-        display: block;
-        order: 2;
-        height: 100%;
-        min-height: 0;
-        aspect-ratio: auto;
-        border-radius: 0 11px 11px 0;
-      }
-
-      .thing .pic img,
-      .thing:hover .pic img,
-      .thing:focus .pic img,
-      .thing .pic img.pic-zoom,
-      .thing:hover .pic img.pic-zoom,
-      .thing:focus .pic img.pic-zoom {
-        transform: none;
-      }
-
-      .thing .txt {
-        display: flex;
-        align-items: center;
-        min-height: 0;
-        padding: 8px 12px 8px 16px;
-        border-radius: 11px 0 0 11px;
-      }
-
-      .thing .txt::before {
-        display: none;
-      }
-
-      .thing .pic::after {
-        content: "\2192";
-        display: grid;
-        position: absolute;
-        z-index: 1;
-        right: 4px;
-        bottom: 3px;
-        place-items: center;
-        width: 16px;
-        height: 16px;
-        color: #FFFFFF;
-        font-family: var(--f-body);
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 1;
-        text-shadow: 0 1px 7px rgba(39, 36, 32, 0.55);
-        opacity: 1;
-        transform: none;
-        transition: transform 0.2s ease;
-      }
-
-      .thing:nth-child(3):not(.is-expanded) .pic img {
-        object-position: center 72% !important;
-      }
-
-      .thing:nth-child(even):not(.is-expanded),
-      .thing:nth-child(even):not(.is-expanded) .txt {
-        background: #C5C7BE;
-      }
-
-      .thing:nth-child(even):not(.is-expanded) {
-        border-color: color-mix(in srgb, #C5C7BE 58%, rgba(58, 54, 64, 0.16));
-      }
-
-      .thing h3 {
-        font-size: clamp(17px, 4.9vw, 22px);
-        line-height: 1.05;
-        margin-bottom: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      .thing.is-expanded .pic,
-      .thing.is-expanded p {
-        display: block;
-      }
-
-      .thing.is-expanded {
-        display: flex;
-        height: auto;
-        min-height: 0;
-      }
-
-      .thing.is-expanded .pic {
-        order: 0;
-        height: auto;
-        aspect-ratio: 4.5 / 3;
-        border-radius: 8px 8px 0 0;
-      }
-
-      .thing.is-expanded .txt {
-        display: block;
-        min-height: 0;
-        padding: 18px 18px 50px;
-        border-radius: 0 0 8px 8px;
-      }
-
-      .thing.is-expanded .txt::before {
-        display: none;
-      }
-
-      .thing.is-expanded h3 {
-        font-size: 22px;
-        line-height: 1.12;
-        margin-bottom: 7px;
-        overflow: visible;
-        text-overflow: clip;
-        white-space: normal;
-      }
-
-      .thing.is-expanded .pic::after {
-        display: none;
-      }
-
-      .thing.is-expanded .topic-explore {
-        display: inline-flex;
+        grid-template-columns: 1fr;
+        gap: 16px;
       }
     }
 
@@ -2522,15 +2260,12 @@
       }
 
       .thing {
+        --image-extra-height: 4px;
         padding: 8px;
       }
 
       .thing .txt {
-        padding: 8px 12px 8px 16px;
-      }
-
-      .thing.is-expanded .txt {
-        padding: 18px 18px 50px;
+        padding: 8px 12px calc(8px - var(--image-extra-height)) 16px;
       }
 
       .about .photo {
@@ -2702,8 +2437,8 @@
     </div>
     <div class="wrap hero-copy">
       <div class="inner">
-        <h1><span class="hero-title-line">Online coaching for women who</span><span class="hero-title-line">want more energy, clarity and</span><span class="hero-title-line"><em>healthier routines.</em></span></h1>
-        <p class="sub">For when life feels full, your routines feel off, or you want to feel more at home in your body and daily life again.</p>
+        <h1><span class="hero-title-line">Back to yourself through</span> <span class="hero-title-line"><em>reflection and creativity</em></span></h1>
+        <p class="sub">Holistic creative health coaching to reconnect with your sense of self, rediscover what feels meaningful to you, and make space for a healthier rhythm of your own.<strong style="display: block; margin-top: 1em;"><span style="color: #D99F4E;">Art-integrated coaching</span>, because not every insight can be found through words.</strong></p>
         <div class="hero-actions">
           <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
           <a class="btn secondary" href="/assessment">3-minute Rhythm Check <span class="arr" aria-hidden="true">&rarr;</span></a>
@@ -2718,63 +2453,111 @@
       <section class="block topics" id="topics">
         <div class="wrap">
           <div class="things-head">
-            <h2 class="title">What we can <em>work on</em> together.</h2>
+            <h2 class="title">At the <em>heart</em> of things.</h2>
           </div>
           <div class="things">
-          <article class="thing" tabindex="0" data-detail="When life is full, questions around what to eat, when to eat, what works for your body and how to stop ending up in the same rushed patterns can become another daily pressure. We can look at meals, cravings, hunger, meal preparation challenges and energy dips. I help you understand what works for you and find food routines that fit your life, support your energy and bring back more ease and joy around eating and preparation.">
-            <div class="pic"><img src="art/IMG_7714.jpg" alt=""></div>
-            <div class="txt">
-              <h3>Food &amp; rhythm</h3>
-              <p>Finding more ease, joy and confidence around food and everyday nourishment.</p>
-            </div>
-          </article>
-          <article class="thing" tabindex="0" data-detail="Your body often notices things before your mind has words for them. Tiredness, tension, hunger, restlessness or overwhelm can all carry information about what you need, what is too much or what no longer fits. In coaching, I help you listen to these signals with more curiosity and less judgement. Over time, this can become a quieter way of making choices around food, rest, movement, boundaries and daily rhythm. One where you feel less at war with yourself and more at home in your body.">
-            <div class="pic"><img src="art/IMG_3401.jpg" alt=""></div>
-            <div class="txt">
-              <h3>Body signals</h3>
-              <p>Learning to listen to tiredness, cravings, tension and energy with more curiosity, so they can guide clearer choices.</p>
-            </div>
-          </article>
-          <article class="thing" tabindex="0" data-detail="When life is already full, another strict plan usually does not last. Often, the real question is not only what you should do differently, but why you keep circling around the same attempts. In coaching, we look at what keeps pulling you back, what may be blocking you underneath the surface, and what already works in your life that could be expanded. Sometimes a shift in perspective opens something. Other times, there are conscious or unconscious reasons why change has felt harder than it “should”. I help you find habits and rhythms that do not feel like another project, but more like slowly coming back to yourself and building a life you actually want to keep returning to.">
-            <div class="pic"><img class="pic-zoom" src="art/IMG_1774a-clean.jpg" alt="" style="object-position: 13% center;"></div>
-            <div class="txt">
-              <h3>Habits &amp; routines</h3>
-              <p>Building habits and routines that make daily life feel like something you want to return to.</p>
-            </div>
-          </article>
-          <article class="thing" tabindex="0" data-detail="When life is full, anything that does not look useful or urgent can easily fall to the bottom of the list. But play and open-ended creativity are not wasted time. They help you loosen perfectionism, enjoy the process again and express yourself without everything needing to be judged, finished or productive. In coaching, we can explore what helps you make space for that freer part of you, because creativity often supports much more than creativity itself.">
+          <article class="thing">
             <div class="pic"><img src="art/playdoo.jpeg" alt=""></div>
             <div class="txt">
-              <h3>Creativity &amp; play</h3>
-              <p>Creating space to express freely, play and make things without needing perfection or approval.</p>
+              <h3>Feeling alive</h3>
+              <p>More of what excites you, makes you curious, and makes you feel fully here.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="You can love being a mother and still miss yourself. Maybe your days are full of caring, planning and being needed, while your own needs, body, creativity or direction keep moving to the edges. In coaching, we can explore what motherhood means to you, not what it is supposed to look like. I help you find a way of mothering that feels more like yours, with more room to breathe, choose and still be you.">
-            <div class="pic"><img src="art/IMG_4406.jpg" alt="" style="object-position: center top;"></div>
-            <div class="txt">
-              <h3>Motherhood &amp; identity</h3>
-              <p>Finding your own way of being a mother, without losing the parts of you that also need space.</p>
-            </div>
-          </article>
-          <article class="thing" tabindex="0" data-detail="Self-trust grows when you can hear yourself more clearly and take your own experience seriously. We can explore decisions, doubts, inner pressure, people-pleasing and old expectations, so you can recognise your own yes, no and enough again.">
+          <article class="thing">
             <div class="pic"><img src="art/IMG_3381.jpg" alt=""></div>
             <div class="txt">
-              <h3>Self-trust</h3>
-              <p>Rebuilding self-trust when you have been pulled in many directions and forgotten what your own yes and no feel like.</p>
+              <h3>What matters to me</h3>
+              <p>Getting clear on what matters to you, and letting that shape the way you live.</p>
+            </div>
+          </article>
+          <article class="thing">
+            <div class="pic"><img class="pic-zoom" src="art/IMG_1774a-clean.jpg" alt="" style="object-position: 13% center;"></div>
+            <div class="txt">
+              <h3>My priorities</h3>
+              <p>Seeing clearly what deserves your time, energy and attention.</p>
+            </div>
+          </article>
+          <article class="thing">
+            <div class="pic"><img src="art/IMG_7714.jpg" alt=""></div>
+            <div class="txt">
+              <h3>Room to breathe</h3>
+              <p>More space in your days to slow down, notice and be in your life.</p>
+            </div>
+          </article>
+          <article class="thing">
+            <div class="pic"><img src="art/IMG_4406.jpg" alt="" style="object-position: center top;"></div>
+            <div class="txt">
+              <h3>A rhythm of my own</h3>
+              <p>A way of eating, moving, resting and living that feels supportive and truly yours.</p>
+            </div>
+          </article>
+          <article class="thing">
+            <div class="pic"><img src="art/IMG_3401.jpg" alt=""></div>
+            <div class="txt">
+              <h3>Feeling connected</h3>
+              <p>Closer to your own voice, your body, other people and the world around you.</p>
             </div>
           </article>
           </div>
         </div>
       </section>
 
-      <section class="journal-preview" aria-labelledby="journal-preview-title">
+      <section class="block intro" id="how-it-works">
         <div class="wrap inner">
-          <img src="art/IMG_1689.jpg" alt="Woman standing beneath the words On veut tout painted on a wall." width="1000" height="1333">
-          <div class="journal-copy">
-            <div class="eyebrow">ON VEUT TOUT JOURNAL</div>
-            <h2 id="journal-preview-title">Why Can’t I Finish What I Start?</h2>
-            <p>Difficulty finishing is not always a lack of discipline. Sometimes a task has become too vague, too charged, or too entangled with everything else asking for your attention.</p>
-            <a class="journal-link" href="/blog/why-cant-i-finish-what-i-start/">Read the reflection &rarr;</a>
+          <h2 class="approach-heading"><span class="approach-heading-accent">The full picture</span></h2>
+          <p class="approach-intro">Your life doesn’t exist in separate boxes. Health, body awareness, reflection and creativity all belong together. Through conversation and art, we explore what matters and shape a way of living that feels more like your own.</p>
+          <div class="approach-sections">
+            <div class="approach-part">
+              <div>
+                <h3>Notice what is asking for attention.</h3>
+                <p>We look at where your energy goes, what feels neglected and where your everyday choices no longer quite match what matters to you.</p>
+              </div>
+            </div>
+            <div class="approach-part">
+              <div>
+                <h3>Make it visible.</h3>
+                <p>Through conversation and reflective art, we give shape to things that are hard to explain, such as needs, tensions, patterns or different parts of you pulling in different directions.</p>
+              </div>
+            </div>
+            <div class="approach-part">
+              <div>
+                <h3>Shape a way forward.</h3>
+                <p>We bring what you discover into everyday life and turn it into small, realistic shifts in how you eat, move, rest, create, use your time and choose what deserves your attention.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block art-coaching" id="art-integrated-coaching" aria-labelledby="art-coaching-title">
+        <div class="wrap art-coaching-layout">
+          <div class="art-coaching-heading">
+            <h2 class="title" id="art-coaching-title">When words are <em>not enough</em></h2>
+            <p class="art-coaching-intro">Art can help us notice something before we can explain it. You don’t need to be artistic. It’s not about what you make, but what you notice while making it.</p>
+          </div>
+          <figure class="art-coaching-art">
+            <img src="art/IMG_4403.jpg" alt="An abstract figure in pale blue, rust red and black on textured cream paper." width="3024" height="4032" loading="lazy">
+          </figure>
+          <div class="art-coaching-copy">
+            <figure class="art-coaching-quote">
+              <blockquote><p>“A relationship with our imagination is a relationship with our deepest self.”</p></blockquote>
+              <figcaption>Pat B. Allen, <cite>Art Is a Way of Knowing</cite></figcaption>
+            </figure>
+            <ol class="art-coaching-examples">
+              <li>
+                <h3>Draw the noise</h3>
+                <p>Put the open tabs, responsibilities, ideas and unfinished things onto paper. Seeing them outside your head can make it easier to notice what is taking up space and what actually matters.</p>
+              </li>
+              <li>
+                <h3>Let the body speak</h3>
+                <p>Use colour, shape or movement to explore energy, tension, rest, body image or a feeling that is difficult to name. Sometimes the body answers before the mind does.</p>
+              </li>
+              <li>
+                <h3>Picture what matters</h3>
+                <p>Paint, collage, map or sketch what you want more of in your life. Then we look at what the image is showing you and how that might translate into your everyday rhythm.</p>
+              </li>
+            </ol>
+            <p class="art-coaching-closing">No drawing skills. No right interpretation. Just another way of listening.</p>
           </div>
         </div>
       </section>
@@ -2783,22 +2566,23 @@
         <div class="wrap inner">
           <div class="eyebrow">HOW WE BEGIN</div>
           <h2 class="title">A free 30-minute <em>discovery call</em>.</h2>
-          <p class="support">We talk about what brings you here, what you would like to move towards and whether coaching feels like the right next step.</p>
+          <p class="support">We talk about where you are, what you want more of, and what you would like to make more room for. Then we see whether working together feels right.</p>
+          <p class="reassurance">No preparation or art experience needed. A pen and a piece of paper are enough.</p>
           <div class="steps">
             <div class="step">
               <div class="num">1</div>
               <h4>We meet</h4>
-              <p>A first conversation to get a sense of you, your topic and what brings you here.</p>
+              <p>A first conversation about you, where you are now, and what brought you here.</p>
             </div>
             <div class="step">
               <div class="num">2</div>
               <h4>We explore</h4>
-              <p>We look at what feels off, what matters to you and what may be getting in the way.</p>
+              <p>We look at what feels crowded, unclear or neglected. If it feels right, we may also try a brief reflective art experiment to see what appears beyond words.</p>
             </div>
             <div class="step">
               <div class="num">3</div>
-              <h4>We choose the next step</h4>
-              <p>You leave with a clearer sense of whether this coaching space fits and what working together could support.</p>
+              <h4>We see what fits</h4>
+              <p>You leave with a clearer sense of what you need next, and whether you would like me alongside you.</p>
             </div>
           </div>
           <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
@@ -2830,64 +2614,29 @@
         </div>
       </section>
 
-      <section class="block intro" id="how-it-works">
-        <div class="wrap inner">
-          <h2 class="approach-heading">Let's understand <span class="approach-heading-accent">the full picture</span></h2>
-          <p class="approach-intro">The approach covers food, habits, body awareness, and reflective coaching. Instead of rigid plans, it supports finding realistic ways of living that work for you.</p>
-          <div class="approach-sections">
-            <div class="approach-part">
-              <div>
-                <h3>Life doesn’t come in separate boxes.</h3>
-                <p>The way you eat, rest, think, care, work and move through your day often affects everything else.</p>
-              </div>
-            </div>
-            <div class="approach-part">
-              <div>
-                <h3>Understand what’s happening.</h3>
-                <p>We look at what brings you here, what matters to you, and what keeps getting in the way. So you can understand your current patterns and what your habits, choices or reactions may be trying to solve.</p>
-              </div>
-            </div>
-            <div class="approach-part">
-              <div>
-                <h3>Find a way forward.</h3>
-                <p>From there, I help you get clearer on what’s going on for you, stay connected to what matters to you, and choose a direction that feels honest and yours. So your days feel less like something you are getting through, and more like something you are choosing with more ease and intention.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     <section class="block about" id="about">
       <div class="wrap about-grid">
         <div class="about-copy">
           <div class="about-heading">
             <div class="eyebrow">About me</div>
-            <h2 class="title">Hi, I'm <em>Helene</em>.</h2>
+            <h2 class="title">Hi, I’m <em>Helene</em>.</h2>
           </div>
           <div class="photo">
             <img src="art/IMG_2080.jpg" alt="Helene preparing food in a warm wooden kitchen">
           </div>
           <div class="about-body">
-            <p>After more than fifteen years of living and working internationally, I know how much life can move, stretch and change. I enjoy looking at things from different angles and finding clearer ways through situations that feel full, tangled or hard to name.</p>
-            <p>I'm completing a Level 5 Diploma in Nutrition &amp; Health Coaching and continue to deepen my knowledge through study and practice. Together with my experience as a yoga teacher, engineer and mother, it shapes the way I support women in coaching.</p>
-            <p>I help you hear yourself more clearly through listening, meaningful questions and practical support.</p>
+            <p>I’m interested in the place where structure and intuition meet. How we care for our bodies, how we use our time, what we create, and what quietly gives our lives meaning.</p>
+            <p>My background brings together health coaching, yoga, engineering and art. I’m completing a Level 5 Diploma in Nutrition &amp; Health Coaching, I’m a trained yoga teacher, and I studied art for a year at Amsterdam’s Gerrit Rietveld Academie. Creative practice has stayed an important part of how I understand myself and the world.</p>
+            <p>My reflective art approach is influenced by Pat B. Allen’s work on art as a way of knowing, and I’ve had the opportunity to receive personal feedback from her.</p>
+            <p>I also facilitate small creative workshops around reflection, letting go and art for insight.</p>
           </div>
+        </div>
+        <div class="about-closing">
+            <p>Years of living in different countries, motherhood, and moving between analytical and creative worlds have taught me that there is rarely one perfect way forward.</p>
+            <p><strong>I bring structure when things feel scattered, and creativity when words and plans are not quite enough.</strong></p>
         </div>
       </div>
     </section>
-    </div>
-
-    <div class="topic-modal" id="topic-modal" role="dialog" aria-modal="true" aria-labelledby="topic-modal-title" aria-hidden="true">
-      <div class="topic-modal-card" role="document">
-        <button class="topic-modal-close" type="button" aria-label="Close topic">&times;</button>
-        <div class="topic-modal-image">
-          <img id="topic-modal-img" src="" alt="">
-        </div>
-        <div class="topic-modal-body">
-          <div class="eyebrow">What we might explore</div>
-          <h3 id="topic-modal-title"></h3>
-          <p id="topic-modal-text"></p>
-        </div>
-      </div>
     </div>
 
     <section class="block faq" id="faq">
@@ -2939,7 +2688,6 @@
           <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
           <div class="footer-links">
             <a href="/assessment">Rhythm Check</a>
-            <a href="/blog/">Reflections</a>
           </div>
         </div>
       </div>
@@ -3047,98 +2795,6 @@
 
       show(0);
       start();
-    });
-
-    const topicModal = document.getElementById("topic-modal");
-    const topicModalTitle = document.getElementById("topic-modal-title");
-    const topicModalText = document.getElementById("topic-modal-text");
-    const topicModalImg = document.getElementById("topic-modal-img");
-    const topicModalClose = topicModal?.querySelector(".topic-modal-close");
-    let lastTopicTrigger = null;
-    const mobileTopicQuery = window.matchMedia("(max-width: 720px)");
-
-    function openTopicModal(card) {
-      if (!topicModal || !topicModalTitle || !topicModalText || !topicModalImg) return;
-
-      const title = card.querySelector("h3")?.textContent.trim() || "";
-      const text = card.dataset.detail || card.querySelector("p")?.textContent.trim() || "";
-      const img = card.querySelector("img");
-
-      lastTopicTrigger = card;
-      topicModalTitle.textContent = title;
-      topicModalText.textContent = text;
-      topicModalImg.src = img?.getAttribute("src") || "";
-      topicModalImg.alt = img?.getAttribute("alt") || title;
-      topicModal.classList.add("open");
-      topicModal.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-      topicModalClose?.focus();
-    }
-
-    function closeTopicModal() {
-      if (!topicModal) return;
-
-      topicModal.classList.remove("open");
-      topicModal.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-      lastTopicTrigger?.focus();
-      lastTopicTrigger = null;
-    }
-
-    document.querySelectorAll(".thing").forEach((card) => {
-      card.setAttribute("role", "button");
-      card.setAttribute("aria-haspopup", "dialog");
-      card.setAttribute("aria-expanded", "false");
-
-      const textBlock = card.querySelector(".txt");
-      const exploreButton = document.createElement("button");
-      exploreButton.className = "topic-explore";
-      exploreButton.type = "button";
-      exploreButton.textContent = "Explore";
-      exploreButton.setAttribute("aria-label", `Read more about ${card.querySelector("h3")?.textContent.trim() || "this topic"}`);
-      textBlock?.appendChild(exploreButton);
-
-      exploreButton.addEventListener("click", (event) => {
-        event.stopPropagation();
-        openTopicModal(card);
-      });
-
-      card.addEventListener("click", () => {
-        if (mobileTopicQuery.matches) {
-          if (card.classList.contains("is-expanded")) {
-            card.classList.remove("is-expanded");
-            card.setAttribute("aria-expanded", "false");
-            return;
-          }
-
-          card.classList.add("is-expanded");
-          card.setAttribute("aria-expanded", "true");
-          return;
-        }
-
-        openTopicModal(card);
-      });
-      card.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          if (mobileTopicQuery.matches) {
-            card.click();
-          } else {
-            openTopicModal(card);
-          }
-        }
-      });
-    });
-
-    topicModalClose?.addEventListener("click", closeTopicModal);
-    topicModal?.addEventListener("click", (event) => {
-      if (event.target === topicModal) closeTopicModal();
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && topicModal?.classList.contains("open")) {
-        closeTopicModal();
-      }
     });
 
     document.querySelectorAll("video[data-loop-end]").forEach((video) => {
