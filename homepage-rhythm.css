@@ -1,0 +1,182 @@
+/* Shared spacing and measure for the existing homepage compositions. */
+:root {
+  --page-width: 1220px;
+  --page-gutter: 36px;
+  --section-space: 104px;
+  --related-space: 80px;
+  --section-title: clamp(32px, 3.35vw, 48px);
+}
+
+.wrap,
+.intro .inner,
+.about-grid {
+  width: min(var(--page-width), calc(100% - 2 * var(--page-gutter)));
+  max-width: none;
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+section.block { padding-block: var(--section-space); }
+h2.title,
+.intro .approach-heading {
+  font-size: var(--section-title);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.hero { align-items: center; }
+.hero-copy { padding-block: 132px 104px; }
+.hero h1 { font-size: clamp(40px, 4vw, 56px); }
+.hero p.sub { margin-block: 20px 16px; }
+.hero p.hero-support { margin-block: 0 28px; }
+.hero-actions { gap: 14px; }
+.hero p.booking-note { margin-top: 14px; max-width: 44em; }
+
+section.block.topics { padding-block: var(--section-space) 56px; }
+.things-head { max-width: 680px; margin-bottom: 40px; }
+.things { gap: 28px; grid-auto-rows: auto; }
+.thing .pic { height: auto; padding-top: 0; aspect-ratio: 1.85; }
+.thing .txt { padding: 24px 20px 24px; }
+.thing h3 { margin-bottom: 10px; }
+.thing p { margin-top: 0; }
+
+/* Keep the winding composition, with each point participating in page flow. */
+section.block.intro {
+  min-height: 0;
+  padding-block: 56px 0;
+  background-size: min(1440px, 100%) auto;
+  background-position: center top;
+}
+.intro .inner { height: auto; }
+.intro .approach-heading,
+.intro .approach-intro {
+  position: static;
+  width: min(620px, 54%);
+}
+.intro .approach-heading { color: var(--ink); }
+.intro .approach-intro { margin-top: 20px; font-size: 17px; }
+.approach-sections {
+  position: static;
+  display: grid;
+  gap: 88px;
+  margin-top: 56px;
+}
+.intro .approach-part:nth-child(n) {
+  position: static;
+  width: 40%;
+  max-width: 490px;
+  margin: 0;
+}
+.intro .approach-part:nth-child(1) { margin-left: 8%; }
+.intro .approach-part:nth-child(2) { margin-left: 48%; }
+.intro .approach-part:nth-child(3) { margin-left: 15%; }
+.intro .approach-part h3 { font-size: 23px; }
+.intro .approach-part p { font-size: 17px; }
+
+section.block.art-coaching { padding-block: var(--related-space) 96px; }
+.art-coaching-layout {
+  grid-template-columns: minmax(0, .43fr) minmax(0, .57fr);
+  column-gap: 72px;
+  row-gap: 28px;
+}
+.art-coaching-art { width: 100%; margin: 100px 0 0; }
+.art-coaching-intro { max-width: 62ch; margin-top: 20px; }
+.art-coaching-closing { margin-top: 32px; }
+
+section.block.begin { padding-block: 96px 88px; }
+.begin .inner { width: min(1000px, calc(100% - 2 * var(--page-gutter))); }
+.begin .eyebrow { margin-bottom: 26px; }
+.begin .support { max-width: 58ch; margin: 18px auto 26px; }
+.begin .reassurance { max-width: 62ch; }
+.begin .steps { margin-block: 46px 48px; }
+.begin .step { min-width: 0; padding-inline: 28px; }
+
+.testimonial-block { padding-block: 96px; }
+.testimonial-carousel { width: min(1060px, calc(100% - 2 * var(--page-gutter))); row-gap: 0; }
+.testimonial-dots { margin-top: 28px; }
+
+section.block.about {
+  min-height: 0;
+  padding-block: var(--section-space) 0;
+  background-size: min(1220px, calc(100% - 2 * var(--page-gutter))) auto;
+  background-position: center 104px;
+}
+.about-copy { min-height: 0; padding-top: 0; max-width: none; }
+.about-copy .eyebrow,
+.about-copy .title,
+.about .about-body p { width: 34%; max-width: 500px; }
+.about .photo { top: 130px; right: 16%; width: 23%; }
+.about p { font-size: 17px; line-height: 1.65; margin-bottom: 20px; }
+.about .about-closing { margin-top: 28px; }
+.about .about-closing p { width: 100%; max-width: 68ch; }
+.about .about-closing p:last-child { margin-bottom: 0; }
+
+.faq .wrap { max-width: 920px; }
+.faq-q { padding-block: 24px; }
+footer.site { padding-block: 72px 36px; }
+
+@media (max-width: 1199px) {
+  :root { --section-space: 80px; --related-space: 72px; --page-gutter: 32px; }
+  .approach-sections { gap: 64px; }
+  .intro .approach-part:nth-child(n) { width: 46%; }
+  .intro .approach-part:nth-child(2) { margin-left: 48%; }
+  .art-coaching-layout { column-gap: 64px; }
+  section.block.begin { padding-block: 80px; }
+  .testimonial-block { padding-block: 80px; }
+  section.block.about { background-position: center 80px; }
+  .about .about-body p { width: 34%; }
+  .about .photo { right: 16%; width: 23%; }
+}
+
+@media (max-width: 880px) {
+  .hero { min-height: 0; }
+  .hero-copy { padding-block: 112px 80px; }
+  .hero-title-line { white-space: normal; }
+  .hero h1 { max-width: 620px; }
+  section.block.intro { background-size: auto, auto 100%; background-position: center, center bottom; }
+  .intro .approach-heading,
+  .intro .approach-intro { width: 100%; max-width: 62ch; }
+  .approach-sections { gap: 36px; margin-top: 40px; }
+  .intro .approach-part:nth-child(n) { width: 100%; max-width: 62ch; margin: 0; }
+  .art-coaching-layout { grid-template-columns: 1fr; gap: 32px; }
+  .art-coaching-art { width: 100%; max-width: 480px; margin: 0 auto; }
+  section.block.art-coaching { padding-bottom: 80px; }
+  section.block.about { background: var(--paper); padding-bottom: clamp(120px, 24vw, 211px); }
+  .about-copy .eyebrow,
+  .about-copy .title,
+  .about .about-body p { width: auto; max-width: 62ch; }
+  .about .photo { position: static; float: right; width: 38%; margin: 6px 0 24px 24px; }
+}
+
+@media (max-width: 720px) {
+  :root { --section-space: 64px; --related-space: 64px; --page-gutter: 22px; --section-title: 32px; }
+  .hero { min-height: 0; }
+  .hero-copy { min-height: 0; padding-block: 88px 64px; }
+  .hero-copy .inner { justify-content: center; }
+  .hero h1 { font-size: clamp(34px, 9.2vw, 40px); max-width: 100%; }
+  .hero p.sub { margin-block: 20px 16px; }
+  .hero p.hero-support { margin-bottom: 28px; }
+  .hero-actions { margin-top: 0; }
+  .hero p.booking-note { display: block; max-width: 30ch; margin-top: 14px; }
+  section.block.topics { padding-block: 68px 32px; }
+  .things { gap: 20px; }
+  .thing .txt { padding: 24px 20px; }
+  section.block.intro { padding-block: 32px 0; }
+  .intro .approach-intro { font-size: 17px; }
+  .intro .approach-part h3 { font-size: 22px; }
+  section.block.art-coaching { padding-block: var(--related-space); }
+  section.block.begin { padding-block: 64px; }
+  .begin .eyebrow { margin-bottom: 24px; }
+  .begin .support { margin-bottom: 24px; }
+  .begin .steps { gap: 22px; margin-block: 32px; }
+  .begin .step { padding: 22px 0 0; }
+  .begin .step:first-child { padding-top: 0; }
+  .testimonial-block { padding-block: 64px; }
+  .testimonial-carousel { column-gap: 8px; }
+  .testimonial-slide p { font-size: 17px; }
+  .about p { font-size: 17px; }
+  .about .photo { width: 36%; margin-left: 18px; }
+  .about .about-closing { margin-top: 24px; }
+  .faq-q { font-size: 20px; padding-block: 22px; }
+  footer.site { padding-block: 56px 32px; }
+}
