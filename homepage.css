@@ -637,6 +637,7 @@ section.block.topics {
 }
 
 .about .photo img {
+  height: auto;
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
@@ -2197,7 +2198,7 @@ section.block.art-coaching {
   .intro::before { background-size: auto 100%; opacity: .24; }
 }
 
-/* Painting-led hero. On small screens the original painting sits above the copy. */
+/* Painting-led hero, with a lower-right composition on phones. */
 .hero {
   position: relative;
   display: flex;
@@ -2234,7 +2235,7 @@ section.block.art-coaching {
 .hero-copy {
   position: relative;
   z-index: 2;
-  padding-block: 72px;
+  padding-block: 52px 92px;
 }
 
 .hero-copy .inner {
@@ -2245,8 +2246,10 @@ section.block.art-coaching {
   max-width: 850px;
   font-family: var(--f-display);
   font-weight: 700;
-  font-size: clamp(58px, 5vw, 82px);
-  line-height: 1.04;
+  font-size: clamp(56px, 4.7vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -.015em;
+  text-wrap: balance;
   color: var(--ink);
 }
 
@@ -2260,10 +2263,10 @@ section.block.art-coaching {
 }
 
 .hero p.sub {
-  max-width: 56ch;
+  max-width: 650px;
   margin: 26px 0 28px;
-  font-size: 21px;
-  line-height: 1.65;
+  font-size: 20px;
+  line-height: 1.62;
   color: var(--text);
 }
 
@@ -2467,4 +2470,156 @@ nav img[src*="nokmali-bowl-logo.png"] {
   }
   .thing:hover, .thing:focus-within, .btn:hover { transform: none; }
   .thing:hover .pic img, .thing:focus-within .pic img { scale: 1; }
+}
+
+/* Mobile editorial polish: desktop composition remains above this breakpoint. */
+@media (max-width: 820px) {
+  :root {
+    --page-gutter: 22px;
+    --section-space: 64px;
+    --related-space: 60px;
+    --section-title: clamp(34px, 5.6vw, 42px);
+  }
+  section[id], #top { scroll-margin-top: 86px; }
+  nav .brand { width: auto; flex-shrink: 0; }
+  .mobile-menu-button { width: 44px; }
+  h2.title, .intro .approach-heading, .thing h3 { text-wrap: balance; }
+  .hero { min-height: 0; }
+  .hero-copy { padding-block: 64px; }
+  section.block.topics { padding-block: 60px 32px; }
+  .things-head { margin-bottom: 28px; }
+  .things { gap: 22px; }
+  .thing .txt { padding: 22px; }
+  section.block.intro { padding-block: 32px 0; }
+  .intro::before { opacity: .16; background-position: 60% center; }
+  .approach-sections { gap: 30px; margin-top: 32px; }
+  section.block.art-coaching { padding-block: 64px; }
+  .art-coaching-layout { gap: 32px; }
+  .art-coaching-art {
+    width: calc(100% + 2 * var(--page-gutter));
+    margin-inline: calc(-1 * var(--page-gutter));
+    height: auto;
+    aspect-ratio: 2400 / 911;
+  }
+  .art-coaching-art img { transform: none; object-fit: contain; }
+  section.block.begin { padding-block: 60px; }
+  .begin .support { font-size: 19px; }
+  .begin .steps { gap: 24px; margin-block: 32px; }
+  .begin .step { text-align: left; padding: 24px 0 0; }
+  .begin .step .num { font-size: 25px; line-height: 1.2; }
+  .begin .step h4 { font-size: 26px; line-height: 1.2; margin-block: 8px; }
+  .begin .btn { width: auto; max-width: 100%; }
+  .testimonial-block { padding-block: 48px 32px; }
+  .testimonial-carousel { grid-template-columns: 44px minmax(0, 1fr) 44px; gap: 16px 8px; }
+  .testimonial-frame { grid-column: 1 / -1; grid-row: 1; min-height: 0; }
+  .testimonial-arrow { width: 44px; height: 44px; grid-row: 2; }
+  .testimonial-arrow:first-child { grid-column: 1; }
+  .testimonial-arrow[data-testimonial-next] { grid-column: 3; }
+  .testimonial-dots { grid-column: 2; grid-row: 2; gap: 0; margin: 0; }
+  .testimonial-dot, .testimonial-dot.active {
+    width: 44px; height: 44px; border: 0; background: transparent;
+    display: grid; place-items: center;
+  }
+  .testimonial-dot::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    border: 1px solid var(--ink);
+  }
+  .testimonial-dot.active::before { background: var(--ink); }
+  .testimonial-slide.active { animation-duration: 220ms; }
+  section.block.about { padding-block: 64px calc(clamp(90px, 24vw, 144px) + 24px); }
+  .about::after {
+    height: clamp(90px, 24vw, 144px); width: min(600px, 100%);
+    left: 50%; transform: translateX(-50%);
+    background-size: 100% auto; background-position: center 81%;
+    mix-blend-mode: multiply; opacity: .85;
+  }
+  .about .photo { float: none; width: 190px; max-width: 60%; margin: 24px 0; }
+  .about .photo img { aspect-ratio: 1; border-radius: 12px; }
+  .about p { margin-bottom: 20px; }
+  section.block.faq { padding-block: 44px 64px; }
+  .faq-q { min-height: 66px; padding-block: 22px; line-height: 1.25; gap: 24px; }
+  footer.site { padding-block: 48px 28px; }
+  .foot-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .foot-bottom { margin-top: 24px; padding-top: 20px; gap: 6px 20px; }
+}
+
+@media (max-width: 640px) {
+  .hero-art { aspect-ratio: 2.65; }
+  .hero-art::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(0deg, var(--paper), transparent 24%);
+  }
+  .hero-copy { padding-block: 22px 0; }
+  .hero h1 { font-size: clamp(42px, 12vw, 52px); line-height: 1.02; text-wrap: balance; }
+  .hero p.sub { font-size: 17px; line-height: 1.55; margin-block: 18px 22px; }
+  .hero-actions { gap: 12px; }
+  .hero p.booking-note { margin-top: 14px; }
+  .things { grid-template-columns: 1fr; }
+  .thing .pic { aspect-ratio: 1.95; }
+  .thing h3 { font-size: 27px; }
+  .art-coaching-examples h3 { font-size: 25px; }
+  .foot-bottom { flex-direction: column; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .btn:hover, .thing:focus-within { transform: none; }
+  .thing:focus-within .pic img {
+    filter: grayscale(45%) sepia(5%) saturate(65%) contrast(.98);
+    scale: 1;
+  }
+  .thing .pic img { transition-duration: 200ms; }
+}
+
+/* Focused landing-page hero and header refinement. */
+.hero::after {
+  background: linear-gradient(0deg, var(--paper), transparent 10%),
+    linear-gradient(90deg, rgba(244,239,230,.99) 0%, rgba(244,239,230,.97) 28%, rgba(244,239,230,.82) 45%, rgba(244,239,230,.34) 64%, rgba(244,239,230,.06) 86%);
+}
+.hero p.sub strong { margin-top: calc(1em + 10px) !important; }
+.hero .btn { min-height: 60px; padding: 16px 28px; justify-content: center; box-shadow: none; }
+.hero .btn.secondary { background: transparent; }
+.hero .btn.secondary:hover { background: var(--paper-light); border-color: #B9AA9B; }
+nav img[src*="nokmali-bowl-logo.png"] { width: 46px !important; height: 46px !important; }
+nav a, nav .navlinks .lk, .hero .btn .arr { transition-duration: 180ms; }
+nav .navlinks a { min-height: 44px; display: inline-flex; align-items: center; }
+@media (min-width: 821px) and (max-width: 1199px) {
+  .hero-copy .inner { max-width: 700px; }
+  .hero p.sub { max-width: 590px; }
+  .hero::after {
+    background: linear-gradient(0deg, var(--paper), transparent 10%),
+      linear-gradient(90deg, rgba(244,239,230,.99), rgba(244,239,230,.95) 42%, rgba(244,239,230,.78) 62%, rgba(244,239,230,.08));
+  }
+}
+@media (max-width: 820px) {
+  nav img[src*="nokmali-bowl-logo.png"] { width: 41px !important; height: 41px !important; }
+  .hero-copy { padding-block: 48px 60px; }
+  .hero p.sub { max-width: 600px; }
+  .hero::after {
+    background: linear-gradient(0deg, var(--paper), transparent 12%),
+      linear-gradient(90deg, rgba(244,239,230,.99), rgba(244,239,230,.94) 58%, rgba(244,239,230,.48));
+  }
+  nav .mobile-navlinks .lk, nav .language-switch a { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; }
+}
+@media (max-width: 640px) {
+  nav img[src*="nokmali-bowl-logo.png"] { width: 34px !important; height: 34px !important; }
+  .hero-art { position: absolute; inset: auto 0 0; height: 350px; aspect-ratio: auto; }
+  .hero-art img { object-fit: cover; object-position: 38% center; }
+  .hero-art::after { display: none; }
+  .hero::after {
+    display: block;
+    background: linear-gradient(0deg, var(--paper), transparent 8%),
+      linear-gradient(180deg, var(--paper) 0%, var(--paper) 49%, rgba(244,239,230,.96) 61%, rgba(244,239,230,.68) 79%, rgba(244,239,230,.12) 94%);
+  }
+  .hero-copy { padding-block: 34px 88px; }
+  .hero h1 { font-size: clamp(42px, 11.5vw, 50px); line-height: 1.02; max-width: 100%; }
+  .hero h1 em, .hero h1 .hero-colors { white-space: nowrap; }
+  .hero p.sub { font-size: 17px; line-height: 1.58; margin-block: 20px 24px; }
+  .hero .btn { min-height: 56px; padding: 14px 26px; }
+  .hero .btn.secondary { background: rgba(244,239,230,.88); }
+  .hero p.booking-note {
+    margin-top: 16px;
+    background: rgba(244,239,230,.92);
+    box-shadow: 0 0 16px 10px rgba(244,239,230,.92);
+  }
 }
