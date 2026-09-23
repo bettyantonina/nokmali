@@ -1,0 +1,11 @@
+/* Keep the painted logo in its original colours on every page. */
+img[src*="nokmali-bowl-logo.png"] {
+  width: 48px !important;
+  height: 48px !important;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: none !important;
+}
+@media (max-width: 720px) {
+  img[src*="nokmali-bowl-logo.png"] { width: 38px !important; height: 38px !important; }
+}

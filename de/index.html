@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Nokmali bietet Coaching für Gesundheit, Ernährung und Lebensrhythmus mit Helene.">
-  <title>Nokmali - Coaching für Gesundheit, Ernährung &amp; Lebensrhythmus</title>
+  <meta name="description" content="Gesundheitscoaching für Frauen – online und mit kreativen Methoden. Finde mit Helene heraus, was dir wichtig ist und wie du deinen Alltag danach gestalten möchtest.">
+  <title>Nokmali | Ganzheitliches Gesundheitscoaching für Frauen</title>
   <link rel="canonical" href="https://nokmali.com/de/">
   <link rel="alternate" hreflang="en" href="https://nokmali.com/">
   <link rel="alternate" hreflang="de" href="https://nokmali.com/de/">
@@ -14,23 +14,18 @@
   <meta property="og:locale" content="de_DE">
   <meta property="og:locale:alternate" content="en_GB">
   <meta property="og:url" content="https://nokmali.com/de/">
-  <meta property="og:title" content="Nokmali - Coaching für Gesundheit, Ernährung &amp; Lebensrhythmus">
-  <meta property="og:description" content="Finde Klarheit, neue Balance und nachhaltige Veränderungen durch persönliches Coaching für Gesundheit, Ernährung und Lebensrhythmus.">
+  <meta property="og:title" content="Nokmali | Ganzheitliches Gesundheitscoaching für Frauen">
+  <meta property="og:description" content="Was ist dir wichtig, und was tut dir gut? Im Online-Coaching mit Helene findest du Raum zum Nachdenken, Gestalten und Ausprobieren.">
   <meta property="og:image" content="https://nokmali.com/art/nokmali-share-v4.jpg">
   <meta property="og:image:secure_url" content="https://nokmali.com/art/nokmali-share-v4.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Nokmali Coaching für Gesundheit, Ernährung und Lebensrhythmus">
+  <meta property="og:image:alt" content="Nokmali – Gesundheitscoaching für Frauen mit Gesprächen und kreativen Methoden">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Nokmali - Coaching für Gesundheit, Ernährung &amp; Lebensrhythmus">
-  <meta name="twitter:description" content="Finde Klarheit, neue Balance und nachhaltige Veränderungen durch persönliches Coaching.">
+  <meta name="twitter:title" content="Nokmali | Ganzheitliches Gesundheitscoaching für Frauen">
+  <meta name="twitter:description" content="Was ist dir wichtig, und was tut dir gut? Im Online-Coaching mit Helene findest du Raum zum Nachdenken, Gestalten und Ausprobieren.">
   <meta name="twitter:image" content="https://nokmali.com/art/nokmali-share-v4.jpg">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png?v=4">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png?v=4">
-  <link rel="icon" href="../favicon.ico?v=4" sizes="any">
-  <link rel="shortcut icon" href="../favicon.ico?v=4">
-  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png?v=4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
@@ -372,8 +367,8 @@
     }
 
     .navlinks .nav-rhythm {
-      padding: 7px 13px;
-      border: 1px solid rgba(255, 255, 255, 0.46);
+      padding: 5px 11px;
+      border: 0.5px solid rgba(255, 255, 255, 0.46);
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.07);
       color: #fff;
@@ -691,6 +686,8 @@
 
     .intro {
       --approach-top-space: clamp(72px, 7.5vw, 124px);
+      --approach-content-lift: 2.8rem;
+      --approach-parts-drop: 0.7rem;
       z-index: 2;
       isolation: isolate;
       min-height: max(760px, calc(61vw + var(--approach-top-space)));
@@ -728,7 +725,7 @@
 
     .intro .approach-heading {
       position: absolute;
-      top: calc(var(--approach-top-space) - 3.2vw);
+      top: calc(var(--approach-top-space) - 3.2vw - 0.8rem);
       left: 2.4%;
       width: 49%;
       font-family: var(--f-display);
@@ -745,7 +742,7 @@
 
     .intro .approach-intro {
       position: absolute;
-      top: calc(var(--approach-top-space) + 5.2vw);
+      top: calc(var(--approach-top-space) + 5.2vw - var(--approach-content-lift) - 1.6rem);
       left: 2.4%;
       width: 49%;
       font-family: var(--f-body);
@@ -765,19 +762,22 @@
     }
 
     .intro .approach-part:nth-child(1) {
-      top: calc(var(--approach-top-space) + 16.2vw - 1.5rem);
+      margin-top: 0;
+      top: calc(var(--approach-top-space) + 16.2vw - 4.3rem - var(--approach-content-lift) + var(--approach-parts-drop));
       left: 11.8%;
       width: 27%;
     }
 
     .intro .approach-part:nth-child(2) {
-      top: calc(var(--approach-top-space) + 32.8vw - 2.3rem);
+      margin-top: 0;
+      top: calc(var(--approach-top-space) + 32.8vw - 3.7rem - var(--approach-content-lift) + var(--approach-parts-drop));
       left: 45.2%;
       width: 33%;
     }
 
     .intro .approach-part:nth-child(3) {
-      top: calc(var(--approach-top-space) + 47.4vw - 1.4rem);
+      margin-top: 0;
+      top: calc(var(--approach-top-space) + 47.4vw - 0.7rem - var(--approach-content-lift) + var(--approach-parts-drop));
       left: 17%;
       width: 33%;
     }
@@ -803,9 +803,13 @@
       max-width: 30em;
     }
 
+    section.block.topics {
+      padding-bottom: 64px;
+    }
+
     .things {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       grid-auto-rows: 1fr;
       align-items: stretch;
       gap: 22px;
@@ -813,6 +817,7 @@
 
     .thing {
       --card-tone: #E5EAE2;
+      --image-extra-height: 12px;
       --explore-color: #D9C2D3;
       display: flex;
       flex-direction: column;
@@ -821,8 +826,25 @@
       border: 1px solid color-mix(in srgb, var(--card-tone) 58%, rgba(58, 54, 64, 0.16));
       border-radius: 12px;
       padding: 10px;
-      cursor: pointer;
-      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: default;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .thing:hover {
+        transform: scale(1.025);
+        box-shadow: 0 24px 44px -28px rgba(39, 36, 32, 0.5);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .thing {
+        transition: none;
+      }
+
+      .thing:hover {
+        transform: none;
+      }
     }
 
     .thing:nth-child(1),
@@ -842,51 +864,33 @@
       --explore-color: #FFFFFF;
     }
 
-    .thing:hover,
-    .thing:focus {
-      box-shadow: 0 24px 44px -28px rgba(39, 36, 32, 0.5);
-      transform: translateY(-5px);
-    }
-
-    .thing:focus {
-      outline: 3px solid color-mix(in srgb, var(--gold) 70%, transparent);
-      outline-offset: 4px;
-    }
-
     .thing .pic {
       position: relative;
       flex: none;
-      aspect-ratio: 4.5 / 3;
+      height: 0;
+      padding-top: calc(50% + var(--image-extra-height));
       overflow: hidden;
       border-radius: 8px 8px 0 0;
     }
 
     .thing .pic img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
     }
 
-    .thing:hover .pic img,
-    .thing:focus .pic img {
-      transform: scale(1.05);
-    }
-
     .thing .pic img.pic-zoom {
       transform: translateY(3%) scale(1.14);
-    }
-
-    .thing:hover .pic img.pic-zoom,
-    .thing:focus .pic img.pic-zoom {
-      transform: translateY(3%) scale(1.19);
     }
 
     .thing .txt {
       position: relative;
       flex: 1;
       min-height: 0;
-      padding: 20px 22px 22px;
+      padding: 18px 22px calc(20px - var(--image-extra-height));
       background: var(--card-tone);
       border-radius: 0 0 8px 8px;
     }
@@ -900,17 +904,6 @@
       color: var(--ink);
     }
 
-    .thing .txt::after {
-      content: "\2022\00a0\2022\00a0\2022";
-      display: none;
-      margin-top: 4px;
-      color: var(--beige);
-      font-size: 22px;
-      letter-spacing: 0.18em;
-      line-height: 1;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-
     .thing p {
       max-height: none;
       overflow: visible;
@@ -922,170 +915,144 @@
       transition: max-height 0.24s ease, margin-top 0.24s ease, opacity 0.22s ease, transform 0.22s ease;
     }
 
-    .thing .topic-explore {
-      display: none;
-    }
-
-    .thing .pic::after {
-      content: "Entdecken";
-      display: inline-flex;
-      position: absolute;
-      z-index: 1;
-      top: 50%;
-      left: 50%;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      color: var(--explore-color);
-      font-family: var(--f-display);
-      font-size: clamp(34px, 4.5vw, 52px);
-      font-weight: 700;
-      line-height: 1.2;
-      opacity: 0;
-      white-space: nowrap;
-      transform: translate(-50%, -44%);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .thing:hover .pic::after,
-    .thing:focus .pic::after {
-      opacity: 1;
-      transform: translate(-50%, -50%);
-    }
-
-    .thing:hover .txt::after,
-    .thing:focus .txt::after {
-      opacity: 0;
-      transform: translateY(-3px);
-    }
-
-    .thing:hover p,
-    .thing:focus p {
-      max-height: none;
-      margin-top: 6px;
-      opacity: 1;
-      transform: none;
-    }
-
-    .topic-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      display: grid;
-      place-items: center;
-      padding: 28px;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      background: rgba(39, 36, 32, 0.62);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.22s ease;
-    }
-
-    .topic-modal.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .topic-modal-card {
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(220px, 0.8fr) minmax(360px, 1.2fr);
-      width: min(980px, 100%);
-      max-height: min(760px, calc(100vh - 56px));
-      max-height: min(760px, calc(100dvh - 56px));
-      overflow: hidden;
-      border: 1px solid color-mix(in srgb, var(--line) 80%, white);
-      border-radius: 22px;
-      background: #FBF7EF;
-      box-shadow: 0 34px 90px -44px rgba(0, 0, 0, 0.65);
-      transform: translateY(12px) scale(0.97);
-      transition: transform 0.22s ease;
-    }
-
-    .topic-modal.open .topic-modal-card {
-      transform: translateY(0) scale(1);
-    }
-
-    .topic-modal-image {
-      min-height: min(420px, calc(100vh - 56px));
-      min-height: min(420px, calc(100dvh - 56px));
-      background: var(--teal-soft);
-    }
-
-    .topic-modal-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .topic-modal-body {
-      min-width: 0;
-      min-height: 0;
-      overflow-x: hidden;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-gutter: stable;
-      scrollbar-color: color-mix(in srgb, var(--ink) 32%, transparent) transparent;
-      scrollbar-width: thin;
-      padding: clamp(28px, 4vw, 44px);
-    }
-
-    .topic-modal-body::-webkit-scrollbar,
-    .topic-modal-card::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .topic-modal-body::-webkit-scrollbar-thumb,
-    .topic-modal-card::-webkit-scrollbar-thumb {
-      border-radius: 999px;
-      background: color-mix(in srgb, var(--ink) 28%, transparent);
-    }
-
-    .topic-modal-body h3 {
-      font-family: var(--f-display);
-      font-weight: 700;
-      font-size: clamp(30px, 3.4vw, 42px);
-      line-height: 1.04;
-      color: var(--ink);
-    }
-
-    .topic-modal-body p {
-      margin-top: 18px;
-      color: var(--ink-soft);
-      font-size: 16.5px;
-      line-height: 1.58;
-    }
-
-    .topic-modal-close {
-      position: absolute;
-      top: 16px;
-      right: 16px;
+    .art-coaching {
       z-index: 2;
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(251, 247, 239, 0.92);
-      color: var(--ink);
-      cursor: pointer;
-      font-size: 28px;
-      line-height: 1;
-      transition: transform 0.2s, background 0.2s;
+      background: var(--paper);
     }
 
-    .topic-modal-close:hover,
-    .topic-modal-close:focus-visible {
-      background: var(--paper);
-      transform: rotate(6deg);
-      outline: 3px solid color-mix(in srgb, var(--gold) 70%, transparent);
-      outline-offset: 3px;
+    .art-coaching-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      align-items: start;
+      column-gap: clamp(32px, 5vw, 72px);
+      row-gap: 28px;
+    }
+
+    .art-coaching-heading,
+    .art-coaching-copy {
+      grid-column: 2;
+    }
+
+    section.block.art-coaching {
+      padding: 48px 0;
+    }
+
+    .art-coaching-art {
+      align-self: start;
+      grid-column: 1;
+      grid-row: 1 / 3;
+      width: 120%;
+      margin-left: calc(-30% + 32px);
+      margin-top: 120px;
+    }
+
+    .art-coaching-art img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .art-coaching-intro {
+      margin-top: 22px;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+
+    .art-coaching-quote {
+      margin: 0 0 28px;
+      padding-left: 22px;
+      border-left: 1px solid var(--line);
+    }
+
+    .art-coaching-quote blockquote {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-size: clamp(22px, 2vw, 27px);
+      line-height: 1.45;
+      color: var(--ink);
+    }
+
+    .art-coaching-quote figcaption {
+      margin-top: 14px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    .art-coaching-examples {
+      list-style: none;
+      counter-reset: art-example;
+    }
+
+    .art-coaching-examples li {
+      position: relative;
+      padding: 20px 0 20px 36px;
+      border-top: 1px solid var(--line);
+      counter-increment: art-example;
+    }
+
+    .art-coaching-examples li::before {
+      content: counter(art-example, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 23px;
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    .art-coaching-examples h3 {
+      font-family: var(--f-display);
+      font-size: 22px;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .art-coaching-examples p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+
+    .art-coaching-closing {
+      margin: 28px 0 0;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.65;
+      color: var(--cta);
+    }
+
+    .art-coaching-examples li:last-child {
+      padding-bottom: 0;
+    }
+
+    @media (min-width: 881px) and (max-width: 1200px) {
+      .art-coaching-art {
+        width: calc(92% + 59px);
+        margin-left: -32px;
+      }
+    }
+
+    @media (max-width: 880px) {
+      .art-coaching-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .art-coaching-heading,
+      .art-coaching-copy,
+      .art-coaching-art {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .art-coaching-art {
+        max-width: 520px;
+        width: 92%;
+        margin: 0 auto;
+      }
     }
 
     .journal-preview {
@@ -1194,16 +1161,12 @@
     }
 
     @media (min-width: 881px) {
-      section.block.topics-section {
-        padding-bottom: 64px;
-      }
-
       .about {
-        height: clamp(560px, 56.01vw, 941px);
-        padding: 0;
+        min-height: clamp(560px, 56.01vw, 941px);
+        padding: 0 0 40px;
         background-color: var(--paper);
         background-image: url("../art/desktopaboutme-matched.png");
-        background-position: center calc(50% + 16px);
+        background-position: center 72px;
         background-size: 85% auto;
         background-repeat: no-repeat;
       }
@@ -1212,7 +1175,7 @@
       .about-copy {
         width: 100%;
         max-width: none;
-        height: 100%;
+        height: auto;
       }
 
       .about-grid {
@@ -1221,6 +1184,7 @@
 
       .about-copy {
         position: relative;
+        min-height: calc(47.84vw + 40px - clamp(94.8px, 7.4576vw, 113.76px));
         padding-top: clamp(10px, 1.4vw, 24px);
       }
 
@@ -1253,12 +1217,38 @@
         font-size: clamp(15px, 1.18vw, 18px);
         line-height: 1.58;
       }
+
+      .about .about-closing p {
+        width: 100%;
+        max-width: none;
+      }
     }
 
     @media (min-width: 881px) and (max-width: 1199px) {
+      .intro .approach-part:nth-child(1) {
+        top: calc(var(--approach-top-space) + 16.2vw - 1.5rem);
+      }
+
+      .intro .approach-part:nth-child(2) {
+        top: calc(var(--approach-top-space) + 32.8vw - 2.3rem);
+      }
+
+      .intro .approach-part:nth-child(3) {
+        top: calc(var(--approach-top-space) + 47.4vw + 1.3rem);
+      }
+
+      .intro .approach-part p {
+        font-size: clamp(14px, 1.2vw, 16px);
+        line-height: 1.5;
+      }
+
       .about {
-        background-position: 72% calc(50% + 12px);
+        background-position: 72% 68px;
         background-size: 72% auto;
+      }
+
+      .about-copy {
+        min-height: calc(40.53vw + 36px - clamp(85.12px, 8.512vw, 97.28px));
       }
 
       .about-grid {
@@ -1291,8 +1281,8 @@
     }
 
     section.block.begin {
-      padding-top: 56px;
-      padding-bottom: 60px;
+      padding-top: 44px;
+      padding-bottom: 44px;
     }
 
     .begin .inner {
@@ -1316,23 +1306,22 @@
     }
 
     .begin .steps {
-      display: flex;
-      justify-content: center;
-      gap: 0;
-      flex-wrap: wrap;
-      margin: 28px 0 20px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 20px;
+      margin: 28px 0 28px;
     }
 
     .begin .step {
-      flex: 1;
-      min-width: 170px;
-      padding: 0 20px;
-      border-left: 1px solid rgba(246, 241, 232, 0.25);
+      min-width: 0;
+      padding: 20px 0 0;
+      border-top: 1px solid rgba(246, 241, 232, 0.25);
       text-align: left;
     }
 
     .begin .step:first-child {
-      border-left: none;
+      border-top: none;
+      padding-top: 0;
     }
 
     .begin .step .num {
@@ -1361,7 +1350,14 @@
     .begin .support {
       font-size: 16px;
       max-width: 34em;
-      margin: 0 auto 18px;
+      margin: 0 auto 14px;
+    }
+
+    .begin .reassurance {
+      color: #F0F3EA;
+      font-size: 14px;
+      max-width: 40em;
+      margin: 0 auto;
     }
 
     .testimonial-block {
@@ -1483,7 +1479,7 @@
       background: rgba(58, 54, 64, 0.82);
     }
 
-    .begin + .topics-section {
+    .begin + .topics {
       padding-top: 36px;
     }
 
@@ -1631,7 +1627,7 @@
 
     @media (max-width: 880px) {
       .things {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .about .photo {
@@ -1919,7 +1915,7 @@
       .hero-actions {
         align-items: flex-start;
         flex-direction: column;
-        width: min(304px, calc(100vw - 22px));
+        width: min(268px, calc(100vw - 22px));
         max-width: calc(100vw - 22px);
         gap: 10px;
         margin-left: -22px;
@@ -1932,7 +1928,7 @@
         min-height: 55px;
         border-left: 0;
         border-radius: 0 40px 40px 0;
-        padding: 12px 18px;
+        padding: 12px 22px;
         text-align: left;
       }
 
@@ -1960,10 +1956,8 @@
       }
 
       .hero p.sub {
-        width: 300px;
-        max-width: calc(100vw - 78px);
-        inline-size: 300px;
-        max-inline-size: calc(100vw - 78px);
+        width: 100%;
+        max-width: calc(100vw - 44px);
         margin: 16px 0 0;
         color: var(--gold);
         overflow-wrap: break-word;
@@ -2061,7 +2055,7 @@
       .begin .steps {
         display: grid;
         gap: 14px;
-        margin: 24px 0 18px;
+        margin: 24px 0 26px;
       }
 
       .begin .step {
@@ -2079,7 +2073,13 @@
 
       section.block.begin {
         padding-top: 32px;
-        padding-bottom: 60px;
+        padding-bottom: 40px;
+      }
+
+      .begin .btn {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
       }
 
       .testimonial-block {
@@ -2143,47 +2143,8 @@
         height: 28px;
       }
 
-      .begin + .topics-section {
+      .begin + .topics {
         padding-top: 28px;
-      }
-
-      .topic-modal {
-        padding: 12px;
-        place-items: center;
-      }
-
-      .topic-modal-card {
-        grid-template-columns: 1fr;
-        width: min(360px, calc(100vw - 24px));
-        max-height: calc(100vh - 24px);
-        max-height: calc(100dvh - 24px);
-        overflow-x: hidden;
-        overflow-y: auto;
-        overscroll-behavior: contain;
-        -webkit-overflow-scrolling: touch;
-        border-radius: 16px;
-      }
-
-      .topic-modal-image {
-        min-height: 0;
-        height: 150px;
-        height: min(150px, 24dvh);
-        max-height: 150px;
-      }
-
-      .topic-modal-body {
-        overflow: visible;
-        padding: 20px 20px 22px;
-      }
-
-      .topic-modal-body h3 {
-        font-size: clamp(26px, 8vw, 34px);
-      }
-
-      .topic-modal-body p {
-        margin-top: 12px;
-        font-size: 15.5px;
-        line-height: 1.55;
       }
 
       .foot-grid {
@@ -2192,228 +2153,15 @@
       }
     }
 
-    @media (hover: none), (max-width: 720px) {
-      .thing .txt {
-        min-height: 0;
-        padding-bottom: 52px;
-      }
-
-      .thing .txt::after {
-        display: none;
-      }
-
-      .thing .pic::after {
-        display: none;
-      }
-
-      .thing p {
-        position: static;
-        max-height: none;
-        overflow: visible;
-        opacity: 1;
-        transform: none;
-        margin-top: 6px;
-      }
-
-      .thing .topic-explore {
-        display: inline-flex;
-        position: absolute;
-        right: 18px;
-        bottom: 14px;
-        align-items: center;
-        justify-content: center;
-        padding: 4px 12px;
-        border: 1px solid var(--accent);
-        border-radius: 999px;
-        background: transparent;
-        color: var(--accent);
-        font: inherit;
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 1.2;
-      }
-    }
-
     @media (max-width: 720px) {
-      section.block.topics-section {
-        height: 100svh;
-        height: 100dvh;
+      section.block.topics {
+        height: auto;
         padding: 54px 0 18px;
       }
 
-      section.block.topics-section .wrap {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        min-height: 0;
-      }
-
-      section.block.topics-section:has(.thing.is-expanded) {
-        height: auto;
-        min-height: 100svh;
-        min-height: 100dvh;
-      }
-
-      section.block.topics-section:has(.thing.is-expanded) .wrap {
-        height: auto;
-      }
-
-      .things-head {
-        flex: 0 0 auto;
-        margin-bottom: 18px;
-      }
-
       .things {
-        flex: 1 1 auto;
-        grid-auto-rows: minmax(0, 1fr);
-        align-items: start;
-        min-height: 0;
-        gap: 10px;
-      }
-
-      section.block.topics-section:has(.thing.is-expanded) .things {
-        flex: 0 0 auto;
-        grid-auto-rows: minmax(76px, auto);
-      }
-
-      .thing {
-        position: relative;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 30%;
-        align-items: stretch;
-        height: 100%;
-        min-height: 0;
-      }
-
-      .thing p,
-      .thing .topic-explore {
-        display: none;
-      }
-
-      .thing:not(.is-expanded) {
-        height: 100%;
-        min-height: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-
-      .thing .pic {
-        display: block;
-        order: 2;
-        height: 100%;
-        min-height: 0;
-        aspect-ratio: auto;
-        border-radius: 0 11px 11px 0;
-      }
-
-      .thing .pic img,
-      .thing:hover .pic img,
-      .thing:focus .pic img,
-      .thing .pic img.pic-zoom,
-      .thing:hover .pic img.pic-zoom,
-      .thing:focus .pic img.pic-zoom {
-        transform: none;
-      }
-
-      .thing .txt {
-        display: flex;
-        align-items: center;
-        min-height: 0;
-        padding: 8px 12px 8px 16px;
-        border-radius: 11px 0 0 11px;
-      }
-
-      .thing .txt::before {
-        display: none;
-      }
-
-      .thing .pic::after {
-        content: "\2192";
-        display: grid;
-        position: absolute;
-        z-index: 1;
-        right: 4px;
-        bottom: 3px;
-        place-items: center;
-        width: 16px;
-        height: 16px;
-        color: #FFFFFF;
-        font-family: var(--f-body);
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 1;
-        text-shadow: 0 1px 7px rgba(39, 36, 32, 0.55);
-        opacity: 1;
-        transform: none;
-        transition: transform 0.2s ease;
-      }
-
-      .thing:nth-child(3):not(.is-expanded) .pic img {
-        object-position: center 72% !important;
-      }
-
-      .thing:nth-child(even):not(.is-expanded),
-      .thing:nth-child(even):not(.is-expanded) .txt {
-        background: #C5C7BE;
-      }
-
-      .thing:nth-child(even):not(.is-expanded) {
-        border-color: color-mix(in srgb, #C5C7BE 58%, rgba(58, 54, 64, 0.16));
-      }
-
-      .thing h3 {
-        font-size: clamp(17px, 4.9vw, 22px);
-        line-height: 1.05;
-        margin-bottom: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      .thing.is-expanded .pic,
-      .thing.is-expanded p {
-        display: block;
-      }
-
-      .thing.is-expanded {
-        display: flex;
-        height: auto;
-        min-height: 0;
-      }
-
-      .thing.is-expanded .pic {
-        order: 0;
-        height: auto;
-        aspect-ratio: 4.5 / 3;
-        border-radius: 8px 8px 0 0;
-      }
-
-      .thing.is-expanded .txt {
-        display: block;
-        min-height: 0;
-        padding: 18px 18px 50px;
-        border-radius: 0 0 8px 8px;
-      }
-
-      .thing.is-expanded .txt::before {
-        display: none;
-      }
-
-      .thing.is-expanded h3 {
-        font-size: 22px;
-        line-height: 1.12;
-        margin-bottom: 7px;
-        overflow: visible;
-        text-overflow: clip;
-        white-space: normal;
-      }
-
-      .thing.is-expanded .pic::after {
-        display: none;
-      }
-
-      .thing.is-expanded .topic-explore {
-        display: inline-flex;
+        grid-template-columns: 1fr;
+        gap: 16px;
       }
     }
 
@@ -2505,15 +2253,12 @@
       }
 
       .thing {
+        --image-extra-height: 4px;
         padding: 8px;
       }
 
       .thing .txt {
-        padding: 8px 18px;
-      }
-
-      .thing.is-expanded .txt {
-        padding: 18px 18px 50px;
+        padding: 8px 12px calc(8px - var(--image-extra-height)) 16px;
       }
 
       .about .photo {
@@ -2575,7 +2320,7 @@
 
     /* Keep the lower About doodles visible when the desktop composition no longer fits. */
     @media (max-width: 880px) {
-      section.block.topics-section {
+      section.block.topics {
         padding-bottom: 48px;
       }
 
@@ -2584,7 +2329,7 @@
         isolation: isolate;
         overflow: hidden;
         padding-top: clamp(62px, 10vw, 88px);
-        padding-bottom: clamp(67px, 17vw, 148px);
+        padding-bottom: clamp(95px, 24vw, 211px);
         background: var(--paper);
       }
 
@@ -2606,7 +2351,7 @@
 
       .about::after {
         bottom: 0;
-        height: clamp(67px, 17vw, 148px);
+        height: clamp(95px, 24vw, 211px);
         background-position: center bottom;
       }
 
@@ -2630,16 +2375,22 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="../homepage-rhythm.css">
+  <link rel="icon" sizes="any" href="../favicon.ico?v=bowl-logo-v1">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png?v=bowl-logo-v1">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png?v=bowl-logo-v1">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png?v=bowl-logo-v1">
+  <link rel="stylesheet" href="../brand-logo.css?v=bowl-logo-v1">
 </head>
 <body>
   <nav id="nav" aria-label="Hauptnavigation">
     <div class="wrap inner">
       <a class="word brand" href="#top">
-        <img class="brand-logo" src="../art/nokmalilogo.png" alt="">
+        <img class="brand-logo" src="../art/nokmali-bowl-logo.png" alt="">
         <span>Nokmali</span>
       </a>
       <div class="mobile-navlinks" aria-label="Mobile Navigation">
-        <a class="lk nav-rhythm" href="/de/assessment">3-Min Check</a>
+        <a class="lk nav-rhythm" href="/de/assessment">3-Min.-Check</a>
         <a class="lk mobile-booking-link" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Buchen</a>
         <div class="mobile-menu">
           <button class="mobile-menu-button" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu-panel">
@@ -2649,9 +2400,8 @@
             <a href="#themen">Themen</a>
             <a href="#begin">Wie wir beginnen</a>
             <a href="#testimonials">Erfahrungen</a>
-            <a href="#ansatz">Ansatz</a>
             <a href="#about">Über mich</a>
-            <a href="/de/tools/">Tools</a>
+            <a href="/de/tools/">Übungen</a>
             <span class="language-switch" aria-label="Sprache">
               <a href="../" lang="en">EN</a>
               <span aria-hidden="true">/</span>
@@ -2662,10 +2412,9 @@
       </div>
       <div class="navlinks">
         <a class="lk mobile-booking-link" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen</a>
-        <a class="lk nav-approach" href="#ansatz">Ansatz</a>
         <a class="lk nav-about" href="#about">Über mich</a>
-        <a class="lk nav-rhythm" href="/de/assessment">Rhythm Check</a>
-        <a class="lk tools-link" href="/de/tools/">Tools</a>
+        <a class="lk nav-rhythm" href="/de/assessment">Rhythmus-Check</a>
+        <a class="lk tools-link" href="/de/tools/">Übungen</a>
         <span class="language-switch" aria-label="Sprache">
           <a href="../" lang="en">EN</a>
           <span aria-hidden="true">/</span>
@@ -2678,86 +2427,136 @@
   <a id="top"></a>
   <header class="hero">
     <div class="hero-art">
-      <video autoplay muted playsinline preload="auto" data-loop-end="10" data-playback-rate="0.75" aria-label="Helene läuft auf einem Pfad durch eine Landschaft">
+      <video autoplay muted playsinline preload="auto" data-loop-end="10" data-playback-rate="0.75" aria-label="Helene geht auf einem Weg durch die Landschaft">
         <source src="../art/yourjourney-walking-mobile.m4v" type="video/mp4" media="(max-width: 720px)">
         <source src="../art/yourjourney-walking-hd.mp4" type="video/mp4">
       </video>
     </div>
     <div class="wrap hero-copy">
       <div class="inner">
-        <h1><span class="hero-title-line">Online Coaching für Frauen,</span><span class="hero-title-line">wenn du mehr Energie, Klarheit</span><span class="hero-title-line">und <em>gesunde Routinen</em> suchst.</span></h1>
-        <p class="sub">Wenn sich das Leben voll anfühlt, deine Routinen aus dem Takt geraten sind oder du dich in deinem Körper und Alltag wieder mehr zu Hause fühlen möchtest.</p>
+        <h1><span class="hero-title-line">Lass deine Farben sprechen</span> <span class="hero-title-line"><em>und finde zurück zu dir.</em></span></h1>
+        <p class="sub">Ich biete ganzheitliches Gesundheitscoaching für Frauen an – online und mit kreativen Methoden. Vielleicht möchtest du dein Leben stärker nach dem ausrichten, was dir persönlich wichtig ist. Dazu gehören auch Gewohnheiten und ein Rhythmus, die deinem Körper und Geist guttun.<strong style="display: block; margin-top: 1em;"><span style="color: #D99F4E;">Coaching mit Kunst</span> verbindet das Gespräch mit freiem, intuitivem Gestalten.</strong></p>
         <div class="hero-actions">
           <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen <span class="arr" aria-hidden="true">&rarr;</span></a>
-          <a class="btn secondary" href="/de/assessment">3-Minuten Rhythm Check <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="btn secondary" href="/de/assessment">Rhythmus-Check in 3 Minuten <span class="arr" aria-hidden="true">&rarr;</span></a>
         </div>
-        <p class="booking-note"><span class="booking-note-long">Ein 30-minütiges Erstgespräch, um zu erkunden, was dich hierherführt und ob Coaching für dich der passende nächste Schritt ist.</span><span class="booking-note-mobile">Kostenloses 30-Minuten-Gespräch, um zu schauen, ob Coaching passt.</span></p>
+        <p class="booking-note"><span class="booking-note-long">30 Minuten zum Kennenlernen: Du erzählst, was dich beschäftigt, und wir schauen, ob eine Zusammenarbeit für dich hilfreich sein könnte.</span><span class="booking-note-mobile">30 Minuten zum Kennenlernen: Du erzählst, was dich beschäftigt, und wir schauen, ob eine Zusammenarbeit für dich hilfreich sein könnte.</span></p>
       </div>
     </div>
   </header>
 
   <main>
     <div class="explore-flow">
-      <section class="block topics-section" id="themen">
+      <section class="block topics" id="themen">
         <div class="wrap">
           <div class="things-head">
-            <h2 class="title">Woran wir gemeinsam <em>arbeiten</em> können.</h2>
+            <h2 class="title">Was dir am <em>Herzen</em> liegt.</h2>
           </div>
           <div class="things">
-          <article class="thing" tabindex="0" data-detail="Wenn das Leben voll ist, können Fragen rund ums Essen zu einem weiteren Druck im Alltag werden: was und wann du essen sollst, was deinem Körper guttut und wie du nicht immer wieder in dieselben hektischen Muster gerätst. Wir können uns Mahlzeiten, Heißhunger, Hunger, Herausforderungen bei der Essenszubereitung und Energietiefs anschauen. Ich helfe dir zu verstehen, was für dich funktioniert, und Essensroutinen zu finden, die zu deinem Leben passen, deine Energie unterstützen und wieder mehr Leichtigkeit und Freude in deinen Umgang mit Essen und Zubereitung bringen.">
-            <div class="pic"><img src="../art/IMG_7714.jpg" alt=""></div>
-            <div class="txt">
-              <h3>Ernährung &amp; Rhythmus</h3>
-              <p>Mehr Leichtigkeit, Freude und Sicherheit im Umgang mit Essen und alltäglicher Ernährung finden.</p>
-            </div>
-          </article>
-          <article class="thing" tabindex="0" data-detail="Dein Körper bemerkt Dinge oft, bevor dein Verstand Worte dafür findet. Müdigkeit, Anspannung, Hunger, Unruhe oder Überforderung können dir Hinweise darauf geben, was du brauchst, was zu viel ist oder was nicht mehr passt. Im Coaching helfe ich dir, diesen Signalen mit mehr Neugier und weniger Bewertung zuzuhören. Mit der Zeit kann daraus eine ruhigere Art entstehen, Entscheidungen rund um Essen, Ruhe, Bewegung, Grenzen und deinen Tagesrhythmus zu treffen. Eine, bei der du weniger gegen dich selbst kämpfst und dich in deinem Körper mehr zu Hause fühlst.">
-            <div class="pic"><img src="../art/IMG_3401.jpg" alt=""></div>
-            <div class="txt">
-              <h3>Körpersignale</h3>
-              <p>Lernen, Müdigkeit, Heißhunger, Anspannung und Energie mit mehr Neugier wahrzunehmen, damit sie dich zu klareren Entscheidungen führen können.</p>
-            </div>
-          </article>
-          <article class="thing" tabindex="0" data-detail="Wenn das Leben schon voll ist, hält ein weiterer strenger Plan meist nicht lange. Oft ist die eigentliche Frage nicht nur, was du anders machen solltest, sondern warum du immer wieder um dieselben Versuche kreist. Im Coaching schauen wir darauf, was dich immer wieder zurückzieht, was dich unter der Oberfläche blockieren könnte und was in deinem Leben bereits funktioniert und ausgebaut werden könnte. Manchmal bringt ein Perspektivwechsel etwas in Bewegung. Ein anderes Mal gibt es bewusste oder unbewusste Gründe dafür, dass Veränderung sich schwieriger angefühlt hat, als sie „sollte“. Ich helfe dir, Gewohnheiten und Rhythmen zu finden, die sich nicht wie ein weiteres Projekt anfühlen, sondern dich langsam zu dir selbst zurückführen und dir helfen, ein Leben aufzubauen, zu dem du wirklich immer wieder gerne zurückkehrst.">
-            <div class="pic"><img class="pic-zoom" src="../art/IMG_1774a-clean.jpg" alt="" style="object-position: 13% center;"></div>
-            <div class="txt">
-              <h3>Gewohnheiten &amp; Routinen</h3>
-              <p>Gewohnheiten und Routinen aufbauen, die den Alltag zu etwas machen, zu dem du gerne zurückkehrst.</p>
-            </div>
-          </article>
-          <article class="thing" tabindex="0" data-detail="Wenn das Leben voll ist, rutscht alles, was nicht nützlich oder dringend wirkt, schnell ans Ende der Liste. Doch Spiel und ergebnisoffene Kreativität sind keine verschwendete Zeit. Sie helfen dir, Perfektionismus zu lockern, wieder Freude am Prozess zu finden und dich auszudrücken, ohne dass alles beurteilt, fertiggestellt oder produktiv sein muss. Im Coaching können wir erkunden, was dir hilft, Raum für diesen freieren Teil von dir zu schaffen, denn Kreativität unterstützt oft weit mehr als nur die Kreativität selbst.">
+          <article class="thing">
             <div class="pic"><img src="../art/playdoo.jpeg" alt=""></div>
             <div class="txt">
-              <h3>Kreativität &amp; Spiel</h3>
-              <p>Raum schaffen, um dich frei auszudrücken, zu spielen und Dinge zu erschaffen, ohne Perfektion oder Anerkennung zu brauchen.</p>
+              <h3>Was dich lebendig macht</h3>
+              <p>Du wünschst dir im Alltag mehr von dem, was dich begeistert, neugierig macht und dich die Zeit vergessen lässt.</p>
             </div>
           </article>
-          <article class="thing" tabindex="0" data-detail="Du kannst es lieben, Mutter zu sein, und dich trotzdem selbst vermissen. Vielleicht sind deine Tage voller Fürsorge und Planung und du wirst ständig gebraucht, während deine eigenen Bedürfnisse, dein Körper, deine Kreativität oder deine Richtung immer weiter an den Rand rücken. Im Coaching können wir erkunden, was Mutterschaft für dich bedeutet, statt uns daran zu orientieren, wie sie vermeintlich aussehen sollte. Ich helfe dir, eine Art des Mutterseins zu finden, die sich mehr nach deiner anfühlt, mit mehr Raum zum Atmen, für eigene Entscheidungen und dafür, weiterhin du selbst zu sein.">
-            <div class="pic"><img src="../art/IMG_4406.jpg" alt="" style="object-position: center top;"></div>
-            <div class="txt">
-              <h3>Mutterschaft &amp; Identität</h3>
-              <p>Deinen eigenen Weg als Mutter finden, ohne die Teile von dir zu verlieren, die ebenfalls Raum brauchen.</p>
-            </div>
-          </article>
-          <article class="thing" tabindex="0" data-detail="Vertrauen in dich selbst wächst, wenn du dich klarer hören und deine eigene Erfahrung ernst nehmen kannst. Wir können Entscheidungen, Zweifel, inneren Druck, den Wunsch, es allen recht zu machen, und alte Erwartungen erkunden, damit du dein eigenes Ja, Nein und Genug wieder erkennst.">
+          <article class="thing">
             <div class="pic"><img src="../art/IMG_3381.jpg" alt=""></div>
             <div class="txt">
-              <h3>Selbstvertrauen</h3>
-              <p>Vertrauen in dich selbst wiederfinden, wenn vieles gleichzeitig an dir zieht und du dein eigenes Ja und Nein kaum noch spürst.</p>
+              <h3>Was dir wichtig ist</h3>
+              <p>Du möchtest herausfinden, was dir wirklich etwas bedeutet, warum das so ist und wie du dem in deinem Leben mehr Platz geben kannst.</p>
+            </div>
+          </article>
+          <article class="thing">
+            <div class="pic"><img class="pic-zoom" src="../art/IMG_1774a-clean.jpg" alt="" style="object-position: 13% center;"></div>
+            <div class="txt">
+              <h3>Deine Prioritäten</h3>
+              <p>Du willst deine Prioritäten aus verschiedenen Blickwinkeln betrachten. Was passt zu dem, was dir wichtig ist? Und wo lohnt es sich, noch einmal hinzusehen oder etwas zu verändern?</p>
+            </div>
+          </article>
+          <article class="thing">
+            <div class="pic"><img src="../art/IMG_7714.jpg" alt=""></div>
+            <div class="txt">
+              <h3>Raum zum Durchatmen</h3>
+              <p>Du wünschst dir mehr Freiraum und weniger Tempo. Du willst aktiv sein können, ohne dass die Ruhe dabei zu kurz kommt.</p>
+            </div>
+          </article>
+          <article class="thing">
+            <div class="pic"><img src="../art/IMG_4406.jpg" alt="" style="object-position: center top;"></div>
+            <div class="txt">
+              <h3>Dein eigener Rhythmus</h3>
+              <p>Essen, Bewegung und Erholung sollen zu deinem Alltag passen und dir guttun. Du suchst einen Rhythmus, mit dem du dich lebendig fühlst.</p>
+            </div>
+          </article>
+          <article class="thing">
+            <div class="pic"><img src="../art/IMG_3401.jpg" alt=""></div>
+            <div class="txt">
+              <h3>Verbunden sein</h3>
+              <p>Du suchst mehr Nähe zu dir selbst, zu deinem Körper und deinen Gedanken. Und das Gefühl, mit anderen Menschen und der Welt um dich herum verbunden zu sein.</p>
             </div>
           </article>
           </div>
         </div>
       </section>
 
-      <section class="journal-preview" aria-labelledby="journal-preview-title">
+      <section class="block intro" id="ansatz">
         <div class="wrap inner">
-          <img src="../art/IMG_1689.jpg" alt="Frau steht unter den Worten On veut tout auf einer Wand." width="1000" height="1333">
-          <div class="journal-copy">
-            <div class="eyebrow">ON VEUT TOUT JOURNAL</div>
-            <h2 id="journal-preview-title">Warum kann ich nicht zu Ende bringen, was ich anfange?</h2>
-            <p>Nicht fertig zu werden liegt nicht immer an mangelnder Disziplin. Manchmal ist eine Aufgabe zu unklar, zu aufgeladen oder zu sehr mit allem verknüpft, was sonst noch deine Aufmerksamkeit fordert.</p>
-            <a class="journal-link" href="/de/blog/warum-kann-ich-nicht-zu-ende-bringen-was-ich-anfange/">Reflexion lesen &rarr;</a>
+          <h2 class="approach-heading">Das <span class="approach-heading-accent">große Ganze</span></h2>
+          <p class="approach-intro"><strong>Dein Leben hat viele Seiten. Gesundheit, Gefühle, Gewohnheiten und Entscheidungen beeinflussen sich gegenseitig. Im Gespräch und beim kreativen Gestalten gehen wir der Frage nach, was dir wichtig ist und was das für deinen Alltag und dein körperliches Wohlbefinden bedeutet.</strong></p>
+          <div class="approach-sections">
+            <div class="approach-part">
+              <div>
+                <h3>Wofür du deine Energie einsetzt.</h3>
+                <p>Wofür brauchst du im Alltag viel Energie, und was möchtest du öfter tun oder erleben? Gemeinsam schauen wir, welche deiner täglichen Entscheidungen dazu passen.</p>
+              </div>
+            </div>
+            <div class="approach-part">
+              <div>
+                <h3>Was dahintersteckt.</h3>
+                <p>Gemeinsam schauen wir genauer hin: Was steckt hinter deiner Situation, und was ist dir bisher vielleicht entgangen?</p>
+              </div>
+            </div>
+            <div class="approach-part">
+              <div>
+                <h3>Was du daraus machst.</h3>
+                <p>Zum Schluss halten wir fest, wie du deine Erkenntnisse im Alltag umsetzen möchtest.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block art-coaching" id="art-integrated-coaching" aria-labelledby="art-coaching-title">
+        <div class="wrap art-coaching-layout">
+          <div class="art-coaching-heading">
+            <h2 class="title" id="art-coaching-title">Kunst <em>für neue Perspektiven</em></h2>
+            <p class="art-coaching-intro">Manchmal wird dir beim Gestalten etwas klar, das du vorher nicht in Worte fassen konntest. Du brauchst dafür keine künstlerischen Vorkenntnisse. Es geht nicht um das Ergebnis, sondern darum, was du dabei entdeckst.</p>
+            <p class="art-coaching-intro">Beim Malen, Zeichnen oder Gestalten von Collagen kannst du deine gewohnten Sichtweisen, Überzeugungen, Verhaltensmuster und Ziele einmal anders betrachten. So lassen sich im Coaching spielerisch Gefühle und Zusammenhänge entdecken, die dir bisher vielleicht nicht bewusst waren.</p>
+            <p class="art-coaching-intro">Am Anfang kannst du dir überlegen, was du erkunden möchtest. Danach lässt du die Frage erst einmal los und schaust, was beim Gestalten entsteht. Die folgenden Beispiele zeigen, wie das aussehen kann.</p>
+          </div>
+          <figure class="art-coaching-art">
+            <img src="../art/IMG_4403.jpg" alt="Eine abstrakte Figur in Hellblau, Rostrot und Schwarz auf strukturiertem, cremefarbenem Papier." width="3024" height="4032" loading="lazy">
+          </figure>
+          <div class="art-coaching-copy">
+            <figure class="art-coaching-quote">
+              <blockquote><p>„Eine Beziehung zu unserer Vorstellungskraft ist eine Beziehung zu unserem tiefsten Selbst.“</p></blockquote>
+              <figcaption>Pat B. Allen, <cite>Art Is a Way of Knowing</cite> (eigene Übersetzung)</figcaption>
+            </figure>
+            <ol class="art-coaching-examples">
+              <li>
+                <h3>Was dich beschäftigt</h3>
+                <p>Bringe aufs Papier, was gerade deine Aufmerksamkeit fordert: tägliche Pflichten, neue Ideen oder unerledigte Aufgaben. Wenn du all das in Farben und Formen vor dir siehst, wird vielleicht deutlicher, welche Gefühle du damit verbindest und was dir bisher entgangen ist.</p>
+              </li>
+              <li>
+                <h3>Was du in dir spürst</h3>
+                <p>Mit Farben, Formen oder Bewegung kannst du Energie, Anspannung oder schwer fassbare Gefühle ausdrücken. Das kann dir helfen, besser wahrzunehmen, was du körperlich spürst, aber noch nicht in Worte fassen kannst.</p>
+              </li>
+              <li>
+                <h3>Was dir wichtig ist</h3>
+                <p>Wovon möchtest du mehr in deinem Leben? Halte es als Bild, Collage, Skizze oder Mindmap fest. Welche Bilder entstehen? Was kannst du benennen? Wofür möchtest du mehr Platz schaffen?</p>
+              </li>
+            </ol>
+            <p class="art-coaching-closing"><strong>Du beginnst mit einer Frage oder einem Anliegen und lässt dann offen, was entsteht. Wenn du anschließend betrachtest, was du gestaltet hast, kannst du dir selbst auf eine andere Weise zuhören.</strong></p>
           </div>
         </div>
       </section>
@@ -2765,23 +2564,22 @@
       <section class="block begin" id="begin">
         <div class="wrap inner">
           <div class="eyebrow">SO BEGINNEN WIR</div>
-          <h2 class="title">Ein kostenloses 30-minütiges <em>Erstgespräch</em>.</h2>
-          <p class="support">Wir schauen, was dich herführt, wohin du dich bewegen möchtest und ob Coaching der passende nächste Schritt ist.</p>
+          <p class="support">Das Coaching findet online in Einzelsitzungen statt. Eine Sitzung dauert 60 Minuten. Zuerst lernen wir uns in einem kostenlosen 30-minütigen Gespräch kennen und schauen, ob wir zusammenarbeiten möchten.</p>
           <div class="steps">
             <div class="step">
               <div class="num">1</div>
               <h4>Wir lernen uns kennen</h4>
-              <p>Ein erstes Gespräch, um ein Gefühl für dich, dein Thema und das zu bekommen, was dich herführt.</p>
+              <p>Du erzählst, wo du gerade stehst. Ein bestimmtes Thema musst du noch nicht mitbringen. Das finden wir gemeinsam heraus.</p>
             </div>
             <div class="step">
               <div class="num">2</div>
-              <h4>Wir erkunden</h4>
-              <p>Wir schauen, was sich gerade nicht stimmig anfühlt, was dir wichtig ist und was dir im Weg stehen könnte.</p>
+              <h4>Wir sprechen über deine Wünsche</h4>
+              <p>Wir sprechen darüber, was du verändern möchtest und warum dir das wichtig ist. Künstlerische Vorkenntnisse brauchst du nicht. Ein Stift, ein Blatt Papier und Neugier reichen aus.</p>
             </div>
             <div class="step">
               <div class="num">3</div>
-              <h4>Wir wählen den nächsten Schritt</h4>
-              <p>Du bekommst ein klareres Gefühl dafür, ob dieser Coaching-Raum passt und was eine Zusammenarbeit unterstützen könnte.</p>
+              <h4>Wir schauen, ob es passt</h4>
+              <p>Wir besprechen, ob eine Zusammenarbeit für uns beide passt. Du entscheidest, ob du weitermachen möchtest. Ich sage dir ehrlich, ob ich glaube, dass ich dir bei deinem Anliegen helfen kann.</p>
             </div>
           </div>
           <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen <span class="arr" aria-hidden="true">&rarr;</span></a>
@@ -2795,11 +2593,11 @@
           </button>
           <div class="testimonial-frame">
             <blockquote class="testimonial-slide active">
-              <p>Während des Coachings stellte Helene sehr gute Fragen, die mich immer tiefer in mein Thema geführt haben. Ich habe mich wohl, gehört und unterstützt gefühlt. Die Sitzung hat mich motiviert, mehr in die Person hineinzuwachsen, die ich sein möchte.</p>
+              <p>Helene hat im Coaching sehr gute Fragen gestellt, durch die ich mich immer intensiver mit meinem Thema auseinandergesetzt habe. Ich habe mich wohl, gehört und unterstützt gefühlt. Die Sitzung hat mich motiviert, über mich hinauszuwachsen.</p>
               <cite>Anja, Spanien</cite>
             </blockquote>
             <blockquote class="testimonial-slide">
-              <p>Was ich besonders geschätzt habe, war der natürliche Fluss des Gespräches. Ich habe kaum bemerkt, dass Helene mich angeleitet hat. Ich fühlte mich eingeladen innezuhalten, bei mir selbst einzuchecken und tiefer zu gehen, ganz ohne Schwere.</p>
+              <p>Besonders geschätzt habe ich, wie natürlich sich das Gespräch entwickelt hat. Ich habe kaum bemerkt, dass Helene es geleitet hat. Es war eine Einladung, innezuhalten, in mich hineinzuhören und tiefer hinzuschauen, ohne mich dabei überfordert zu fühlen.</p>
               <cite>Antonia, Australien</cite>
             </blockquote>
           </div>
@@ -2813,32 +2611,6 @@
         </div>
       </section>
 
-      <section class="block intro" id="ansatz">
-        <div class="wrap inner">
-          <h2 class="approach-heading">Lass uns <span class="approach-heading-accent">das ganze Bild</span> verstehen.</h2>
-          <p class="approach-intro">Der Ansatz umfasst Ernährung, Gewohnheiten, Körperwahrnehmung und reflektierendes Coaching. Statt starrer Pläne geht es darum, realistische Wege zu finden, die für dich und deinen Alltag funktionieren.</p>
-          <div class="approach-sections">
-            <div class="approach-part">
-              <div>
-                <h3>Das Leben kommt nicht in getrennten Schubladen.</h3>
-                <p>Wie du isst, dich ausruhst, denkst, dich kümmerst, arbeitest und durch deinen Tag gehst, beeinflusst oft alles andere.</p>
-              </div>
-            </div>
-            <div class="approach-part">
-              <div>
-                <h3>Verstehen, was passiert.</h3>
-                <p>Wir schauen darauf, was dich hierherführt, was dir wichtig ist und was dir immer wieder im Weg steht. So kannst du deine gegenwärtigen Muster besser verstehen und erkennen, was deine Gewohnheiten, Entscheidungen oder Reaktionen vielleicht zu lösen versuchen.</p>
-              </div>
-            </div>
-            <div class="approach-part">
-              <div>
-                <h3>Einen Weg nach vorn finden.</h3>
-                <p>Von dort aus helfe ich dir, klarer zu verstehen, was in dir vorgeht, mit dem verbunden zu bleiben, was dir wichtig ist, und eine Richtung zu wählen, die sich ehrlich und nach dir anfühlt. Damit sich deine Tage weniger wie etwas anfühlen, das du nur überstehst, und mehr wie etwas, das du mit mehr Leichtigkeit und Intention gestaltest.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     <section class="block about" id="about">
       <div class="wrap about-grid">
         <div class="about-copy">
@@ -2847,30 +2619,21 @@
             <h2 class="title">Hi, ich bin <em>Helene</em>.</h2>
           </div>
           <div class="photo">
-            <img src="../art/IMG_2080.jpg" alt="Helene bereitet Essen in einer warmen Holzküche zu">
+            <img src="../art/IMG_2080.jpg" alt="Helene bereitet Essen in einer gemütlichen Holzküche zu">
           </div>
           <div class="about-body">
-            <p>Nach mehr als fünfzehn Jahren, in denen ich international gelebt und gearbeitet habe, weiß ich, wie sehr sich das Leben bewegen, weiten und verändern kann. Ich betrachte Dinge gern aus verschiedenen Blickwinkeln und finde klarere Wege durch Situationen, die sich voll, verworren oder schwer benennbar anfühlen.</p>
-            <p>Ich absolviere ein Level 5 Diploma in Nutrition &amp; Health Coaching und vertiefe mein Wissen fortlaufend durch Lernen und Praxis. Zusammen mit meiner Erfahrung als Yogalehrerin, Ingenieurin und Mutter prägt es die Art, wie ich Frauen im Coaching unterstütze.</p>
-            <p>Ich helfe dir, dich selbst klarer zu hören durch Zuhören, bedeutungsvolle Fragen und praktische Unterstützung.</p>
+            <p>Mich beschäftigt, wie wir unseren Alltag nach dem ausrichten, was uns wichtig ist, und dabei Intuition und Struktur zusammenbringen. Wie können wir mit unserer Zeit so umgehen, dass es uns körperlich und geistig guttut und auch unserem Umfeld zugutekommt? Und wie kann ein Leben ruhiger werden und trotzdem erfüllt und anregend bleiben?</p>
+            <p>Gesundheitscoaching, Yoga, Ingenieurwesen und Kunst haben meinen Weg geprägt. Meine Ausbildung in Nutrition &amp; Health Coaching am Well College Global habe ich mit einem Level 5 Diploma abgeschlossen. Ich bin ausgebildete Yogalehrerin und habe ein Jahr an der Gerrit Rietveld Academie in Amsterdam Kunst studiert. Das kreative Arbeiten begleitet mich bis heute. Es hilft mir, das Leben zu verstehen und zu genießen.</p>
+            <p>Pat B. Allens Arbeit über Kunst als Weg zur Erkenntnis hat meinen Ansatz mitgeprägt. Ich hatte die Gelegenheit, persönlich Rückmeldung von ihr zu erhalten.</p>
           </div>
+        </div>
+        <div class="about-closing">
+            <p>Außerdem leite ich kleine kreative Workshops. Dort geht es darum, beim Gestalten nachzudenken, loszulassen und etwas über sich selbst zu erfahren.</p>
+            <p>Ich habe in verschiedenen Ländern gelebt, bin Mutter und bewege mich seit Jahren zwischen technischem und analytischem Denken, Kunst und der Arbeit mit dem Körper. Dabei habe ich gelernt: Es gibt selten den einen perfekten Weg.</p>
+            <p>Eine Anleitung fürs „richtige“ Leben möchte ich deshalb nicht geben. Mich interessiert vielmehr, was zu dir passt und wie neue Sichtweisen dir helfen können, Veränderungen leichter und mit Freude anzugehen.</p>
         </div>
       </div>
     </section>
-    </div>
-
-    <div class="topic-modal" id="topic-modal" role="dialog" aria-modal="true" aria-labelledby="topic-modal-title" aria-hidden="true">
-      <div class="topic-modal-card" role="document">
-        <button class="topic-modal-close" type="button" aria-label="Thema schließen">&times;</button>
-        <div class="topic-modal-image">
-          <img id="topic-modal-img" src="" alt="">
-        </div>
-        <div class="topic-modal-body">
-          <div class="eyebrow">Was wir erkunden können</div>
-          <h3 id="topic-modal-title"></h3>
-          <p id="topic-modal-text"></p>
-        </div>
-      </div>
     </div>
 
     <section class="block faq" id="faq">
@@ -2878,33 +2641,33 @@
         <h2 class="title">Gut zu <em>wissen</em>.</h2>
         <div class="faq-list">
           <div class="faq-item">
-            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">Wie funktioniert die Zusammenarbeit im Coaching?<span class="ic" aria-hidden="true"></span></button>
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">Wie arbeiten wir im Coaching zusammen?<span class="ic" aria-hidden="true"></span></button>
             <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1">
-              <p>Coaching ist ein gemeinschaftlicher, zum Nachdenken anregender Prozess. Du gibst jeder Sitzung die Richtung, und ich kann dir dabei helfen herauszufinden, worauf du hinarbeiten möchtest. Ich unterstütze dich mit ungeteilter Aufmerksamkeit, Reflexion, ehrlichem Feedback, Vertrauen in deine Fähigkeiten und Respekt für dein Recht, eigene Entscheidungen zu treffen.</p>
+              <p>Du entscheidest, worum es in einer Sitzung gehen soll. Wenn dir das noch nicht klar ist, finden wir gemeinsam heraus, was dich beschäftigt und was du verändern möchtest. Ich höre aufmerksam zu, stelle Fragen und gebe dir ehrliches Feedback. Dabei vertraue ich darauf, dass du deinen eigenen Weg finden kannst. Die Entscheidungen triffst du.</p>
             </div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">Wozu verpflichte ich mich als Klientin?<span class="ic" aria-hidden="true"></span></button>
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">Was ist meine Rolle im Coaching?<span class="ic" aria-hidden="true"></span></button>
             <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2">
-              <p>Ich bin da, um dich in deinem Denk- und Lösungsprozess zu unterstützen und zu begleiten. Gleichzeitig bist du für dein Wohlbefinden, deine Entscheidungen, Handlungen und Ergebnisse selbst verantwortlich. Du erklärst dich bereit, dich aktiv einzubringen, ehrlich zu kommunizieren, offen für Feedback zu bleiben und mitzuteilen, ob das Coaching für dich funktioniert. Die Ergebnisse hängen von deiner Bereitschaft ab, ins Handeln zu kommen.</p>
+              <p>Coaching lebt davon, dass du dich einbringst: Du sprichst offen über das, was dich beschäftigt, bist bereit, neue Perspektiven zu prüfen, und gibst mir Rückmeldung, ob unsere Arbeit dir hilft. Ich begleite dich dabei. Die Verantwortung für dein Wohlbefinden, deine Entscheidungen und dein Handeln bleibt bei dir. Was sich verändert, hängt auch davon ab, was du im Alltag ausprobierst und umsetzt.</p>
             </div>
           </div>
           <div class="faq-item">
             <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">Wo liegen die Grenzen des Coachings?<span class="ic" aria-hidden="true"></span></button>
             <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3">
-              <p>Coaching ist keine Therapie und dient nicht dazu, psychische Störungen oder medizinische Erkrankungen zu diagnostizieren, zu verhindern, zu heilen oder zu behandeln. Es ersetzt weder medizinische oder psychologische Versorgung noch rechtliche oder andere qualifizierte fachliche Beratung. Wenn es sinnvoll ist, kann ich dir empfehlen, eine andere Fachperson hinzuzuziehen. Wenn du bereits professionell begleitet wirst, solltest du diese Person über unsere Coaching-Arbeit informieren.</p>
+              <p>Coaching ist keine Therapie. Es dient weder der Diagnose noch der Vorbeugung, Heilung oder Behandlung körperlicher oder psychischer Erkrankungen. Es ersetzt keine ärztliche oder psychologische Versorgung und keine rechtliche oder sonstige fachliche Beratung. Wenn eine andere Form der Unterstützung sinnvoll ist, empfehle ich dir, eine entsprechende Fachperson hinzuzuziehen. Falls du bereits professionell begleitet wirst, informiere diese Person bitte auch über unser Coaching.</p>
             </div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">Wird das, was ich erzähle, vertraulich behandelt?<span class="ic" aria-hidden="true"></span></button>
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">Bleibt unser Gespräch vertraulich?<span class="ic" aria-hidden="true"></span></button>
             <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4">
-              <p>Unsere Gespräche und Aufzeichnungen werden vertraulich behandelt und sicher aufbewahrt. Deine Angaben oder dein Name werden nicht ohne deine Zustimmung weitergegeben. Mit deiner Erlaubnis können dein Name und deine Kontaktdaten in einem Coaching-Verzeichnis festgehalten werden, jedoch keine Inhalte aus den Sitzungen.</p>
+              <p>Ja. Was du mir erzählst, bleibt vertraulich. Meine Aufzeichnungen bewahre ich sicher auf, und deine persönlichen Angaben gebe ich nur mit deiner Zustimmung weiter. Deinen Namen und deine Kontaktdaten nehme ich nur mit deiner Erlaubnis in eine Übersicht meiner Coachings auf. Gesprächsinhalte werden dort nicht festgehalten.</p>
             </div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">Kann ich buchen, wenn ich mir bei meinem Thema noch nicht sicher bin?<span class="ic" aria-hidden="true"></span></button>
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">Kann ich ein Gespräch buchen, auch wenn ich noch kein klares Thema habe?<span class="ic" aria-hidden="true"></span></button>
             <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5">
-              <p>Ja. Du musst nicht mit einem klaren Ziel kommen. Wir können mit dem beginnen, was sich unklar, schwer, wiederkehrend oder einfach nicht ganz stimmig anfühlt, und behutsam herausfinden, was Aufmerksamkeit braucht.</p>
+              <p>Ja. Du musst noch kein Thema oder Ziel benennen können. Wir können bei dem anfangen, was dich gerade beschäftigt, belastet oder sich immer wieder zeigt. Gemeinsam finden wir heraus, worum es dir geht.</p>
             </div>
           </div>
         </div>
@@ -2917,16 +2680,16 @@
       <div class="foot-grid">
         <div>
           <span class="word">Nokmali</span>
-          <p class="tag2">Online-Coaching für Ernährung, Körpersignale, Gewohnheiten und Tagesrhythmus.</p>
+          <p class="tag2">Gesundheitscoaching für Frauen. Online, persönlich und mit Raum für kreatives Gestalten.</p>
           <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen <span class="arr" aria-hidden="true">&rarr;</span></a>
           <div class="footer-links">
-            <a href="/de/assessment">Rhythm Check</a>
+            <a href="/de/assessment">Rhythmus-Check</a>
           </div>
         </div>
       </div>
       <div class="foot-bottom">
         <span>&copy; 2026 Nokmali</span>
-        <span>Mit Sitz in den Niederlanden</span>
+        <span>Zu Hause in den Niederlanden</span>
       </div>
     </div>
   </footer>
@@ -3028,98 +2791,6 @@
 
       show(0);
       start();
-    });
-
-    const topicModal = document.getElementById("topic-modal");
-    const topicModalTitle = document.getElementById("topic-modal-title");
-    const topicModalText = document.getElementById("topic-modal-text");
-    const topicModalImg = document.getElementById("topic-modal-img");
-    const topicModalClose = topicModal?.querySelector(".topic-modal-close");
-    let lastTopicTrigger = null;
-    const mobileTopicQuery = window.matchMedia("(max-width: 720px)");
-
-    function openTopicModal(card) {
-      if (!topicModal || !topicModalTitle || !topicModalText || !topicModalImg) return;
-
-      const title = card.querySelector("h3")?.textContent.trim() || "";
-      const text = card.dataset.detail || card.querySelector("p")?.textContent.trim() || "";
-      const img = card.querySelector("img");
-
-      lastTopicTrigger = card;
-      topicModalTitle.textContent = title;
-      topicModalText.textContent = text;
-      topicModalImg.src = img?.getAttribute("src") || "";
-      topicModalImg.alt = img?.getAttribute("alt") || title;
-      topicModal.classList.add("open");
-      topicModal.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-      topicModalClose?.focus();
-    }
-
-    function closeTopicModal() {
-      if (!topicModal) return;
-
-      topicModal.classList.remove("open");
-      topicModal.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-      lastTopicTrigger?.focus();
-      lastTopicTrigger = null;
-    }
-
-    document.querySelectorAll(".thing").forEach((card) => {
-      card.setAttribute("role", "button");
-      card.setAttribute("aria-haspopup", "dialog");
-      card.setAttribute("aria-expanded", "false");
-
-      const textBlock = card.querySelector(".txt");
-      const exploreButton = document.createElement("button");
-      exploreButton.className = "topic-explore";
-      exploreButton.type = "button";
-      exploreButton.textContent = "Entdecken";
-      exploreButton.setAttribute("aria-label", `Mehr lesen zu ${card.querySelector("h3")?.textContent.trim() || "diesem Thema"}`);
-      textBlock?.appendChild(exploreButton);
-
-      exploreButton.addEventListener("click", (event) => {
-        event.stopPropagation();
-        openTopicModal(card);
-      });
-
-      card.addEventListener("click", () => {
-        if (mobileTopicQuery.matches) {
-          if (card.classList.contains("is-expanded")) {
-            card.classList.remove("is-expanded");
-            card.setAttribute("aria-expanded", "false");
-            return;
-          }
-
-          card.classList.add("is-expanded");
-          card.setAttribute("aria-expanded", "true");
-          return;
-        }
-
-        openTopicModal(card);
-      });
-      card.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          if (mobileTopicQuery.matches) {
-            card.click();
-          } else {
-            openTopicModal(card);
-          }
-        }
-      });
-    });
-
-    topicModalClose?.addEventListener("click", closeTopicModal);
-    topicModal?.addEventListener("click", (event) => {
-      if (event.target === topicModal) closeTopicModal();
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && topicModal?.classList.contains("open")) {
-        closeTopicModal();
-      }
     });
 
     document.querySelectorAll("video[data-loop-end]").forEach((video) => {
