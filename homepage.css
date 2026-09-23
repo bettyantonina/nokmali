@@ -1,5 +1,5 @@
 /* Nokmali landing page: existing layouts, shared palette and editorial rhythm.
-   The German page retains its own stylesheet and composition. */
+   Shared by the English and German landing pages. */
 :root {
   --paper: #F4EFE6;
   --paper-light: #FBF8F2;
@@ -2235,7 +2235,7 @@ section.block.art-coaching {
 .hero-copy {
   position: relative;
   z-index: 2;
-  padding-block: 52px 92px;
+  padding-block: 40px 104px;
 }
 
 .hero-copy .inner {
@@ -2246,7 +2246,7 @@ section.block.art-coaching {
   max-width: 850px;
   font-family: var(--f-display);
   font-weight: 700;
-  font-size: clamp(56px, 4.7vw, 76px);
+  font-size: clamp(54px, 4.5vw, 74px);
   line-height: 1.02;
   letter-spacing: -.015em;
   text-wrap: balance;
@@ -2263,7 +2263,7 @@ section.block.art-coaching {
 }
 
 .hero p.sub {
-  max-width: 650px;
+  max-width: 630px;
   margin: 26px 0 28px;
   font-size: 20px;
   line-height: 1.62;
@@ -2574,13 +2574,13 @@ nav img[src*="nokmali-bowl-logo.png"] {
 /* Focused landing-page hero and header refinement. */
 .hero::after {
   background: linear-gradient(0deg, var(--paper), transparent 10%),
-    linear-gradient(90deg, rgba(244,239,230,.99) 0%, rgba(244,239,230,.97) 28%, rgba(244,239,230,.82) 45%, rgba(244,239,230,.34) 64%, rgba(244,239,230,.06) 86%);
+    linear-gradient(90deg, rgba(244,239,230,.99) 0%, rgba(244,239,230,.97) 27%, rgba(244,239,230,.79) 43%, rgba(244,239,230,.28) 62%, rgba(244,239,230,.04) 84%);
 }
-.hero p.sub strong { margin-top: calc(1em + 10px) !important; }
+.hero p.sub strong { margin-top: calc(1em + 8px) !important; }
 .hero .btn { min-height: 60px; padding: 16px 28px; justify-content: center; box-shadow: none; }
-.hero .btn.secondary { background: transparent; }
-.hero .btn.secondary:hover { background: var(--paper-light); border-color: #B9AA9B; }
-nav img[src*="nokmali-bowl-logo.png"] { width: 46px !important; height: 46px !important; }
+.hero .btn.secondary { background: transparent; border-color: rgba(98,93,89,.35); color: var(--text); }
+.hero .btn.secondary:hover { background: rgba(251,248,242,.6); border-color: rgba(98,93,89,.35); color: var(--text); }
+nav img[src*="nokmali-bowl-logo.png"] { width: 49px !important; height: 49px !important; }
 nav a, nav .navlinks .lk, .hero .btn .arr { transition-duration: 180ms; }
 nav .navlinks a { min-height: 44px; display: inline-flex; align-items: center; }
 @media (min-width: 821px) and (max-width: 1199px) {
@@ -2604,15 +2604,15 @@ nav .navlinks a { min-height: 44px; display: inline-flex; align-items: center; }
 @media (max-width: 640px) {
   nav img[src*="nokmali-bowl-logo.png"] { width: 34px !important; height: 34px !important; }
   .hero-art { position: absolute; inset: auto 0 0; height: 350px; aspect-ratio: auto; }
-  .hero-art img { object-fit: cover; object-position: 38% center; }
+  .hero-art img { object-fit: cover; object-position: 34% center; }
   .hero-art::after { display: none; }
   .hero::after {
     display: block;
     background: linear-gradient(0deg, var(--paper), transparent 8%),
       linear-gradient(180deg, var(--paper) 0%, var(--paper) 49%, rgba(244,239,230,.96) 61%, rgba(244,239,230,.68) 79%, rgba(244,239,230,.12) 94%);
   }
-  .hero-copy { padding-block: 34px 88px; }
-  .hero h1 { font-size: clamp(42px, 11.5vw, 50px); line-height: 1.02; max-width: 100%; }
+  .hero-copy { padding-block: 34px 56px; }
+  .hero h1 { font-size: clamp(42px, 11.2vw, 49px); line-height: 1.02; max-width: 100%; }
   .hero h1 em, .hero h1 .hero-colors { white-space: nowrap; }
   .hero p.sub { font-size: 17px; line-height: 1.58; margin-block: 20px 24px; }
   .hero .btn { min-height: 56px; padding: 14px 26px; }
@@ -2622,4 +2622,16 @@ nav .navlinks a { min-height: 44px; display: inline-flex; align-items: center; }
     background: rgba(244,239,230,.92);
     box-shadow: 0 0 16px 10px rgba(244,239,230,.92);
   }
+}
+
+/* German phrases need a little more measure without changing their wording. */
+@media (min-width: 1200px) {
+  html[lang="de"] .hero-copy .inner,
+  html[lang="de"] .hero h1 { max-width: 960px; }
+}
+@media (min-width: 641px) and (max-width: 820px) {
+  html[lang="de"] .hero h1 { font-size: clamp(48px, 7.2vw, 58px); }
+}
+@media (max-width: 380px) {
+  html[lang="de"] .hero .btn { padding-inline: 18px; }
 }
