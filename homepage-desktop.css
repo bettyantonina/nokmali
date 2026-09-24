@@ -70,27 +70,37 @@
   .thing .txt { padding: 24px; }
   .thing h3 { text-wrap: balance; }
 
-  /* Keep the staggered text following the painted wave in document flow. */
+  /* Follow the wave into the next part of the same approach. Let the final
+     text determine the boundary instead of retaining a viewport-sized gap. */
   section.block.intro {
-    min-height: clamp(700px, 50vw, 760px);
-    padding-block: 48px 64px;
+    min-height: 0;
+    padding-block: 48px 28px;
   }
-  .intro::before { opacity: .40; }
+  .intro::before {
+    bottom: -140px;
+    opacity: .43;
+    mask-image:
+      linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent),
+      linear-gradient(to bottom, transparent, #000 32px, #000 calc(100% - 120px), transparent);
+  }
+  .intro::after { display: none; }
   .intro .approach-heading,
   .intro .approach-intro { width: min(620px, 54%); }
   .approach-sections {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 64px;
+    grid-template-columns: minmax(0, .46fr) minmax(0, .54fr);
+    gap: clamp(48px, 5vw, 80px);
     margin-top: 48px;
   }
   .intro .approach-part:nth-child(n) { width: auto; max-width: 46ch; margin: 0; }
   .intro .approach-part:first-child { margin-left: 16%; }
-  .intro .approach-part:last-child { margin-top: 140px; max-width: 42ch; }
+  .intro .approach-part:last-child { margin-top: clamp(136px, 11vw, 184px); max-width: 42ch; }
 
   /* overflow: clip preserves the canvas crop without trapping sticky inside
      a non-scrolling overflow ancestor. The grid bounds the artwork's travel. */
   .explore-flow { overflow: clip; }
-  section.block.art-coaching { padding-block: 80px 96px; }
+  /* The same pale wave can show through just behind the opening. Its mask
+     ends here; the substantial painting and editorial grid mark the chapter. */
+  section.block.art-coaching { padding-block: 56px 96px; background: transparent; }
   .art-coaching-layout {
     grid-template-columns: minmax(0, .46fr) minmax(0, .54fr);
     column-gap: clamp(48px, 5vw, 80px);
