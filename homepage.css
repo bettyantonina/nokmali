@@ -2925,8 +2925,8 @@ nav.scrolled {
     background:
       linear-gradient(to top, var(--paper), transparent 48px),
       radial-gradient(ellipse 95% 30% at 12% 49%, rgba(244,239,230,.5) 25%, transparent 100%),
-      linear-gradient(90deg, rgba(244,239,230,.73), rgba(244,239,230,.59) 62%, rgba(244,239,230,.25)),
-      linear-gradient(to bottom, rgba(244,239,230,.22), transparent 80%);
+      linear-gradient(90deg, rgba(244,239,230,.64), rgba(244,239,230,.52) 62%, rgba(244,239,230,.22)),
+      linear-gradient(to bottom, rgba(244,239,230,.19), transparent 80%);
   }
   section.block.topics { padding-top: 32px; }
   .mobile-art-intro .hero-art-intro { display: inline; margin: 0; font-weight: inherit; }
