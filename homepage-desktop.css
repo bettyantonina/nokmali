@@ -1,0 +1,168 @@
+/* English landing-page refinement. Loaded after the shared homepage styles.
+   The copy bridge and booking colour apply at every size; desktop composition
+   starts above tablet widths so the existing mobile treatments stay in place. */
+.hero .btn:not(.secondary) { background: var(--blue); }
+.hero .btn:not(.secondary):hover { background: var(--blue-dark); }
+
+.mobile-art-intro {
+  display: block;
+  max-width: 38em;
+  margin: 0 0 36px;
+  font-size: 17px;
+  line-height: 1.62;
+  color: var(--text);
+}
+.mobile-art-intro .hero-art-intro {
+  display: inline;
+  margin: 0;
+  font-weight: inherit;
+}
+
+/* Retain the original stacked footer spacing below the desktop breakpoint. */
+@media (max-width: 1024px) {
+  .foot-grid { grid-template-columns: 1fr; gap: 0; }
+}
+
+@media (min-width: 641px) and (max-width: 1199px) {
+  .things { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 881px) and (max-width: 1024px) {
+  .art-coaching-layout { grid-template-columns: 1fr; gap: 32px; }
+  .art-coaching-heading, .art-coaching-copy, .art-coaching-art {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .art-coaching-copy { display: block; }
+  .art-coaching-art { height: 400px; min-height: 0; width: 100%; margin: 0; }
+  .art-coaching-art img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(1.08);
+    object-position: 53% center;
+  }
+  .art-coaching-quote {
+    margin: 0 0 28px;
+    padding: 0 0 0 22px;
+    border-left: 2px solid var(--sage-deep);
+    background: none;
+  }
+}
+
+@media (min-width: 1025px) {
+  :root {
+    --content-max: 1560px;
+    --page-width: min(var(--content-max), 88vw);
+    --section-space: clamp(100px, 7.4vw, 116px);
+  }
+
+  .hero { min-height: min(88vh, 840px); }
+  .hero-copy { padding-block: 48px 64px; }
+
+  section.block.topics { padding-block: var(--section-space); }
+  .mobile-art-intro { margin-bottom: 28px; }
+  .things-head { margin-bottom: 40px; }
+  .things { gap: 28px; }
+  .thing .pic { height: clamp(220px, 17vw, 260px); aspect-ratio: auto; }
+  .thing .pic img { object-fit: cover; }
+  .thing .txt { padding: 24px; }
+  .thing h3 { text-wrap: balance; }
+
+  /* Keep the staggered text following the painted wave in document flow. */
+  section.block.intro {
+    min-height: clamp(700px, 50vw, 760px);
+    padding-block: 48px 64px;
+  }
+  .intro::before { opacity: .40; }
+  .intro .approach-heading,
+  .intro .approach-intro { width: min(620px, 54%); }
+  .approach-sections {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 64px;
+    margin-top: 48px;
+  }
+  .intro .approach-part:nth-child(n) { width: auto; max-width: 46ch; margin: 0; }
+  .intro .approach-part:first-child { margin-left: 16%; }
+  .intro .approach-part:last-child { margin-top: 140px; max-width: 42ch; }
+
+  /* overflow: clip preserves the canvas crop without trapping sticky inside
+     a non-scrolling overflow ancestor. The grid bounds the artwork's travel. */
+  .explore-flow { overflow: clip; }
+  section.block.art-coaching { padding-block: 80px 96px; }
+  .art-coaching-layout {
+    grid-template-columns: minmax(0, .46fr) minmax(0, .54fr);
+    column-gap: clamp(48px, 5vw, 80px);
+    row-gap: 28px;
+  }
+  .art-coaching-art {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+    height: min(75vh, calc(100vh - 124px));
+    min-height: 0;
+    width: 100%;
+    margin: 0;
+  }
+  .art-coaching-intro { max-width: var(--measure); margin-top: 20px; }
+  .art-coaching-quote { margin-bottom: 24px; }
+  .art-coaching-examples li { padding-block: 22px; }
+  .art-coaching-examples li::before { top: 25px; }
+  .art-coaching-examples li:last-child { padding-bottom: 0; }
+  .art-coaching-closing { margin-top: 28px; }
+
+  section.block.begin { padding-block: 100px 96px; }
+  .begin .inner { width: min(var(--page-width), calc(100% - 2 * var(--page-gutter))); }
+  .begin .eyebrow { margin-bottom: 24px; }
+  .begin .support { margin: 0 auto; }
+  .begin .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(32px, 4vw, 64px);
+    margin-block: 32px;
+  }
+  .begin .step { padding: 0; border: 0; }
+  .begin .step .num { line-height: 1.1; }
+  .begin .step h4 { margin-block: 8px 12px; line-height: 1.2; }
+
+  .testimonial-block { padding-block: 74px; }
+
+  /* Keep the whole original collage visible as the biography contracts.
+     Its width cap also keeps the drawings close to the shorter text on wide
+     screens; the photo stays registered to that same canvas. */
+  section.block.about {
+    --about-canvas-width: min(var(--page-width), calc(100vw - 2 * var(--page-gutter)), 1280px);
+    padding-block: 100px 0;
+    background-image: none;
+  }
+  .about-grid {
+    min-height: calc(var(--about-canvas-width) * 941 / 1672);
+    background: url("art/desktopaboutme-matched.png") right top / var(--about-canvas-width) auto no-repeat;
+  }
+  .about .photo {
+    top: 130px;
+    right: calc(var(--about-canvas-width) * .16);
+    width: calc(var(--about-canvas-width) * .23);
+  }
+  .about .about-closing { margin-top: 32px; }
+
+  section.block.faq { padding-block: 100px; }
+  .faq .wrap { max-width: none; }
+  .faq-a p { max-width: var(--measure); }
+
+  footer.site { padding-block: 80px 40px; }
+  .foot-grid { grid-template-columns: minmax(0, 1fr) auto; gap: 64px; align-items: center; }
+  footer .tag2 { max-width: 34ch; margin-bottom: 0; }
+  .footer-actions { justify-self: end; text-align: center; }
+  .footer-actions .footer-links { justify-content: center; margin-top: 16px; }
+  .foot-bottom { margin-top: 64px; padding-top: 24px; }
+}
+
+@media (min-width: 1200px) {
+  .things { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  /* Shared text tracks align the descriptions even when a title wraps. */
+  .thing { display: grid; grid-template-rows: subgrid; grid-row: span 3; row-gap: 0; }
+  .thing .txt { display: contents; }
+  .thing h3 { margin: 0; padding: 24px 24px 10px; }
+  .thing p { padding: 0 24px 24px; }
+}
