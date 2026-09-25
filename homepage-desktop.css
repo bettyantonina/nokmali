@@ -1,4 +1,4 @@
-/* English landing-page refinement. Loaded after the shared homepage styles.
+/* English and German landing-page refinements, loaded after homepage.css.
    The copy bridge and booking colour apply at every size; desktop composition
    starts above tablet widths so the existing mobile treatments stay in place. */
 .hero .btn:not(.secondary) { background: var(--blue); }
@@ -134,6 +134,13 @@
   .begin .step { padding: 0; border: 0; }
   .begin .step .num { line-height: 1.1; }
   .begin .step h4 { margin-block: 8px 12px; line-height: 1.2; }
+  /* Keep paragraph starts aligned when the longer German step titles wrap. */
+  html[lang="de"] .begin .step {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    row-gap: 0;
+  }
 
   .testimonial-block { padding-block: 74px; }
 

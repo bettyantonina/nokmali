@@ -82,6 +82,7 @@
     margin: 20px 0 0;
     padding-inline: 4px;
   }
+  html[lang="de"] .art-coaching-heading .art-coaching-intro:first-of-type { max-width: 40ch; }
   .art-coaching-quote {
     grid-column: 1;
     grid-row: 4;
