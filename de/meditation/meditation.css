@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Fluxisch Else";
-  src: url("/fonts/FluxischElse-Light.otf") format("opentype");
+  src: url("../../fonts/FluxischElse-Light.otf") format("opentype");
   font-weight: 300;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Fluxisch Else";
-  src: url("/fonts/FluxischElse-Regular.otf") format("opentype");
+  src: url("../../fonts/FluxischElse-Regular.otf") format("opentype");
   font-weight: 400;
   font-display: swap;
 }
@@ -43,7 +43,7 @@ button:focus-visible, a:focus-visible, audio:focus-visible { outline: 3px solid 
 .brand:hover { color: var(--teal); }
 .nav-label { font-size: 13px; color: var(--soft); }
 
-.hero { padding: 58px 0 48px; background: linear-gradient(90deg, var(--paper) 20%, rgba(244, 239, 230, .82) 65%, rgba(244, 239, 230, .4)), url("/art/Approach.jpg") right top / auto 460px no-repeat; border-bottom: 1px solid var(--line); }
+.hero { padding: 58px 0 48px; background: linear-gradient(90deg, var(--paper) 20%, rgba(244, 239, 230, .82) 65%, rgba(244, 239, 230, .4)), url("../../art/Approach.jpg") right top / auto 460px no-repeat; border-bottom: 1px solid var(--line); }
 .eyebrow { margin: 0 0 14px; color: var(--teal); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .15em; }
 h1 { margin: 0; font-family: var(--display); font-size: clamp(42px, 7vw, 72px); font-weight: 300; line-height: 1.1; letter-spacing: -.035em; }
 .hero-copy { max-width: 580px; margin: 20px 0 0; color: var(--soft); font-size: 17px; }
@@ -66,10 +66,10 @@ html:not(.meditation-ready) .meditation:target, .meditation.is-linked { backgrou
 .track-button:focus-visible { outline-offset: -5px; border-radius: 12px; }
 .track-number { position: relative; isolation: isolate; display: grid; place-items: center; width: 64px; height: 60px; color: var(--ink); font-family: var(--display); font-size: 23px; font-weight: 400; text-shadow: 0 0 5px var(--light), 0 0 10px var(--light); }
 .track-number::before { content: ""; position: absolute; inset: -6px; z-index: -1; background: var(--splash-art) center / contain no-repeat; opacity: var(--splash-opacity, .65); pointer-events: none; }
-.meditation:nth-child(4n + 1) { --splash-art: url("/yellow.png"); }
-.meditation:nth-child(4n + 2) { --splash-art: url("/green.png"); --splash-opacity: .5; }
-.meditation:nth-child(4n + 3) { --splash-art: url("/orange.png"); }
-.meditation:nth-child(4n) { --splash-art: url("/red.png"); --splash-opacity: .55; }
+.meditation:nth-child(4n + 1) { --splash-art: url("../../yellow.png"); }
+.meditation:nth-child(4n + 2) { --splash-art: url("../../green.png"); --splash-opacity: .5; }
+.meditation:nth-child(4n + 3) { --splash-art: url("../../orange.png"); }
+.meditation:nth-child(4n) { --splash-art: url("../../red.png"); --splash-opacity: .55; }
 .track-copy { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .track-title { font-family: var(--display); font-size: 24px; line-height: 1.25; overflow-wrap: anywhere; }
 .track-status { color: var(--soft); font-size: 12px; }
