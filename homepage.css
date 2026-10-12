@@ -830,6 +830,19 @@ section.block.training {
 .training-list li + li { margin-top: 8px; }
 .training-list li::marker { color: var(--sage-deep); }
 
+.training-influences {
+  margin-top: 1.75rem;
+  max-width: 64ch;
+}
+.training-influences h3 {
+  font-family: var(--f-body);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.training-influences p { margin-top: 12px; }
+.training-influences p + p { margin-top: 16px; }
+
 .training-credentials { margin: 0; text-align: center; }
 .training-badges {
   display: flex;

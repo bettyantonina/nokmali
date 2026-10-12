@@ -7,7 +7,7 @@
   .art-coaching-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto minmax(80px, 1fr) auto auto auto auto;
+    grid-template-rows: auto auto minmax(80px, 1fr) auto auto auto auto auto;
     gap: 0;
     isolation: isolate;
   }
@@ -114,14 +114,19 @@
   .art-coaching-quote blockquote { font-size: clamp(22px, 5.5vw, 25px); line-height: 1.4; }
   .art-coaching-quote figcaption { margin-top: 12px; }
 
-  .art-coaching-heading .art-coaching-intro:last-of-type {
+  .art-coaching-heading .art-coaching-intro:nth-of-type(2) {
     grid-column: 1;
     grid-row: 5;
     margin: 56px 0 0;
   }
-  .art-coaching-examples { grid-row: 6; margin-top: 28px; }
+  .art-coaching-heading .art-coaching-intro:last-of-type {
+    grid-column: 1;
+    grid-row: 6;
+    margin: 20px 0 0;
+  }
+  .art-coaching-examples { grid-row: 7; margin-top: 28px; }
   .art-coaching-examples li { padding-block: 18px; }
   .art-coaching-examples li::before { top: 21px; }
   .art-coaching-examples li:last-child { padding-bottom: 0; }
-  .art-coaching-closing { grid-row: 7; margin-top: 28px; }
+  .art-coaching-closing { grid-row: 8; margin-top: 28px; }
 }
