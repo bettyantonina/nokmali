@@ -770,6 +770,69 @@ section.block.topics {
 }
 }
 
+/* A quiet continuation of the biography, with modest supporting credentials. */
+section.block.training {
+  padding-block: clamp(56px, 6vw, 88px);
+  background: var(--paper);
+}
+
+.training-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, .4fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 96px);
+}
+
+.training-copy { max-width: 72ch; }
+.training h2.title { font-size: clamp(30px, 3vw, 40px); line-height: 1.2; }
+.training-copy p {
+  margin-top: 20px;
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.65;
+}
+.training-qualifications {
+  margin-top: 26px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.training-list {
+  margin-top: 12px;
+  padding-left: 20px;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.training-list li + li { margin-top: 8px; }
+.training-list li::marker { color: var(--sage-deep); }
+
+.training-credentials { margin: 0; text-align: center; }
+.training-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.training-badges img { max-width: 100%; height: auto; }
+.training-badge-main { width: 170px; }
+.training-badge-secondary { width: 135px; }
+.training-credentials figcaption {
+  margin-top: 20px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+@media (max-width: 880px) {
+  .training-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .training-badges { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+}
+
+@media (max-width: 380px) {
+  .training-badges { gap: 16px; }
+  .training-badge-main { width: 150px; }
+  .training-badge-secondary { width: 120px; }
+}
+
 .begin {
   background: var(--sage-field);
   color: var(--ink);
