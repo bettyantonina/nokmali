@@ -73,6 +73,7 @@ html:not(.meditation-ready) .meditation:target, .meditation.is-linked { backgrou
 .meditation:is(#meditation-04, #meditation-08, #meditation-12) { --splash-art: url("../../red.png"); --splash-opacity: .55; }
 .track-copy { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .track-title { font-family: var(--display); font-size: 24px; line-height: 1.25; overflow-wrap: anywhere; }
+.track-type { color: var(--teal); font-size: 12px; line-height: 1.45; }
 .track-status { color: var(--soft); font-size: 12px; }
 .play-icon { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #d6cebf; border-radius: 50%; color: #908679; }
 .play-icon::before { content: ""; width: 0; height: 0; margin-left: 3px; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 9px solid currentColor; }

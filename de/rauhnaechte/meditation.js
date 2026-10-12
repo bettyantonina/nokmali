@@ -41,7 +41,7 @@
     } catch (error) {
       if (request !== playRequest || error.name === "AbortError") return;
       message.textContent = error.name === "NotAllowedError"
-        ? "Tippe auf die Wiedergabetaste im Player, um die Meditation zu starten."
+        ? "Tippe auf die Wiedergabetaste im Player, um die Aufnahme zu starten."
         : "Die Aufnahme konnte gerade nicht geladen werden. Bitte versuche es noch einmal.";
     }
     if (request === playRequest) syncState();
@@ -91,15 +91,15 @@
 
   if (available.length === tracks.length) {
     document.querySelector(".availability-note").textContent = recordingNumber
-      ? "Tippe auf die Wiedergabetaste, um die Meditation anzuhören. Nimm dir die Zeit, die du brauchst."
-      : "Wähle eine Meditation und tippe auf den Titel, um sie anzuhören. Nimm dir die Zeit, die du brauchst.";
+      ? "Tippe auf die Wiedergabetaste, um die Aufnahme anzuhören. Nimm dir die Zeit, die du brauchst."
+      : "Wähle eine Übung und tippe auf den Titel, um sie anzuhören. Nimm dir die Zeit, die du brauchst.";
   }
 
   ["play", "pause", "ended"].forEach(event => audio.addEventListener(event, syncState));
   audio.addEventListener("playing", () => { message.textContent = ""; });
   audio.addEventListener("error", () => {
     if (!current) return;
-    message.textContent = "Die Aufnahme konnte gerade nicht geladen werden. Bitte prüfe deine Verbindung und tippe zum erneuten Laden auf die Meditation.";
+    message.textContent = "Die Aufnahme konnte gerade nicht geladen werden. Bitte prüfe deine Verbindung und tippe zum erneuten Laden auf die Übung.";
     syncState();
   });
 
