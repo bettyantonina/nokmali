@@ -1,0 +1,198 @@
+diff --git a/blog/index.html b/blog/index.html
+index 66bd4b7..b2657bc 100644
+--- a/blog/index.html
++++ b/blog/index.html
+@@ -38,7 +38,6 @@
+       <a class="brand" href="/"><img class="brand-logo" src="/art/nokmali-bowl-logo.png" alt=""><span>Nokmali</span></a>
+       <div class="navlinks">
+         <a class="optional" href="/#how-it-works">Approach</a>
+-        <a href="/tools/">Tools</a>
+         <a href="/blog/" aria-current="page">Reflections</a>
+       </div>
+     </div>
+@@ -66,8 +65,6 @@
+       <span class="word">Nokmali</span>
+       <p class="tag2">Online coaching for food, body signals, habits and daily rhythm.</p>
+       <div class="footer-links">
+-        <a href="/assessment">Rhythm Check</a>
+-        <a href="/tools/">Tools</a>
+         <a href="/blog/">Reflections</a>
+       </div>
+       <div class="foot-bottom">
+diff --git a/blog/why-cant-i-finish-what-i-start/index.html b/blog/why-cant-i-finish-what-i-start/index.html
+index d38940b..6f48ea5 100644
+--- a/blog/why-cant-i-finish-what-i-start/index.html
++++ b/blog/why-cant-i-finish-what-i-start/index.html
+@@ -903,11 +903,9 @@
+     <section class="closing" id="article-actions" aria-labelledby="closing-title">
+       <h2 id="closing-title">If this felt familiar.</h2>
+       <p>If you often start with good intentions but end the day feeling scattered, unfinished, or strangely behind, you may not need another productivity hack. You may need to understand what is happening in your attention, energy, and daily rhythm.</p>
+-      <p>You can start with the <strong>3-Min Rhythm Check</strong>, a short reflection to notice where your energy, focus, and priorities are right now.</p>
+       <p>You can also <strong>book a free discovery call</strong> if you would like to explore what is going on and whether coaching feels like the right support.</p>
+       <p>And if you prefer to begin alone, you can explore the free coaching tools for reflection, clarity, and small decisions.</p>
+       <div class="actions">
+-        <a class="btn" href="/assessment">Take the 3-Min Rhythm Check</a>
+         <a class="btn secondary" href="#article-actions" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call</a>
+         <a class="text-link" href="/tools/">Explore the free coaching tools</a>
+       </div>
+@@ -921,8 +919,6 @@
+       <span class="word">Nokmali</span>
+       <p class="tag2">Online coaching for food, body signals, habits and daily rhythm.</p>
+       <div class="footer-links">
+-        <a href="/assessment">Rhythm Check</a>
+-        <a href="/tools/">Tools</a>
+         <a href="/blog/">Reflections</a>
+       </div>
+       <div class="foot-bottom">
+diff --git a/color-experiment.html b/color-experiment.html
+index ce4b07f..94efbd6 100644
+--- a/color-experiment.html
++++ b/color-experiment.html
+@@ -2223,7 +2223,6 @@
+         <span>Nokmali</span>
+       </a>
+       <div class="mobile-navlinks" aria-label="Mobile navigation">
+-        <a class="lk tools-link" href="/tools/">Tools</a>
+         <span class="language-switch" aria-label="Language">
+           <a href="/" lang="en" aria-current="page">EN</a>
+           <span aria-hidden="true">/</span>
+@@ -2234,8 +2233,6 @@
+         <a class="lk mobile-booking-link" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call</a>
+         <a class="lk nav-approach" href="#how-it-works">Approach</a>
+         <a class="lk nav-about" href="#about">About me</a>
+-        <a class="lk nav-rhythm" href="/assessment">Rhythm Check</a>
+-        <a class="lk tools-link" href="/tools/">Tools</a>
+         <span class="language-switch" aria-label="Language">
+           <a href="/" lang="en" aria-current="page">EN</a>
+           <span aria-hidden="true">/</span>
+@@ -2259,7 +2256,6 @@
+         <p class="sub">For when life feels full, your routines feel off, or you want to feel more at home in your body and daily life again.</p>
+         <div class="hero-actions">
+           <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
+-          <a class="btn secondary" href="/assessment">3-minute Rhythm Check <span class="arr" aria-hidden="true">&rarr;</span></a>
+         </div>
+         <p class="booking-note"><span class="booking-note-long">A 30-minute first call to explore what brings you here and whether coaching feels like the right next step.</span><span class="booking-note-mobile">Free 30-minute call to see whether coaching fits.</span></p>
+       </div>
+@@ -2478,9 +2474,6 @@
+           <span class="word">Nokmali</span>
+           <p class="tag2">Online coaching for food, body signals, habits and daily rhythm.</p>
+           <a class="btn gold" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
+-          <div class="footer-links">
+-            <a href="/assessment">Rhythm Check</a>
+-          </div>
+         </div>
+       </div>
+       <div class="foot-bottom">
+diff --git a/de/blog/warum-kann-ich-nicht-zu-ende-bringen-was-ich-anfange/index.html b/de/blog/warum-kann-ich-nicht-zu-ende-bringen-was-ich-anfange/index.html
+index 8cdc0ec..a8210d3 100644
+--- a/de/blog/warum-kann-ich-nicht-zu-ende-bringen-was-ich-anfange/index.html
++++ b/de/blog/warum-kann-ich-nicht-zu-ende-bringen-was-ich-anfange/index.html
+@@ -912,11 +912,9 @@
+     <section class="closing" id="article-actions" aria-labelledby="closing-title">
+       <h2 id="closing-title">Wenn dir das bekannt vorkam.</h2>
+       <p>Wenn du oft mit guten Absichten beginnst, den Tag aber zerstreut, unfertig oder merkwürdig im Rückstand beendest, brauchst du vielleicht keinen weiteren Produktivitäts-Hack. Vielleicht musst du besser verstehen, was gerade mit deiner Aufmerksamkeit, deiner Energie und deinem täglichen Rhythmus geschieht.</p>
+-      <p>Du kannst mit dem <strong>3-Minuten-Rhythmus-Check</strong> beginnen, einer kurzen Reflexion darüber, wo deine Energie, dein Fokus und deine Prioritäten gerade stehen.</p>
+       <p>Du kannst auch ein <strong>kostenloses Kennenlerngespräch buchen</strong>, wenn du gemeinsam herausfinden möchtest, was gerade los ist und ob Coaching die passende Unterstützung für dich sein könnte.</p>
+       <p>Und wenn du lieber allein beginnst, kannst du die kostenlosen Coaching-Tools für Reflexion, Klarheit und kleine Entscheidungen nutzen.</p>
+       <div class="actions">
+-        <a class="btn" href="/de/assessment">3-Minuten-Rhythmus-Check machen</a>
+         <a class="btn secondary" href="#article-actions" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Kennenlerngespräch buchen</a>
+         <a class="text-link" href="/de/tools/">Kostenlose Coaching-Tools entdecken</a>
+       </div>
+@@ -930,8 +928,6 @@
+       <span class="word">Nokmali</span>
+       <p class="tag2">Online-Coaching für Ernährung, Körpersignale, Gewohnheiten und Tagesrhythmus.</p>
+       <div class="footer-links">
+-        <a href="/de/assessment">Rhythm Check</a>
+-        <a href="/de/tools/">Tools</a>
+         <a href="/de/">Startseite</a>
+       </div>
+       <div class="foot-bottom">
+diff --git a/de/index.html b/de/index.html
+index 35665e8..9e00308 100644
+--- a/de/index.html
++++ b/de/index.html
+@@ -182,12 +182,10 @@
+             <span aria-hidden="true"></span>
+           </button>
+           <div class="mobile-menu-panel" id="mobile-menu-panel">
+-            <a href="/de/assessment">3-Min.-Check</a>
+             <a href="#themen">Themen</a>
+             <a href="#testimonials">Erfahrungen</a>
+             <a href="#about">Über mich</a>
+             <a href="#begin">Wie wir beginnen</a>
+-            <a href="/de/tools/">Übungen</a>
+             <span class="language-switch" aria-label="Sprache">
+               <a href="../" lang="en">EN</a>
+               <span aria-hidden="true">/</span>
+@@ -199,8 +197,6 @@
+       <div class="navlinks">
+         <a class="lk mobile-booking-link" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen</a>
+         <a class="lk nav-about" href="#about">Über mich</a>
+-        <a class="lk nav-rhythm" href="/de/assessment">Rhythmus-Check</a>
+-        <a class="lk tools-link" href="/de/tools/">Übungen</a>
+         <span class="language-switch" aria-label="Sprache">
+           <a href="../" lang="en">EN</a>
+           <span aria-hidden="true">/</span>
+@@ -221,7 +217,6 @@
+         <p class="sub">Ich biete ganzheitliches Online-Coaching für Frauen an. Mein Ansatz verbindet Reflexion, Körperwahrnehmung und Kunst. Das könnte für dich sein, wenn dein Leben mehr von dem haben soll, was für dich von Bedeutung ist, und du Gewohnheiten und einen Rhythmus entwickeln möchtest, die deinem Körper und Geist guttun.</p>
+         <div class="hero-actions">
+           <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen <span class="arr" aria-hidden="true">&rarr;</span></a>
+-          <a class="btn secondary" href="/de/assessment">Rhythmus-Check in 3 Minuten <span class="arr" aria-hidden="true">&rarr;</span></a>
+         </div>
+         <p class="booking-note"><span class="booking-note-long">30 Minuten zum Kennenlernen: Du erzählst, was dich beschäftigt, und wir schauen, ob eine Zusammenarbeit für dich hilfreich sein könnte.</span><span class="booking-note-mobile">30 Minuten zum Kennenlernen: Du erzählst, was dich beschäftigt, und wir schauen, ob eine Zusammenarbeit für dich hilfreich sein könnte.</span></p>
+       </div>
+@@ -457,9 +452,6 @@
+         </div>
+         <div class="footer-actions">
+           <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Kostenloses Erstgespräch buchen <span class="arr" aria-hidden="true">&rarr;</span></a>
+-          <div class="footer-links">
+-            <a href="/de/assessment">Rhythmus-Check</a>
+-          </div>
+         </div>
+       </div>
+       <div class="foot-bottom">
+diff --git a/index.html b/index.html
+index 8e4c381..1732dd1 100644
+--- a/index.html
++++ b/index.html
+@@ -190,12 +190,10 @@
+             <span aria-hidden="true"></span>
+           </button>
+           <div class="mobile-menu-panel" id="mobile-menu-panel">
+-            <a href="/assessment">3-Min Check</a>
+             <a href="#topics">Topics</a>
+             <a href="#testimonials">Testimonials</a>
+             <a href="#about">About</a>
+             <a href="#begin">How We Begin</a>
+-            <a href="/tools/">Tools</a>
+             <span class="language-switch" aria-label="Language">
+               <a href="/" lang="en" aria-current="page">EN</a>
+               <span aria-hidden="true">/</span>
+@@ -207,8 +205,6 @@
+       <div class="navlinks">
+         <a class="lk mobile-booking-link" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call</a>
+         <a class="lk nav-about" href="#about">About me</a>
+-        <a class="lk nav-rhythm" href="/assessment">Rhythm Check</a>
+-        <a class="lk tools-link" href="/tools/">Tools</a>
+         <span class="language-switch" aria-label="Language">
+           <a href="/" lang="en" aria-current="page">EN</a>
+           <span aria-hidden="true">/</span>
+@@ -229,7 +225,6 @@
+         <p class="sub">I offer online holistic coaching for women through reflection, body awareness and art. This may be for you, if you want to feel you are living a life that matters to you personally and create habits and a rhythm that support your body and mind.</p>
+         <div class="hero-actions">
+           <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
+-          <a class="btn secondary" href="/assessment">3-minute Rhythm Check <span class="arr" aria-hidden="true">&rarr;</span></a>
+         </div>
+         <p class="booking-note"><span class="booking-note-long">A 30-minute first call to talk about what brings you here and whether working together could be helpful.</span><span class="booking-note-mobile">A 30-minute first call to talk about what brings you here and whether working together could be helpful.</span></p>
+       </div>
+@@ -466,9 +461,6 @@
+         </div>
+         <div class="footer-actions">
+           <a class="btn" href="#begin" data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book a free discovery call <span class="arr" aria-hidden="true">&rarr;</span></a>
+-          <div class="footer-links">
+-            <a href="/assessment">Rhythm Check</a>
+-          </div>
+         </div>
+       </div>
+       <div class="foot-bottom">
