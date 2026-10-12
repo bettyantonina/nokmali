@@ -2,7 +2,7 @@
 
 Page: `https://nokmali.com/de/rauhnaechte/`
 
-The twelve entries live in `de/rauhnaechte/index.html`. This collection is the single source for their titles and audio URLs. The first is **Ground and Spark**; the other titles are intentionally undecided. An empty `data-audio-src` keeps an entry unavailable without requesting a missing audio file.
+The twelve entries live in `de/rauhnaechte/index.html`. This collection is the single source for their titles and audio URLs. The first is **Ankomment und den Funken entdecken**; the other titles are intentionally undecided. An empty `data-audio-src` keeps an entry unavailable without requesting a missing audio file.
 
 To add a recording:
 
