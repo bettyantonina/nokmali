@@ -395,6 +395,30 @@ section.block.topics {
   padding-bottom: 64px;
 }
 
+.topics-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(32px, 3vw, 44px);
+}
+
+.topics-start {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  min-height: 44px;
+  padding-block: 8px;
+  justify-content: center;
+  color: var(--sage-deep);
+  font-size: 17px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.4;
+  text-decoration: none;
+}
+.topics-start:hover { color: var(--blue-dark); }
+.topics-start:focus-visible { outline: 2px solid var(--blue); outline-offset: 5px; }
+
 .things {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2950,6 +2974,25 @@ nav.scrolled {
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
+
+/* Give the navigation more definition while the painting stays visible. */
+nav .navlinks .lk,
+nav .navlinks .language-switch {
+  color: var(--ink);
+  font-size: 15.5px;
+  font-weight: 600;
+}
+nav .navlinks .language-switch [aria-current="page"] { font-weight: 700; }
+nav .navlinks .nav-rhythm { border-color: rgba(55,50,61,.3); }
+nav .navlinks a.lk:hover,
+nav .navlinks .language-switch a:hover { color: var(--blue-dark); }
+nav .mobile-navlinks > .mobile-booking-link { font-size: 14px; }
+nav:not(.scrolled) .navlinks .lk,
+nav:not(.scrolled) .navlinks .language-switch,
+nav:not(.scrolled) .mobile-navlinks > .mobile-booking-link:not(:hover) {
+  text-shadow: 0 0 2px rgba(244,239,230,.95), 0 1px 6px rgba(244,239,230,.85);
+}
+
 .hero {
   margin-top: 0;
   padding-top: 84px;
