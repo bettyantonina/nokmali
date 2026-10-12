@@ -60,11 +60,16 @@ h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 27px; 
 .meditation:last-child { border-radius: 0 0 15px 15px; }
 html:not(.meditation-ready) .meditation:target, .meditation.is-linked { background: #e7ede5; box-shadow: inset 3px 0 var(--teal); }
 .meditation.is-active { background: #e7ede5; }
-.track-button { display: grid; grid-template-columns: 40px minmax(0, 1fr) 44px; align-items: center; gap: 20px; width: 100%; min-height: 98px; padding: 18px 24px; border: 0; border-radius: inherit; background: transparent; color: var(--ink); text-align: left; cursor: pointer; }
+.track-button { display: grid; grid-template-columns: 64px minmax(0, 1fr) 44px; align-items: center; gap: 20px; width: 100%; min-height: 98px; padding: 18px 24px; border: 0; border-radius: inherit; background: transparent; color: var(--ink); text-align: left; cursor: pointer; }
 .track-button:disabled { opacity: 1; cursor: default; -webkit-text-fill-color: currentColor; }
 .track-button:not(:disabled):hover { background: rgba(71, 111, 102, .06); }
 .track-button:focus-visible { outline-offset: -5px; border-radius: 12px; }
-.track-number { color: var(--teal); font-family: var(--display); font-size: 23px; font-weight: 300; }
+.track-number { position: relative; isolation: isolate; display: grid; place-items: center; width: 64px; height: 60px; color: var(--ink); font-family: var(--display); font-size: 23px; font-weight: 400; text-shadow: 0 0 5px var(--light), 0 0 10px var(--light); }
+.track-number::before { content: ""; position: absolute; inset: -6px; z-index: -1; background: var(--splash-art) center / contain no-repeat; opacity: var(--splash-opacity, .65); pointer-events: none; }
+.meditation:nth-child(4n + 1) { --splash-art: url("/yellow.png"); }
+.meditation:nth-child(4n + 2) { --splash-art: url("/green.png"); --splash-opacity: .5; }
+.meditation:nth-child(4n + 3) { --splash-art: url("/orange.png"); }
+.meditation:nth-child(4n) { --splash-art: url("/red.png"); --splash-opacity: .55; }
 .track-copy { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .track-title { font-family: var(--display); font-size: 24px; line-height: 1.25; overflow-wrap: anywhere; }
 .track-status { color: var(--soft); font-size: 12px; }
@@ -102,8 +107,8 @@ audio { display: block; width: 100%; min-width: 0; height: 54px; }
   .library { padding-top: 26px; }
   h2 { font-size: 24px; }
   .availability-note { font-size: 13px; margin-bottom: 20px; }
-  .track-button { grid-template-columns: 26px minmax(0, 1fr) 44px; gap: 12px; min-height: 92px; padding: 17px 16px; }
-  .track-number { font-size: 20px; }
+  .track-button { grid-template-columns: 46px minmax(0, 1fr) 44px; gap: 10px; min-height: 92px; padding: 17px 14px; }
+  .track-number { width: 46px; height: 52px; font-size: 20px; }
   .track-title { font-size: 22px; }
   .track-status { font-size: 11px; }
   .reflection-note { margin-block: 32px; }
