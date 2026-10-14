@@ -10,8 +10,11 @@
 .back-mark { display: block; font-size: 70px; font-weight: 300; line-height: 1; }
 .back-word { display: block; font-family: var(--display); font-size: 18px; margin-top: 25px; letter-spacing: .08em; }
 .deck-caption { margin-top: 32px; font-family: var(--display); font-size: 19px; color: var(--teal); }
-.choices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 590px; margin: 0 auto; }
-.choice { position: relative; width: 100%; aspect-ratio: 2 / 3; cursor: pointer; box-shadow: 0 8px 16px #3a364014; padding: 0; }
+.choices { position: relative; height: 420px; max-width: 680px; margin: 0 auto; border-radius: 35%; background: radial-gradient(ellipse, #e4ddce85, transparent 72%); }
+.choice { position: absolute; top: 0; left: 0; width: 112px; height: 166px; cursor: pointer; box-shadow: 0 8px 16px #3a364014; padding: 0; }
+.choice:disabled { cursor: default; opacity: 1; }
+.choice:not(:disabled):hover, .choice:focus-visible { z-index: 2; box-shadow: 0 12px 26px #3a364040; }
+.shuffle-stop { margin-top: 24px; min-height: 48px; background: var(--teal); color: var(--light); }
 .choice .back-mark { font-size: 44px; }
 .choice .back-word { font-size: 13px; margin-top: 16px; }
 .result { display: flex; flex-direction: column; align-items: center; gap: 28px; }
@@ -32,15 +35,16 @@
 .sample-note { font-size: 11px; color: var(--soft); margin: 36px auto 0; max-width: 350px; }
 @media (prefers-reduced-motion: no-preference) {
   .card-turn { transition: transform 700ms ease; }
-  .deck, .choice { transition: transform 200ms ease; }
-  .deck:hover, .choice:hover { transform: translateY(-6px); }
+  .deck { transition: transform 200ms ease; }
+  .deck:hover { transform: translateY(-6px); }
   .choices { animation: arrive 350ms ease both; }
   @keyframes arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 }
 @media (max-width: 600px) {
   .oracle-heading { padding-top: 34px; }
   .oracle-heading h1 { font-size: clamp(36px, 9vw, 50px); }
-  .choices { gap: 12px; grid-template-columns: repeat(3, 1fr); max-width: 390px; }
+  .choices { height: 430px; max-width: 390px; }
+  .choice { width: 74px; height: 110px; }
   .choice .back-mark { font-size: 32px; }
   .choice .back-word { font-size: 11px; }
   .choice::before { inset: 8px; }
