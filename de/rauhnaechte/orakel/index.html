@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intention für den Tag · Rauhnächte | Nokmali</title>
+  <meta name="description" content="Nimm dir einen Moment, ziehe eine Orakelkarte und entdecke deine Intention für den Tag.">
+  <meta name="theme-color" content="#f4efe6">
+  <link rel="canonical" href="https://nokmali.com/de/rauhnaechte/orakel/">
+  <link rel="icon" href="../../../favicon.ico">
+  <link rel="stylesheet" href="../meditation.css?v=rauhnaechte-exercises-5">
+  <link rel="stylesheet" href="../../../brand-logo.css?v=meditation-brand-3">
+  <link rel="stylesheet" href="./orakel.css?v=1">
+  <script src="./cards.js?v=1" defer></script>
+  <script src="./orakel.js?v=1" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#orakel">Zum Kartendeck</a>
+  <nav class="toolbar" aria-label="Hauptnavigation"><div class="nav-inner wrap">
+    <a class="brand" href="../../index.html" aria-label="Nokmali Startseite"><img src="../../../art/nokmali-bowl-logo.png?v=meditation-brand-3" width="48" height="48" alt=""><span>Nokmali</span></a>
+    <a class="collection-link nav-back" href="../index.html">Deine Rauhnächte</a>
+  </div></nav>
+  <main>
+    <header class="oracle-heading wrap">
+      <p class="eyebrow">Deine Rauhnächte · Orakel</p>
+      <h1>Intention für den Tag</h1>
+      <p class="hero-copy">Ein kleiner Impuls, der dich heute begleiten darf.<br>Atme durch. Komm bei dir an. Folge deinem Gefühl.</p>
+    </header>
+    <section class="oracle wrap" id="orakel" aria-label="Eine Orakelkarte ziehen">
+      <p class="step" id="instruction" role="status">Berühre das Kartendeck, um es zu öffnen.</p>
+      <div id="closed-deck" class="deck-stage">
+        <button id="open-deck" class="deck card-back" type="button" aria-label="Kartendeck öffnen" aria-expanded="false" aria-controls="card-choices"><span class="back-mark" aria-hidden="true">✧</span><span class="back-word" aria-hidden="true">Nokmali</span></button>
+        <span class="deck-caption">Ein Moment für dich</span>
+      </div>
+      <div id="card-choices" class="choices" role="group" aria-label="Wähle eine verdeckte Karte" hidden></div>
+      <div id="result" class="result" hidden>
+        <div class="reveal-card" id="reveal-card" aria-hidden="true"><div class="card-turn">
+          <div class="card-face card-back"><span class="back-mark">✧</span><span class="back-word">Nokmali</span></div>
+          <div class="card-face card-front"><img id="card-art" alt="" hidden><div class="front-placeholder" id="front-placeholder"><span class="front-symbol">✧</span><span id="front-title"></span></div></div>
+        </div></div>
+        <article class="meaning" id="meaning" tabindex="-1" aria-labelledby="card-title" hidden>
+          <p class="eyebrow">Deine Intention</p><h2 id="card-title"></h2>
+          <p id="card-meaning"></p><p class="intention" id="card-intention"></p>
+          <button class="reset" id="reset" type="button">Noch eine Karte ziehen <span aria-hidden="true">↻</span></button>
+        </article>
+      </div>
+      <p class="sample-note">Die Karten und Texte sind vorläufig. Das Orakel bekommt bald seine eigenen Motive.</p>
+      <noscript><p>Bitte aktiviere JavaScript, um das Kartendeck zu öffnen und eine Karte zu ziehen.</p></noscript>
+    </section>
+  </main>
+  <footer class="footer wrap"><a href="../index.html">Zurück zu deinen Rauhnächten <span aria-hidden="true">↗</span></a><span>Raum für deinen eigenen Rhythmus.</span></footer>
+</body>
+</html>

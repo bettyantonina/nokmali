@@ -1,0 +1,48 @@
+.nav-back { margin: 0; font-size: 12px; }
+.oracle-heading { text-align: center; padding-top: 54px; }
+.oracle-heading .hero-copy { margin-inline: auto; }
+.oracle { text-align: center; padding: 24px 0 36px; min-height: 460px; }
+.step { font-size: 14px; color: var(--soft); margin: 0 0 30px; }
+.deck-stage { display: flex; align-items: center; flex-direction: column; padding: 12px 0; }
+.card-back { background: var(--back-image, radial-gradient(ellipse at 25% 15%, #739087, transparent 65%), linear-gradient(155deg, #476f66, #304d48)); background-size: cover; background-position: center; color: #eee3ca; border: 1px solid #a6ad94; border-radius: 13px; }
+.deck { position: relative; width: 178px; height: 260px; cursor: pointer; box-shadow: 5px 5px 0 -1px #dcd6c7, 6px 6px 0 0 #9caa9b, 10px 10px 0 -1px #dcd6c7, 11px 11px 0 0 #9caa9b, 0 20px 30px #3a36401c; }
+.card-back::before { content: ""; position: absolute; inset: 12px; border: 1px solid #e9ddbc70; border-radius: 7px; pointer-events: none; }
+.back-mark { display: block; font-size: 70px; font-weight: 300; line-height: 1; }
+.back-word { display: block; font-family: var(--display); font-size: 18px; margin-top: 25px; letter-spacing: .08em; }
+.deck-caption { margin-top: 32px; font-family: var(--display); font-size: 19px; color: var(--teal); }
+.choices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 590px; margin: 0 auto; }
+.choice { position: relative; width: 100%; aspect-ratio: 2 / 3; cursor: pointer; box-shadow: 0 8px 16px #3a364014; padding: 0; }
+.choice .back-mark { font-size: 44px; }
+.choice .back-word { font-size: 13px; margin-top: 16px; }
+.result { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+.reveal-card { width: 210px; height: 310px; perspective: 1000px; }
+.card-turn { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transform: rotateY(0); }
+.reveal-card.is-revealed .card-turn { transform: rotateY(180deg); }
+.card-face { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 12px 24px #3a364018; overflow: hidden; }
+.card-front { transform: rotateY(180deg); background: var(--light); border: 1px solid var(--line); border-radius: 13px; }
+.card-front img { width: 100%; height: 100%; object-fit: contain; }
+.front-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 25px; position: absolute; inset: 12px; border: 1px solid var(--line); border-radius: 7px; background: radial-gradient(ellipse at center, #dedcb6a6, transparent 70%); font-family: var(--display); font-size: 28px; color: var(--teal); }
+.front-symbol { font-size: 74px; }
+.meaning { max-width: 510px; outline: none; }
+.meaning h2 { font-size: 34px; }
+.meaning > p:not(.eyebrow) { color: var(--soft); font-size: 15px; }
+.meaning .intention { color: var(--teal) !important; font-family: var(--display); font-size: 23px !important; margin: 24px 0; }
+.reset { background: transparent; color: var(--teal); border: 1px solid var(--teal); border-radius: 30px; padding: 11px 20px; cursor: pointer; }
+.reset span { margin-left: 8px; }
+.sample-note { font-size: 11px; color: var(--soft); margin: 36px auto 0; max-width: 350px; }
+@media (prefers-reduced-motion: no-preference) {
+  .card-turn { transition: transform 700ms ease; }
+  .deck, .choice { transition: transform 200ms ease; }
+  .deck:hover, .choice:hover { transform: translateY(-6px); }
+  .choices { animation: arrive 350ms ease both; }
+  @keyframes arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+}
+@media (max-width: 600px) {
+  .oracle-heading { padding-top: 34px; }
+  .oracle-heading h1 { font-size: clamp(36px, 9vw, 50px); }
+  .choices { gap: 12px; grid-template-columns: repeat(3, 1fr); max-width: 390px; }
+  .choice .back-mark { font-size: 32px; }
+  .choice .back-word { font-size: 11px; }
+  .choice::before { inset: 8px; }
+  .step { min-height: 44px; margin-bottom: 18px; }
+}
