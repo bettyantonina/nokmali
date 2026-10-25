@@ -216,3 +216,35 @@
   .thing h3 { margin: 0; padding: 24px 24px 10px; }
   .thing p { padding: 0 24px 24px; }
 }
+
+/* English and German art sections: retain tablet and finished phone compositions. */
+.art-description-refined { display: none; }
+@media (min-width: 1025px) {
+  html:is([lang="en"], [lang="de"]) #art-integrated-coaching { padding-block: 40px 56px; }
+  html:is([lang="en"], [lang="de"]) #art-integrated-coaching .art-desktop-omitted,
+  html:is([lang="en"], [lang="de"]) #art-integrated-coaching .art-description-original,
+  html:is([lang="en"], [lang="de"]) #art-integrated-coaching .art-coaching-closing { display: none; }
+  html:is([lang="en"], [lang="de"]) #art-integrated-coaching .art-description-refined { display: inline; }
+  html:is([lang="en"], [lang="de"]) #art-integrated-coaching .art-insight-desktop-statement { color: var(--sage-deep); }
+  html:is([lang="en"], [lang="de"]) #art-integrated-coaching .art-coaching-layout { row-gap: 24px; }
+  html:is([lang="en"], [lang="de"]) #art-integrated-coaching .art-coaching-examples li { padding-block: 18px; }
+  html:is([lang="en"], [lang="de"]) #art-integrated-coaching .art-coaching-examples li::before { top: 21px; }
+  html:is([lang="en"], [lang="de"]) #art-integrated-coaching .art-coaching-examples li:last-child { padding-bottom: 0; }
+  html:is([lang="en"], [lang="de"]) #art-integrated-coaching .art-coaching-quote {
+    grid-column: 2;
+    grid-row: 3;
+    position: static;
+    display: block;
+    height: auto;
+    margin: 0;
+    padding: 0 0 0 16px;
+    border-left: 1px solid var(--sage-deep);
+    background: none;
+  }
+  html:is([lang="en"], [lang="de"]) #art-integrated-coaching .art-coaching-quote::before { display: none; }
+  html:is([lang="en"], [lang="de"]) #art-integrated-coaching .art-coaching-quote blockquote {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  html:is([lang="en"], [lang="de"]) #art-integrated-coaching .art-coaching-quote figcaption { margin-top: 10px; }
+}
