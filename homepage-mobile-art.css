@@ -95,7 +95,8 @@
   }
   html[lang="en"] .hero-actions { width: 100%; }
   html[lang="en"] .hero .btn {
-    width: 100%;
+    width: min(100%, 300px);
+    margin-inline: auto;
     min-height: 56px;
     padding: 14px 16px;
     background: var(--blue);
@@ -467,4 +468,23 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .training-more-chevron { transition: none; }
+}
+
+/* Shorter steps on English phones; preserve desktop copy and booking styles. */
+.begin-description-mobile { display: none; }
+@media (max-width: 767px) {
+  html[lang="en"] #begin .begin-description-desktop { display: none; }
+  html[lang="en"] #begin .begin-description-mobile { display: inline; }
+  html[lang="en"] #begin .steps { gap: 19.2px; }
+  html[lang="en"] #begin .step {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: baseline;
+    column-gap: 12px;
+    row-gap: 8px;
+    padding-top: 19.2px;
+  }
+  html[lang="en"] #begin .step:first-child { padding-top: 0; }
+  html[lang="en"] #begin .step h4 { margin: 0; }
+  html[lang="en"] #begin .step p { grid-column: 1 / -1; }
 }
