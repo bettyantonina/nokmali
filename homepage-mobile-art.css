@@ -1,3 +1,18 @@
+.hero-intro-mobile { display: none; }
+
+@media (max-width: 767px) {
+  html[lang="en"] .hero-intro-desktop { display: none; }
+  html[lang="en"] .hero-intro-mobile { display: block; }
+  .hero-intro-mobile p.sub { margin-bottom: 18px; }
+  .hero-quick-points {
+    margin: 0 0 28px;
+    padding-left: 1.15em;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .hero-quick-points li + li { margin-top: 8px; }
+}
+
 /* A single painting-led opening on phones. The existing text nodes are laid
    over one artwork; tablet and desktop retain their original composition. */
 @media (max-width: 767px) {
