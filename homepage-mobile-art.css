@@ -2,6 +2,7 @@
 .topics-title-mobile { display: none; }
 .topic-copy-mobile { display: none; }
 .hero-mobile-call-note { display: none; }
+.topics-start-mobile { display: none; }
 .art-insight-mobile-additional,
 .art-insight-mobile-signature,
 .art-insight-mobile-description,
@@ -11,18 +12,20 @@
 /* Crop the original canvas beyond the right edge, with cream protecting the
    reading area and a bottom fade joining the following section. */
 @media (max-width: 767px) {
-  html[lang="en"] nav,
-  html[lang="en"] nav.scrolled {
+  html:is([lang="en"], [lang="de"]) .topics-start-desktop { display: none; }
+  html:is([lang="en"], [lang="de"]) .topics-start-mobile { display: inline; }
+  html:is([lang="en"], [lang="de"]) nav,
+  html:is([lang="en"], [lang="de"]) nav.scrolled {
     border-bottom: 0;
     box-shadow: none;
   }
-  html[lang="en"] .hero {
+  html:is([lang="en"], [lang="de"]) .hero {
     min-height: 0;
     background: var(--paper);
     padding-top: 84px;
     isolation: isolate;
   }
-  html[lang="en"] .hero-art {
+  html:is([lang="en"], [lang="de"]) .hero-art {
     inset: 0;
     height: auto;
     transform: none;
@@ -32,42 +35,42 @@
     -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
     mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
   }
-  html[lang="en"] .hero-art::before {
+  html:is([lang="en"], [lang="de"]) .hero-art::before {
     left: 80%;
     background-position: 58% 44%;
   }
-  html[lang="en"] .hero::after {
+  html:is([lang="en"], [lang="de"]) .hero::after {
     background:
       radial-gradient(ellipse 90% 38% at 85% 66%, rgba(244,239,230,.7), transparent 100%),
       linear-gradient(to bottom, transparent 72%, var(--paper)),
       linear-gradient(90deg, var(--paper) 32%, rgba(244,239,230,.99) 52%, rgba(244,239,230,.8) 65%, rgba(244,239,230,.08) 90%, transparent);
   }
-  html[lang="en"] .hero-copy {
+  html:is([lang="en"], [lang="de"]) .hero-copy {
     width: 100%;
     padding: 28px 24px 32px;
   }
-  html[lang="en"] .hero h1 {
+  html:is([lang="en"], [lang="de"]) .hero h1 {
     font-size: clamp(36px, 9.8vw, 52px);
     line-height: 1.06;
     text-align: left;
     text-wrap: initial;
   }
-  html[lang="en"] .hero-intro-mobile p.sub {
+  html:is([lang="en"], [lang="de"]) .hero-intro-mobile p.sub {
     margin: 22px 0 16px;
     font-size: 17px;
     line-height: 1.45;
   }
-  html[lang="en"] .hero-quick-points {
+  html:is([lang="en"], [lang="de"]) .hero-quick-points {
     margin-bottom: 26px;
     padding-left: 0;
     list-style: none;
   }
-  html[lang="en"] .hero-quick-points li:not(:last-child) {
+  html:is([lang="en"], [lang="de"]) .hero-quick-points li:not(:last-child) {
     position: relative;
     padding-left: 14px;
     font-weight: 500;
   }
-  html[lang="en"] .hero-quick-points li:not(:last-child)::before {
+  html:is([lang="en"], [lang="de"]) .hero-quick-points li:not(:last-child)::before {
     content: "";
     position: absolute;
     left: 0;
@@ -77,14 +80,14 @@
     border-radius: 50%;
     background: var(--sage-heading);
   }
-  html[lang="en"] .hero-quick-points li:last-child {
+  html:is([lang="en"], [lang="de"]) .hero-quick-points li:last-child {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-top: 22px;
     color: var(--sage-heading);
   }
-  html[lang="en"] .hero-quick-points li:last-child::before {
+  html:is([lang="en"], [lang="de"]) .hero-quick-points li:last-child::before {
     content: "";
     flex: 0 0 24px;
     width: 24px;
@@ -93,8 +96,8 @@
     background-color: var(--sage-light);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m7 12 3 3 7-7' fill='none' stroke='%23667A6A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   }
-  html[lang="en"] .hero-actions { width: 100%; }
-  html[lang="en"] .hero .btn {
+  html:is([lang="en"], [lang="de"]) .hero-actions { width: 100%; }
+  html:is([lang="en"], [lang="de"]) .hero .btn {
     width: min(100%, 300px);
     margin-inline: auto;
     min-height: 56px;
@@ -102,8 +105,8 @@
     background: var(--blue);
     box-shadow: none;
   }
-  html[lang="en"] .hero .btn:hover { background: var(--blue-dark); }
-  html[lang="en"] .hero-mobile-call-note {
+  html:is([lang="en"], [lang="de"]) .hero .btn:hover { background: var(--blue-dark); }
+  html:is([lang="en"], [lang="de"]) .hero-mobile-call-note {
     display: block;
     margin: 8px 0 0;
     font-size: 13px;
@@ -111,23 +114,23 @@
     text-align: center;
     color: var(--text);
   }
-  html[lang="en"] section.block.topics { padding-top: 16px; }
+  html:is([lang="en"], [lang="de"]) section.block.topics { padding-top: 16px; }
 }
 
 @media (max-width: 767px) {
-  html[lang="en"] #topics .things-head { margin-bottom: 24px; }
-  html[lang="en"] #topics .things {
+  html:is([lang="en"], [lang="de"]) :is(#topics, #themen) .things-head { margin-bottom: 24px; }
+  html:is([lang="en"], [lang="de"]) :is(#topics, #themen) .things {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: 1fr;
     gap: 12px;
     align-items: stretch;
   }
-  html[lang="en"] #topics .thing { min-width: 0; height: 100%; }
-  html[lang="en"] #topics .thing .pic { height: auto; aspect-ratio: 4 / 3; }
-  html[lang="en"] #topics .thing .pic img { width: 100%; height: 100%; object-fit: cover; }
-  html[lang="en"] #topics .thing .txt { padding: 15px; min-width: 0; }
-  html[lang="en"] #topics .thing h3 {
+  html:is([lang="en"], [lang="de"]) :is(#topics, #themen) .thing { min-width: 0; height: 100%; }
+  html:is([lang="en"], [lang="de"]) :is(#topics, #themen) .thing .pic { height: auto; aspect-ratio: 4 / 3; }
+  html:is([lang="en"], [lang="de"]) :is(#topics, #themen) .thing .pic img { width: 100%; height: 100%; object-fit: cover; }
+  html:is([lang="en"], [lang="de"]) :is(#topics, #themen) .thing .txt { padding: 15px; min-width: 0; }
+  html:is([lang="en"], [lang="de"]) :is(#topics, #themen) .thing h3 {
     margin: 0 0 13px;
     padding: 0;
     font-size: 18px;
@@ -135,26 +138,26 @@
     line-height: 1.2;
     overflow-wrap: anywhere;
   }
-  html[lang="en"] #topics .thing p {
+  html:is([lang="en"], [lang="de"]) :is(#topics, #themen) .thing p {
     margin: 0;
     padding: 0;
     font-size: 14px;
     line-height: 1.4;
     overflow-wrap: anywhere;
   }
-  html[lang="en"] #topics .topic-copy-desktop { display: none; }
-  html[lang="en"] #topics .topic-copy-mobile { display: inline; }
+  html:is([lang="en"], [lang="de"]) :is(#topics, #themen) .topic-copy-desktop { display: none; }
+  html:is([lang="en"], [lang="de"]) :is(#topics, #themen) .topic-copy-mobile { display: inline; }
 }
 
 @media (max-width: 339px) {
-  html[lang="en"] #topics .things { grid-template-columns: minmax(0, 1fr); }
+  html:is([lang="en"], [lang="de"]) :is(#topics, #themen) .things { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 767px) {
-  html[lang="en"] .topics-title-desktop { display: none; }
-  html[lang="en"] .topics-title-mobile { display: inline; }
-  html[lang="en"] .hero-intro-desktop { display: none; }
-  html[lang="en"] .hero-intro-mobile { display: block; }
+  html:is([lang="en"], [lang="de"]) .topics-title-desktop { display: none; }
+  html:is([lang="en"], [lang="de"]) .topics-title-mobile { display: inline; }
+  html:is([lang="en"], [lang="de"]) .hero-intro-desktop { display: none; }
+  html:is([lang="en"], [lang="de"]) .hero-intro-mobile { display: block; }
   .hero-intro-mobile p.sub { margin-bottom: 0; }
   .hero-quick-points {
     margin: 0 0 28px;
@@ -298,36 +301,36 @@
   .art-coaching-closing { grid-row: 8; margin-top: 28px; }
 }
 
-/* English phone layout: a quiet journal with the original painted marks. */
+/* English and German phone layout: a quiet journal with the original painted marks. */
 @media (max-width: 767px) {
-  html[lang="en"] section.block.art-coaching {
+  html:is([lang="en"], [lang="de"]) section.block.art-coaching {
     padding-block: 0 32px;
     margin-block-start: -8px;
     background: var(--paper);
   }
-  html[lang="en"] .art-coaching-layout {
+  html:is([lang="en"], [lang="de"]) .art-coaching-layout {
     display: block;
   }
-  html[lang="en"] .art-coaching-layout::before,
-  html[lang="en"] .art-coaching-layout::after,
-  html[lang="en"] .art-coaching-quote::before,
-  html[lang="en"] .art-coaching-art {
+  html:is([lang="en"], [lang="de"]) .art-coaching-layout::before,
+  html:is([lang="en"], [lang="de"]) .art-coaching-layout::after,
+  html:is([lang="en"], [lang="de"]) .art-coaching-quote::before,
+  html:is([lang="en"], [lang="de"]) .art-coaching-art {
     display: none;
   }
-  html[lang="en"] .art-coaching-heading,
-  html[lang="en"] .art-coaching-copy {
+  html:is([lang="en"], [lang="de"]) .art-coaching-heading,
+  html:is([lang="en"], [lang="de"]) .art-coaching-copy {
     display: block;
   }
-  html[lang="en"] .art-coaching-copy {
+  html:is([lang="en"], [lang="de"]) .art-coaching-copy {
     display: flex;
     flex-direction: column;
   }
-  html[lang="en"] .art-coaching-heading .title {
+  html:is([lang="en"], [lang="de"]) .art-coaching-heading .title {
     margin: 0;
     padding: 0;
     text-align: left;
   }
-  html[lang="en"] .art-coaching-heading .art-coaching-intro {
+  html:is([lang="en"], [lang="de"]) .art-coaching-heading .art-coaching-intro {
     max-width: none;
     margin: 20px 0 0;
     padding: 0;
@@ -335,10 +338,10 @@
     line-height: 1.65;
     text-align: left;
   }
-  html[lang="en"] .art-coaching-heading .art-coaching-intro ~ .art-coaching-intro {
+  html:is([lang="en"], [lang="de"]) .art-coaching-heading .art-coaching-intro ~ .art-coaching-intro {
     display: none;
   }
-  html[lang="en"] .art-coaching-quote {
+  html:is([lang="en"], [lang="de"]) .art-coaching-quote {
     display: none;
     order: 1;
     position: relative;
@@ -353,25 +356,25 @@
     box-shadow: none;
     text-align: left;
   }
-  html[lang="en"] .art-coaching-quote blockquote {
+  html:is([lang="en"], [lang="de"]) .art-coaching-quote blockquote {
     font-size: 18px;
     font-style: italic;
     line-height: 1.55;
   }
-  html[lang="en"] .art-coaching-quote figcaption {
+  html:is([lang="en"], [lang="de"]) .art-coaching-quote figcaption {
     margin-top: 10px;
     font-size: 12px;
     line-height: 1.6;
   }
-  html[lang="en"] .art-coaching-examples { display: none; }
-  html[lang="en"] .art-insight-mobile-signature {
+  html:is([lang="en"], [lang="de"]) .art-coaching-examples { display: none; }
+  html:is([lang="en"], [lang="de"]) .art-insight-mobile-signature {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
     margin-top: 24px;
   }
-  html[lang="en"] .art-insight-mobile-signature img {
+  html:is([lang="en"], [lang="de"]) .art-insight-mobile-signature img {
     display: block;
     width: 66px;
     height: auto;
@@ -381,56 +384,56 @@
     background: none;
     box-shadow: none;
   }
-  html[lang="en"] .art-coaching-closing {
+  html:is([lang="en"], [lang="de"]) .art-coaching-closing {
     display: none;
   }
-  html[lang="en"] .art-insight-desktop-description { display: none; }
-  html[lang="en"] .art-insight-desktop-intro { display: none; }
-  html[lang="en"] .art-insight-mobile-intro { display: inline; }
-  html[lang="en"] .art-insight-mobile-description { display: inline; }
-  html[lang="en"] .art-insight-mobile-reflection {
+  html:is([lang="en"], [lang="de"]) .art-insight-desktop-description { display: none; }
+  html:is([lang="en"], [lang="de"]) .art-insight-desktop-intro { display: none; }
+  html:is([lang="en"], [lang="de"]) .art-insight-mobile-intro { display: inline; }
+  html:is([lang="en"], [lang="de"]) .art-insight-mobile-description { display: inline; }
+  html:is([lang="en"], [lang="de"]) .art-insight-mobile-reflection {
     display: block;
     color: var(--sage-deep);
     font-size: 16px;
     line-height: 1.65;
     font-weight: 400;
   }
-  html[lang="en"] .art-insight-mobile-additional {
+  html:is([lang="en"], [lang="de"]) .art-insight-mobile-additional {
     display: block;
     margin: 20px 0 0;
     font-size: 17px;
     line-height: 1.65;
     color: var(--text);
   }
-  html[lang="en"] .art-insight-mobile-intention { margin: 20px 0 0; }
-  html[lang="en"] .art-insight-mobile-closing { display: none; }
+  html:is([lang="en"], [lang="de"]) .art-insight-mobile-intention { margin: 20px 0 0; }
+  html:is([lang="en"], [lang="de"]) .art-insight-mobile-closing { display: none; }
 }
 
-/* Keep the shorter About me copy exclusive to English phones. */
+/* Keep the shorter About me copy on phones. */
 @media (max-width: 767px) {
-  html[lang="en"] #about .about-desktop-only { display: none; }
-  html[lang="en"] #about .about-body p { margin-bottom: 8px; }
-  html[lang="en"] #about .about-closing { margin-top: 12px; }
+  html:is([lang="en"], [lang="de"]) #about .about-desktop-only { display: none; }
+  html:is([lang="en"], [lang="de"]) #about .about-body p { margin-bottom: 8px; }
+  html:is([lang="en"], [lang="de"]) #about .about-closing { margin-top: 12px; }
 }
 
-/* Native disclosure keeps the complete training available on English phones. */
+/* Native disclosure keeps the complete training available on phones. */
 .training-mobile-more { display: none; }
 .training-intro-mobile { display: none; }
 @media (max-width: 767px) {
-  html[lang="en"] #training .training-intro-desktop { display: none; }
-  html[lang="en"] #training .training-intro-mobile { display: inline; }
-  html[lang="en"] #training .training-desktop-extra { display: none; }
-  html[lang="en"] #training .training-grid { gap: 24px; }
-  html[lang="en"] #training .training-badges {
+  html:is([lang="en"], [lang="de"]) #training .training-intro-desktop { display: none; }
+  html:is([lang="en"], [lang="de"]) #training .training-intro-mobile { display: inline; }
+  html:is([lang="en"], [lang="de"]) #training .training-desktop-extra { display: none; }
+  html:is([lang="en"], [lang="de"]) #training .training-grid { gap: 24px; }
+  html:is([lang="en"], [lang="de"]) #training .training-badges {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     gap: 20px;
   }
-  html[lang="en"] #training .training-badges img { width: 106px; height: auto; }
-  html[lang="en"] #training .training-credentials figcaption { margin-top: 12px; }
-  html[lang="en"] #training .training-mobile-more { display: block; min-width: 0; }
-  html[lang="en"] #training .training-mobile-more summary {
+  html:is([lang="en"], [lang="de"]) #training .training-badges img { width: 106px; height: auto; }
+  html:is([lang="en"], [lang="de"]) #training .training-credentials figcaption { margin-top: 12px; }
+  html:is([lang="en"], [lang="de"]) #training .training-mobile-more { display: block; min-width: 0; }
+  html:is([lang="en"], [lang="de"]) #training .training-mobile-more summary {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -443,12 +446,12 @@
     line-height: 1.5;
     color: var(--text);
   }
-  html[lang="en"] #training .training-mobile-more summary::-webkit-details-marker { display: none; }
-  html[lang="en"] #training .training-mobile-more summary:focus-visible {
+  html:is([lang="en"], [lang="de"]) #training .training-mobile-more summary::-webkit-details-marker { display: none; }
+  html:is([lang="en"], [lang="de"]) #training .training-mobile-more summary:focus-visible {
     outline: 2px solid var(--sage-deep);
     outline-offset: 4px;
   }
-  html[lang="en"] #training .training-more-chevron {
+  html:is([lang="en"], [lang="de"]) #training .training-more-chevron {
     flex: 0 0 8px;
     width: 8px;
     height: 8px;
@@ -458,9 +461,9 @@
     transform: rotate(45deg);
     transition: transform .2s ease;
   }
-  html[lang="en"] #training .training-mobile-more[open] .training-more-chevron { transform: rotate(225deg); }
-  html[lang="en"] #training .training-mobile-more .training-influences { margin-top: 24px; }
-  html[lang="en"] #training .training-mobile-more .training-influences p {
+  html:is([lang="en"], [lang="de"]) #training .training-mobile-more[open] .training-more-chevron { transform: rotate(225deg); }
+  html:is([lang="en"], [lang="de"]) #training .training-mobile-more .training-influences { margin-top: 24px; }
+  html:is([lang="en"], [lang="de"]) #training .training-mobile-more .training-influences p {
     font-size: 17px;
     line-height: 1.65;
     color: var(--text);
@@ -470,13 +473,13 @@
   .training-more-chevron { transition: none; }
 }
 
-/* Shorter steps on English phones; preserve desktop copy and booking styles. */
+/* Shorter steps on phones; preserve desktop copy and booking styles. */
 .begin-description-mobile { display: none; }
 @media (max-width: 767px) {
-  html[lang="en"] #begin .begin-description-desktop { display: none; }
-  html[lang="en"] #begin .begin-description-mobile { display: inline; }
-  html[lang="en"] #begin .steps { gap: 19.2px; }
-  html[lang="en"] #begin .step {
+  html:is([lang="en"], [lang="de"]) #begin .begin-description-desktop { display: none; }
+  html:is([lang="en"], [lang="de"]) #begin .begin-description-mobile { display: inline; }
+  html:is([lang="en"], [lang="de"]) #begin .steps { gap: 19.2px; }
+  html:is([lang="en"], [lang="de"]) #begin .step {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     align-items: baseline;
@@ -484,7 +487,13 @@
     row-gap: 8px;
     padding-top: 19.2px;
   }
-  html[lang="en"] #begin .step:first-child { padding-top: 0; }
-  html[lang="en"] #begin .step h4 { margin: 0; }
-  html[lang="en"] #begin .step p { grid-column: 1 / -1; }
+  html:is([lang="en"], [lang="de"]) #begin .step:first-child { padding-top: 0; }
+  html:is([lang="en"], [lang="de"]) #begin .step h4 { margin: 0; }
+  html:is([lang="en"], [lang="de"]) #begin .step p { grid-column: 1 / -1; }
+}
+
+.begin-heading-mobile { display: none; }
+@media (max-width: 767px) {
+  html[lang="de"] #begin .begin-heading-desktop { display: none; }
+  html[lang="de"] #begin .begin-heading-mobile { display: inline; }
 }
