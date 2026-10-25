@@ -3,7 +3,7 @@
 @media (max-width: 767px) {
   html[lang="en"] .hero-intro-desktop { display: none; }
   html[lang="en"] .hero-intro-mobile { display: block; }
-  .hero-intro-mobile p.sub { margin-bottom: 18px; }
+  .hero-intro-mobile p.sub { margin-bottom: 0; }
   .hero-quick-points {
     margin: 0 0 28px;
     padding-left: 1.15em;
