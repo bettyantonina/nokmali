@@ -497,3 +497,51 @@
   html[lang="de"] #begin .begin-heading-desktop { display: none; }
   html[lang="de"] #begin .begin-heading-mobile { display: inline; }
 }
+
+.hero-mobile-comma { display: none; }
+@media (max-width: 767px) {
+  html:is([lang="en"], [lang="de"]) .hero-mobile-comma { display: inline; }
+}
+
+.topic-heading-mobile { display: none; }
+@media (max-width: 767px) {
+  html:is([lang="en"], [lang="de"]) .topic-heading-desktop { display: none; }
+  html:is([lang="en"], [lang="de"]) .topic-heading-mobile { display: inline; }
+}
+
+/* Quiet social links and framed quotes for the English and German phone layouts. */
+.mobile-instagram { display: none; }
+@media (max-width: 767px) {
+  html:is([lang="en"], [lang="de"]) .mobile-instagram {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 44px;
+    color: var(--sage-deep);
+    font-size: 14px;
+    line-height: 1.5;
+    text-decoration: none;
+  }
+  html:is([lang="en"], [lang="de"]) .mobile-instagram svg {
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+  }
+  html:is([lang="en"], [lang="de"]) #about .about-closing > p { margin-bottom: 0; }
+  html:is([lang="en"], [lang="de"]) .about-instagram { margin-block: 30px 8px; }
+  html:is([lang="en"], [lang="de"]) .mobile-instagram:hover { text-decoration: underline; text-underline-offset: 3px; }
+  html:is([lang="en"], [lang="de"]) .mobile-instagram:focus-visible { outline: 2px solid var(--sage-deep); outline-offset: 4px; }
+  html:is([lang="en"], [lang="de"]) .footer-instagram { justify-content: center; min-width: 44px; }
+  html:is([lang="en"], [lang="de"]) .testimonial-block { background: var(--paper); }
+  html:is([lang="en"], [lang="de"]) .testimonial-frame {
+    padding: 24px 20px;
+    border: 1px solid rgba(90, 112, 94, .24);
+    border-radius: 12px;
+    background: var(--sage-light);
+  }
+}
+
+/* Preserve desktop paragraph spacing when the social link is hidden. */
+@media (min-width: 768px) {
+  html:is([lang="en"], [lang="de"]) #about .about-closing > p:last-of-type { margin-bottom: 0; }
+}
