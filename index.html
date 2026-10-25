@@ -169,7 +169,7 @@
   <!-- Cal element-click embed code ends -->
   <link rel="stylesheet" href="homepage.css?v=training-influences-20261012">
   <link rel="stylesheet" href="homepage-desktop.css?v=20260925-quote2">
-  <link rel="stylesheet" href="homepage-mobile-art.css?v=hero-20261025-2">
+  <link rel="stylesheet" href="homepage-mobile-art.css?v=hero-20261025-5">
   <link rel="icon" sizes="any" href="favicon.ico?v=bowl-logo-v1">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=bowl-logo-v1">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=bowl-logo-v1">
@@ -279,35 +279,35 @@
       <section class="block topics" id="topics">
         <div class="wrap">
           <div class="things-head">
-            <h2 class="title">At the <em>heart</em> of things.</h2>
+            <h2 class="title"><span class="topics-title-desktop">At the <em>heart</em> of things.</span><span class="topics-title-mobile">This may be for you if...</span></h2>
           </div>
           <div class="things">
           <article class="thing" tabindex="0">
             <div class="pic"><img srcset="art/playdoo-mobile.jpg 1000w, art/playdoo.jpeg 1440w" sizes="(max-width: 640px) 100vw, (max-width: 1199px) 50vw, 25vw" src="art/playdoo.jpeg" alt="" width="1440" height="1440" loading="lazy"></div>
             <div class="txt">
               <h3>Feeling alive</h3>
-              <p>You wish there was more of what excites you, makes you lose track of time and sparks your curiosity in your everyday life.</p>
+              <p><span class="topic-copy-desktop">You wish there was more of what excites you, makes you lose track of time and sparks your curiosity in your everyday life.</span><span class="topic-copy-mobile">You want more moments of excitement, curiosity and losing yourself in what you love.</span></p>
             </div>
           </article>
           <article class="thing" tabindex="0">
             <div class="pic"><img srcset="art/IMG_3381-mobile.jpg 1000w, art/IMG_3381.jpg 1632w" sizes="(max-width: 640px) 100vw, (max-width: 1199px) 50vw, 25vw" src="art/IMG_3381.jpg" alt="" width="1632" height="1051" loading="lazy"></div>
             <div class="txt">
               <h3>What matters to me</h3>
-              <p>You want to gain clarity on what is meaningful to you, why it matters and how to make more space for it in your life.</p>
+              <p><span class="topic-copy-desktop">You want to gain clarity on what is meaningful to you, why it matters and how to make more space for it in your life.</span><span class="topic-copy-mobile">You want to understand what matters to you and make more space for it.</span></p>
             </div>
           </article>
           <article class="thing" tabindex="0">
             <div class="pic"><img srcset="art/IMG_7714-mobile.jpg 1000w, art/IMG_7714.jpg 1279w" sizes="(max-width: 640px) 100vw, (max-width: 1199px) 50vw, 25vw" src="art/IMG_7714.jpg" alt="" width="1279" height="1279" loading="lazy"></div>
             <div class="txt">
               <h3>Room to breathe</h3>
-              <p>You wish there was more space and a slower pace in your life. You want to find more balance between movement and stillness.</p>
+              <p><span class="topic-copy-desktop">You wish there was more space and a slower pace in your life. You want to find more balance between movement and stillness.</span><span class="topic-copy-mobile">You want a slower pace, more space and a balance of movement and stillness.</span></p>
             </div>
           </article>
           <article class="thing" tabindex="0">
             <div class="pic"><img srcset="art/IMG_4406-mobile.jpg 692w, art/IMG_4406.jpg 1902w" sizes="(max-width: 640px) 100vw, (max-width: 1199px) 50vw, 25vw" src="art/IMG_4406.jpg" alt="" style="object-position: center top;" width="1902" height="2746" loading="lazy"></div>
             <div class="txt">
               <h3>A rhythm of my own</h3>
-              <p>You want a way of eating, moving and resting that fits into the rhythm of your life and supports your sense of aliveness.</p>
+              <p><span class="topic-copy-desktop">You want a way of eating, moving and resting that fits into the rhythm of your life and supports your sense of aliveness.</span><span class="topic-copy-mobile">You want eating, movement and rest to fit your life and help you feel alive.</span></p>
             </div>
           </article>
           </div>
@@ -316,6 +316,21 @@
           </div>
         </div>
       </section>
+
+      <script>
+        // Keep mobile reading and keyboard order aligned with the section order.
+        (() => {
+          const mobile = window.matchMedia('(max-width: 767px)');
+          const art = document.getElementById('art-integrated-coaching');
+          const topics = document.getElementById('topics');
+          const arrangeSections = () => {
+            if (mobile.matches) art.before(topics);
+            else art.after(topics);
+          };
+          arrangeSections();
+          mobile.addEventListener('change', arrangeSections);
+        })();
+      </script>
 
       <section class="testimonial-block" id="testimonials" aria-label="Client feedback">
         <div class="testimonial-carousel" data-testimonial-carousel>

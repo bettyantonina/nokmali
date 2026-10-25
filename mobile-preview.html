@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Nokmali · Mobile preview</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #e5e1da; color: #393631; font: 15px system-ui, sans-serif; }
+    .controls { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px; padding: 16px; }
+    select, button { font: inherit; padding: 7px 10px; border: 1px solid #b6afa4; border-radius: 6px; background: #fffdf8; color: inherit; }
+    .phone { width: 390px; max-width: 100%; height: min(844px, calc(100dvh - 100px)); min-height: 320px; margin: 0 auto 20px; border: 4px solid #393631; border-radius: 24px; overflow: hidden; background: #f4efe6; box-shadow: 0 12px 36px #39363122; }
+    iframe { display: block; width: 100%; height: 100%; border: 0; }
+    .note { text-align: center; margin: 0 16px 20px; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <label for="width">Phone width</label>
+    <select id="width">
+      <option value="360">Small · 360 px</option>
+      <option value="390" selected>Medium · 390 px</option>
+      <option value="430">Large · 430 px</option>
+    </select>
+    <button id="refresh" type="button">Refresh preview</button>
+  </div>
+  <div class="phone" id="phone"><iframe id="preview" src="index.html" title="English landing page on mobile"></iframe></div>
+  <p class="note">Scroll inside the phone to explore. This shows the current local English page at a phone-sized viewport.</p>
+  <script>
+    const phone = document.getElementById('phone');
+    const width = document.getElementById('width');
+    const preview = document.getElementById('preview');
+    const resize = () => { phone.style.width = `${Number(width.value) + 8}px`; };
+    width.addEventListener('change', resize);
+    document.getElementById('refresh').addEventListener('click', () => {
+      preview.src = `index.html?mobile-preview=${Date.now()}`;
+    });
+    resize();
+  </script>
+</body>
+</html>
