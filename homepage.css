@@ -3086,7 +3086,7 @@ nav:not(.scrolled) .mobile-navlinks > .mobile-booking-link:not(:hover) {
   font-family: var(--f-body);
   font-size: 28px;
   line-height: 1.2;
-  font-weight: 600;
+  font-weight: 400;
 }
 .begin .pricing-note { margin: 18px 0 0; font-size: 14px; line-height: 1.5; }
 @media (max-width: 640px) {
