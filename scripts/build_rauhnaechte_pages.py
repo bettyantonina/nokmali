@@ -57,6 +57,7 @@ def build_pages():
         page = page.replace('="../../', '="../../../')
         page = page.replace('href="../index.html"', 'href="../../index.html"')
         page = page.replace('="./meditation.', '="../meditation.')
+        page = page.replace('href="./orakel/"', 'href="../orakel/"')
         page = page.replace('<body>', f'<body data-recording="{number}">', 1)
         page = replace_once(r'<p class="eyebrow">.*?</p>', f'<p class="eyebrow">Deine Rauhnächte · Übung {number}</p>', page)
         page = replace_once(r'<h1>.*?</h1>', f'<h1{language_attr}>{title_text}</h1>', page)
