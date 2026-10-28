@@ -193,9 +193,9 @@
     #about::after { display: none; }
     #about .about-photos { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; width: 100%; max-width: 280px; margin: 24px auto; }
     #about .about-photos .photo { position: static; float: none; width: 100%; max-width: none; margin: 0; overflow: hidden; border-radius: var(--radius-card); border: 0; box-shadow: none; }
-    #about .about-photos img { display: block; width: 100%; height: 100%; aspect-ratio: 6 / 5; object-fit: cover; object-position: 55% 12%; transform: none; }
-    #about .about-photos .photo-second { width: 80%; justify-self: end; }
-    #about .about-photos .photo-second img { aspect-ratio: 8 / 5; object-position: center; }
+    #about .about-photos img { display: block; width: 100%; height: 100%; aspect-ratio: 1; object-fit: cover; object-position: 55% 15%; transform: scale(1.2); transform-origin: 55% 22%; }
+
+
     @media (max-width: 880px) { #about { padding-bottom: 48px; } }
     @media (min-width: 881px) {
       #about { min-height: 0; padding-block: clamp(64px, 6vw, 96px); background-image: none; }
@@ -230,11 +230,11 @@
         align-self: center;
         justify-self: center;
         width: 100%;
-        max-width: 340px;
+        max-width: 400px;
         margin: 0;
       }
-      #about .about-photos .photo-second { width: 100%; }
-      #about .about-photos img, #about .about-photos .photo-second img { aspect-ratio: 7 / 5; }
+
+      #about .about-photos img { aspect-ratio: 4 / 5; transform: scale(1.4); }
     }
     /* Creativity page only: background areas, original badges and full details. */
     section.block.approach-background { padding-block: 48px 72px; background: var(--paper); }
@@ -421,14 +421,11 @@
 <div class="eyebrow">Über mich</div>
 <h2 class="title">Hi, ich bin <em>Helene</em>.</h2>
 </div>
-<div aria-label="Helenes künstlerische Praxis" class="about-photos">
-<figure class="photo">
-<img alt="Helene beim Malen eines farbenfrohen Mixed-Media-Bildes in ihrem Atelier" height="4032" loading="lazy" src="../../IMG_2991.JPG" width="3024"/>
-</figure>
-<figure class="photo photo-second">
-<img alt="Helene bei der Arbeit an einem großen dunklen Gemälde neben einer Sammlung von Pinseln" height="575" loading="lazy" src="../../11e0ef6e-c6db-49fc-b5b0-b8771b4c2842.JPG" width="803"/>
-</figure>
-</div>
+<div class="about-photos">
+            <figure class="photo">
+              <img src="../../art/helene-creative-practice.jpg" alt="Helene bei der Arbeit an einem Mixed-Media-Kunstwerk in ihrem Atelier" width="768" height="1024" loading="lazy">
+            </figure>
+          </div>
 <div class="about-body">
 <p>Kreatives Arbeiten begleitet mich schon lange und ist ein wichtiger Teil davon, wie ich das Leben verstehe und genieße. Ich habe ein Jahr an der Gerrit Rietveld Academie in Amsterdam Kunst studiert. Mein Ansatz ist inspiriert von Pat B. Allens <em>Art Is a Way of Knowing</em> und Eric Maisels <em>Coaching the Artist Within</em>.</p>
 <p>Mein Hintergrund verbindet Kunst, Yoga und Ingenieurwesen mit Ausbildungen in Ernährungs-, Gesundheits- und ganzheitlichem Wellness-Coaching. Mich interessieren sowohl Struktur als auch Intuition: die praktischen Schritte, die uns weiterbringen, und die leiseren Formen des Erkennens, die durch Kreativität, den Körper und Reflexion entstehen.</p>
@@ -570,7 +567,7 @@
 <div class="foot-grid">
 <div>
 <span class="word">Nokmali</span>
-<p class="tag2">Ganzheitliches Online-Coaching mit Reflexion, Körperwahrnehmung und Kunst.</p>
+<p class="tag2">Online-Kreativitätscoaching mit Reflexion, Körperwahrnehmung und Kunst.</p>
 </div>
 <div class="footer-actions">
 <a class="btn" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' data-cal-link="nokmali/discovery-session" data-cal-namespace="discovery-session" href="#begin">Kostenloses Erstgespräch buchen <span aria-hidden="true" class="arr">→</span></a>
