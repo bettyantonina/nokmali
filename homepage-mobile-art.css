@@ -1,4 +1,4 @@
-.hero-intro-mobile { display: none; }
+.hero-intro-mobile { display: block; }
 .topics-title-mobile { display: none; }
 .topic-copy-mobile { display: none; }
 .hero-mobile-call-note { display: none; }
@@ -544,4 +544,47 @@
 /* Preserve desktop paragraph spacing when the social link is hidden. */
 @media (min-width: 768px) {
   html:is([lang="en"], [lang="de"]) #about .about-closing > p:last-of-type { margin-bottom: 0; }
+}
+
+/* Use the same introduction and bullet content on desktop and mobile. */
+@media (min-width: 768px) {
+  .hero-intro-mobile p.sub { margin-bottom: 16px; }
+  .hero-quick-points { margin: 0 0 28px; font-size: 17px; line-height: 1.5; }
+  .hero-quick-points li + li { margin-top: 8px; }
+  html:is([lang="en"], [lang="de"]) .hero-quick-points {
+    margin-bottom: 26px;
+    padding-left: 0;
+    list-style: none;
+  }
+  html:is([lang="en"], [lang="de"]) .hero-quick-points li:not(:last-child) {
+    position: relative;
+    padding-left: 14px;
+    font-weight: 500;
+  }
+  html:is([lang="en"], [lang="de"]) .hero-quick-points li:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .65em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--sage-heading);
+  }
+  html:is([lang="en"], [lang="de"]) .hero-quick-points li:last-child {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    color: var(--sage-heading);
+  }
+  html:is([lang="en"], [lang="de"]) .hero-quick-points li:last-child::before {
+    content: "";
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--sage-light);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m7 12 3 3 7-7' fill='none' stroke='%23667A6A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
 }
