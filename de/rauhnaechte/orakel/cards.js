@@ -1,6 +1,6 @@
 // Finished card designs from orakelkarten/. Accompanying texts are editable drafts except where supplied by the author.
 window.oracleDeck = {
-  "backImage": "",
+  "backImage": "../../../orakelkarten/cover.png",
   "cards": [
     {
       "title": "Der Weg",
@@ -28,8 +28,65 @@ window.oracleDeck = {
       "title": "Stimme",
       "image": "../../../orakelkarten/Embroidered Moonlit Wolf Song Card.png?v=efad16c0fc",
       "fullDesign": true,
-      "meaning": "Deine Stimme darf Raum bekommen. Vielleicht gibt es etwas, das du aussprechen, singen oder auf deine eigene Weise ausdrücken möchtest. Lausche dir selbst und spüre, welche Worte sich stimmig anfühlen.",
-      "intention": "Ich vertraue meiner Stimme und erlaube mir, mich auszudrücken."
+      "meaning": "Hier geht es um Ausdruck. In welchen Themen bist du zu laut oder zu leise? Was hältst du bei dir, wo sprichst du nicht deine Wahrheit? Wo traust du dich nicht ans Licht?\n\nEs gibt viele Gelegenheiten, bei denen wir unseren authentischen Ausdruck, unsere authentische Meinung, unsere Worte jeden Tag vertreten können. Es fällt nicht immer leicht, und häufig sind unsere Worte und Gesten durch Erwartungen anderer oder ein abgelaufenes Selbstbild bestimmt.\n\nDas hört sich jetzt überwältigend an, aber was, wenn du klein anfängst? Überlege dir drei Sachen, die im Moment ganz klar wahr für dich sind. Und dann kannst du im Alltag versuchen, weiter deine kleinen Wahrheiten aufzudecken, die du nur mit dir selbst abklärst.\n\nDas erlaubt dir, Schritt für Schritt authentischer ins Licht zu treten und einen klareren Ausdruck zu ehren.",
+      "intention": "Entdecke deine Wahrheiten und nimm sie als Leitfaden.",
+      "promptLabel": "Impuls"
+    },
+    {
+      "title": "Experiment",
+      "image": "../../../orakelkarten/Experiment_spiderwoman_8x12cm_300dpi.png?v=b488ebdc01",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls"
+    },
+    {
+      "title": "Ferne",
+      "image": "../../../orakelkarten/Ferne_ Embroidered Bird-Woman Tarot Card.png?v=19cfff5776",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls"
+    },
+    {
+      "title": "Heldin",
+      "image": "../../../orakelkarten/Heldin_no_fur_no_feathers_8x12cm_300dpi_DRAFT.png?v=694ab5dcd1",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls"
+    },
+    {
+      "title": "Innen",
+      "image": "../../../orakelkarten/Innen.png?v=73e53641d8",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls"
+    },
+    {
+      "title": "Klarheit",
+      "image": "../../../orakelkarten/Klarheit.png?v=a85a498a10",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls"
+    },
+    {
+      "title": "Vorwärts",
+      "image": "../../../orakelkarten/Vorwaerts_8x12cm_300dpi_dress_corrected.png?v=ce25eacddd",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls"
+    },
+    {
+      "title": "Verbindung",
+      "image": "../../../orakelkarten/Verbindung.png?v=2437fc6d26",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls"
     }
   ]
 };

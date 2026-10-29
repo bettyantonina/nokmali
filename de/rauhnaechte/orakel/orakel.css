@@ -145,3 +145,89 @@ body { background: var(--paper); }
 .gallery-card.finished-design img { width: 100%; height: auto; aspect-ratio: 2 / 3; margin-bottom: 8px; border-radius: 5px; }
 
 #card-meaning { white-space: pre-line; }
+
+/* Pale sage paper with deep blue type and muted teal controls. */
+:root {
+  color-scheme: light;
+  --paper: #E7ECE9;
+  --ink: #243b49;
+  --soft: #52635e;
+  --teal: #3e6259;
+  --line: #bbc9c2;
+  --oracle-panel: #f4f6f2;
+}
+html { background: var(--paper); }
+body { min-height: 100vh; }
+::selection { background: #3e6259; color: #faf7f0; }
+.toolbar { background: #e7ece9f2; border-bottom-color: var(--line); }
+.brand { color: var(--ink); }
+.oracle-heading h1 { color: var(--ink); }
+.step, .sample-note { color: var(--soft); }
+.deck-caption { color: var(--teal); }
+.meaning {
+  background: var(--oracle-panel);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 32px #243b4910;
+}
+.meaning h2 { color: var(--ink); }
+.gallery-card { color: var(--ink); }
+.gallery-card:not(.finished-design) { background: var(--oracle-panel); }
+.footer { background: transparent; border-top-color: var(--line); }
+.reset, .journey-button {
+  color: var(--teal);
+  background: transparent;
+  border-color: #3e625980;
+}
+.reset:hover, .journey-button:hover { color: var(--ink); background: #3e625910; }
+.save-card, .shuffle-stop { background: var(--teal); border-color: var(--teal); color: #faf7f0; }
+.save-card:hover, .shuffle-stop:hover { background: #304d48; color: #faf7f0; }
+.shuffle-stop[aria-pressed="true"] { background: #29433e; color: #faf7f0; box-shadow: inset 0 2px 6px #243b4930; }
+.skip-link:focus { background: var(--ink); color: var(--paper); }
+.choice { box-shadow: 0 8px 18px #243b4926; }
+.choice:not(:disabled):hover, .choice:focus-visible { box-shadow: 0 12px 28px #243b4940; }
+.deck { box-shadow: 5px 5px 0 -1px #d6cbb3, 6px 6px 0 0 #8f835f, 10px 10px 0 -1px #d6cbb3, 11px 11px 0 0 #8f835f, 0 20px 36px #243b4926; }
+
+/* The supplied cover includes its own artwork and embroidered border. */
+.has-card-cover .card-back {
+  background-color: #efe4ce;
+  background-image: var(--back-image);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0;
+}
+.has-card-cover .card-back::before,
+.has-card-cover .card-back::after { display: none; }
+
+/* Soft, consistent corners on card backs, fronts and gallery artwork. */
+.card-back, .card-front, .gallery-card,
+.gallery-card.finished-design img { border-radius: 12px; }
+
+/* Move cards freely; a stationary double tap reveals the chosen card. */
+.choice { touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; cursor: grab; }
+.choice.is-dragging { cursor: grabbing; }
+
+/* A physical stack: each card has its own face, paper edge and depth. */
+.deck-stage { perspective: none; padding-top: 22px; }
+.has-card-cover .deck {
+  height: 267px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  transform-style: preserve-3d;
+  transform: none;
+}
+.deck-layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+  backface-visibility: hidden;
+  box-shadow: 0 1px 0 #b4aa94, 0 2px 2px #463d2d30;
+}
+.deck-layer:first-child { box-shadow: 0 1px 0 #b4aa94, 0 14px 20px #243b492b, 0 4px 7px #243b4926; }
+.deck-layer:last-child { box-shadow: 0 1px 0 #b4aa94, 0 2px 4px #463d2d26; }
+@media (prefers-reduced-motion: no-preference) {
+  .has-card-cover .deck:hover { transform: translateY(-3px); }
+}

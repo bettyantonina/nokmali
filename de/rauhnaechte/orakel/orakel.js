@@ -8,7 +8,6 @@
   let exportVersion = 0;
   let revealTimer;
   let shuffleTimer;
-  let movements = [];
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
   // Remove data left by the retired browser-history feature.
   try { localStorage.removeItem("nokmali-oracle-cards-v1"); } catch {}
@@ -46,46 +45,89 @@
   byId("previous-card").addEventListener("click", () => browseCard(browseIndex - 1));
   byId("next-card").addEventListener("click", () => browseCard(browseIndex + 1));
   function stopMovement() {
-    clearInterval(shuffleTimer);
-    movements.forEach((animation) => {
-      animation.commitStyles();
-      animation.cancel();
-    });
-    movements = [];
+    cancelAnimationFrame(shuffleTimer);
   }
   function scatter() {
     stopMovement();
     const buttons = [...choices.children];
-    const columns = choices.clientWidth < 450 ? 3 : 4;
-    const rows = Math.ceil(buttons.length / columns);
-    const slots = buttons.map((_, i) => i);
-    for (let i = slots.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [slots[i], slots[j]] = [slots[j], slots[i]];
-    }
-    buttons.forEach((button, i) => {
-      const slot = slots[i];
-      const cellWidth = choices.clientWidth / columns;
-      const cellHeight = choices.clientHeight / rows;
-      const x = (slot % columns + .5) * cellWidth - button.offsetWidth / 2 + (Math.random() - .5) * 12;
-      const y = (Math.floor(slot / columns) + .5) * cellHeight - button.offsetHeight / 2 + (Math.random() - .5) * 14;
-      const transform = `translate(${x}px, ${y}px) rotate(${Math.random() * 24 - 12}deg)`;
-      if (reducedMotion.matches) {
-        // Keep the table still for visitors who prefer reduced motion.
-        if (!button.style.transform) button.style.transform = transform;
-      } else {
-        const animation = button.animate([
-          { transform: getComputedStyle(button).transform }, { transform }
-        ], { duration: 1400, easing: "ease-in-out", fill: "forwards" });
-        movements.push(animation);
-      }
+    const states = buttons.map((button, index) => {
+      // Reserve room for the corners at every angle.
+      const radius = Math.hypot(button.offsetWidth, button.offsetHeight) / 2;
+      const minX = radius - button.offsetWidth / 2;
+      const minY = radius - button.offsetHeight / 2;
+      const maxX = Math.max(minX, choices.clientWidth - radius - button.offsetWidth / 2);
+      const maxY = Math.max(minY, choices.clientHeight - radius - button.offsetHeight / 2);
+      const matrix = new DOMMatrix(getComputedStyle(button).transform);
+      const placed = Boolean(button.style.transform);
+      const state = {
+        button, minX, minY, maxX, maxY,
+        x: placed ? Math.max(minX, Math.min(maxX, matrix.e)) : minX + Math.random() * (maxX - minX),
+        y: placed ? Math.max(minY, Math.min(maxY, matrix.f)) : minY + Math.random() * (maxY - minY),
+        angle: placed ? Math.atan2(matrix.b, matrix.a) * 180 / Math.PI : Math.random() * 76 - 38,
+        vx: 0, vy: 0, spin: 0, targetSpin: 0, nextTurn: 0
+      };
+      button.style.zIndex = index + 1;
+      button.style.transform = `translate(${state.x}px, ${state.y}px) rotate(${state.angle}deg)`;
+      return state;
     });
-    shuffleTimer = setInterval(scatter, 1400);
+    if (reducedMotion.matches || phase !== "shuffling") return;
+    let previousTime;
+    function move(time) {
+      const dt = Math.min((time - (previousTime ?? time - 16)) / 1000, .04);
+      previousTime = time;
+      states.forEach((state) => {
+        if (time >= state.nextTurn) {
+          state.targetX = state.minX + Math.random() * (state.maxX - state.minX);
+          state.targetY = state.minY + Math.random() * (state.maxY - state.minY);
+          state.targetSpin = (Math.random() - .5) * 150;
+          state.nextTurn = time + 380 + Math.random() * 550;
+          state.button.style.zIndex = 1 + Math.floor(Math.random() * buttons.length);
+        }
+        const dx = state.targetX - state.x;
+        const dy = state.targetY - state.y;
+        const distance = Math.hypot(dx, dy) || 1;
+        const speed = Math.min(460, choices.clientWidth * .8);
+        const blend = 1 - Math.exp(-4 * dt);
+        // Steer gradually: preserve momentum across independent direction changes.
+        state.vx += (dx / distance * speed - state.vx) * blend;
+        state.vy += (dy / distance * speed - state.vy) * blend;
+        state.spin += (state.targetSpin - state.spin) * blend;
+        state.x += state.vx * dt;
+        state.y += state.vy * dt;
+        if (state.x < state.minX || state.x > state.maxX) {
+          state.x = Math.max(state.minX, Math.min(state.maxX, state.x));
+          state.vx *= -.7;
+        }
+        if (state.y < state.minY || state.y > state.maxY) {
+          state.y = Math.max(state.minY, Math.min(state.maxY, state.y));
+          state.vy *= -.7;
+        }
+        state.angle += state.spin * dt;
+        state.button.style.transform = `translate(${state.x}px, ${state.y}px) rotate(${state.angle}deg)`;
+      });
+      shuffleTimer = requestAnimationFrame(move);
+    }
+    shuffleTimer = requestAnimationFrame(move);
   }
   if (deck.backImage) {
+    document.documentElement.classList.add("has-card-cover");
     document.documentElement.style.setProperty("--back-image", `url(${JSON.stringify(deck.backImage)})`);
     document.querySelectorAll(".back-mark, .back-word").forEach((element) => { element.hidden = true; });
   }
+  // Build the closed deck from the same number of separate cards as the draw.
+  const closedDeckButton = byId("open-deck");
+  const stackLayers = document.createDocumentFragment();
+  deck.cards.forEach((_, index) => {
+    const layer = document.createElement("span");
+    layer.className = "deck-layer card-back";
+    layer.setAttribute("aria-hidden", "true");
+    const x = Math.sin(index * 2.4) * 1.2;
+    const y = Math.cos(index * 1.7) * .8;
+    const angle = Math.sin(index * 1.9) * .45;
+    layer.style.transform = `translate3d(${x}px, ${y}px, ${index * .85}px) rotate(${angle}deg)`;
+    stackLayers.append(layer);
+  });
+  closedDeckButton.replaceChildren(stackLayers);
   function clearExport() {
     exportVersion++;
     exportFile = null;
@@ -197,7 +239,10 @@
     byId("card-title").textContent = card.title;
     byId("prompt-label").textContent = card.promptLabel || "Deine Intention";
     byId("card-meaning").textContent = card.meaning;
+    byId("card-meaning").hidden = !card.meaning;
+    byId("prompt-label").hidden = !card.intention;
     byId("card-intention").textContent = card.intention;
+    byId("card-intention").hidden = !card.intention;
     const image = byId("card-art");
     image.hidden = true;
     byId("front-placeholder").hidden = false;
@@ -216,6 +261,72 @@
       }, matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 700);
     }));
   }
+  const choosingInstruction = "Verschiebe die Karten auf dem Tisch. Doppeltippen oder doppelklicken zum Aufdecken. Mit der Tastatur: Enter oder Leertaste.";
+  let lastTap = null;
+  let topCardLayer = 10;
+  function makeCardMovable(button, card) {
+    let drag = null;
+    const cancelDrag = () => {
+      if (!drag) return;
+      const pointerId = drag.pointerId;
+      drag = null;
+      lastTap = null;
+      button.classList.remove("is-dragging");
+      if (button.hasPointerCapture(pointerId)) button.releasePointerCapture(pointerId);
+    };
+    button.addEventListener("pointerdown", (event) => {
+      if (phase !== "choosing" || !event.isPrimary || event.button !== 0 || drag) return;
+      event.preventDefault();
+      button.focus({ preventScroll: true });
+      const matrix = new DOMMatrix(getComputedStyle(button).transform);
+      drag = { pointerId: event.pointerId, startX: event.clientX, startY: event.clientY,
+        x: matrix.e, y: matrix.f, angle: Math.atan2(matrix.b, matrix.a), moved: false };
+      button.style.zIndex = ++topCardLayer;
+      button.setPointerCapture(event.pointerId);
+    });
+    button.addEventListener("pointermove", (event) => {
+      if (!drag || drag.pointerId !== event.pointerId) return;
+      const dx = event.clientX - drag.startX;
+      const dy = event.clientY - drag.startY;
+      if (!drag.moved && Math.hypot(dx, dy) < 7) return;
+      drag.moved = true;
+      lastTap = null;
+      button.classList.add("is-dragging");
+      const halfWidth = (button.offsetWidth * Math.abs(Math.cos(drag.angle)) + button.offsetHeight * Math.abs(Math.sin(drag.angle))) / 2;
+      const halfHeight = (button.offsetHeight * Math.abs(Math.cos(drag.angle)) + button.offsetWidth * Math.abs(Math.sin(drag.angle))) / 2;
+      const minX = halfWidth - button.offsetWidth / 2;
+      const minY = halfHeight - button.offsetHeight / 2;
+      const x = Math.max(minX, Math.min(choices.clientWidth - halfWidth - button.offsetWidth / 2, drag.x + dx));
+      const y = Math.max(minY, Math.min(choices.clientHeight - halfHeight - button.offsetHeight / 2, drag.y + dy));
+      button.style.transform = `translate(${x}px, ${y}px) rotate(${drag.angle}rad)`;
+    });
+    button.addEventListener("pointerup", (event) => {
+      if (!drag || drag.pointerId !== event.pointerId) return;
+      const moved = drag.moved;
+      drag = null;
+      button.classList.remove("is-dragging");
+      if (button.hasPointerCapture(event.pointerId)) button.releasePointerCapture(event.pointerId);
+      if (moved || phase !== "choosing") { lastTap = null; return; }
+      const now = performance.now();
+      if (lastTap && lastTap.button === button && now - lastTap.time < 450 && Math.hypot(event.clientX - lastTap.x, event.clientY - lastTap.y) < 24) {
+        lastTap = null;
+        draw(card);
+      } else lastTap = { button, time: now, x: event.clientX, y: event.clientY };
+    });
+    button.addEventListener("pointercancel", cancelDrag);
+    button.addEventListener("lostpointercapture", cancelDrag);
+    button.addEventListener("keydown", (event) => {
+      if (event.code !== "Enter" && event.code !== "Space") return;
+      event.preventDefault();
+      if (!event.repeat) { lastTap = null; draw(card); }
+    });
+    // Assistive-technology activation remains a single action.
+    button.addEventListener("click", (event) => {
+      if (event.detail === 0) { lastTap = null; draw(card); }
+    });
+    button.addEventListener("contextmenu", (event) => event.preventDefault());
+    button.addEventListener("dragstart", (event) => event.preventDefault());
+  }
   function openDeck() {
     if (phase !== "closed") return;
     phase = "choosing";
@@ -230,9 +341,10 @@
       button.type = "button";
       button.className = "choice card-back";
       button.disabled = false;
-      button.setAttribute("aria-label", `Verdeckte Karte ${index + 1} wählen`);
+      button.setAttribute("aria-label", `Verdeckte Karte ${index + 1}: verschieben oder doppeltippen zum Aufdecken; mit der Tastatur Enter drücken`);
       if (!deck.backImage) button.innerHTML = '<span class="back-mark" aria-hidden="true">✧</span><span class="back-word" aria-hidden="true">Nokmali</span>';
-      button.addEventListener("click", () => draw(card));
+      button.setAttribute("aria-describedby", "instruction");
+      makeCardMovable(button, card);
       choices.append(button);
     });
     byId("open-deck").setAttribute("aria-expanded", "true");
@@ -240,15 +352,15 @@
     choices.hidden = false;
     byId("stop-shuffle").hidden = false;
     scatter();
-    movements.forEach((animation) => animation.finish());
     stopMovement();
-    byId("instruction").textContent = "Zum Mischen gedrückt halten. Loslassen und eine Karte wählen.";
+    byId("instruction").textContent = choosingInstruction;
   }
   let heldPointer = null;
   let heldKey = null;
   function startShuffle() {
     if (phase === "closed") openDeck();
     if (phase !== "choosing") return;
+    lastTap = null;
     phase = "shuffling";
     [...choices.children].forEach((button) => { button.disabled = true; });
     byId("stop-shuffle").setAttribute("aria-pressed", "true");
@@ -263,7 +375,7 @@
     phase = "choosing";
     byId("stop-shuffle").setAttribute("aria-pressed", "false");
     [...choices.children].forEach((button) => { button.disabled = false; });
-    byId("instruction").textContent = "Welche Karte zieht dich an? Wähle eine Karte. Zum Weitermischen erneut gedrückt halten.";
+    byId("instruction").textContent = choosingInstruction;
   }
   [byId("open-deck"), byId("stop-shuffle")].forEach((control) => {
     control.addEventListener("pointerdown", (event) => {
@@ -303,10 +415,7 @@
     if (phase !== "choosing" && phase !== "shuffling") return;
     [...choices.children].forEach((button) => { button.style.transform = ""; });
     scatter();
-    if (phase === "choosing") {
-      movements.forEach((animation) => animation.finish());
-      stopMovement();
-    }
+    if (phase === "choosing") stopMovement();
   });
   byId("reset").addEventListener("click", () => {
     clearExport();
@@ -322,7 +431,7 @@
     byId("reveal-card").classList.remove("is-revealed");
     choices.hidden = true;
     byId("closed-deck").hidden = false;
-    byId("instruction").textContent = "Halte das Kartendeck zum Mischen gedrückt. Lass los, um eine Karte zu wählen.";
+    byId("instruction").textContent = "Halte das Kartendeck zum Mischen gedrückt. Lass los, verschiebe die Karten und tippe zweimal auf eine Karte, um sie aufzudecken.";
     byId("open-deck").setAttribute("aria-expanded", "false");
     byId("open-deck").focus({ preventScroll: true });
   });
