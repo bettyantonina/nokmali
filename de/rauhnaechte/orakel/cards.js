@@ -110,6 +110,96 @@ window.oracleDeck = {
       "promptLabel": "Impuls",
       "originalImage": "../../../orakelkarten/Verbindung.png?v=2437fc6d26",
       "thumbnail": "./art/cards/verbindung-thumb.webp?v=6096581976"
+    },
+    {
+      "title": "Herz",
+      "image": "./art/cards/herz.webp?v=73182a1805",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls",
+      "originalImage": "../../../orakelkarten/Herz_ A Tender Embroidered Connection.png",
+      "thumbnail": "./art/cards/herz-thumb.webp?v=e99afd33f4"
+    },
+    {
+      "title": "Mut",
+      "image": "./art/cards/mut.webp?v=a3312d6054",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls",
+      "originalImage": "../../../orakelkarten/Mut_revised_8x12cm_300dpi.png",
+      "thumbnail": "./art/cards/mut-thumb.webp?v=80e5457c5f"
+    },
+    {
+      "title": "Neu",
+      "image": "./art/cards/neu.webp?v=2b2da09be4",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls",
+      "originalImage": "../../../orakelkarten/Neu.png",
+      "thumbnail": "./art/cards/neu-thumb.webp?v=2740049a80"
+    },
+    {
+      "title": "Reise",
+      "image": "./art/cards/reise.webp?v=cb1d4b3f05",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls",
+      "originalImage": "../../../orakelkarten/Reise.png",
+      "thumbnail": "./art/cards/reise-thumb.webp?v=0ec8fe80e8"
+    },
+    {
+      "title": "Schönheit",
+      "image": "./art/cards/schonheit.webp?v=259c492188",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls",
+      "originalImage": "../../../orakelkarten/Schönheit.png",
+      "thumbnail": "./art/cards/schonheit-thumb.webp?v=27f73a1d92"
+    },
+    {
+      "title": "Traum",
+      "image": "./art/cards/traum.webp?v=d4d33f7030",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls",
+      "originalImage": "../../../orakelkarten/Traum.png",
+      "thumbnail": "./art/cards/traum-thumb.webp?v=dbc4de8aa2"
+    },
+    {
+      "title": "Vergessen",
+      "image": "./art/cards/vergessen.webp?v=2bca722080",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls",
+      "originalImage": "../../../orakelkarten/Vergessen_ A Whimsical Woodland Embroidery.png",
+      "thumbnail": "./art/cards/vergessen-thumb.webp?v=bdf7d12b9a"
+    },
+    {
+      "title": "Wärme",
+      "image": "./art/cards/warme.webp?v=a441dc504f",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls",
+      "originalImage": "../../../orakelkarten/Wärme.png",
+      "thumbnail": "./art/cards/warme-thumb.webp?v=c95781dce2"
+    },
+    {
+      "title": "Wurzeln",
+      "image": "./art/cards/wurzeln.webp?v=2f0485aacf",
+      "fullDesign": true,
+      "meaning": "",
+      "intention": "",
+      "promptLabel": "Impuls",
+      "originalImage": "../../../orakelkarten/Wurzeln_ Embroidered Moonlit Roots.png",
+      "thumbnail": "./art/cards/wurzeln-thumb.webp?v=b98c548da2"
     }
   ]
 };

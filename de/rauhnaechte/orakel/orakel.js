@@ -274,7 +274,7 @@
   }
   const choosingInstruction = "Verschiebe die Karten auf dem Tisch. Doppeltippen oder doppelklicken zum Aufdecken. Mit der Tastatur: Enter oder Leertaste.";
   let lastTap = null;
-  let topCardLayer = 10;
+  let topCardLayer = deck.cards.length;
   function makeCardMovable(button, card) {
     let drag = null;
     const cancelDrag = () => {
