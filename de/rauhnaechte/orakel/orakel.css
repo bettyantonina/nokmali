@@ -150,15 +150,16 @@ body { background: var(--paper); }
 :root {
   color-scheme: light;
   --paper: #E7ECE9;
-  --ink: #243b49;
-  --soft: #52635e;
-  --teal: #3e6259;
+  --ink: #203744;
+  --soft: #42554e;
+  --teal: #3E6258;
   --line: #bbc9c2;
-  --oracle-panel: #f4f6f2;
+  --oracle-panel: #F7F6F0;
+  --oracle-accent: #BE9860;
 }
 html { background: var(--paper); }
 body { min-height: 100vh; }
-::selection { background: #3e6259; color: #faf7f0; }
+::selection { background: #3e6258; color: #faf7f0; }
 .toolbar { background: #e7ece9f2; border-bottom-color: var(--line); }
 .brand { color: var(--ink); }
 .oracle-heading h1 { color: var(--ink); }
@@ -176,9 +177,9 @@ body { min-height: 100vh; }
 .reset, .journey-button {
   color: var(--teal);
   background: transparent;
-  border-color: #3e625980;
+  border-color: #3e625880;
 }
-.reset:hover, .journey-button:hover { color: var(--ink); background: #3e625910; }
+.reset:hover, .journey-button:hover { color: var(--ink); background: #3e625810; }
 .save-card, .shuffle-stop { background: var(--teal); border-color: var(--teal); color: #faf7f0; }
 .save-card:hover, .shuffle-stop:hover { background: #304d48; color: #faf7f0; }
 .shuffle-stop[aria-pressed="true"] { background: #29433e; color: #faf7f0; box-shadow: inset 0 2px 6px #243b4930; }
@@ -231,3 +232,54 @@ body { min-height: 100vh; }
 @media (prefers-reduced-motion: no-preference) {
   .has-card-cover .deck:hover { transform: translateY(-3px); }
 }
+
+/* Paper thickness and close contact shadows, seen directly from above. */
+:root {
+  --card-paper-shadow:
+    0 1px 0 #e5dbc6,
+    0 2px 0 #b9af9b,
+    0 3px 2px #413c3126,
+    0 7px 10px #2037441f,
+    0 16px 24px #20374412;
+}
+.gallery-card.finished-design img {
+  box-shadow: var(--card-paper-shadow);
+  margin-bottom: 16px;
+}
+.gallery-card.finished-design > span { padding-block: 2px 4px; }
+.finished-design .card-front,
+.reveal-card .card-back { box-shadow: var(--card-paper-shadow); }
+.finished-design .card-front::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 1px #fff9, inset 0 -1px 1px #65574226;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .gallery-card.finished-design img { transition: transform 180ms ease, box-shadow 180ms ease; }
+  .gallery-card.finished-design:hover img,
+  .gallery-card.finished-design:focus-visible img {
+    transform: translateY(-2px);
+    box-shadow: 0 1px 0 #e5dbc6, 0 2px 0 #b9af9b, 0 4px 4px #413c3126, 0 10px 16px #20374426, 0 20px 28px #20374414;
+  }
+}
+
+/* Compact Latin fonts for this German-language page. */
+@font-face {
+  font-family: "Oracle Else";
+  src: url("./art/fonts/FluxischElse-Light.woff") format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Oracle Else";
+  src: url("./art/fonts/FluxischElse-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+:root { --display: "Oracle Else", "Trebuchet MS", sans-serif; }

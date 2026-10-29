@@ -4,6 +4,7 @@
   const choices = byId("card-choices");
   let phase = "closed";
   let exportFile = null;
+  let exportCard = null;
   let exportURL = null;
   let exportVersion = 0;
   let revealTimer;
@@ -30,7 +31,10 @@
     const button = document.createElement("button");
     button.type = "button"; button.className = "gallery-card" + (card.fullDesign ? " finished-design" : "");
     button.setAttribute("aria-pressed", "false");
-    const image = document.createElement("img"); image.src = card.image; image.alt = ""; image.loading = "lazy";
+    const image = document.createElement("img");
+    image.dataset.src = card.thumbnail || card.image;
+    image.alt = ""; image.loading = "lazy"; image.decoding = "async";
+    image.width = 320; image.height = 480;
     const title = document.createElement("span"); title.textContent = card.title;
     button.append(image, title);
     button.addEventListener("click", () => browseCard(index));
@@ -39,6 +43,10 @@
   byId("browse-deck").addEventListener("click", () => {
     const gallery = byId("deck-gallery");
     gallery.hidden = !gallery.hidden;
+    if (!gallery.hidden) gallery.querySelectorAll("img[data-src]").forEach((image) => {
+      image.src = image.dataset.src;
+      delete image.dataset.src;
+    });
     byId("browse-deck").setAttribute("aria-expanded", String(!gallery.hidden));
     byId("browse-deck").textContent = gallery.hidden ? "Alle Karten ansehen" : "Kartenübersicht schließen";
   });
@@ -143,7 +151,7 @@
     const version = exportVersion;
     try {
       const artwork = new Image();
-      artwork.src = card.image;
+      artwork.src = card.originalImage || card.image;
       await Promise.all([artwork.decode(), document.fonts.ready]);
       const canvas = document.createElement("canvas");
       canvas.width = 1200;
@@ -208,6 +216,7 @@
     }
   }
   byId("save-card").addEventListener("click", async () => {
+    if (!exportFile && exportCard) await prepareExport(exportCard);
     if (!exportFile) return;
     const files = [exportFile];
     if (navigator.share && navigator.canShare && navigator.canShare({ files })) {
@@ -230,7 +239,9 @@
     byId("browse-controls").hidden = true;
     phase = "revealing";
     byId("reveal-card").classList.toggle("finished-design", Boolean(card.fullDesign));
-    prepareExport(card);
+    clearExport();
+    exportCard = card;
+    byId("save-card").disabled = false;
     choices.hidden = true;
     byId("stop-shuffle").hidden = true;
     byId("instruction").textContent = "Deine Karte darf dich in deinem Rhythmus begleiten.";
@@ -418,6 +429,7 @@
     if (phase === "choosing") stopMovement();
   });
   byId("reset").addEventListener("click", () => {
+    exportCard = null;
     clearExport();
     browseIndex = null;
     byId("browse-controls").hidden = true;
