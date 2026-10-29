@@ -102,19 +102,8 @@
 .card-actions a { text-decoration: none; }
 .meaning .save-status { font-size: 12px !important; margin: 12px 0 20px; }
 
-/* A full-page tabletop beneath the deck and its paper notes. */
-body {
-  background: #f3f1ed;
-  isolation: isolate;
-}
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: url("./art/ivory-marble-table.jpg") center / cover no-repeat;
-  pointer-events: none;
-}
+/* Neutral paper background beneath the deck and its notes. */
+body { background: var(--paper); }
 .toolbar { background: #f4efe6e8; }
 .oracle-heading { margin-top: 28px; padding: 28px 24px; border-radius: 6px; background: #faf7f0ed; box-shadow: 0 6px 20px #38200e18; }
 .oracle { padding-top: 24px; }
@@ -130,7 +119,7 @@ body::before {
   .meaning { padding: 24px 18px; }
 }
 
-/* Quiet marble lets the cards carry the colour. */
+/* Quiet surfaces let the cards carry the colour. */
 .oracle-heading { background: transparent; box-shadow: none; }
 .step, .deck-caption, .sample-note { background: transparent; }
 .meaning { background: #faf7f0d9; box-shadow: 0 6px 20px #3a36400c; }
