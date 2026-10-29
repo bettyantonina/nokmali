@@ -11,9 +11,9 @@
   <link rel="icon" href="../../../favicon.ico">
   <link rel="stylesheet" href="../meditation.css?v=rauhnaechte-exercises-6">
   <link rel="stylesheet" href="../../../brand-logo.css?v=meditation-brand-3">
-  <link rel="stylesheet" href="./orakel.css?v=26">
-  <script src="./cards.js?v=12" defer></script>
-  <script src="./orakel.js?v=23" defer></script>
+  <link rel="stylesheet" href="./orakel.css?v=27">
+  <script src="./cards.js?v=13" defer></script>
+  <script src="./orakel.js?v=24" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#orakel">Zum Kartendeck</a>
@@ -29,6 +29,8 @@
     </header>
     <div class="oracle-layout">
     <section class="oracle wrap" id="orakel" aria-label="Eine Orakelkarte ziehen">
+      <div class="oracle-screenbar"><button class="reset" id="screen-back" type="button">← Übersicht</button><span id="screen-title">Dein Kartentisch</span></div>
+      <div class="tap-instruction" id="tap-instruction"><strong>Doppeltippen zum Aufdecken</strong><span>Du kannst die Karten vorher verschieben. Am Computer: doppelklicken.</span></div>
       <p class="browse-entry"><button class="reset" id="browse-deck" type="button" aria-expanded="false" aria-controls="deck-gallery">Alle Karten ansehen</button></p>
       <div id="deck-gallery" class="deck-gallery" role="group" aria-label="Alle Orakelkarten" hidden></div>
       <p class="step" id="instruction" role="status">Halte das Kartendeck zum Mischen gedrückt. Lass los, verschiebe die Karten und tippe zweimal auf eine Karte, um sie aufzudecken.</p>
@@ -46,7 +48,8 @@
         <article class="meaning" id="meaning" tabindex="-1" aria-labelledby="card-title" hidden>
           <div class="browse-controls" id="browse-controls" hidden><button class="reset" id="previous-card" type="button" aria-label="Vorherige Karte">← Zurück</button><span id="browse-position" role="status"></span><button class="reset" id="next-card" type="button" aria-label="Nächste Karte">Weiter →</button></div>
           <p class="eyebrow" id="prompt-label">Deine Intention</p><h2 id="card-title"></h2>
-          <p id="card-meaning"></p><p class="intention" id="card-intention"></p>
+          <div class="description-reader" id="description-reader" tabindex="0" aria-label="Beschreibung der Karte"><p id="card-meaning"></p><p class="intention" id="card-intention"></p></div>
+          <div class="description-pages" id="description-pages" hidden><button class="reset" id="text-previous" type="button" aria-label="Vorherige Textseite">←</button><span id="text-position" role="status"></span><button class="reset" id="text-next" type="button" aria-label="Nächste Textseite">→</button></div>
           <div class="card-actions"><button class="reset save-card" id="save-card" type="button" disabled>Kartenbild speichern oder teilen</button><a class="reset" id="download-card" hidden>Bild herunterladen</a></div>
           <p class="save-status" id="save-status" role="status"></p>
           <button class="reset" id="reset" type="button">Noch eine Karte ziehen <span aria-hidden="true">↻</span></button>

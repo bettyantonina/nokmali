@@ -2,6 +2,62 @@
   const deck = window.oracleDeck;
   const byId = (id) => document.getElementById(id);
   const choices = byId("card-choices");
+  function showScreen(screen) {
+    document.body.dataset.oracleScreen = screen;
+    byId("screen-title").textContent = screen === "card" ? "Deine Karte" : "Dein Kartentisch";
+  }
+  let readingCard = null;
+  let textPages = [];
+  let textPage = 0;
+  let paginationFrame;
+  function paintTextPage(page) {
+    const words = readingCard.meaning.match(/\S+\s*/g) || [];
+    const impulse = readingCard.intention.match(/\S+\s*/g) || [];
+    const all = words.concat(impulse);
+    byId("card-meaning").textContent = all.slice(page.start, Math.min(page.end, words.length)).join("").trim();
+    byId("card-meaning").hidden = page.start >= words.length;
+    byId("card-intention").textContent = all.slice(Math.max(page.start, words.length), page.end).join("").trim();
+    byId("card-intention").hidden = page.end <= words.length;
+  }
+  function turnTextPage(index) {
+    textPage = Math.max(0, Math.min(textPages.length - 1, index));
+    if (!textPages.length) return;
+    paintTextPage(textPages[textPage]);
+    byId("text-position").textContent = "Text " + (textPage + 1) + " / " + textPages.length;
+    byId("text-previous").disabled = textPage === 0;
+    byId("text-next").disabled = textPage === textPages.length - 1;
+  }
+  function paginateDescription() {
+    if (!readingCard || byId("meaning").hidden || document.body.dataset.oracleScreen !== "card") return;
+    const reader = byId("description-reader");
+    const anchor = textPages[textPage]?.start || 0;
+    const count = (readingCard.meaning.match(/\S+\s*/g) || []).length + (readingCard.intention.match(/\S+\s*/g) || []).length;
+    // Reserve the page controls before measuring, so every page has equal room.
+    byId("description-pages").hidden = !count;
+    textPages = [];
+    let start = 0;
+    while (start < count) {
+      let low = start + 1, high = count, end = low;
+      while (low <= high) {
+        const mid = Math.floor((low + high) / 2);
+        paintTextPage({ start, end: mid });
+        if (reader.scrollHeight <= reader.clientHeight + 1) { end = mid; low = mid + 1; }
+        else high = mid - 1;
+      }
+      textPages.push({ start, end });
+      start = end;
+    }
+    if (textPages.length) turnTextPage(Math.max(0, textPages.findIndex(page => page.end > anchor)));
+  }
+  byId("text-previous").addEventListener("click", () => turnTextPage(textPage - 1));
+  byId("text-next").addEventListener("click", () => turnTextPage(textPage + 1));
+  const queuePagination = () => {
+    cancelAnimationFrame(paginationFrame);
+    paginationFrame = requestAnimationFrame(paginateDescription);
+  };
+  new ResizeObserver(queuePagination).observe(byId("description-reader"));
+  document.fonts.ready.then(queuePagination);
+  byId("screen-back").addEventListener("click", () => byId("reset").click());
   let phase = "closed";
   let exportFile = null;
   let exportCard = null;
@@ -25,7 +81,7 @@
     byId("browse-controls").hidden = false;
     byId("browse-position").textContent = (browseIndex + 1) + " / " + deck.cards.length;
     [...byId("deck-gallery").children].forEach((button, i) => button.setAttribute("aria-pressed", String(i === browseIndex)));
-    byId("result").scrollIntoView({ block: "start", behavior: "instant" });
+
   }
   deck.cards.forEach((card, index) => {
     const button = document.createElement("button");
@@ -238,6 +294,11 @@
     if (phase !== "choosing") return;
     byId("browse-controls").hidden = true;
     phase = "revealing";
+    showScreen("card");
+    readingCard = card;
+    textPages = [];
+    textPage = 0;
+    byId("description-pages").hidden = true;
     byId("reveal-card").classList.toggle("finished-design", Boolean(card.fullDesign));
     clearExport();
     exportCard = card;
@@ -268,6 +329,7 @@
       revealTimer = setTimeout(() => {
         phase = "revealed";
         byId("meaning").hidden = false;
+        paginateDescription();
         byId("meaning").focus({ preventScroll: true });
       }, matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 700);
     }));
@@ -341,6 +403,7 @@
   function openDeck() {
     if (phase !== "closed") return;
     phase = "choosing";
+    showScreen("table");
     const shuffled = [...deck.cards];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -430,6 +493,8 @@
   });
   byId("reset").addEventListener("click", () => {
     exportCard = null;
+    readingCard = null;
+    showScreen("home");
     clearExport();
     browseIndex = null;
     byId("browse-controls").hidden = true;

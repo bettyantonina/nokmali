@@ -283,3 +283,102 @@ body { min-height: 100vh; }
   font-display: swap;
 }
 :root { --display: "Oracle Else", "Trebuchet MS", sans-serif; }
+
+/* The table and revealed card are separate viewport-sized screens. */
+.oracle-screenbar, .tap-instruction { display: none; }
+body:is([data-oracle-screen="table"], [data-oracle-screen="card"]) {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+body:is([data-oracle-screen="table"], [data-oracle-screen="card"]) :is(.toolbar, .oracle-heading, .footer, .browse-entry, .deck-gallery, .sample-note) { display: none; }
+body:is([data-oracle-screen="table"], [data-oracle-screen="card"]) .oracle {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  width: 100%;
+  height: 100dvh;
+  min-height: 0;
+  padding: max(12px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+  gap: 12px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.oracle-screenbar { align-items: center; justify-content: space-between; gap: 16px; color: var(--ink); font-size: 14px; }
+body:is([data-oracle-screen="table"], [data-oracle-screen="card"]) .oracle-screenbar { display: flex; grid-row: 1; }
+.oracle-screenbar .reset { min-height: 40px; padding: 8px 16px; }
+body[data-oracle-screen="table"] .oracle { grid-template-rows: auto auto auto minmax(0, 1fr) auto; }
+body[data-oracle-screen="table"] #instruction { grid-row: 2; min-height: 0; margin: 0; padding: 0; font-size: 14px; }
+body[data-oracle-screen="table"] .tap-instruction {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  grid-row: 3;
+  justify-self: center;
+  width: min(100%, 620px);
+  padding: 14px 18px;
+  border: 1px solid var(--teal);
+  border-radius: 12px;
+  background: var(--oracle-panel);
+  color: var(--ink);
+}
+.tap-instruction strong { font-size: clamp(20px, 4.8vw, 26px); line-height: 1.2; }
+.tap-instruction span { font-size: 14px; line-height: 1.45; color: var(--soft); }
+body[data-oracle-screen="table"] .choices { grid-row: 4; width: min(100%, 900px); height: 100%; max-width: none; min-height: 0; border-radius: 0; animation: none; }
+body[data-oracle-screen="table"] .shuffle-stop { grid-row: 5; justify-self: center; margin: 0; }
+body[data-oracle-screen="card"] .oracle { grid-template-rows: auto minmax(0, 1fr); }
+body[data-oracle-screen="card"] #instruction { display: none; }
+body[data-oracle-screen="card"] .result {
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  width: min(100%, 1100px);
+  min-height: 0;
+  height: 100%;
+  justify-self: center;
+}
+body[data-oracle-screen="card"] .reveal-card { justify-self: center; width: auto; height: min(70dvh, 500px); aspect-ratio: 2 / 3; }
+body[data-oracle-screen="card"] .meaning { display: flex; flex-direction: column; width: 100%; max-width: none; height: 100%; min-height: 0; padding: 20px; overflow: hidden; text-align: left; }
+body[data-oracle-screen="card"] .meaning h2 { font-size: 30px; margin: 0 0 12px; }
+body[data-oracle-screen="card"] .meaning > .eyebrow { margin: 0 0 6px; }
+.description-reader { flex: 1; min-height: 0; overflow: hidden; outline-offset: -2px; }
+.description-reader p { margin: 0 0 12px; color: var(--soft); font-size: 16px; line-height: 1.6; }
+.meaning .description-reader .intention { margin: 12px 0 0; font-size: 21px !important; }
+.description-pages { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-block: 10px; font-size: 13px; }
+.description-pages .reset { min-width: 44px; min-height: 36px; padding: 5px 12px; }
+.description-pages .reset:disabled { opacity: .4; cursor: default; }
+body[data-oracle-screen="card"] .card-actions { flex-wrap: wrap; margin-top: 10px; }
+body[data-oracle-screen="card"] .meaning .reset { min-height: 38px; padding: 8px 14px; font-size: 13px; }
+body[data-oracle-screen="card"] .meaning > .reset { align-self: center; margin-top: 10px; }
+body[data-oracle-screen="card"] .meaning .save-status { margin: 6px 0; }
+body[data-oracle-screen="card"] .meaning .save-status:empty { display: none; }
+body[data-oracle-screen="card"] .browse-controls { margin-bottom: 10px; }
+@media (max-width: 700px) {
+  body[data-oracle-screen="card"] .result { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); gap: 14px; }
+  body[data-oracle-screen="card"] .reveal-card { height: clamp(90px, 20dvh, 170px); }
+  body[data-oracle-screen="card"] .meaning { padding: 14px; }
+  body[data-oracle-screen="card"] .meaning h2 { font-size: 27px; margin-bottom: 8px; }
+  .description-reader p { font-size: 15px; line-height: 1.55; }
+  .meaning .description-reader .intention { font-size: 19px !important; }
+}
+@media (max-height: 520px) and (min-width: 701px) {
+  body[data-oracle-screen="card"] .meaning { padding: 12px; }
+  body[data-oracle-screen="card"] .meaning h2 { font-size: 24px; margin-bottom: 6px; }
+}
+body[data-oracle-screen="table"] .choices { container-type: size; }
+body[data-oracle-screen="table"] .choice { width: min(112px, 22cqw, 38cqh); height: auto; aspect-ratio: 2 / 3; }
+@media (max-height: 520px) {
+  body[data-oracle-screen="card"] .meaning .reset { min-height: 30px; padding: 5px 10px; font-size: 12px; }
+  body[data-oracle-screen="card"] .meaning .browse-controls { margin-bottom: 6px; }
+  body[data-oracle-screen="card"] .meaning h2 { font-size: 22px; margin-bottom: 6px; }
+  body[data-oracle-screen="card"] .meaning > .eyebrow { font-size: 10px; margin-bottom: 2px; }
+  body[data-oracle-screen="card"] .meaning .card-actions,
+  body[data-oracle-screen="card"] .meaning > .reset { margin-top: 6px; }
+  .description-pages { margin-block: 6px; }
+  .description-reader p { font-size: 14px; line-height: 1.45; }
+  .meaning .description-reader .intention { font-size: 18px !important; line-height: 1.4; margin-top: 6px; }
+}
