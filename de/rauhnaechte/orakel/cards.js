@@ -96,8 +96,8 @@ window.oracleDeck = {
       "title": "Vorwärts",
       "image": "./art/cards/vorwarts.webp?v=79aeb2fe84",
       "fullDesign": true,
-      "meaning": "",
-      "intention": "",
+      "meaning": "Es ist Zeit, nach vorne zu blicken. Was auch immer du im Moment im Fokus hast: Bleibe dabei und überlege dir, was der nächste Schritt ist, um dein Vorhaben voranzubringen. Ein Projekt, eine Beziehung, eine Veränderung?\n\nWas ist gerade wichtig, das du beiseitegelassen hast? Wo hast du deine Energie auf zu viele Themen verteilt?\n\nDiese Karte lädt dich dazu ein, für den Moment ein Vorhaben auszuwählen und dich zu fragen: Was braucht es, um vorwärtszukommen? Zunächst einmal Fokus, aber sicher auch andere Dinge, die du selbst schon kennst.\n\nSei mutig und gehe los. Blicke nicht auf vermeintlich verschwendete Zeit oder verpasste Alternativen zurück. Schaffe Klarheit darüber, was es braucht, und gehe dann mit festen Schritten vorwärts. Denn deine Richtung und deine Aufmerksamkeit bestimmen, was wächst.",
+      "intention": "Gehe mit Entschlossenheit vorwärts und beobachte das Wachstum.",
       "promptLabel": "Impuls",
       "originalImage": "../../../orakelkarten/Vorwaerts_8x12cm_300dpi_dress_corrected.png?v=ce25eacddd",
       "thumbnail": "./art/cards/vorwarts-thumb.webp?v=6e7c715d51"
