@@ -66,8 +66,8 @@ window.oracleDeck = {
       "title": "Heldin",
       "image": "./art/cards/heldin.webp?v=58fe6b6da5",
       "fullDesign": true,
-      "meaning": "",
-      "intention": "",
+      "meaning": "Du bist deine eigene Heldin auf der Reise des Lebens. Manchmal sind wir so mit unseren kleinen Alltagsthemen beschäftigt, dass wir das große Ganze aus den Augen verlieren. Unser Blick verengt sich, und kleine Themen erscheinen größer, als sie sind.\n\nDiese Karte erinnert dich daran, einen Schritt zurückzutreten und dein Leben oder eine Lebensphase aus der Vogelperspektive zu betrachten. Wie sieht dein Leben aus, wenn du es als eine ganze Reise beschreibst? Was sind die deutlichsten Höhen und Tiefen? Was hast du überstanden und erlebt? Was hat dich geprägt, und wo hast du andere geprägt? Welche Ereignisse haben dich dazu bewegt, bestimmte Richtungen einzuschlagen?\n\nDich mit deiner eigenen Heldinnengeschichte auseinanderzusetzen, kann dir helfen, Zusammenhänge zu erkennen und der Vergangenheit sowie dem Punkt, an dem du heute stehst, Bedeutung zu geben. Daraus kann ein neuer Blick auf das Jetzt und deine aktuellen Prioritäten entstehen.\n\nWie sieht deine Heldinnenreise aus? Finde vielleicht drei Worte, die deine Eigenschaften als Heldin beschreiben.",
+      "intention": "Mache dich auf die Suche nach deiner Heldinnenreise und erneuere deinen Blick.",
       "promptLabel": "Impuls",
       "originalImage": "../../../orakelkarten/Heldin_no_fur_no_feathers_8x12cm_300dpi_DRAFT.png?v=694ab5dcd1",
       "thumbnail": "./art/cards/heldin-thumb.webp?v=e6cd1366ab"
