@@ -26,10 +26,11 @@ window.oracleDeck = {
       "title": "Reflexion",
       "image": "./art/cards/reflexion.webp?v=a5dcc3bfcb",
       "fullDesign": true,
-      "meaning": "Nimm dir einen stillen Moment, um nach innen zu schauen. Was bewegt dich, und was möchtest du aus deinen Erfahrungen mitnehmen? Begegne dir selbst mit Neugier und einem liebevollen Blick.",
-      "intention": "Ich schenke mir Zeit zum Innehalten und erkenne, was mir wichtig ist.",
+      "meaning": "Unsere Umwelt reflektiert für uns, wer wir sind, wo wir stehen und was tief in uns sitzt. Unsere Glaubenssätze, unsere Wunden und unsere erlernten Vorlieben erleben wir häufig im Zusammenspiel mit der Umwelt.\n\nDamit ist nicht die Meinung anderer gemeint, sondern wie wir die Umwelt, uns selbst und andere wahrnehmen, beurteilen und schätzen.\n\nWas uns inspiriert und was wir bewundern, ist vielleicht in unseren Wünschen verankert und spiegelt auch unsere Interessen und Talente wider. Was uns dagegen abstößt, nervt oder was wir ablehnen, kann darauf hindeuten, dass wir etwas in uns tragen, das wir ebenfalls ablehnen.\n\nDiese Karte lädt dich dazu ein, deine Reaktionen und Gefühle gegenüber dir selbst und deiner Umwelt zu reflektieren. Wo kann ich, statt einfach zu reagieren, kurz innehalten und mich fragen: „Warum stört mich das?“ oder „Warum empfinde ich das als bewundernswert?“ Die eigentliche Frage ist: „Wo kann ich mich darin erkennen?“\n\nDas schafft zwei Dinge: erstens Mitgefühl für deine Umwelt und für dich selbst und zweitens ein besseres Selbstverständnis, das dich vom Reagieren zum Reflektieren und zur Selbsterkenntnis führt.",
+      "intention": "Lerne dich in deiner Umwelt kennen.",
       "originalImage": "../../../orakelkarten/Reflexion_revised_8x12cm_300dpi.png?v=e73e569431",
-      "thumbnail": "./art/cards/reflexion-thumb.webp?v=e9f6a61419"
+      "thumbnail": "./art/cards/reflexion-thumb.webp?v=e9f6a61419",
+      "promptLabel": "Impuls"
     },
     {
       "title": "Stimme",
