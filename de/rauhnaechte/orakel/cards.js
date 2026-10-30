@@ -86,8 +86,8 @@ window.oracleDeck = {
       "title": "Klarheit",
       "image": "./art/cards/klarheit.webp?v=65b7bc0d9d",
       "fullDesign": true,
-      "meaning": "",
-      "intention": "",
+      "meaning": "Im Trubel des Alltags geht der Sinn für Klarheit häufig verloren. Zehn Dinge schwirren gleichzeitig im Kopf, und das meiste wird einfach abgearbeitet. Damit geht oft ein Gefühl von Zerstreutheit einher, vielleicht sogar Überforderung.\n\nVielleicht fehlt dir gerade der klare Blick auf eine Situation, eine Entscheidung oder eine Herausforderung.\n\nWas auch immer es ist: Der Weg zur Klarheit führt selten über weitere Gedankenschleifen, Informationen oder Meinungen. Sie entsteht nicht unbedingt, wenn wir noch etwas hinzufügen, sondern eher, wenn wir die Schichten des Nebels langsam abtragen.\n\nDazu brauchen wir Zeit und Ruhe, um wieder Raum in uns zu spüren. Entschleunigung, bewusstes Ankommen im Jetzt und das Wahrnehmen deines Körpers können helfen, den Nebel zu lichten. So entsteht Platz für neue Einsichten – oder für solche, die längst da waren, aber vom Alltagsrauschen überlagert wurden.\n\nWo fehlt dir im Moment Klarheit? Anstatt sie zu erzwingen, versuche es mit bewussten Pausen der Ruhe und des Nichtstuns. Schau, was sich zeigt. Vertraue darauf, dass du nicht jede Antwort erarbeiten musst. Manchmal genügt es, Abstand vom Rauschen zu gewinnen, um wahrzunehmen, was du tief in dir schon weißt.",
+      "intention": "Gehe in die Stille und lass die Klarheit zu dir kommen.",
       "promptLabel": "Impuls",
       "originalImage": "../../../orakelkarten/Klarheit.png?v=a85a498a10",
       "thumbnail": "./art/cards/klarheit-thumb.webp?v=606441e5cd"
