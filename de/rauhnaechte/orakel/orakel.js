@@ -427,7 +427,9 @@
   let galleryBuilt = false;
   $("browse-deck").addEventListener("click", () => {
     if (!galleryBuilt) {
-      CARDS.forEach((card,i) => {
+      const alphabeticalCards = CARDS.map((card, i) => ({ card, i }))
+        .sort((a, b) => a.card.title.localeCompare(b.card.title, "de", { sensitivity: "base" }));
+      alphabeticalCards.forEach(({ card, i }) => {
         const button = document.createElement("button"); button.type = "button"; button.className = "gallery-card";
         const image = document.createElement("img"); image.src = card.thumbnail || card.image; image.alt = ""; image.loading = "lazy";
         const title = document.createElement("span"); title.textContent = card.title;
