@@ -46,8 +46,8 @@ window.oracleDeck = {
       "title": "Experiment",
       "image": "./art/cards/experiment.webp?v=25bcac1be9",
       "fullDesign": true,
-      "meaning": "",
-      "intention": "",
+      "meaning": "Die Karte „Experiment“ strahlt Verspieltheit und Risikofreude aus. Sie steht für viele Möglichkeiten und die Offenheit, Neues zu entdecken. Wenn du diese Karte ziehst, ist es Zeit, strikte Pläne, festgelegte Routinen und starre Selbstbilder einmal aufzuschütteln.\n\nWir definieren uns ein Leben lang. Doch so, wie das Leben um uns herum wächst und sich verändert, verändern auch wir uns. Deshalb ist es wichtig, sich ab und zu zu öffnen und zu fragen: Welche Vorstellungen von mir selbst und welche Glaubenssätze trage ich mit mir, die einst nützlich und richtig waren, aber heute vielleicht nicht mehr zu mir passen oder mich davon abhalten, in mein neues Ich hineinzuwachsen?\n\nFange mit einem kleinen Experiment an und sei offen dafür, wie es sich anfühlt. Das kann etwas Einfaches sein wie eine neue Frisur. Oder du möchtest eine Kleinigkeit in deiner Kommunikation mit anderen verändern, ein Hobby ausprobieren oder anders reagieren als gewohnt. Was auch immer es ist: Probiere etwas aus. Es geht nicht darum, es gleich dauerhaft zu übernehmen, sondern darum, dich bewusst im Raum der Offenheit für Veränderungen zu bewegen.\n\nMit welchen Veränderungen, Hobbys oder Vorhaben hast du geliebäugelt, ohne dich so ganz zu trauen? Vielleicht glaubst du selbst noch nicht daran, dass sie Teil von dir sein könnten. Oder du zögerst, weil andere dich „so nicht kennen“.\n\nWähle eine Sache aus und fange an, mit deinem Selbstbild und der Gestaltung deines Lebens zu spielen. Habe keine Angst, „künstlich“ oder gezwungen zu wirken. Alles, was du ausdrückst, gehört zu dir – auch das, was dir noch unbekannt ist.\n\nTrau dich, experimentiere.",
+      "intention": "Wähle ein Experiment und sei offen für neues Wachstum.",
       "promptLabel": "Impuls",
       "originalImage": "../../../orakelkarten/Experiment_spiderwoman_8x12cm_300dpi.png?v=b488ebdc01",
       "thumbnail": "./art/cards/experiment-thumb.webp?v=8c0e3e473f"
