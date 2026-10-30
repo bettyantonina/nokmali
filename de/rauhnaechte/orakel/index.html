@@ -2,64 +2,52 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Zieh deine Karte · Rauhnächte | Nokmali</title>
   <meta name="description" content="Ziehe deine Karte für den Tag, die Woche oder den Monat – ganz in deinem Rhythmus.">
   <meta name="theme-color" content="#E7ECE9">
   <link rel="preload" as="image" href="./art/cards/cover.webp" fetchpriority="high">
   <link rel="canonical" href="https://nokmali.com/de/rauhnaechte/orakel/">
   <link rel="icon" href="../../../favicon.ico">
-  <link rel="stylesheet" href="../meditation.css?v=rauhnaechte-exercises-6">
-  <link rel="stylesheet" href="../../../brand-logo.css?v=meditation-brand-3">
-  <link rel="stylesheet" href="./orakel.css?v=27">
+  <link rel="stylesheet" href="./orakel.css?v=28">
   <script src="./cards.js?v=13" defer></script>
-  <script src="./orakel.js?v=24" defer></script>
+  <script src="./orakel.js?v=25" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#orakel">Zum Kartendeck</a>
-  <nav class="toolbar" aria-label="Hauptnavigation"><div class="nav-inner wrap">
-    <a class="brand" href="../../index.html" aria-label="Nokmali Startseite"><img src="../../../art/nokmali-bowl-logo.png?v=meditation-brand-3" width="48" height="48" alt=""><span>Nokmali</span></a>
-    <a class="journey-button nav-back" href="../index.html">Zu den Meditationen</a>
-  </div></nav>
-  <main>
-    <header class="oracle-heading wrap">
-      <p class="eyebrow">Deine Rauhnächte · Orakel</p>
-      <h1>Zieh deine Karte</h1>
-      <p class="hero-copy">Für einen Tag, eine Woche oder einen Monat – du entscheidest.<br>Atme durch. Komm bei dir an. Folge deinem Gefühl.</p>
-    </header>
-    <div class="oracle-layout">
-    <section class="oracle wrap" id="orakel" aria-label="Eine Orakelkarte ziehen">
-      <div class="oracle-screenbar"><button class="reset" id="screen-back" type="button">← Übersicht</button><span id="screen-title">Dein Kartentisch</span></div>
-      <div class="tap-instruction" id="tap-instruction"><strong>Doppeltippen zum Aufdecken</strong><span>Du kannst die Karten vorher verschieben. Am Computer: doppelklicken.</span></div>
-      <p class="browse-entry"><button class="reset" id="browse-deck" type="button" aria-expanded="false" aria-controls="deck-gallery">Alle Karten ansehen</button></p>
-      <div id="deck-gallery" class="deck-gallery" role="group" aria-label="Alle Orakelkarten" hidden></div>
-      <p class="step" id="instruction" role="status">Halte das Kartendeck zum Mischen gedrückt. Lass los, verschiebe die Karten und tippe zweimal auf eine Karte, um sie aufzudecken.</p>
-      <div id="closed-deck" class="deck-stage">
-        <button id="open-deck" class="deck card-back" type="button" aria-label="Zum Öffnen und Mischen gedrückt halten" aria-expanded="false" aria-controls="card-choices"><span class="back-mark" aria-hidden="true">✧</span><span class="back-word" aria-hidden="true">Nokmali</span></button>
-        <span class="deck-caption">Ein Moment für dich</span>
-      </div>
-      <div id="card-choices" class="choices" role="group" aria-label="Wähle eine verdeckte Karte" hidden></div>
-      <button class="reset shuffle-stop" id="stop-shuffle" type="button" aria-pressed="false" hidden>Zum Mischen gedrückt halten</button>
-      <div id="result" class="result" hidden>
-        <div class="reveal-card" id="reveal-card" aria-hidden="true"><div class="card-turn">
-          <div class="card-face card-back"><span class="back-mark">✧</span><span class="back-word">Nokmali</span></div>
-          <div class="card-face card-front"><span class="card-edition" aria-hidden="true">Nokmali · Rauhnächte</span><img id="card-art" alt="" hidden><span class="card-label" id="card-label"></span><div class="front-placeholder" id="front-placeholder"><span class="front-symbol">✧</span><span id="front-title"></span></div></div>
-        </div></div>
-        <article class="meaning" id="meaning" tabindex="-1" aria-labelledby="card-title" hidden>
-          <div class="browse-controls" id="browse-controls" hidden><button class="reset" id="previous-card" type="button" aria-label="Vorherige Karte">← Zurück</button><span id="browse-position" role="status"></span><button class="reset" id="next-card" type="button" aria-label="Nächste Karte">Weiter →</button></div>
-          <p class="eyebrow" id="prompt-label">Deine Intention</p><h2 id="card-title"></h2>
-          <div class="description-reader" id="description-reader" tabindex="0" aria-label="Beschreibung der Karte"><p id="card-meaning"></p><p class="intention" id="card-intention"></p></div>
-          <div class="description-pages" id="description-pages" hidden><button class="reset" id="text-previous" type="button" aria-label="Vorherige Textseite">←</button><span id="text-position" role="status"></span><button class="reset" id="text-next" type="button" aria-label="Nächste Textseite">→</button></div>
-          <div class="card-actions"><button class="reset save-card" id="save-card" type="button" disabled>Kartenbild speichern oder teilen</button><a class="reset" id="download-card" hidden>Bild herunterladen</a></div>
-          <p class="save-status" id="save-status" role="status"></p>
-          <button class="reset" id="reset" type="button">Noch eine Karte ziehen <span aria-hidden="true">↻</span></button>
-        </article>
-      </div>
-      <p class="sample-note">Raum für deine eigene Deutung.</p>
-      <noscript><p>Bitte aktiviere JavaScript, um das Kartendeck zu öffnen und eine Karte zu ziehen.</p></noscript>
-    </section>
-    </div>
-  </main>
-  <footer class="footer wrap"><a href="../index.html">Zu den Meditationen <span aria-hidden="true">↗</span></a><span>Raum für deinen eigenen Rhythmus.</span></footer>
+<a class="skip-link" href="#hit">Zum Kartendeck</a>
+<main class="stage" id="stage" data-phase="deck">
+<header class="top" data-screen-label="Orakel">
+<a class="brand" href="../../index.html" aria-label="Nokmali Startseite"><img src="../../../art/nokmali-bowl-logo.png" alt=""><span>Nokmali</span></a>
+<button class="pill" id="restart" type="button" hidden>← Neu beginnen</button>
+<a class="pill" id="toMed" href="../index.html">Zu den Meditationen</a>
+</header>
+<div class="table" id="table">
+<div class="inner" id="inner">
+<div class="intro" id="intro">
+<p class="eyebrow">Deine Rauhnächte · Orakel</p>
+<h1>Zieh deine Karte</h1>
+<p class="copy">Für einen Tag, eine Woche oder einen Monat – du entscheidest. Atme durch. Komm bei dir an. Folge deinem Gefühl.</p>
+</div>
+<button class="hit" id="hit" type="button" aria-label="Kartendeck. Gedrückt halten zum Mischen" aria-describedby="say"></button>
+</div>
+</div>
+<div class="dock" id="dock">
+<ol class="steps" id="steps" aria-hidden="true"><li data-s="deck">Mischen</li><li data-s="choose">Wählen</li><li data-s="reveal">Lesen</li></ol>
+<p class="say" id="say" role="status" aria-live="polite"></p>
+<div class="actions" id="actions"><button class="pill" id="browse-deck" type="button" aria-haspopup="dialog">Alle Karten ansehen</button></div>
+</div>
+<section class="reading" id="reading" hidden aria-labelledby="rTitle">
+<div class="slot" id="slot"><div class="flip" id="flip"><div class="face back"></div><div class="face front"><img id="rImg" alt=""></div></div></div>
+<button class="cue" id="cue" type="button">Lesen<span aria-hidden="true">↓</span></button>
+<article class="panel" id="panel" tabindex="-1">
+<p class="eyebrow">Deine Karte</p>
+<h2 id="rTitle"></h2>
+<div class="text" id="rText" tabindex="0" aria-label="Beschreibung der Karte"></div>
+<div class="impulse" id="rImpulse"><p class="eyebrow" id="rLabel">Impuls</p><p id="rIntention"></p></div>
+<div class="actions"><button class="btn" id="again" type="button">Noch eine Karte ziehen ↻</button><button class="btn ghost" id="save-card" type="button" disabled>Bild speichern oder teilen</button><a class="btn ghost" id="download-card" hidden>Bild herunterladen</a></div>
+<p class="save-status" id="save-status" role="status"></p></article>
+</section>
+</main>
+<dialog class="gallery-dialog" id="deck-gallery" aria-labelledby="gallery-title"><div class="gallery-header"><h2 id="gallery-title">Alle Orakelkarten</h2><button class="pill" id="close-gallery" type="button">Schließen</button></div><div class="gallery-grid" id="gallery-grid"></div></dialog><noscript>Bitte aktiviere JavaScript, um eine Karte zu ziehen.</noscript>
 </body>
 </html>
