@@ -76,8 +76,8 @@ window.oracleDeck = {
       "title": "Innen",
       "image": "./art/cards/innen.webp?v=491a407ee0",
       "fullDesign": true,
-      "meaning": "",
-      "intention": "",
+      "meaning": "Es ist Zeit, etwas Abstand von dem zu gewinnen, was um dich herum geschieht. Sich mit dem Außen zu beschäftigen, ist häufig einfacher, als wirklich nach innen zu gehen und zu hören und zu fühlen, was dort passiert.\n\nIm Außen suchen wir oft Antworten, Anerkennung und Orientierung. Manchmal lassen wir sogar unsere Ziele, Bedürfnisse und Vorlieben davon bestimmen und verlieren dabei den Kontakt zu unserer eigenen Intuition – zu dem, was sich richtig anfühlt, uns am Herzen liegt oder uns beschäftigt. Gerade in Zeiten, in denen wir viel nach außen gerichtet und ständig beschäftigt sind, kann die Verbindung zu uns selbst leiser werden.\n\nDiese Karte lädt dich dazu ein, dir bewusst einen Moment zu nehmen und in dich hineinzuhören. Wie fühlt sich dein Körper an? Welche Gefühle sind gerade da? Bei welchen Themen spürst du Unbehagen, bei welchen ein angenehmes Gefühl? Was sitzt fest? Was möchte vielleicht an die Oberfläche, wurde aber vom Außen überlagert?\n\nDu musst nicht alles auf einmal herausfinden. Es geht darum, dir kleine Zeiten einzuräumen, in denen du anfängst, dir selbst zuzuhören. Vielleicht spürst du vor dem Aufstehen oder vor dem Schlafengehen kurz nach. Oder du hältst inne, wenn sich etwas nicht gut anfühlt, und schaust, woher dieses Gefühl kommt.\n\nWas auch immer für dich möglich ist: Finde ein bisschen Zeit für dich und dein Innen.",
+      "intention": "Der Blick nach innen hilft dir, Wichtiges nach außen zu tragen.",
       "promptLabel": "Impuls",
       "originalImage": "../../../orakelkarten/Innen.png?v=73e53641d8",
       "thumbnail": "./art/cards/innen-thumb.webp?v=aa2f36c6aa"
