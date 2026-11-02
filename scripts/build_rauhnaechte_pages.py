@@ -34,6 +34,10 @@ def build_pages():
         title_match = re.search(r'<span class="track-title"([^>]*)>(.*?)</span>', row, re.S)
         title = html.unescape(title_match.group(2).strip())
         title_text = html.escape(title)
+        subtitle_match = re.search(r'<span class="track-subtitle">(.*?)</span>', row, re.S)
+        subtitle = subtitle_match.group(1).strip() if subtitle_match else ""
+        # On individual pages the subtitle belongs beneath the main title.
+        row = re.sub(r'<span class="track-subtitle">.*?</span>', "", row, flags=re.S)
         language = re.search(r'lang="([^"]+)"', title_match.group(1))
         language_attr = f' lang="{html.escape(language.group(1), quote=True)}"' if language else ""
         audio_src = html.unescape(re.search(r'data-audio-src="([^"]*)"', row).group(1))
@@ -61,7 +65,8 @@ def build_pages():
         page = page.replace('<body>', f'<body data-recording="{number}">', 1)
         page = replace_once(r'<p class="eyebrow">.*?</p>', f'<p class="eyebrow">Deine Rauhnächte · Übung {number}</p>', page)
         page = replace_once(r'<h1>.*?</h1>', f'<h1{language_attr}>{title_text}</h1>', page)
-        page = replace_once(r'<p class="hero-copy">.*?</p>', '<p class="hero-copy">Ein Moment zum Ankommen, Spüren und Gestalten.<br class="desktop-break"> Nimm dir die Zeit, die du brauchst.</p>', page)
+        hero_copy = subtitle or 'Ein Moment zum Ankommen, Spüren und Gestalten.<br class="desktop-break"> Nimm dir die Zeit, die du brauchst.'
+        page = replace_once(r'<p class="hero-copy">.*?</p>', f'<p class="hero-copy">{hero_copy}</p>', page)
         page = replace_once(r'<div class="section-heading">.*?</div>', f'<a class="collection-link" href="../index.html"><span aria-hidden="true">←</span> Alle 12 Übungen</a><h2 id="library-title" class="sr-only">Übung {number} anhören</h2>', page)
         availability = "Tippe auf die Wiedergabetaste, um die Aufnahme anzuhören." if audio_src else "Diese Aufnahme entsteht gerade. Du findest sie später genau hier."
         page = replace_once(r'<p class="availability-note">.*?</p>', f'<p class="availability-note">{availability}</p>', page)

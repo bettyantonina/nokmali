@@ -2,13 +2,13 @@
 
 Page: `https://nokmali.com/de/rauhnaechte/`
 
-The twelve entries live in `de/rauhnaechte/index.html`. This collection is the single source for their titles, optional exercise types and audio URLs. The collection and navigation use **Übungen**. The first entry is **Ankommen und den Funken entdecken**, labelled **Angeleitete Visualisierung**; the other titles and exercise types are intentionally undecided. An empty `data-audio-src` keeps an entry unavailable without requesting a missing audio file.
+The twelve entries live in `de/rauhnaechte/index.html`. This collection is the single source for titles, subtitles and audio URLs. Titles and subtitles come from the first page of each night in `20261029_Rauhnächte · Mein Journalatelier.pdf` (pages 14, 20, 26, 32, 38, 44, 50, 56, 62, 68, 74 and 80), with obvious spelling/punctuation corrections. The collection and navigation use **Übungen**. An empty `data-audio-src` keeps an entry unavailable without requesting a missing audio file.
 
 To add a recording:
 
 1. Put finished audio files in the repository’s `meditations/` folder. MP3 is a suitable default; an externally hosted HTTPS audio URL also works.
 2. Set that entry's source in the collection, for example `data-audio-src="../../meditations/recording.mp3"`. Relative URLs also work in local file previews.
-3. Update its `.track-title` when the title is known. Remove `lang="en"` if replacing an English title with German. When the exercise type is known, add a separate `<span class="track-type">Angeleitete Visualisierung</span>` (or the appropriate type) between `.track-title` and `.track-status`. The generated recording page preserves this label, and playback status changes do not overwrite it.
+3. Update `.track-title` and `.track-subtitle` in the collection when journal copy changes. The generated recording page uses the subtitle beneath its main heading; playback status changes do not overwrite it.
 4. Keep the numbered ID unchanged. The script automatically enables the full row and changes its availability label. Only one recording plays at a time; the player includes native pause, seeking and volume controls where supported.
 5. Run `python3 scripts/build_rauhnaechte_pages.py` to update all twelve recording pages. Do not edit the numbered pages directly: their titles, audio URLs, metadata and asset paths are generated from the collection. Run this after collection, style-version or script-version changes too.
 6. Check playback on the collection and the numbered page on a phone, then publish the collection, generated pages and audio together using the website's existing deployment process. Bump the stylesheet or script version in the collection HTML if those files change.
@@ -38,4 +38,4 @@ The previous `/de/meditation/` address forwards to the new collection; old `#med
 
 ## First recording
 
-Exercise 01, **Ankommen und den Funken entdecken**, uses `meditations/Meditation1 - 02:11:2026, 17.43.mp3` (approximately 9 minutes 32 seconds). Its filename is URL-encoded in the collection; the generator adjusts the relative path for `/01/`. The recording starts only after the visitor taps play.
+Exercise 01, **Mit Stabilität und einem Funken**, uses `meditations/Meditation1 - 02:11:2026, 17.43.mp3` (approximately 9 minutes 32 seconds). Its filename is URL-encoded in the collection; the generator adjusts the relative path for `/01/`. The recording starts only after the visitor taps play.
