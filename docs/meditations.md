@@ -39,3 +39,7 @@ The previous `/de/meditation/` address forwards to the new collection; old `#med
 ## First recording
 
 Exercise 01, **Mit Stabilität und einem Funken**, uses `meditations/Meditation1 - 02:11:2026, 17.43.mp3` (approximately 9 minutes 32 seconds). Its filename is URL-encoded in the collection; the generator adjusts the relative path for `/01/`. The recording starts only after the visitor taps play.
+
+## Second recording
+
+Exercise 02, **Über den Wolken**, uses `meditations/Meditation2 - 02:11:2026, 18.14.mp3`. It is available from the collection and `/de/rauhnaechte/02/`, and starts only after a tap.
