@@ -233,8 +233,36 @@
     }
     chooseDock();
   }
-    els.forEach((el, i) => {
-    el.addEventListener("click", () => { if (phase !== "choose" || selected !== null) return; select(i); later(reveal, reduced.matches ? 0 : 280); });
+  function openChoice(i) {
+    if (phase !== "choose" || selected !== null) return;
+    select(i);
+    later(reveal, reduced.matches ? 0 : 280);
+  }
+  els.forEach((el, i) => {
+    // Handle touch directly: a small finger movement must not cancel a light tap.
+    let tap = null;
+    el.addEventListener("pointerdown", (e) => {
+      if (e.pointerType === "mouse" || !e.isPrimary || phase !== "choose" || selected !== null) return;
+      tap = { id: e.pointerId, x: e.clientX, y: e.clientY, moved: false };
+      el.setPointerCapture(e.pointerId);
+    });
+    el.addEventListener("pointermove", (e) => {
+      if (tap && tap.id === e.pointerId && Math.hypot(e.clientX - tap.x, e.clientY - tap.y) > 18) tap.moved = true;
+    });
+    el.addEventListener("pointerup", (e) => {
+      if (!tap || tap.id !== e.pointerId) return;
+      const valid = !tap.moved && Math.hypot(e.clientX - tap.x, e.clientY - tap.y) <= 18;
+      tap = null;
+      // Suppress the compatibility click; openChoice also guards against repeats.
+      e.preventDefault();
+      if (valid) openChoice(i);
+    });
+    ["pointercancel", "lostpointercapture"].forEach(event => el.addEventListener(event, () => { tap = null; }));
+    el.addEventListener("click", (e) => {
+      // Touch/pen is handled on release; preserve mouse, keyboard and assistive clicks.
+      if (e.pointerType === "touch" || e.pointerType === "pen") return;
+      openChoice(i);
+    });
     el.addEventListener("keydown", (e) => {
       if (phase !== "choose") return;
       if (e.key === "Enter" || e.key === " ") {

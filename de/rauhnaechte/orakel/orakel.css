@@ -102,3 +102,6 @@ transition:transform var(--dur) var(--ease),opacity .35s ease,filter .35s ease;t
 
 .face.front img{object-fit:contain}.panel .actions{flex-wrap:wrap}.btn:disabled{opacity:.5;cursor:wait}.save-status{font-size:13px;color:var(--soft)}
 .gallery-dialog{width:min(100% - 24px,1050px);max-height:90dvh;padding:20px;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:12px;overscroll-behavior:contain}.gallery-dialog::backdrop{background:#20374488}.gallery-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}.gallery-header h2{font-family:var(--display);font-weight:400;margin:0}.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:18px}.gallery-card{border:0;background:transparent;padding:0;cursor:pointer}.gallery-card img{width:100%;aspect-ratio:2/3;object-fit:contain;border-radius:8px}.gallery-card span{display:block;margin-top:6px;font-size:13px}.skip-link{position:fixed;top:-100px;z-index:1000}.skip-link:focus{top:8px;background:var(--panel);padding:12px}.stage[data-wash] .card{pointer-events:none}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* The settled table has no drag gesture: tolerate natural finger movement. */
+.stage[data-phase="choose"] .card{touch-action:none}
