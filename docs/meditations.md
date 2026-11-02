@@ -2,12 +2,12 @@
 
 Page: `https://nokmali.com/de/rauhnaechte/`
 
-The twelve entries live in `de/rauhnaechte/index.html`. This collection is the single source for their titles, optional exercise types and audio URLs. The collection and navigation use **Übungen**. The first entry is **Ankomment und den Funken entdecken**, labelled **Angeleitete Visualisierung**; the other titles and exercise types are intentionally undecided. An empty `data-audio-src` keeps an entry unavailable without requesting a missing audio file.
+The twelve entries live in `de/rauhnaechte/index.html`. This collection is the single source for their titles, optional exercise types and audio URLs. The collection and navigation use **Übungen**. The first entry is **Ankommen und den Funken entdecken**, labelled **Angeleitete Visualisierung**; the other titles and exercise types are intentionally undecided. An empty `data-audio-src` keeps an entry unavailable without requesting a missing audio file.
 
 To add a recording:
 
-1. Put the finished audio file in `de/rauhnaechte/audio/` (create the folder when adding the first recording). MP3 is a suitable default; an externally hosted HTTPS audio URL also works.
-2. Set that entry's source in the collection, for example `data-audio-src="./audio/ground-and-spark.mp3"`. Relative URLs also work in local file previews.
+1. Put finished audio files in the repository’s `meditations/` folder. MP3 is a suitable default; an externally hosted HTTPS audio URL also works.
+2. Set that entry's source in the collection, for example `data-audio-src="../../meditations/recording.mp3"`. Relative URLs also work in local file previews.
 3. Update its `.track-title` when the title is known. Remove `lang="en"` if replacing an English title with German. When the exercise type is known, add a separate `<span class="track-type">Angeleitete Visualisierung</span>` (or the appropriate type) between `.track-title` and `.track-status`. The generated recording page preserves this label, and playback status changes do not overwrite it.
 4. Keep the numbered ID unchanged. The script automatically enables the full row and changes its availability label. Only one recording plays at a time; the player includes native pause, seeking and volume controls where supported.
 5. Run `python3 scripts/build_rauhnaechte_pages.py` to update all twelve recording pages. Do not edit the numbered pages directly: their titles, audio URLs, metadata and asset paths are generated from the collection. Run this after collection, style-version or script-version changes too.
@@ -35,3 +35,7 @@ https://nokmali.com/de/rauhnaechte/12
 Each QR destination opens a real, standalone HTML page for that recording, with its own title, player button and link back to the collection. GitHub Pages adds the trailing slash automatically. Playback starts after a tap, so the links work with mobile autoplay restrictions. No audio file is requested for an unpublished recording.
 
 The previous `/de/meditation/` address forwards to the new collection; old `#meditation-01` through `#meditation-12` links forward to the matching numbered page. With JavaScript disabled, the old address falls back to the collection. Do not print production QR codes until the public URL has been deployed and checked.
+
+## First recording
+
+Exercise 01, **Ankommen und den Funken entdecken**, uses `meditations/Meditation1 - 02:11:2026, 17.43.mp3` (approximately 9 minutes 32 seconds). Its filename is URL-encoded in the collection; the generator adjusts the relative path for `/01/`. The recording starts only after the visitor taps play.
