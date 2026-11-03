@@ -43,3 +43,7 @@ Exercise 01, **Mit Stabilität und einem Funken**, uses `meditations/Meditation1
 ## Second recording
 
 Exercise 02, **Über den Wolken**, uses `meditations/Meditation2 - 02:11:2026, 18.14.mp3`. It is available from the collection and `/de/rauhnaechte/02/`, and starts only after a tap.
+
+## Third recording
+
+Exercise 03, **Damals und Nun**, uses `meditations/Meditation3 - 03:11:2026, 11.54.mp3`. It is available from the collection and `/de/rauhnaechte/03/`, and starts only after a tap.
