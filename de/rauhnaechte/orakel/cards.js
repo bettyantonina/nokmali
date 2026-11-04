@@ -186,8 +186,8 @@ window.oracleDeck = {
       "title": "Wärme",
       "image": "./art/cards/warme.webp?v=a441dc504f",
       "fullDesign": true,
-      "meaning": "",
-      "intention": "",
+      "meaning": "Wir alle können ab und zu etwas Wärme und Gemütlichkeit gebrauchen. Bei dieser Karte geht es ausnahmsweise nicht um Ziele, Projekte oder darum, etwas zu erreichen oder an dir zu arbeiten. Es geht einfach darum, dir selbst etwas Gutes zu tun.\n\nÜberlege einmal, was dir dieses richtig wohlige, warme Gefühl gibt. Was lässt dich für einen Moment alles andere vergessen und einfach genießen? Vielleicht ist es dein Lieblingsessen, das dich an Zuhause erinnert, eine Tasse Tee, ein warmes Bad, eine Massage oder ein Buch, in das du dich eingekuschelt vertiefen kannst. Vielleicht ist es auch etwas ganz anderes, das nur für dich besonders ist.\n\nErinnere dich an die Dinge, die dir guttun. Nicht erst, wenn alles erledigt ist oder du dir eine Pause verdient hast. Sondern einfach, weil es schön ist, sich wohlzufühlen.\n\nSieh es als eine kleine Geste der Wertschätzung dir selbst gegenüber. Eine Möglichkeit, dir zu zeigen, dass du dir wichtig bist, dass deine Bedürfnisse zählen und dass du dir schöne Dinge gönnen darfst.",
+      "intention": "Schenke dir Wärme und Wertschätzung.",
       "promptLabel": "Impuls",
       "originalImage": "../../../orakelkarten/Wärme.png",
       "thumbnail": "./art/cards/warme-thumb.webp?v=c95781dce2"
