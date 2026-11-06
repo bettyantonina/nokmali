@@ -106,8 +106,8 @@ window.oracleDeck = {
       "title": "Verbindung",
       "image": "./art/cards/verbindung.webp?v=307450811a",
       "fullDesign": true,
-      "meaning": "",
-      "intention": "",
+      "meaning": "Wir sind ständig mit etwas oder jemandem verbunden. Mit Menschen, mit Orten, mit der Natur, mit Erinnerungen und manchmal auch mit Dingen, die wir gar nicht so richtig benennen können.\n\nUnd doch gibt es Phasen, in denen wir uns ganz alleine fühlen. Als würden wir alles selbst herausfinden, entscheiden und bewältigen müssen. Wir ziehen uns zurück, beschäftigen uns mit unseren eigenen Gedanken und vergessen dabei manchmal, dass wir Teil von etwas Größerem sind.\n\nVerbindung bedeutet nicht unbedingt, viele Freunde zu haben, ständig unter Menschen zu sein oder sich mit allen gut zu verstehen. Manchmal ist es ein Gespräch, in dem du dich wirklich gesehen fühlst. Manchmal ist es ein Spaziergang durch den Wald, bei dem du bemerkst, dass du nicht getrennt von deiner Umgebung bist. Oder ein gemeinsames Schweigen mit jemandem, bei dem du gar nichts erklären musst.\n\nEs geht auch nicht immer darum, etwas von dieser Verbindung zu bekommen. Sondern einfach darum, sie wahrzunehmen, zuzulassen und selbst ein Teil davon zu sein.\n\nVielleicht gibt es Verbindungen in deinem Leben, die du als selbstverständlich ansiehst. Menschen, denen du schon lange nicht mehr richtig zugehört hast. Orte, an denen du dich zugehörig fühlst. Oder kleine Begegnungen, die dir mehr geben, als du zunächst bemerkst.\n\nÜberlege dir, wo du dich wirklich verbunden fühlst. Mit wem, womit und in welchen Momenten? Und vielleicht auch, wo du dich gerade ein wenig abgeschnitten fühlst.\n\nSuche diese Verbindungen ganz bewusst auf. Nicht weil du etwas Bestimmtes erreichen möchtest, sondern um wieder zu spüren, dass du nicht alleine und nicht getrennt von allem anderen bist.",
+      "intention": "Nimm wahr, was dich mit der Welt um dich herum verbindet.",
       "promptLabel": "Impuls",
       "originalImage": "../../../orakelkarten/Verbindung.png?v=2437fc6d26",
       "thumbnail": "./art/cards/verbindung-thumb.webp?v=6096581976"
@@ -196,8 +196,8 @@ window.oracleDeck = {
       "title": "Wurzeln",
       "image": "./art/cards/wurzeln.webp?v=2f0485aacf",
       "fullDesign": true,
-      "meaning": "",
-      "intention": "",
+      "meaning": "„Zurück zu den Wurzeln“ ist ein bekannter Spruch. Vergiss nicht, woher du kommst, wo alles begonnen hat. Ehre deine Geschichte und das, was dich zu dem gemacht hat, was du heute bist. Wir alle kennen diese Phrasen.\n\nHier jedoch bedeutet es nicht, zu deinen Wurzeln zurückzukehren, indem du dich an deinen Ursprung erinnerst und dir ganz genau anschaust, woher du kommst. Sondern hier geht es darum, was dir wirklich Stabilität gibt.\n\nDas muss nicht dein Kindheitshaus sein. Es kann genauso gut diese eine Freundschaft sein, die du im Studium geschlossen hast, oder dein wöchentliches Yoga in der Gruppe. Gemeint ist das, was dir hilft, in dir selbst stabil zu sein. Was hat dir geholfen und hilft dir noch immer, Wurzeln zu schlagen und dich geerdet zu fühlen?\n\nGerade in Phasen, in denen wir uns zerstreut fühlen, den Boden unter den Füßen verlieren oder ratlos sind, ist es schön, sich bewusst zu machen, was uns eigentlich unterstützt. Was hilft uns, geerdet und stabil in uns selbst zu bleiben, mit dem verbunden zu sein, was uns wichtig ist, und danach zu handeln? Ein festes Zuhause in dir selbst und das Wissen darum, was dir hilft, dieses Zuhause zu stärken.\n\nÜberlege dir, welche Dinge, Menschen oder Aktivitäten das für dich sind, und suche sie ganz bewusst auf. Sei wachsam und beobachte, was das mit dir macht. Vielleicht bemerkst du auch einen Unterschied zu den Dingen, die dich gerade eher zerstreuen.",
+      "intention": "Finde Klarheit darüber, was dir Wurzeln schenkt.",
       "promptLabel": "Impuls",
       "originalImage": "../../../orakelkarten/Wurzeln_ Embroidered Moonlit Roots.png",
       "thumbnail": "./art/cards/wurzeln-thumb.webp?v=b98c548da2"
