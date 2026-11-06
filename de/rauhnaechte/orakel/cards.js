@@ -56,8 +56,8 @@ window.oracleDeck = {
       "title": "Ferne",
       "image": "./art/cards/ferne.webp?v=bfbb0b4afd",
       "fullDesign": true,
-      "meaning": "",
-      "intention": "",
+      "meaning": "Ein Blick in die Ferne kann uns manchmal zu einem Perspektivwechsel verhelfen. Manchmal sind wir so in unserem Umfeld verankert, dass die kleine Welt um uns herum zu unserer ganzen Welt wird.\n\nDen Fokus auf das zu richten, was um dich herum passiert, ist dabei nicht das Problem. Aber unsere Komfortzone kann unbemerkt immer kleiner werden, während sich unsere Ansichten und Gewohnheiten mehr und mehr verfestigen.\n\nManchmal ist es hilfreich, aus dieser Enge herauszukommen, selbst wenn wir sie gar nicht bewusst wahrnehmen. Ein Stück in die Ferne zu gehen oder zu blicken, kann unseren Horizont erweitern und uns helfen, offen für das Andere zu bleiben, neue Perspektiven zuzulassen und unsere Neugier und Kreativität lebendig zu halten.\n\nIn die Ferne zu gehen, kann viele Formen annehmen. Es kann eine Reise sein, ein Wochenendtrip oder ein Ausflug in die nächste Stadt. Aber auch etwas so Einfaches wie ein Buch, das du normalerweise nicht lesen würdest, oder ein Film, den du dir sonst nicht anschauen würdest und der dich vielleicht aus deinen gewohnten Ansichten herauslockt.\n\nIn welcher Form auch immer: Überlege dir, wie du einen kleinen Ausbruch aus dem planen kannst, was dir so vertraut und gemütlich ist. Je öfter wir uns auf Unbekanntes einlassen, desto leichter fällt es uns, offen zu bleiben. Und manchmal ist es gerade das Ungewohnte, das uns wieder besonders lebendig fühlen lässt.\n\nHalte die Augen offen und lass deine Seele neue Eindrücke aufsaugen.",
+      "intention": "Wage einen Schritt ins Unbekannte und lass dich neu inspirieren.",
       "promptLabel": "Impuls",
       "originalImage": "../../../orakelkarten/Ferne_ Embroidered Bird-Woman Tarot Card.png?v=19cfff5776",
       "thumbnail": "./art/cards/ferne-thumb.webp?v=3ac0a50490"
