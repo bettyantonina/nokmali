@@ -289,5 +289,12 @@
       </section>
     </div>
   </main>
+  <script>
+    if (new URLSearchParams(window.location.search).get("source") === "creativity-coaching") {
+      document.querySelectorAll("a.brand, a.btn").forEach(function (link) {
+        link.href = "/de/creativity-coaching/";
+      });
+    }
+  </script>
 </body>
 </html>
