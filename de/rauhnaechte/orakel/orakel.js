@@ -288,7 +288,7 @@
     $("rImg").alt = card.title;
     $("rTitle").textContent = card.title;
     const paras = (card.meaning || "").split(/\n\s*\n/).filter(Boolean);
-    $("rText").innerHTML = paras.length ? paras.map((p) => `<p>${p}</p>`).join("") : '<p class="empty">Raum für deine eigene Deutung. Was zeigt dir das Bild heute?</p>';
+    $("rText").innerHTML = paras.length ? paras.map((p) => `<p>${p}</p>`).join("") : '<p class="empty">Die Beschreibung folgt 2027.</p>';
     $("rImpulse").hidden = !card.intention;
     $("rLabel").textContent = card.promptLabel || "Deine Intention";
     $("rIntention").textContent = card.intention || "";
