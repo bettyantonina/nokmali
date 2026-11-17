@@ -73,3 +73,17 @@ The collection includes an absolute versioned script URL. Running
 `python3 scripts/build_rauhnaechte_pages.py` preserves it on all twelve QR pages.
 
 Reference: https://posthog.com/docs/libraries/js/usage#super-properties
+
+## Verification coverage
+
+Browser checks using the actual PostHog SDK verified all 24 mappings, the first
+pageview's URL and UTM properties, exactly one pageview per journal load, and
+retained identity/attribution through the main coaching page, creativity coaching,
+booking intent, a simulated Cal success callback, the thank-you page and its
+return link. Fresh untagged/invalid/mismatched codes, existing opt-outs and a
+blocked SDK were also checked. Analytics requests were intercepted, so these
+checks did not create real bookings or pollute production reports.
+
+A successful repository push is not itself proof of publication: verify that
+GitHub Pages finishes deployment and that the public tracking script matches the
+source before reporting the live routes as verified.
