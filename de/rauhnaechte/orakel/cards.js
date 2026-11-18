@@ -176,8 +176,8 @@ window.oracleDeck = {
       "title": "Vergessen",
       "image": "./art/cards/vergessen.webp?v=2bca722080",
       "fullDesign": true,
-      "meaning": "",
-      "intention": "",
+      "meaning": "Manches möchten wir für immer in Erinnerung behalten, anderes würden wir am liebsten ganz vergessen. Doch so einfach lässt sich unser Gedächtnis nicht steuern. Manchmal bleiben gerade die Dinge besonders hartnäckig, die wir unbedingt loswerden möchten.\n\nEine Erinnerung kann bleiben, ohne dass sie uns immer wieder an denselben Ort zurückzieht. Wenn etwas Vergangenes in dir auftaucht, schau einmal hin. Was beschäftigt dich daran noch? Welche Gefühle, Erwartungen oder Geschichten trägst du vielleicht schon lange mit dir herum? Kannst du ihnen begegnen, ohne sie gleich verändern oder loswerden zu wollen?\n\nManchmal halten wir aber nicht nur an Erlebnissen fest, sondern auch an einem bestimmten Bild von uns selbst. Wir glauben zu wissen, wer wir sind, was wir können, was uns liegt oder wie wir sein sollten. Was würde passieren, wenn wir all das für einen Moment vergessen? Wenn wir uns selbst wieder mit etwas mehr Neugier begegnen würden, ohne unsere bisherigen Erfahrungen und Vorstellungen als Maßstab zu nehmen?\n\nUnd dann gibt es noch das ganz alltägliche Vergessen. Wir verlieren uns in Gedanken, Sorgen, Aufgaben und Gewohnheiten und vergessen manchmal, innezuhalten oder darauf zu achten, was uns wirklich wichtig ist. Auch das gehört zum Leben. Das Schöne ist, dass wir uns immer wieder daran erinnern können.\n\nWenn wir nicht versuchen, etwas zu vergessen, sondern an manchem etwas weniger festhalten, kann Raum entstehen für neue Eindrücke, andere Perspektiven und die Möglichkeit, uns selbst immer wieder neu zu entdecken.",
+      "intention": "Was kannst du etwas lockerer halten, um Raum für Neues zu schaffen?",
       "promptLabel": "Impuls",
       "originalImage": "../../../orakelkarten/Vergessen_ A Whimsical Woodland Embroidery.png",
       "thumbnail": "./art/cards/vergessen-thumb.webp?v=bdf7d12b9a"
