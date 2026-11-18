@@ -116,8 +116,8 @@ window.oracleDeck = {
       "title": "Herz",
       "image": "./art/cards/herz.webp?v=73182a1805",
       "fullDesign": true,
-      "meaning": "",
-      "intention": "",
+      "meaning": "Was passiert, wenn wir mit dem Herzen sehen? Nicht nur uns selbst oder andere Menschen, sondern auch die Situationen und Ereignisse, die uns widerfahren?\n\nIm Alltag sind wir oft schnell dabei, Dinge einzuordnen, zu beurteilen oder einfach als selbstverständlich hinzunehmen. Dabei kann es einen Unterschied machen, ob wir etwas nur mit unserem Verstand betrachten oder auch unser Herz mit einbeziehen. Vielleicht entdecken wir plötzlich etwas Schönes in einer alltäglichen Begegnung, begegnen jemandem mit mehr Verständnis oder nehmen etwas mit mehr Liebe und Wertschätzung wahr.\n\nBesonders in schwierigen oder unbequemen Situationen ist das gar nicht so einfach. Häufig stellen sich Frust oder Unmut schneller ein, als wir denken, und wir reagieren, sei es nach außen oder nur in unseren Gedanken.\n\nWenn wir unsere Reaktionen entschleunigen und erst einmal unser Herz auf die Situation schauen lassen, finden wir langsam aus dem rein Reaktiven zurück zu mehr innerer Balance.\n\nAnstatt zu fragen: „Warum ich?“ oder „Was soll das?“, könnten wir uns fragen: „Wie kann ich das Geschehene mit meinem Herzen betrachten?“ Vielleicht gelingt es uns dann, eine Situation nicht sofort zu beurteilen, sondern die Möglichkeit offenzulassen, dass auch etwas Schwieriges uns an einen besseren Ort führen, uns beim Wachsen helfen oder Platz für etwas Neues schaffen kann.\n\nDas geschieht im Leben immer wieder, doch häufig erkennen wir es erst im Nachhinein. Mit dem Herzen zu sehen bedeutet vielleicht auch, diese Möglichkeit schon in der Gegenwart offenzuhalten, ohne sofort wissen zu müssen, wohin uns das Geschehene führen wird.\n\nOb in den kleinen Momenten des Alltags oder in den großen Herausforderungen: Vielleicht verändert sich nicht immer das, was passiert, sondern die Art, wie wir es erleben.",
+      "intention": "Betrachte die Welt heute ein wenig mehr mit deinem Herzen.",
       "promptLabel": "Impuls",
       "originalImage": "../../../orakelkarten/Herz_ A Tender Embroidered Connection.png",
       "thumbnail": "./art/cards/herz-thumb.webp?v=e99afd33f4"
@@ -126,8 +126,8 @@ window.oracleDeck = {
       "title": "Mut",
       "image": "./art/cards/mut.webp?v=a3312d6054",
       "fullDesign": true,
-      "meaning": "",
-      "intention": "",
+      "meaning": "Wenn wir an Mut denken, stellen wir uns oft Menschen vor, die keine Angst haben oder Angst haben und es trotzdem tun.\n\nAngst gehört zum Leben. Sie kann uns schützen, aber manchmal hält sie uns auch von Dingen ab, die wir gerne tun würden, und fesselt uns in unserer Komfortzone. Oft versuchen wir, sie zu verdrängen, zu überwinden oder warten darauf, dass sie verschwindet, bevor wir etwas wagen. All das bringt einen gewissen Widerstand mit sich: Wir wollen etwas loswerden oder selbst anders werden.\n\nWas aber, wenn wir unserer Angst erst einmal zuhören, anstatt gegen sie anzukämpfen? Was macht uns eigentlich Angst? Welche Vorstellungen, Erwartungen oder Überzeugungen stecken dahinter? Vielleicht entdecken wir, dass wir uns selbst etwas nicht zutrauen, Angst vor Ablehnung haben oder lieber am Vertrauten festhalten, weil wir nicht wissen, was uns erwartet.\n\nManchmal bedeutet Mut aber auch, ehrlich auf uns selbst zu schauen, unangenehme Gefühle zuzulassen, eine eigene Schwäche anzuerkennen oder unser Herz offen zu halten, obwohl wir uns am liebsten zurückziehen würden.\n\nAnstatt „mutiger“ zu werden, können wir uns ein Stück weit mehr dem Leben öffnen. Erlaube dir, Angst und Unsicherheit zu spüren, und schaue, was mit ihnen passiert.",
+      "intention": "Gib deiner Angst Raum und schaue, wie Offenheit und Mut sich entfalten.",
       "promptLabel": "Impuls",
       "originalImage": "../../../orakelkarten/Mut_revised_8x12cm_300dpi.png",
       "thumbnail": "./art/cards/mut-thumb.webp?v=80e5457c5f"
